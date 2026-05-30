@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f7ff;
-  --foreground: #162033;
-  --card: rgba(255, 255, 255, 0.7);
-  --muted: #5a6881;
-  --border: rgba(179, 193, 223, 0.4);
+  --background: #f9f9ff;
+  --foreground: #191c20;
+  --card: rgba(255, 255, 255, 0.72);
+  --muted: #424750;
+  --border: rgba(194, 198, 209, 0.48);
+  --primary: #2d5f9d;
+  --primary-soft: #d4e3ff;
+  --secondary-soft: #e7deff;
 }
 
 @theme inline {
@@ -15,11 +18,12 @@
 
 body {
   background:
-    radial-gradient(circle at 5% 10%, rgba(164, 185, 255, 0.35), transparent 33%),
-    radial-gradient(circle at 92% 4%, rgba(194, 180, 255, 0.28), transparent 30%),
-    linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
+    radial-gradient(circle at 8% -4%, rgba(141, 187, 255, 0.22), transparent 32rem),
+    radial-gradient(circle at 92% 8%, rgba(198, 183, 255, 0.2), transparent 30rem),
+    linear-gradient(180deg, #f9f9ff 0%, #f3f5fb 48%, #ffffff 100%);
   color: var(--foreground);
   font-family: Inter, "SF Pro Text", "Segoe UI", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -29,10 +33,84 @@ a {
 .frosted {
   background: var(--card);
   border: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 16px 48px -28px rgba(44, 64, 108, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 24px 70px -42px rgba(45, 95, 157, 0.35);
 }
 
 .section-wrap {
   @apply mb-16 md:mb-24;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: #0d4a87;
+}
+
+.content-fade-in {
+  animation: content-fade-in 420ms ease-out both;
+}
+
+.soft-float {
+  animation: soft-float 9s ease-in-out infinite;
+}
+
+.ambient-blob {
+  animation: ambient-drift 24s ease-in-out infinite;
+}
+
+.ambient-blob:nth-child(2) {
+  animation-delay: -7s;
+}
+
+.ambient-blob:nth-child(3) {
+  animation-delay: -13s;
+}
+
+@keyframes content-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  45% {
+    transform: translate3d(18px, -24px, 0) scale(1.04);
+  }
+
+  75% {
+    transform: translate3d(-14px, 18px, 0) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }

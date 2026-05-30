@@ -1,18 +1,10 @@
-"use client";
-
-import { motion } from "motion/react";
-import { HTMLMotionProps } from "motion/react";
+import { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-export default function Card({ className, ...props }: HTMLMotionProps<"article">) {
+export default function Card({ className, ...props }: HTMLAttributes<HTMLElement>) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className={cn("frosted rounded-2xl p-6", className)}
+    <article
+      className={cn("frosted rounded-[28px] p-6 transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-2xl", className)}
       {...props}
     />
   );

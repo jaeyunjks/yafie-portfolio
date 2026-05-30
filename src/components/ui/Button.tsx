@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "default" | "secondary";
+  variant?: "default" | "secondary" | "ghost";
 };
 
 export default function Button({
@@ -13,10 +13,16 @@ export default function Button({
   return (
     <button
       className={cn(
-        "rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200",
+        "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-300 active:scale-95",
         variant === "default"
-          ? "bg-slate-900 text-white hover:-translate-y-0.5 hover:bg-slate-800"
-          : "border border-slate-300 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-slate-400",
+          ? "bg-[#2d5f9d] text-white shadow-lg shadow-blue-900/15 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
+          : "",
+        variant === "secondary"
+          ? "border border-slate-200/80 bg-white/70 text-slate-800 shadow-sm backdrop-blur-md hover:-translate-y-1 hover:bg-white hover:shadow-md"
+          : "",
+        variant === "ghost"
+          ? "px-4 text-[#2d5f9d] hover:-translate-y-0.5 hover:bg-blue-50"
+          : "",
         className,
       )}
       {...props}

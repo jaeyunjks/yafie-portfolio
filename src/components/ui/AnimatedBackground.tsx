@@ -1,20 +1,9 @@
-"use client";
-
-import { motion } from "motion/react";
-
 export default function AnimatedBackground() {
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      <motion.div
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-        transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute -left-10 top-12 h-44 w-44 rounded-full bg-blue-200/45 blur-3xl"
-      />
-      <motion.div
-        animate={{ x: [0, -24, 0], y: [0, 26, 0] }}
-        transition={{ duration: 16, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute right-16 top-0 h-48 w-48 rounded-full bg-violet-200/40 blur-3xl"
-      />
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div className="ambient-blob absolute -left-28 -top-28 h-[34rem] w-[34rem] rounded-full bg-[#8dbbff]/20 blur-[90px]" />
+      <div className="ambient-blob absolute -right-24 bottom-[-8rem] h-[32rem] w-[32rem] rounded-full bg-[#c6b7ff]/18 blur-[92px]" />
+      <div className="ambient-blob absolute left-[58%] top-[38%] h-[22rem] w-[22rem] rounded-full bg-[#e6b04b]/10 blur-[96px]" />
     </div>
   );
 }
