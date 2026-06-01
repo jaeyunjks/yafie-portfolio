@@ -48,6 +48,58 @@ a {
   animation: content-fade-in 420ms ease-out both;
 }
 
+.hero-reveal {
+  animation: hero-reveal 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-reveal-1 {
+  animation-delay: 80ms;
+}
+
+.hero-reveal-2 {
+  animation-delay: 170ms;
+}
+
+.hero-reveal-3 {
+  animation-delay: 260ms;
+}
+
+.hero-reveal-4 {
+  animation-delay: 390ms;
+}
+
+.hero-reveal-5 {
+  animation-delay: 520ms;
+}
+
+.hero-reveal-6 {
+  animation-delay: 640ms;
+}
+
+.yafie-shimmer {
+  background-size: 180% 100%;
+  animation: yafie-shimmer 6.5s ease-in-out infinite;
+}
+
+.hero-typing-line {
+  display: inline-block;
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding-right: 0.08em;
+  white-space: nowrap;
+  border-right: 0.055em solid #2d5f9d;
+  box-sizing: content-box;
+}
+
+.hero-typing-line-a {
+  animation: hero-type-line-a 7.2s steps(16, end) 720ms infinite;
+}
+
+.hero-typing-line-b {
+  animation: hero-type-line-b 7.2s steps(18, end) 720ms infinite;
+}
+
 .soft-float {
   animation: soft-float 9s ease-in-out infinite;
 }
@@ -150,6 +202,90 @@ a {
   }
 }
 
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes yafie-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes hero-type-line-a {
+  0% {
+    width: 0;
+    border-right-color: #2d5f9d;
+  }
+
+  18%,
+  86% {
+    width: 15.8ch;
+  }
+
+  24%,
+  78% {
+    border-right-color: transparent;
+  }
+
+  92%,
+  100% {
+    width: 0;
+    border-right-color: #2d5f9d;
+  }
+
+  96% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes hero-type-line-b {
+  0%,
+  24% {
+    width: 0;
+    border-right-color: transparent;
+  }
+
+  30% {
+    border-right-color: #2d5f9d;
+  }
+
+  48%,
+  72% {
+    width: 19ch;
+  }
+
+  54%,
+  66% {
+    border-right-color: transparent;
+  }
+
+  82%,
+  100% {
+    width: 0;
+    border-right-color: transparent;
+  }
+
+  78% {
+    border-right-color: #2d5f9d;
+  }
+}
+
 @keyframes soft-float {
   0%,
   100% {
@@ -244,5 +380,11 @@ a {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
+  }
+
+  .hero-typing-line {
+    width: auto;
+    max-width: none;
+    border-right: 0;
   }
 }

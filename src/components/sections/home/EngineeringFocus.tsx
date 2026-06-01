@@ -58,7 +58,8 @@ export default function EngineeringFocus() {
                   [{item.index}]
                 </span>
                 <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-slate-400">
-                  // {item.label}
+                  {"// "}
+                  {item.label}
                 </span>
               </div>
               <h3 className="text-xl font-extrabold tracking-tight text-slate-950">

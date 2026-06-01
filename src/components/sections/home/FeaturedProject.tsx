@@ -63,7 +63,8 @@ export default function FeaturedProject() {
                   </span>
                 </div>
                 <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#625595]/75">
-                  // {project.role}
+                  {"// "}
+                  {project.role}
                 </p>
                 <h3 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-950">
                   {project.title}
