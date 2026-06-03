@@ -83,21 +83,25 @@ a {
 
 .hero-typing-line {
   display: inline-block;
-  width: 0;
   max-width: 100%;
-  overflow: hidden;
-  padding-right: 0.08em;
+  overflow: visible;
+  line-height: 1.12;
+  padding-right: 0.12em;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
   white-space: nowrap;
   border-right: 0.055em solid #2d5f9d;
+  clip-path: inset(0 100% 0 0);
+  will-change: clip-path, border-right-color;
   box-sizing: content-box;
 }
 
 .hero-typing-line-a {
-  animation: hero-type-line-a 7.2s steps(16, end) 720ms infinite;
+  animation: hero-type-line-a 7.2s ease-in-out 720ms infinite;
 }
 
 .hero-typing-line-b {
-  animation: hero-type-line-b 7.2s steps(18, end) 720ms infinite;
+  animation: hero-type-line-b 7.2s ease-in-out 720ms infinite;
 }
 
 .soft-float {
@@ -229,60 +233,55 @@ a {
 
 @keyframes hero-type-line-a {
   0% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
+    border-right-color: transparent;
+  }
+
+  14% {
     border-right-color: #2d5f9d;
   }
 
-  18%,
-  86% {
-    width: 15.8ch;
+  28%,
+  82% {
+    clip-path: inset(0 0 0 0);
+    border-right-color: transparent;
   }
 
-  24%,
-  78% {
+  88% {
     border-right-color: transparent;
   }
 
   92%,
   100% {
-    width: 0;
-    border-right-color: #2d5f9d;
-  }
-
-  96% {
+    clip-path: inset(0 100% 0 0);
     border-right-color: transparent;
   }
 }
 
 @keyframes hero-type-line-b {
-  0%,
-  24% {
-    width: 0;
+  0% {
+    clip-path: inset(0 100% 0 0);
     border-right-color: transparent;
   }
 
-  30% {
+  26% {
     border-right-color: #2d5f9d;
   }
 
-  48%,
-  72% {
-    width: 19ch;
-  }
-
-  54%,
-  66% {
+  42%,
+  76% {
+    clip-path: inset(0 0 0 0);
     border-right-color: transparent;
   }
 
-  82%,
+  84% {
+    border-right-color: transparent;
+  }
+
+  88%,
   100% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
     border-right-color: transparent;
-  }
-
-  78% {
-    border-right-color: #2d5f9d;
   }
 }
 
