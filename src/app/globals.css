@@ -194,6 +194,25 @@ a {
   animation: tech-float 9.5s ease-in-out infinite;
 }
 
+.exposure-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.exposure-shine {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 34%,
+    rgba(255, 255, 255, 0.56) 50%,
+    rgba(255, 255, 255, 0.18) 66%,
+    transparent 100%
+  );
+}
+
 @keyframes content-fade-in {
   from {
     opacity: 0;

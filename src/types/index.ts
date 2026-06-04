@@ -30,6 +30,16 @@ export type SkillItem = {
 
 export type TechItem = {
   name: string;
-  level: number;
+  duration: string;
+  exposure: number;
+  status: "actively using" | "learning" | "familiar";
   icon: IconType;
+  brandColor?: string;
+};
+
+export type TechCategory = {
+  title: string;
+  label: string;
+  description: string;
+  items: TechItem[];
 };

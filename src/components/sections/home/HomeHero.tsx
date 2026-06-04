@@ -71,10 +71,10 @@ export default function HomeHero() {
 
         <div className="hero-reveal hero-reveal-5 mt-8 flex flex-wrap gap-4">
           <Link
-            href="/projects"
+            href="/about"
             className="inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-7 py-4 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
           >
-            View My Work <ArrowRight size={18} aria-hidden />
+            More About Me <ArrowRight size={18} aria-hidden />
           </Link>
           <Link
             href="/contact"
