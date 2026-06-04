@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle, Moon, Sun } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -14,10 +15,17 @@ export default function Navbar() {
       <div className="mx-auto grid w-full max-w-[92rem] grid-cols-[auto_1fr_auto] items-center gap-3 md:gap-5">
         <Link
           href="/"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/62 text-2xl font-black italic tracking-normal text-[#2d5f9d] shadow-[0_14px_36px_rgba(45,95,157,0.1)] backdrop-blur-xl transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
+          className="inline-flex h-11 w-11 items-center justify-center transition-transform duration-200 hover:-translate-y-0.5"
           aria-label="Yafie home"
         >
-          Y.
+          <Image
+            src="/images/y-logo.png"
+            alt="Yafie logo"
+            width={44}
+            height={44}
+            priority
+            className="h-11 w-11 object-contain"
+          />
         </Link>
 
         <nav

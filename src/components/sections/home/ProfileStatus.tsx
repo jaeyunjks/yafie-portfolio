@@ -9,94 +9,111 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
-const capabilities = [
-  {
-    title: "Software Engineering Breadth",
-    eyebrow: "ENGINEERING.BREADTH",
-    description:
-      "Growing across interface design, application logic, testing, deployment, and collaborative product delivery.",
-    Icon: GitBranch,
-    featured: true,
-  },
+const workflowSteps = [
+  { label: "Understand", Icon: Layers3 },
+  { label: "Build", Icon: Code2 },
+  { label: "Test", Icon: ShieldCheck },
+  { label: "Deploy", Icon: Cloud },
+  { label: "Improve", Icon: GitBranch },
+];
+
+const capabilityModules = [
   {
     title: "Frontend Engineering",
-    eyebrow: "FRONTEND.ENGINEERING",
+    label: "FRONTEND.SYSTEMS",
     description:
-      "Building responsive, polished, and user-friendly interfaces with strong attention to clarity and interaction.",
+      "Building responsive, polished, and user-friendly interfaces with attention to clarity and interaction.",
+    tag: "interface craft",
     Icon: Code2,
+    className: "lg:col-span-4",
   },
   {
     title: "Backend Logic",
-    eyebrow: "BACKEND.LOGIC",
+    label: "BACKEND.LOGIC",
     description:
       "Developing application logic, data handling, and system behaviour that support real workflows.",
+    tag: "workflow support",
     Icon: ServerCog,
+    className: "lg:col-span-4",
   },
   {
     title: "Testing & Quality",
-    eyebrow: "TESTING.QUALITY",
+    label: "QUALITY.SYSTEMS",
     description:
       "Applying testing, debugging, and refinement to improve reliability and confidence in the software.",
+    tag: "confidence building",
     Icon: ShieldCheck,
+    className: "lg:col-span-4",
   },
   {
     title: "Cloud & Deployment",
-    eyebrow: "CLOUD.DEPLOYMENT",
-    description: "Learning deployment, configuration, and live environment basics.",
+    label: "CLOUD.DELIVERY",
+    description:
+      "Learning deployment, configuration, environment setup, and live application delivery.",
+    tag: "release practice",
     Icon: Cloud,
+    className: "lg:col-span-3",
   },
   {
     title: "Product Thinking",
-    eyebrow: "PRODUCT.THINKING",
-    description: "Considering user flow, outcome, and feature purpose.",
+    label: "PRODUCT.FLOW",
+    description:
+      "Considering user flow, practical outcomes, and feature purpose before implementation.",
+    tag: "user outcomes",
     Icon: Layers3,
+    className: "lg:col-span-5",
   },
   {
     title: "Team Collaboration",
-    eyebrow: "TEAM.COLLABORATION",
-    description: "Working through shared projects with communication and iteration.",
+    label: "TEAM.DELIVERY",
+    description:
+      "Working through shared projects, communication, documentation, and iterative teamwork.",
+    tag: "shared progress",
     Icon: Users,
+    className: "lg:col-span-4",
   },
-];
-
-const proofPoints = [
-  "5+ projects built",
-  "web, mobile, and cloud exposure",
-  "testing and deployment awareness",
-  "product-minded development",
-  "collaborative project experience",
 ];
 
 const metadata = [
   ["current_focus", "software_engineering"],
-  ["workflow", "build · test · iterate · improve"],
+  ["workflow", "understand · build · test · deploy · improve"],
   ["environment", "web · mobile · cloud"],
 ];
 
-export default function ProfileStatus() {
-  const [featured, ...supporting] = capabilities;
+const proofPoints = [
+  "5+ projects built",
+  "web/mobile/cloud exposure",
+  "testing awareness",
+  "deployment practice",
+  "collaborative delivery",
+];
 
+export default function ProfileStatus() {
   return (
     <section className="pb-20 lg:pb-24">
       <Reveal>
-        <div className="grid gap-2 border-l border-[#8dbbff]/45 pl-4 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,0.3fr)] lg:items-end">
+        <div className="grid gap-5 border-l border-[#8dbbff]/45 pl-4 lg:grid-cols-[minmax(0,0.68fr)_minmax(280px,0.32fr)] lg:items-end">
           <div>
             <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/75">
               02 // proof.snapshot
             </p>
-            <h2 className="mt-2 max-w-2xl text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
-              Engineering Snapshot.
+            <h2 className="mt-2 max-w-3xl text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
+              Software Engineering Snapshot.
             </h2>
-            <p className="mt-2 max-w-3xl text-base leading-7 text-slate-600 md:leading-8">
-              A concise look at the technical areas, delivery habits, and
-              software engineering capabilities I&apos;m continuing to build.
+            <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600 md:leading-8">
+              A practical view of the engineering areas, delivery habits, and
+              product thinking I&apos;m continuing to build through real
+              projects.
             </p>
           </div>
 
-          <div className="hidden rounded-[16px] border border-[#8dbbff]/20 bg-white/58 p-2.5 font-mono text-[0.65rem] leading-5 text-slate-600 shadow-[0_12px_32px_rgba(45,95,157,0.08)] backdrop-blur-xl lg:block">
+          <div className="rounded-[14px] border border-[#d4e3ff]/75 bg-white/68 p-3 font-mono text-[0.64rem] leading-5 text-slate-600 shadow-[0_16px_42px_rgba(45,95,157,0.08)] backdrop-blur-xl">
             {metadata.map(([key, value]) => (
-              <p key={key}>
-                <span className="font-bold text-[#2d5f9d]">{key}:</span> {value}
+              <p key={key} className="flex gap-2">
+                <span className="shrink-0 font-bold text-[#2d5f9d]">
+                  {key}:
+                </span>
+                <span>{value}</span>
               </p>
             ))}
           </div>
@@ -104,80 +121,117 @@ export default function ProfileStatus() {
       </Reveal>
 
       <Reveal>
-        <div className="relative mt-6 overflow-hidden rounded-[22px] border border-white/70 bg-white/54 p-3.5 shadow-[0_22px_62px_rgba(45,95,157,0.1)] backdrop-blur-xl md:p-4 lg:p-5">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(141,187,255,0.18),transparent_30%),radial-gradient(circle_at_84%_18%,rgba(198,183,255,0.14),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.72),rgba(247,250,255,0.42))]" />
-          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+        <div className="relative mt-7 overflow-hidden rounded-[18px] border border-white/70 bg-white/52 p-3 shadow-[0_24px_70px_rgba(45,95,157,0.1)] backdrop-blur-xl md:p-4 lg:p-5">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.82),rgba(245,249,255,0.48)_42%,rgba(245,241,255,0.46)),radial-gradient(circle_at_14%_8%,rgba(141,187,255,0.2),transparent_28%),radial-gradient(circle_at_90%_2%,rgba(198,183,255,0.18),transparent_24%)]" />
+          <div className="pointer-events-none absolute inset-x-7 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+          <div className="relative z-10 grid gap-3">
+            <article className="group relative overflow-hidden rounded-[16px] border border-[#d4e3ff]/72 bg-white/82 p-4 shadow-[0_18px_54px_rgba(45,95,157,0.1)] backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:shadow-[0_24px_70px_rgba(45,95,157,0.14)] md:p-5">
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(115deg,transparent,rgba(141,187,255,0.1),rgba(198,183,255,0.12))]" />
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-[#8dbbff]/0 via-[#8dbbff]/55 to-[#8dbbff]/0" />
 
-          <div className="relative z-10 grid gap-2.5 lg:grid-cols-6 lg:auto-rows-fr">
-            <article className="group relative overflow-hidden rounded-[20px] border border-white/75 bg-gradient-to-br from-white/90 via-[#f8fbff]/82 to-[#f1edff]/68 p-4 shadow-[0_16px_48px_rgba(45,95,157,0.12)] backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/50 hover:shadow-[0_22px_60px_rgba(45,95,157,0.16)] lg:col-span-6 lg:row-span-1 lg:p-4.5">
-              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#8dbbff]/16 blur-3xl" />
-              <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
-              <div className="relative flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[#8dbbff]/24 bg-white/78 text-[#2d5f9d] shadow-[0_12px_32px_rgba(45,95,157,0.12)]">
-                    <featured.Icon size={20} strokeWidth={2.2} />
-                  </span>
-                  <span className="rounded-full border border-[#d4e3ff]/75 bg-white/76 px-3 py-1 font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/78 shadow-sm">
-                    [01]
-                  </span>
-                </div>
-                <span className="rounded-full border border-[#d4e3ff]/75 bg-[#eef5ff]/72 px-2.5 py-1 font-mono text-[0.61rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/80 shadow-sm">
-                  {featured.eyebrow}
-                </span>
-              </div>
-              <h3 className="relative mt-3 max-w-md text-[1.35rem] font-extrabold tracking-tight text-slate-950 md:text-[2rem]">
-                {featured.title}
-              </h3>
-              <p className="relative mt-2 max-w-xl text-sm leading-6 text-slate-700 md:text-[0.96rem] md:leading-7">
-                {featured.description}
-              </p>
-              <div className="relative mt-4 grid gap-2 border-t border-[#8dbbff]/16 pt-3 font-mono text-[0.66rem] leading-5 text-slate-600 sm:grid-cols-3">
-                {metadata.map(([key, value]) => (
-                  <p key={key}>
-                    <span className="font-bold text-[#2d5f9d]">{key}:</span>{" "}
-                    {value}
+              <div className="relative grid gap-5 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:items-center">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#8dbbff]/28 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_12px_30px_rgba(45,95,157,0.12)]">
+                      <GitBranch size={21} strokeWidth={2.2} />
+                    </span>
+                    <div>
+                      <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                        ENGINEERING.OS
+                      </p>
+                      <p className="mt-1 h-1.5 w-16 rounded-full bg-gradient-to-r from-[#8dbbff] to-[#c6b7ff]" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-5 max-w-xl text-2xl font-extrabold tracking-tight text-slate-950 md:text-[2.35rem] md:leading-[1.08]">
+                    Software Engineering Breadth
+                  </h3>
+                  <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 md:text-[0.98rem] md:leading-7">
+                    Growing across interface design, application logic, testing,
+                    deployment, and collaborative product delivery.
                   </p>
-                ))}
+                </div>
+
+                <div className="relative rounded-[15px] border border-[#d4e3ff]/70 bg-[#f8fbff]/76 p-3 shadow-inner shadow-white/70">
+                  <div className="mb-3 flex items-center justify-between gap-3 border-b border-[#d4e3ff]/65 pb-2">
+                    <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                      delivery.pipeline
+                    </p>
+                    <span className="rounded-full border border-[#8dbbff]/35 bg-white/78 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+                      active loop
+                    </span>
+                  </div>
+
+                  <div className="grid gap-2 sm:grid-cols-5">
+                    {workflowSteps.map(({ label, Icon }, index) => (
+                      <div
+                        key={label}
+                        className="group/step relative flex items-center gap-2 rounded-[12px] border border-[#d4e3ff]/80 bg-white/84 p-2.5 text-left shadow-[0_10px_24px_rgba(45,95,157,0.07)] transition-[border-color,box-shadow,transform,background-color] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/65 hover:bg-white hover:shadow-[0_16px_34px_rgba(45,95,157,0.12)] sm:flex-col sm:items-start"
+                      >
+                        {index < workflowSteps.length - 1 && (
+                          <span className="pointer-events-none absolute left-[calc(100%+0.05rem)] top-1/2 hidden h-px w-2 bg-gradient-to-r from-[#8dbbff]/55 to-[#c6b7ff]/35 sm:block" />
+                        )}
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] border border-[#8dbbff]/24 bg-[#eef5ff]/84 text-[#2d5f9d]">
+                          <Icon size={16} strokeWidth={2.2} />
+                        </span>
+                        <span className="flex min-w-0 items-center gap-2 font-mono text-[0.64rem] font-bold uppercase tracking-[0.13em] text-slate-700">
+                          {label}
+                          {index === 0 && (
+                            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#8dbbff] shadow-[0_0_0_4px_rgba(141,187,255,0.18)] animate-pulse" />
+                          )}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </article>
 
-            {supporting.map((card, index) => (
-              <article
-                key={card.title}
-                tabIndex={0}
-                className={`group relative overflow-hidden rounded-[22px] border border-white/72 bg-white/78 p-5 shadow-[0_16px_50px_rgba(45,95,157,0.09)] backdrop-blur-xl outline-none transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/50 hover:bg-white/92 hover:shadow-[0_24px_68px_rgba(45,95,157,0.14)] focus-visible:-translate-y-1 focus-visible:border-[#8dbbff]/65 focus-visible:bg-white/92 focus-visible:shadow-[0_24px_68px_rgba(45,95,157,0.14)] lg:col-span-2 ${index >= 3 ? "rounded-[14px] border-l-4 border-l-[#8dbbff]/45" : ""}`}
-              >
-                <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
-                <div className="flex items-start justify-between gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[#8dbbff]/22 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)]">
-                    <card.Icon size={18} strokeWidth={2.2} />
-                  </span>
-                  <span className={`font-mono font-bold text-[#2d5f9d]/60 ${index >= 3 ? "text-[0.62rem]" : "text-[0.68rem]"}`}>
-                    [{String(index + 1).padStart(2, "0")}]
-                  </span>
-                </div>
-                <p className={`mt-5 font-mono font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/72 ${index >= 3 ? "text-[0.61rem]" : "text-[0.66rem]"}`}>
-                  {card.eyebrow}
-                </p>
-                <h4 className={`mt-2 font-extrabold tracking-tight text-slate-950 ${index >= 3 ? "text-[1.02rem]" : "text-lg"}`}>
-                  {card.title}
-                </h4>
-                <p className={`mt-3 text-slate-600 ${index >= 3 ? "text-[0.84rem] leading-5.5" : "text-sm leading-6"}`}>
-                  {card.description}
-                </p>
-              </article>
-            ))}
-          </div>
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-12">
+              {capabilityModules.map((module) => (
+                <article
+                  key={module.title}
+                  tabIndex={0}
+                  className={`group relative min-h-[205px] overflow-hidden rounded-[14px] border border-white/75 bg-white/76 p-4 shadow-[0_16px_48px_rgba(45,95,157,0.08)] outline-none backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/52 hover:bg-white/92 hover:shadow-[0_24px_64px_rgba(45,95,157,0.14)] focus-visible:-translate-y-1 focus-visible:border-[#8dbbff]/65 focus-visible:bg-white/92 focus-visible:shadow-[0_24px_64px_rgba(45,95,157,0.14)] ${module.className}`}
+                >
+                  <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+                  <div className="pointer-events-none absolute bottom-0 right-0 h-24 w-24 bg-[radial-gradient(circle,rgba(141,187,255,0.13),transparent_68%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-          <div className="relative z-10 mt-2.5 flex flex-wrap gap-2 rounded-2xl border border-white/72 bg-[#f5f9ff]/76 p-2 shadow-[0_10px_28px_rgba(45,95,157,0.07)] backdrop-blur-xl">
-            {proofPoints.map((point) => (
-              <span
-                key={point}
-                className="rounded-xl border border-white/70 bg-white/68 px-3 py-1.5 font-mono text-[0.66rem] font-semibold leading-5 text-slate-600"
-              >
-                {point}
-              </span>
-            ))}
+                  <div className="relative flex items-start justify-between gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/22 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.08)]">
+                      <module.Icon size={18} strokeWidth={2.2} />
+                    </span>
+                    <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                      {module.tag}
+                    </span>
+                  </div>
+
+                  <p className="relative mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+                    {module.label}
+                  </p>
+                  <h4 className="relative mt-2 text-[1.08rem] font-extrabold tracking-tight text-slate-950">
+                    {module.title}
+                  </h4>
+                  <p className="relative mt-3 max-w-md text-sm leading-6 text-slate-600">
+                    {module.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[13px] border border-[#d4e3ff]/70 bg-[#f8fbff]/76 px-3 py-2.5 shadow-[0_10px_30px_rgba(45,95,157,0.07)] backdrop-blur-xl">
+              {proofPoints.map((point, index) => (
+                <span
+                  key={point}
+                  className="flex items-center gap-3 font-mono text-[0.65rem] font-semibold leading-5 text-slate-600"
+                >
+                  {index > 0 && (
+                    <span className="hidden h-1 w-1 rounded-full bg-[#8dbbff]/80 sm:block" />
+                  )}
+                  {point}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </Reveal>
