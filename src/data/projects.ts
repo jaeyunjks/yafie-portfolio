@@ -49,7 +49,7 @@ export type CaseStudyPreview = {
 export const projects: PortfolioProject[] = [
   {
     id: "sds-modernisation",
-    title: "SDS Modernisation",
+    title: "SDS Project Management Site",
     category: "Workflow System / Frontend Development / Testing",
     status: "Active / Current",
     role: "Frontend Developer & Tester",

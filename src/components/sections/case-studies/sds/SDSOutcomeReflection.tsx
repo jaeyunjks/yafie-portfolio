@@ -26,6 +26,24 @@ export default function SDSOutcomeReflection() {
           </div>
         </Reveal>
 
+        <Reveal delay={0.06}>
+          <div className="mt-8 rounded-[26px] border border-[#d4e3ff]/64 bg-[#f8fbff]/76 p-6 shadow-[0_22px_72px_rgba(45,95,157,0.1)] backdrop-blur-xl">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+              development.lesson
+            </p>
+            <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-950">
+              Why this mattered to my development
+            </h3>
+            <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600">
+              This project helped me understand that software engineering is
+              not only implementation. It also involves validating
+              requirements, understanding users, managing ambiguity, testing
+              behaviour, and communicating decisions clearly enough for others
+              to continue the work.
+            </p>
+          </div>
+        </Reveal>
+
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {sdsReflections.map((reflection, index) => {
             const Icon = icons[index];

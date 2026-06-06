@@ -14,7 +14,7 @@ export default function SDSRoleContribution() {
         <Reveal>
           <div className="max-w-3xl">
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
-              03 // role.contribution
+              role.contribution
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
               My role and contribution.

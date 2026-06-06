@@ -16,6 +16,16 @@ export default function SDSOverview() {
             <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
               Project overview.
             </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              SDS Project Management Site is a workflow system for the Software
+              Development Studio subject at UTS. The project focuses on
+              improving how project briefs, submissions, reviews, student
+              allocations, and coordinator workflows are managed. It affects
+              multiple user groups: coordinators need clearer visibility and
+              control, students need easier access to project information and
+              allocation timing, and clients need a more reliable way to submit
+              and clarify project details.
+            </p>
           </div>
         </Reveal>
 

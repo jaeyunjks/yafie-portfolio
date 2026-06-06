@@ -6,6 +6,7 @@ import {
   SDSOverview,
   SDSOutcomeReflection,
   SDSProblem,
+  SDSProjectOrigin,
   SDSRoleContribution,
   SDSTestingQuality,
   SDSWorkflow,
@@ -16,6 +17,7 @@ export default function SDSModernisationCaseStudyPage() {
     <div className="relative">
       <AnimatedBackground />
       <SDSCaseHero />
+      <SDSProjectOrigin />
       <SDSOverview />
       <SDSProblem />
       <SDSRoleContribution />

@@ -8,6 +8,7 @@ type SDSImagePlaceholderProps = {
   imageSrc?: string;
   variant?: SDSImageVariant;
   featured?: boolean;
+  imageFit?: "cover" | "contain";
 };
 
 function WindowChrome() {
@@ -169,6 +170,7 @@ export default function SDSImagePlaceholder({
   imageSrc,
   variant = "dashboard",
   featured = false,
+  imageFit = "cover",
 }: SDSImagePlaceholderProps) {
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = Boolean(imageSrc && !imageFailed);
@@ -184,7 +186,11 @@ export default function SDSImagePlaceholder({
         <img
           src={imageSrc}
           alt={`${title} preview`}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+          className={`absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-[1.015] ${
+            imageFit === "contain"
+              ? "object-contain p-6 sm:p-8"
+              : "object-cover"
+          }`}
           onError={() => setImageFailed(true)}
         />
       ) : (

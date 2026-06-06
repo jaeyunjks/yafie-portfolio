@@ -4,6 +4,7 @@ export { default as SDSFeatureShowcase } from "./SDSFeatureShowcase";
 export { default as SDSOverview } from "./SDSOverview";
 export { default as SDSOutcomeReflection } from "./SDSOutcomeReflection";
 export { default as SDSProblem } from "./SDSProblem";
+export { default as SDSProjectOrigin } from "./SDSProjectOrigin";
 export { default as SDSRoleContribution } from "./SDSRoleContribution";
 export { default as SDSTestingQuality } from "./SDSTestingQuality";
 export { default as SDSWorkflow } from "./SDSWorkflow";
