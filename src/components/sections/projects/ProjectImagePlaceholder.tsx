@@ -17,6 +17,7 @@ const accentByType: Record<ProjectType, string> = {
   "mobile-ai": "from-[#c6b7ff]/40 via-[#f8fbff]/82 to-[#8dbbff]/28",
   "web-mvc": "from-[#8dbbff]/30 via-white/82 to-slate-200/42",
   portfolio: "from-[#c6b7ff]/32 via-[#f8fbff]/82 to-[#8dbbff]/30",
+  "fullstack-workflow": "from-[#8dbbff]/30 via-white/82 to-[#c6b7ff]/28",
 };
 
 function WindowChrome() {
@@ -174,6 +175,7 @@ function PlaceholderContent({ projectType }: { projectType: ProjectType }) {
   if (projectType === "mobile-ai") return <MobileAiMockup />;
   if (projectType === "web-mvc") return <WebMvcMockup />;
   if (projectType === "portfolio") return <PortfolioMockup />;
+  if (projectType === "fullstack-workflow") return <WebMvcMockup />;
   return <WorkflowMockup />;
 }
 

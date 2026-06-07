@@ -18,7 +18,14 @@ export type ProjectType =
   | "cloud"
   | "mobile-ai"
   | "web-mvc"
-  | "portfolio";
+  | "portfolio"
+  | "fullstack-workflow";
+
+export type ProjectArchitectureEntry = {
+  layer: string;
+  technology: string;
+  responsibility: string;
+};
 
 export type PortfolioProject = {
   id: string;
@@ -38,6 +45,11 @@ export type PortfolioProject = {
   caseStudyStatus: string;
   areaAnchors: string[];
   filters: Exclude<ProjectFilter, "all">[];
+  badges?: string[];
+  deliveryFlow?: string[];
+  featuredTechStack?: string[];
+  featuredSkills?: string[];
+  architecture?: ProjectArchitectureEntry[];
 };
 
 export type CaseStudyPreview = {
@@ -50,35 +62,91 @@ export const projects: PortfolioProject[] = [
   {
     id: "sds-modernisation",
     title: "SDS Project Management Site",
-    category: "Workflow System / Frontend Development / Testing",
+    category: "Workflow System / Full-Stack MVC / Frontend & Testing",
     status: "Active / Current",
     role: "Frontend Developer & Tester",
     summary:
-      "A workflow system for the Software Development Studio subject at UTS, designed to support subject coordinators with clearer project visibility, review processes, and coordination.",
+      "A full-stack project management workflow system for the Software Development Studio subject at UTS. The system supports project brief submission, admin/coordinator review, student project discovery, team join requests, studio activity scheduling, client visibility, and project allocation workflows.",
     problem:
-      "Subject coordinators need clearer project workflow visibility, smoother project review processes, and more efficient management of student project activities.",
+      "The SDS workflow involves multiple user groups, including coordinators/admins, clients, students, team leads, and tutors. Before centralisation, project information, review status, allocation timing, and supporting documents could become scattered across manual tools, shared drives, spreadsheets, or email communication. The system aims to reduce this fragmentation by bringing submission, review, project discovery, join request, and allocation workflows into a clearer web-based interface.",
     contributions: [
-      "Frontend interfaces for project and workflow management features.",
-      "Testing user flows to identify UI, functionality, and usability issues.",
-      "Refining system behaviour and consistency across screens.",
-      "Translating academic workflow needs into practical software features.",
-      "Supporting clearer handover through documentation and iteration.",
+      "Built and refined React + TypeScript interfaces for project management, project details, forms, dashboards, and workflow visibility.",
+      "Tested key user flows across project submission, coordinator review, student project browsing, join requests, and status-based behaviours.",
+      "Helped validate frontend behaviour against requirements, user stories, and acceptance criteria.",
+      "Worked with form handling, routing, state updates, and API-connected workflows.",
+      "Supported consistency, usability, and documentation across screens so the system was easier to maintain and hand over.",
     ],
     techStack: [
       "React",
       "TypeScript",
-      "Frontend UI",
-      "Testing",
-      "Workflow Systems",
-      "Documentation",
+      "Flask",
+      "SQLite",
+      "Vite",
+      "React Router",
+      "Axios",
+      "Zod",
+      "Vitest",
+      "Pytest",
     ],
     skills: [
       "Frontend Development",
+      "Full-Stack Workflow",
       "Software Testing",
       "UI/UX Awareness",
+      "Data Modelling",
       "Workflow Analysis",
       "Team Collaboration",
-      "Product Thinking",
+      "Documentation",
+    ],
+    badges: [
+      "Workflow System",
+      "Full-Stack MVC",
+      "Frontend & Testing",
+    ],
+    deliveryFlow: [
+      "Requirements",
+      "Frontend UI",
+      "Flask APIs",
+      "Data Validation",
+      "Testing",
+      "Workflow Visibility",
+      "Documentation",
+    ],
+    featuredTechStack: [
+      "React",
+      "TypeScript",
+      "Flask",
+      "SQLite",
+      "Vite",
+      "Testing",
+    ],
+    featuredSkills: [
+      "Frontend Development",
+      "Full-Stack Workflow",
+      "Software Testing",
+      "UI/UX Awareness",
+      "Data Modelling",
+      "Workflow Analysis",
+    ],
+    architecture: [
+      {
+        layer: "Model",
+        technology: "SQLite database + db_crud module",
+        responsibility:
+          "Data persistence, database schema management, CRUD operations",
+      },
+      {
+        layer: "View",
+        technology: "React + TypeScript + CSS",
+        responsibility:
+          "User interface rendering, form handling, component state management",
+      },
+      {
+        layer: "Controller",
+        technology: "Flask routes / Blueprint routes",
+        responsibility:
+          "Request handling, business logic, data validation, API endpoints",
+      },
     ],
     actions: [
       {
@@ -99,7 +167,7 @@ export const projects: PortfolioProject[] = [
       },
     ],
     featured: true,
-    projectType: "workflow",
+    projectType: "fullstack-workflow",
     imageSrc: "/images/projects/sds_projects.png",
     caseStudyStatus: "In progress",
     areaAnchors: ["workflow-systems"],
@@ -172,6 +240,65 @@ export const projects: PortfolioProject[] = [
     title: "Lumora",
     category: "Mobile / AI-Assisted Learning",
     status: "Concept / In Progress",
+    role: "iOS App Designer & Developer",
+    summary:
+      "A mobile-first smart study companion that helps students organise notes, files, images, and PDFs into clear AI-assisted summaries and study workflows.",
+    problem:
+      "Students often collect notes, PDFs, screenshots, slides, and images across different tools, but still need a clearer way to organise material and turn it into understanding.",
+    contributions: [
+      "Created user research, persona direction, and low-fidelity study flows.",
+      "Designed mobile-first iOS screens for workspaces, notes, library, and AI summary interactions.",
+      "Built SwiftUI MVP flows using MVVM structure and reliable state handling.",
+      "Explored AI summary reliability through file/PDF/image content handling and guard checks.",
+      "Iterated the product story from rough design to a usable study companion concept.",
+    ],
+    techStack: [
+      "SwiftUI",
+      "MVVM",
+      "Core Data",
+      "FileManager",
+      "Vision / PDFKit",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "OpenAI",
+      "Figma",
+    ],
+    skills: [
+      "Mobile App Development",
+      "Product Thinking",
+      "UI/UX Design",
+      "AI Workflow",
+      "File Handling",
+      "User Research",
+    ],
+    badges: [
+      "iOS App",
+      "SwiftUI",
+      "AI-Assisted Learning",
+      "Product Design",
+    ],
+    actions: [
+      {
+        label: "View Case Study",
+        href: "/projects/lumora",
+      },
+      {
+        label: "GitHub Repo",
+        href: "https://github.com/jaeyunjks/SmartStudyCompanion",
+      },
+    ],
+    featured: true,
+    projectType: "mobile-ai",
+    imageSrc: "/images/projects/Lumora/lumora.png",
+    caseStudyStatus: "Concept in progress",
+    areaAnchors: ["mobile-projects", "ai-tools"],
+    filters: ["mobile", "ai"],
+  }, {
+    id: "FocusPop",
+    title: "FocusPop (Bubble Pop Game)",
+    category: "Mobile / Game",
+    status: "Submitted",
     role: "Product Design & Mobile Development",
     summary:
       "An AI-powered study workspace concept designed to support focused learning, flashcards, and productivity workflows.",

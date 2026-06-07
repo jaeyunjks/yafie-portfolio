@@ -16,19 +16,20 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const panelId = `project-details-${project.id}`;
   const isPrimary = index === 0;
   const isSdsProject = project.id === "sds-modernisation";
-  const visibleTech = isPrimary
-    ? project.techStack.slice(0, 5)
-    : project.techStack.slice(0, 4);
-  const visibleSkills = isPrimary
-    ? project.skills.slice(0, 4)
-    : project.skills.slice(0, 3);
-  const deliveryFlow = [
-    "Requirements",
-    "UI",
-    "Testing",
-    "Workflow Visibility",
-    "Documentation",
-  ];
+  const visibleTech = isSdsProject
+    ? project.featuredTechStack ?? project.techStack.slice(0, 6)
+    : isPrimary
+      ? project.techStack.slice(0, 5)
+      : project.techStack.slice(0, 4);
+  const visibleSkills = isSdsProject
+    ? project.featuredSkills ?? project.skills.slice(0, 6)
+    : isPrimary
+      ? project.skills.slice(0, 4)
+      : project.skills.slice(0, 3);
+  const deliveryFlow = isSdsProject
+    ? project.deliveryFlow ?? []
+    : [];
+  const categoryBadges = project.badges ?? [project.category];
 
   return (
     <article
@@ -67,18 +68,18 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
                 {project.status}
               </span>
-              {isSdsProject ? (
-                <>
-                  <span className="rounded-full border border-[#c6b7ff]/50 bg-[#f7f3ff]/72 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#67549e]">
-                    Workflow System
+              {project.badges?.length ? (
+                categoryBadges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-[#c6b7ff]/50 bg-[#f7f3ff]/72 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#67549e]"
+                  >
+                    {badge}
                   </span>
-                  <span className="rounded-full border border-white/75 bg-white/68 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-500">
-                    Frontend & Testing
-                  </span>
-                </>
+                ))
               ) : (
                 <span className="rounded-full border border-[#c6b7ff]/50 bg-[#f7f3ff]/72 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#67549e]">
-                  {project.category}
+                  {categoryBadges[0]}
                 </span>
               )}
             </div>
@@ -234,6 +235,31 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   ))}
                 </ul>
               </div>
+              {isSdsProject && project.architecture?.length ? (
+                <div className="lg:col-span-2">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                    MVC Architecture Overview
+                  </p>
+                  <div className="mt-3 grid gap-3 md:grid-cols-3">
+                    {project.architecture.map((item) => (
+                      <article
+                        key={item.layer}
+                        className="rounded-[18px] border border-[#d4e3ff]/58 bg-white/74 p-4 shadow-[0_12px_34px_rgba(45,95,157,0.06)]"
+                      >
+                        <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                          {item.layer}
+                        </p>
+                        <p className="mt-2 text-sm font-extrabold leading-6 text-slate-900">
+                          {item.technology}
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-slate-600">
+                          {item.responsibility}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               <div className="grid gap-4 lg:col-span-2">
                 <div>
                   <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
