@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  ArrowRight,
   Bot,
   Braces,
   Cloud,
@@ -10,6 +9,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import ScrollToFeaturedProjectsButton from "./ScrollToFeaturedProjectsButton";
 
 const dashboardBlocks = [
   {
@@ -65,17 +65,7 @@ export default function ProjectsHero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="#featured-projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
-            >
-              View Featured Projects
-              <ArrowRight
-                size={17}
-                aria-hidden
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
+            <ScrollToFeaturedProjectsButton />
             <Link
               href="/contact"
               className="group inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-6 py-3.5 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md"

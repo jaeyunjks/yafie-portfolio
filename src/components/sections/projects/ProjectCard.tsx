@@ -12,23 +12,22 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const [isExpanded, setIsExpanded] = useState(project.featured && index === 0);
+  const [isExpanded, setIsExpanded] = useState(false);
   const panelId = `project-details-${project.id}`;
   const isPrimary = index === 0;
   const isSdsProject = project.id === "sds-modernisation";
-  const visibleTech = isSdsProject
+  const isFocusPopProject = project.id === "focuspop";
+  const visibleTech = isSdsProject || isFocusPopProject
     ? project.featuredTechStack ?? project.techStack.slice(0, 6)
     : isPrimary
       ? project.techStack.slice(0, 5)
       : project.techStack.slice(0, 4);
-  const visibleSkills = isSdsProject
+  const visibleSkills = isSdsProject || isFocusPopProject
     ? project.featuredSkills ?? project.skills.slice(0, 6)
     : isPrimary
       ? project.skills.slice(0, 4)
       : project.skills.slice(0, 3);
-  const deliveryFlow = isSdsProject
-    ? project.deliveryFlow ?? []
-    : [];
+  const deliveryFlow = project.deliveryFlow ?? [];
   const categoryBadges = project.badges ?? [project.category];
 
   return (
@@ -101,7 +100,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {project.summary}
             </p>
 
-            {isSdsProject ? (
+            {deliveryFlow.length ? (
               <div className="mt-4 rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-3">
                 <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
                   Delivery flow

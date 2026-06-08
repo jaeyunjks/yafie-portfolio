@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, GitBranch, Smartphone } from "lucide-react";
+import { ArrowLeft, ArrowRight, Smartphone } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import Reveal from "@/components/ui/Reveal";
 import { lumoraMetadata } from "@/data/caseStudies/lumora";
 import { LumoraImage } from "./LumoraMockups";
@@ -42,30 +43,32 @@ export default function LumoraCaseHero() {
               ))}
             </div>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="#app-flow"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl sm:w-auto"
-              >
-                View App Flow
-                <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
-              </Link>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Link
+                  href="/projects"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-5 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
+                >
+                  <ArrowLeft size={17} strokeWidth={2.4} aria-hidden />
+                  Back to Projects
+                </Link>
+                <Link
+                  href="#app-flow"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl sm:w-auto"
+                >
+                  View App Flow
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
+                </Link>
+              </div>
               <a
                 href="https://github.com/jaeyunjks/SmartStudyCompanion"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-5 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
+                aria-label="Lumora GitHub repository"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200/80 bg-white/70 text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:ml-auto"
               >
-                <GitBranch size={17} strokeWidth={2.4} aria-hidden />
-                GitHub Repo
+                <SiGithub size={18} aria-hidden />
               </a>
-              <Link
-                href="/projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-5 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
-              >
-                <ArrowLeft size={17} strokeWidth={2.4} aria-hidden />
-                Back to Projects
-              </Link>
             </div>
           </div>
         </Reveal>

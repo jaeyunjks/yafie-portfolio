@@ -173,6 +173,7 @@ function PortfolioMockup() {
 function PlaceholderContent({ projectType }: { projectType: ProjectType }) {
   if (projectType === "cloud") return <CloudMockup />;
   if (projectType === "mobile-ai") return <MobileAiMockup />;
+  if (projectType === "ios-game") return <MobileAiMockup />;
   if (projectType === "web-mvc") return <WebMvcMockup />;
   if (projectType === "portfolio") return <PortfolioMockup />;
   if (projectType === "fullstack-workflow") return <WebMvcMockup />;
@@ -191,16 +192,18 @@ export default function ProjectImagePlaceholder({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[18px] border border-white/75 bg-gradient-to-br ${accentByType[projectType]} shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] ${
-        featured ? "min-h-[22rem]" : "min-h-[15rem]"
-      }`}
+      className={`relative overflow-hidden rounded-[18px] border border-white/75 bg-gradient-to-br ${accentByType[projectType]} shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] ${featured ? "min-h-[22rem]" : "min-h-[15rem]"
+        }`}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_12%,rgba(255,255,255,0.74),transparent_30%),radial-gradient(circle_at_10%_90%,rgba(141,187,255,0.18),transparent_34%)]" />
       {showImage ? (
         <img
           src={imageSrc}
           alt={`${title} project preview`}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          className={`absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-[1.02] ${projectType === "ios-game"
+              ? "bg-white object-contain"
+              : "object-cover"
+            }`}
           onError={() => setImageFailed(true)}
         />
       ) : (
