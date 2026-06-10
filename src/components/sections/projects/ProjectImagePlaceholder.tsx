@@ -6,15 +6,16 @@ import type { ProjectType } from "@/data/projects";
 type ProjectImagePlaceholderProps = {
   projectType: ProjectType;
   title: string;
-  category: string;
+  status: string;
   imageSrc?: string;
   featured?: boolean;
 };
 
 const accentByType: Record<ProjectType, string> = {
   workflow: "from-[#8dbbff]/36 via-[#eef5ff]/78 to-[#c6b7ff]/28",
-  cloud: "from-emerald-200/42 via-[#eef5ff]/80 to-[#8dbbff]/26",
+  cloud: "from-[#8dbbff]/34 via-[#eef5ff]/80 to-[#c6b7ff]/24",
   "mobile-ai": "from-[#c6b7ff]/40 via-[#f8fbff]/82 to-[#8dbbff]/28",
+  "ios-game": "from-[#8dbbff]/32 via-[#f8fbff]/84 to-[#c6b7ff]/26",
   "web-mvc": "from-[#8dbbff]/30 via-white/82 to-slate-200/42",
   portfolio: "from-[#c6b7ff]/32 via-[#f8fbff]/82 to-[#8dbbff]/30",
   "fullstack-workflow": "from-[#8dbbff]/30 via-white/82 to-[#c6b7ff]/28",
@@ -67,8 +68,8 @@ function CloudMockup() {
       <div className="grid grid-cols-2 gap-2">
         {[0, 1, 2, 3].map((item) => (
           <div key={item} className="rounded-[14px] border border-white/60 bg-white/64 p-3">
-            <span className="block h-16 rounded-[12px] bg-emerald-100/80" />
-            <span className="mt-3 block h-2.5 w-16 rounded-full bg-emerald-500/24" />
+            <span className="block h-16 rounded-[12px] bg-[#eef5ff]/90" />
+            <span className="mt-3 block h-2.5 w-16 rounded-full bg-[#2d5f9d]/22" />
           </div>
         ))}
       </div>
@@ -77,7 +78,7 @@ function CloudMockup() {
         <div className="mt-4 grid gap-2">
           {[0, 1, 2, 3].map((row) => (
             <div key={row} className="flex items-center gap-2 rounded-[10px] bg-white/76 p-2">
-              <span className="h-6 w-6 rounded-full bg-emerald-300/60" />
+              <span className="h-6 w-6 rounded-full bg-[#8dbbff]/46" />
               <span className="h-2.5 flex-1 rounded-full bg-slate-200/80" />
               <span className="h-5 w-14 rounded-full bg-[#8dbbff]/34" />
             </div>
@@ -183,7 +184,7 @@ function PlaceholderContent({ projectType }: { projectType: ProjectType }) {
 export default function ProjectImagePlaceholder({
   projectType,
   title,
-  category,
+  status,
   imageSrc,
   featured = false,
 }: ProjectImagePlaceholderProps) {
@@ -196,6 +197,9 @@ export default function ProjectImagePlaceholder({
         }`}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_12%,rgba(255,255,255,0.74),transparent_30%),radial-gradient(circle_at_10%_90%,rgba(141,187,255,0.18),transparent_34%)]" />
+      <div className="absolute right-3 top-3 z-20 max-w-[calc(100%-1.5rem)] rounded-full border border-[#8dbbff]/32 bg-white/76 px-3 py-1.5 text-right font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d] shadow-[0_12px_30px_rgba(45,95,157,0.12)] backdrop-blur-md sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-[0.56rem]">
+        {status}
+      </div>
       {showImage ? (
         <img
           src={imageSrc}
@@ -212,14 +216,6 @@ export default function ProjectImagePlaceholder({
           <PlaceholderContent projectType={projectType} />
         </div>
       )}
-      <div className="absolute bottom-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 rounded-[13px] border border-white/70 bg-white/72 px-3 py-2 backdrop-blur-md">
-        <span className="truncate text-sm font-extrabold text-slate-900">
-          {title}
-        </span>
-        <span className="rounded-full bg-[#eef5ff]/90 px-2.5 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/72">
-          {category.split("/")[0].trim()}
-        </span>
-      </div>
     </div>
   );
 }

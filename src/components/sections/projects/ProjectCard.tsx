@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronDown, LockKeyhole } from "lucide-react";
 import type { PortfolioProject } from "@/data/projects";
 import ProjectImagePlaceholder from "./ProjectImagePlaceholder";
+import TechPill from "./TechPill";
 
 type ProjectCardProps = {
   project: PortfolioProject;
@@ -17,16 +18,20 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const isPrimary = index === 0;
   const isSdsProject = project.id === "sds-modernisation";
   const isFocusPopProject = project.id === "focuspop";
-  const visibleTech = isSdsProject || isFocusPopProject
-    ? project.featuredTechStack ?? project.techStack.slice(0, 6)
-    : isPrimary
-      ? project.techStack.slice(0, 5)
-      : project.techStack.slice(0, 4);
-  const visibleSkills = isSdsProject || isFocusPopProject
-    ? project.featuredSkills ?? project.skills.slice(0, 6)
-    : isPrimary
-      ? project.skills.slice(0, 4)
-      : project.skills.slice(0, 3);
+  const visibleTech = project.featuredTechStack
+    ? project.featuredTechStack
+    : isSdsProject || isFocusPopProject
+      ? project.techStack.slice(0, 6)
+      : isPrimary
+        ? project.techStack.slice(0, 5)
+        : project.techStack.slice(0, 4);
+  const visibleSkills = project.featuredSkills
+    ? project.featuredSkills
+    : isSdsProject || isFocusPopProject
+      ? project.skills.slice(0, 6)
+      : isPrimary
+        ? project.skills.slice(0, 4)
+        : project.skills.slice(0, 3);
   const deliveryFlow = project.deliveryFlow ?? [];
   const categoryBadges = project.badges ?? [project.category];
 
@@ -57,16 +62,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           <ProjectImagePlaceholder
             projectType={project.projectType}
             title={project.title}
-            category={project.category}
+            status={project.status}
             imageSrc={project.imageSrc}
             featured={isPrimary}
           />
 
           <div className="flex min-w-0 flex-col">
             <div className="flex flex-wrap gap-2">
-              <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
-                {project.status}
-              </span>
               {project.badges?.length ? (
                 categoryBadges.map((badge) => (
                   <span
@@ -124,12 +126,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {visibleTech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-[#d4e3ff]/72 bg-white/68 px-3 py-1.5 font-mono text-[0.54rem] font-bold uppercase tracking-[0.09em] text-slate-500"
-                  >
-                    {tech}
-                  </span>
+                  <TechPill key={tech} tech={tech} />
                 ))}
               </div>
             </div>
@@ -266,12 +263,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full border border-[#d4e3ff]/72 bg-white/68 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-slate-500"
-                      >
-                        {tech}
-                      </span>
+                      <TechPill key={tech} tech={tech} />
                     ))}
                   </div>
                 </div>
