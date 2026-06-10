@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Brain,
   Lightbulb,
@@ -9,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 
 const capabilities = [
   {
@@ -76,6 +79,11 @@ const capabilities = [
 ];
 
 export default function AboutCapabilities() {
+  const { ref: capabilityScrollRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
+  const activeCard = Math.round((progress / 100) * (capabilities.length - 1)) + 1;
+  const explored = Math.round((activeCard / capabilities.length) * 100);
+
   return (
     <section className="pb-20 lg:pb-24">
       <Reveal>
@@ -103,7 +111,57 @@ export default function AboutCapabilities() {
         </div>
       </Reveal>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="sm:hidden">
+        <div
+          ref={capabilityScrollRef}
+          className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4"
+        >
+          {capabilities.map((item, index) => (
+            <article
+              key={item.title}
+              tabIndex={0}
+              className="group relative min-h-[16rem] w-[86vw] shrink-0 snap-center overflow-hidden rounded-[16px] border border-white/75 bg-white/70 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] outline-none backdrop-blur-xl"
+            >
+              <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+              <div className="mb-5 flex items-start justify-between gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)]">
+                  <item.Icon size={18} strokeWidth={2.2} aria-hidden />
+                </span>
+                <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/62">
+                  [{String(index + 1).padStart(2, "0")}]
+                </span>
+              </div>
+              <h3 className="text-lg font-extrabold tracking-tight text-slate-950">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                {item.description}
+              </p>
+              <div className="mt-4 rounded-[12px] border border-[#d4e3ff]/70 bg-[#f8fbff]/78 p-3">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  Applied in practice
+                </p>
+                <p className="mt-2 text-xs leading-5 text-slate-600">
+                  {item.applied}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="mt-2 flex items-center gap-3">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+            Swipe {explored}%
+          </span>
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#d4e3ff]/56">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-[#8dbbff] to-[#c6b7ff]"
+              style={{ width: `${explored}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-4">
         {capabilities.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.035}>
             <article

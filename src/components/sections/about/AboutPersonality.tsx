@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Compass, Gem, Leaf, Zap } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 
 const personalityCards = [
   {
@@ -30,6 +33,12 @@ const personalityCards = [
 ];
 
 export default function AboutPersonality() {
+  const { ref: personalityScrollRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
+  const activeCard =
+    Math.round((progress / 100) * (personalityCards.length - 1)) + 1;
+  const explored = Math.round((activeCard / personalityCards.length) * 100);
+
   return (
     <section className="pb-20 lg:pb-24">
       <Reveal>
@@ -60,7 +69,45 @@ export default function AboutPersonality() {
         </div>
       </Reveal>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="md:hidden">
+        <div
+          ref={personalityScrollRef}
+          className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4"
+        >
+          {personalityCards.map((card, index) => (
+            <article
+              key={card.title}
+              className="group w-[86vw] shrink-0 snap-center rounded-[16px] border border-white/75 bg-white/70 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] backdrop-blur-xl"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)]">
+                <card.Icon size={18} strokeWidth={2.2} aria-hidden />
+              </span>
+              <p className="mt-5 font-mono text-[0.64rem] font-bold text-[#2d5f9d]/70">
+                [{String(index + 1).padStart(2, "0")}]
+              </p>
+              <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">
+                {card.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                {card.description}
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-2 flex items-center gap-3">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+            Swipe {explored}%
+          </span>
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#d4e3ff]/56">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-[#8dbbff] to-[#c6b7ff]"
+              style={{ width: `${explored}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4">
         {personalityCards.map((card, index) => (
           <Reveal key={card.title} delay={index * 0.06}>
             <article className="group h-full rounded-[16px] border border-white/75 bg-white/70 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/90 hover:shadow-[0_24px_70px_rgba(45,95,157,0.13)]">

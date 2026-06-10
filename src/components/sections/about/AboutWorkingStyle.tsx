@@ -98,9 +98,12 @@ export default function AboutWorkingStyle() {
                   </p>
                 </article>
                 {index < steps.length - 1 && (
-                  <span className="mx-auto my-1 flex h-7 w-7 items-center justify-center rounded-full border border-[#d4e3ff]/70 bg-white/78 text-[#2d5f9d] shadow-[0_10px_24px_rgba(45,95,157,0.08)] md:hidden">
-                    <ArrowDown size={14} strokeWidth={2.4} aria-hidden />
-                  </span>
+                  <div className="relative mx-auto -my-1 flex h-8 w-8 items-center justify-center md:hidden">
+                    <span className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-[#8dbbff]/35 via-[#8dbbff]/55 to-[#c6b7ff]/35" />
+                    <span className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full border border-[#d4e3ff]/70 bg-white/90 text-[#2d5f9d] shadow-[0_10px_24px_rgba(45,95,157,0.08)]">
+                      <ArrowDown size={14} strokeWidth={2.4} aria-hidden />
+                    </span>
+                  </div>
                 )}
               </div>
             ))}

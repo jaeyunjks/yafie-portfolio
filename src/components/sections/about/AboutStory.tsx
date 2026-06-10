@@ -1,10 +1,14 @@
 import Image from "next/image";
 import {
   BriefcaseBusiness,
-  CheckCircle2,
+  Code2,
   GraduationCap,
   MapPin,
+  Monitor,
+  Server,
   Sparkles,
+  Smartphone,
+  Wrench,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
@@ -47,6 +51,21 @@ const profileTags = [
   "software engineering",
   "product-minded",
   "build · test · refine",
+];
+
+const summaryItems = [
+  {
+    label: "software engineering student",
+    icons: [GraduationCap, Code2],
+  },
+  {
+    label: "practical project builder",
+    icons: [Wrench],
+  },
+  {
+    label: "web · mobile · backend",
+    icons: [Monitor, Smartphone, Server],
+  },
 ];
 
 const hospitalitySkills = [
@@ -191,22 +210,22 @@ export default function AboutStory() {
                   </div>
 
                   <div className="grid gap-2 sm:grid-cols-3 xl:w-[25rem] xl:shrink-0">
-                    {[
-                      "software engineering student",
-                      "practical project builder",
-                      "web · mobile · backend",
-                    ].map((item) => (
+                    {summaryItems.map((item) => (
                       <div
-                        key={item}
+                        key={item.label}
                         className="flex min-h-12 items-center gap-2 rounded-[12px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 px-3 py-2 text-xs font-bold leading-5 text-slate-700"
                       >
-                        <CheckCircle2
-                          size={15}
-                          strokeWidth={2.3}
-                          aria-hidden
-                          className="shrink-0 text-[#2d5f9d]"
-                        />
-                        <span>{item}</span>
+                        <span className="flex shrink-0 items-center gap-1 text-[#2d5f9d]">
+                          {item.icons.map((Icon, iconIndex) => (
+                            <Icon
+                              key={`${item.label}-${iconIndex}`}
+                              size={14}
+                              strokeWidth={2.3}
+                              aria-hidden
+                            />
+                          ))}
+                        </span>
+                        <span>{item.label}</span>
                       </div>
                     ))}
                   </div>
@@ -234,9 +253,16 @@ export default function AboutStory() {
           </Reveal>
 
           <div className="grid gap-4 xl:grid-cols-[minmax(0,0.7fr)_minmax(15rem,0.3fr)]">
-            <div className="relative grid gap-3">
+            <div className="relative grid gap-3 pl-6 before:absolute before:bottom-8 before:left-[1.35rem] before:top-8 before:w-px before:bg-gradient-to-b before:from-[#8dbbff]/20 before:via-[#8dbbff]/50 before:to-[#c6b7ff]/20 xl:pl-7 xl:before:left-[1.5rem]">
               {educationCards.map((card, index) => (
-                <Reveal key={card.institution} delay={index * 0.06}>
+                <Reveal
+                  key={card.institution}
+                  delay={index * 0.06}
+                  className="relative"
+                >
+                  <span className="absolute -left-[0.65rem] top-8 z-20 flex h-4 w-4 items-center justify-center rounded-full border border-[#8dbbff]/45 bg-white shadow-[0_8px_20px_rgba(45,95,157,0.12)] xl:-left-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#2d5f9d]" />
+                  </span>
                   <article className="group relative overflow-hidden rounded-[18px] border border-white/75 bg-white/70 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/90 hover:shadow-[0_24px_70px_rgba(45,95,157,0.13)]">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_92%_12%,rgba(141,187,255,0.1),transparent_28%)]" />
                     <div className="relative z-10 flex items-start gap-4">
