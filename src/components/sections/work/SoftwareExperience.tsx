@@ -1,4 +1,12 @@
-import { ArrowRight, ClipboardCheck } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowRight,
+  Bug,
+  ClipboardCheck,
+  MousePointerClick,
+  Palette,
+  RefreshCw,
+} from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { softwareExperience } from "@/data/workExperience";
 import ExperienceCard from "./ExperienceCard";
@@ -44,13 +52,40 @@ const workflowChips = [
   "documentation",
 ];
 
-const testingPractices = [
+const testingFocus = [
+  {
+    title: "User flow validation",
+    description:
+      "Checking whether key journeys make sense from setup through completion.",
+    Icon: MousePointerClick,
+  },
+  {
+    title: "UI consistency checks",
+    description:
+      "Reviewing spacing, labels, states, and visual behaviour across screens.",
+    Icon: Palette,
+  },
+  {
+    title: "Bug/issue identification",
+    description:
+      "Capturing defects clearly so the team can reproduce and resolve them.",
+    Icon: Bug,
+  },
+  {
+    title: "Regression awareness",
+    description:
+      "Rechecking important flows after changes to avoid breaking existing work.",
+    Icon: RefreshCw,
+  },
+];
+
+const testingTags = [
   "user flow testing",
-  "UI and functionality checks",
+  "UI checks",
   "debugging",
-  "usability issue review",
+  "usability review",
   "regression awareness",
-  "issue documentation",
+  "issue notes",
 ];
 
 export default function SoftwareExperience() {
@@ -98,17 +133,9 @@ export default function SoftwareExperience() {
                 </span>
               </div>
 
-              <div className="grid gap-3 lg:grid-cols-5">
+              <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-stretch">
                 {sprintRoadmap.map((item, index) => (
-                  <div key={item.sprint} className="relative">
-                    {index < sprintRoadmap.length - 1 ? (
-                      <span className="pointer-events-none absolute left-[calc(100%-0.35rem)] top-10 z-20 hidden items-center lg:flex">
-                        <span className="h-px w-5 bg-gradient-to-r from-[#8dbbff]/70 to-[#c6b7ff]/45" />
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#d4e3ff]/70 bg-white/82 text-[#2d5f9d] shadow-[0_10px_24px_rgba(45,95,157,0.08)]">
-                          <ArrowRight size={14} strokeWidth={2.4} aria-hidden />
-                        </span>
-                      </span>
-                    ) : null}
+                  <div key={item.sprint} className="contents">
                     <div className="h-full rounded-[16px] border border-[#d4e3ff]/66 bg-white/72 p-4 shadow-[0_14px_38px_rgba(45,95,157,0.07)]">
                       <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
                         {item.sprint}
@@ -120,6 +147,26 @@ export default function SoftwareExperience() {
                         {item.description}
                       </p>
                     </div>
+                    {index < sprintRoadmap.length - 1 ? (
+                      <div className="flex items-center justify-center py-1 lg:px-2 lg:py-0">
+                        <span className="hidden h-px w-8 bg-gradient-to-r from-[#8dbbff]/70 to-[#c6b7ff]/45 lg:block" />
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#d4e3ff]/70 bg-white/86 text-[#2d5f9d] shadow-[0_10px_24px_rgba(45,95,157,0.08)]">
+                          <ArrowDown
+                            size={14}
+                            strokeWidth={2.4}
+                            aria-hidden
+                            className="lg:hidden"
+                          />
+                          <ArrowRight
+                            size={14}
+                            strokeWidth={2.4}
+                            aria-hidden
+                            className="hidden lg:block"
+                          />
+                        </span>
+                        <span className="hidden h-px w-8 bg-gradient-to-r from-[#8dbbff]/70 to-[#c6b7ff]/45 lg:block" />
+                      </div>
+                    ) : null}
                   </div>
                 ))}
               </div>
@@ -169,8 +216,28 @@ export default function SoftwareExperience() {
               reliability, and reduce avoidable issues while continuing to grow
               practical software delivery habits.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {testingPractices.map((practice) => (
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {testingFocus.map((focus) => (
+                <div
+                  key={focus.title}
+                  className="rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-4"
+                >
+                  <span className="flex h-9 w-9 items-center justify-center rounded-[11px] border border-[#8dbbff]/22 bg-white/76 text-[#2d5f9d]">
+                    <focus.Icon size={17} strokeWidth={2.2} aria-hidden />
+                  </span>
+                  <h4 className="mt-3 text-sm font-extrabold tracking-tight text-slate-950">
+                    {focus.title}
+                  </h4>
+                  <p className="mt-2 text-xs leading-5 text-slate-600">
+                    {focus.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {testingTags.map((practice) => (
                 <span
                   key={practice}
                   className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/78 px-3 py-2 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-slate-500"

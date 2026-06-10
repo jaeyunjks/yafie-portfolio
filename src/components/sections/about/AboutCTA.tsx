@@ -71,7 +71,7 @@ export default function AboutCTA() {
       <section className="pb-20 lg:pb-24">
         <Reveal>
           <div className="open-editorial-cta">
-            <div className="relative z-10 max-w-3xl">
+            <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">
               <h2 className="text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
                 Let&apos;s build something thoughtful.
               </h2>
@@ -80,7 +80,7 @@ export default function AboutCTA() {
                 software engineering conversations where I can contribute,
                 learn, and grow with a strong team.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/contact"
                   className="group inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"

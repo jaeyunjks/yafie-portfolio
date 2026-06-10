@@ -1,9 +1,10 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import type { ProjectFilter } from "@/data/projects";
 import { projects } from "@/data/projects";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 import ProjectCard from "./ProjectCard";
 import ProjectDetailsPanel from "./ProjectDetailsPanel";
 
@@ -15,6 +16,8 @@ export default function FeaturedProjects({
   activeFilter = "all",
 }: FeaturedProjectsProps) {
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
+  const { ref: mobileProjectsRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
   const visibleProjects =
     activeFilter === "all"
       ? projects
@@ -22,6 +25,18 @@ export default function FeaturedProjects({
   const expandedProject = visibleProjects.find(
     (project) => project.id === expandedProjectId,
   );
+  const activeCard =
+    visibleProjects.length > 1
+      ? Math.round((progress / 100) * (visibleProjects.length - 1)) + 1
+      : visibleProjects.length;
+  const explored =
+    visibleProjects.length > 0
+      ? Math.round((activeCard / visibleProjects.length) * 100)
+      : 0;
+
+  useEffect(() => {
+    mobileProjectsRef.current?.scrollTo({ left: 0 });
+  }, [activeFilter, mobileProjectsRef]);
 
   function getRowProjectIds(index: number) {
     if (index === 0) {
@@ -73,7 +88,53 @@ export default function FeaturedProjects({
         </div>
       </Reveal>
 
-      <div className="grid items-stretch gap-5 lg:grid-cols-2">
+      <div className="lg:hidden">
+        <div
+          ref={mobileProjectsRef}
+          className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4"
+        >
+          {visibleProjects.map((project, index) => (
+            <div key={project.id} className="flex w-[88vw] shrink-0 snap-center">
+              <Reveal delay={index * 0.04} className="flex w-full">
+                <ProjectCard
+                  project={project}
+                  index={index}
+                  isExpanded={expandedProjectId === project.id}
+                  detailsPanelId={`project-details-mobile-${project.id}`}
+                  onToggle={() =>
+                    setExpandedProjectId((current) =>
+                      current === project.id ? null : project.id,
+                    )
+                  }
+                />
+              </Reveal>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-2 flex items-center gap-3">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+            Swipe {explored}%
+          </span>
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
+            <div
+              className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+              style={{ width: `${explored}%` }}
+            />
+          </div>
+        </div>
+
+        {expandedProject ? (
+          <Reveal className="mt-5">
+            <ProjectDetailsPanel
+              id={`project-details-mobile-${expandedProject.id}`}
+              project={expandedProject}
+            />
+          </Reveal>
+        ) : null}
+      </div>
+
+      <div className="hidden items-stretch gap-5 lg:grid lg:grid-cols-2">
         {visibleProjects.map((project, index) => (
           <Fragment key={project.id}>
             <div

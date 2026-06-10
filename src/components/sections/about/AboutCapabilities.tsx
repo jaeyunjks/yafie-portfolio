@@ -152,9 +152,9 @@ export default function AboutCapabilities() {
           <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
             Swipe {explored}%
           </span>
-          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#d4e3ff]/56">
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-[#8dbbff] to-[#c6b7ff]"
+              className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
               style={{ width: `${explored}%` }}
             />
           </div>

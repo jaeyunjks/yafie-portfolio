@@ -37,7 +37,7 @@ export const workExperience: WorkExperienceItem[] = [
     section: "software-experience",
     featured: true,
     status: "current",
-    role: "Frontend Developer & Tester",
+    role: "Frontend Developer & QA Engineer",
     organisation: "SDS Modernisation",
     duration: "Feb 2026 - Present",
     category: "Software Development / Testing",
@@ -117,7 +117,7 @@ export const workExperience: WorkExperienceItem[] = [
     status: "current",
     role: "Team Leader",
     organisation:
-      "Global Hospitality Solutions x The Grand National Hotel, Saint Peters",
+      "Global Hospitality Solutions x The Grand National Hotel by Saint Peter",
     duration: "Current",
     category: "Supporting Leadership Experience",
     summary:
@@ -151,7 +151,7 @@ export const workExperience: WorkExperienceItem[] = [
     featured: false,
     status: "past",
     role: "Supervisor",
-    organisation: "Hospitality / Hotel Operations",
+    organisation: "Global Hospitality Solutions | Novotel Sydney City Centre",
     duration: "Past Role",
     category: "Supporting Work Experience",
     summary:

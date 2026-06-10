@@ -9,6 +9,7 @@ type ProjectCardProps = {
   index: number;
   isExpanded: boolean;
   onToggle: () => void;
+  detailsPanelId?: string;
 };
 
 export default function ProjectCard({
@@ -16,8 +17,9 @@ export default function ProjectCard({
   index,
   isExpanded,
   onToggle,
+  detailsPanelId,
 }: ProjectCardProps) {
-  const panelId = `project-details-${project.id}`;
+  const panelId = detailsPanelId ?? `project-details-${project.id}`;
   const isPrimary = index === 0;
   const isSdsProject = project.id === "sds-modernisation";
   const isFocusPopProject = project.id === "focuspop";

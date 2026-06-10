@@ -1,4 +1,3 @@
-export { default as CaseStudyReady } from "./CaseStudyReady";
 export { default as EngineeringDepth } from "./EngineeringDepth";
 export { default as FeaturedProjects } from "./FeaturedProjects";
 export { default as ProjectMap } from "./ProjectMap";

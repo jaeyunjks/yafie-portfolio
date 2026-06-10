@@ -9,7 +9,6 @@ import {
   Workflow,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
-import { workSummaryStats } from "@/data/workExperience";
 
 const dashboardBlocks = [
   {
@@ -61,12 +60,11 @@ export default function WorkHero() {
             and collaborative delivery.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-            I&apos;ve worked across software-focused projects, testing
-            activities, workflow systems, and team-based delivery. My current
-            experience includes frontend development and testing for SDS
-            Modernisation, a system designed to improve how Software
-            Development Studio projects are managed, reviewed, and coordinated
-            at UTS.
+            I&apos;ve worked across frontend development, testing, workflow systems, and documentation.
+
+            Most recently, I contributed as a Frontend Developer and QA Engineer working on a UTS project management system that improves project submission, review, coordination, and tracking for SDS subject.
+
+            My work focuses on building practical, user-focused software that supports clearer workflows and maintainable delivery.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
             I&apos;m continuing to grow toward broader IT and software
@@ -161,16 +159,6 @@ export default function WorkHero() {
                 ))}
               </div>
 
-              <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                {workSummaryStats.map((stat) => (
-                  <p
-                    key={stat}
-                    className="rounded-[12px] border border-[#d4e3ff]/62 bg-white/66 px-3 py-3 text-sm font-bold leading-5 text-slate-600"
-                  >
-                    {stat}
-                  </p>
-                ))}
-              </div>
             </div>
           </div>
         </article>

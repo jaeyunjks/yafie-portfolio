@@ -1,12 +1,13 @@
 "use client";
 
 import {
-  Bot,
+  BrainCircuit,
   Braces,
   Cloud,
+  Gamepad2,
+  LayoutGrid,
   ListChecks,
   Smartphone,
-  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
@@ -20,7 +21,7 @@ const projectFilters: Array<{
   {
     id: "all",
     label: "All",
-    Icon: Sparkles,
+    Icon: LayoutGrid,
   },
   {
     id: "web",
@@ -43,9 +44,14 @@ const projectFilters: Array<{
     Icon: Smartphone,
   },
   {
+    id: "game",
+    label: "Game",
+    Icon: Gamepad2,
+  },
+  {
     id: "ai",
     label: "AI Tools",
-    Icon: Bot,
+    Icon: BrainCircuit,
   },
 ];
 
@@ -106,7 +112,7 @@ export default function ProjectMap({
             </div>
             <p className="max-w-md font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-400 lg:text-right">
               Showing selected software projects across web, workflow systems,
-              cloud, mobile, and AI-assisted tools.
+              cloud, mobile, games, and AI-assisted tools.
             </p>
           </div>
         </div>

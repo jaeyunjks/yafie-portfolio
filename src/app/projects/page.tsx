@@ -1,6 +1,5 @@
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
-  CaseStudyReady,
   EngineeringDepth,
   ProjectsCTA,
   ProjectsExplorer,
@@ -14,7 +13,6 @@ export default function ProjectsPage() {
       <ProjectsHero />
       <ProjectsExplorer />
       <EngineeringDepth />
-      <CaseStudyReady />
       <ProjectsCTA />
     </div>
   );

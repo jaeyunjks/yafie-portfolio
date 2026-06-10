@@ -11,6 +11,7 @@ export type ProjectFilter =
   | "workflow"
   | "cloud"
   | "mobile"
+  | "game"
   | "ai";
 
 export type ProjectType =
@@ -348,7 +349,7 @@ export const projects: PortfolioProject[] = [
     imageSrc: "/images/projects/focuspop-preview.png",
     caseStudyStatus: "Concept in progress",
     areaAnchors: ["mobile-projects", "ai-tools"],
-    filters: ["mobile", "ai"],
+    filters: ["mobile", "game", "ai"],
   },
 
   {
