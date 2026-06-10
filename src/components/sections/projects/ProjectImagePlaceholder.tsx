@@ -21,6 +21,38 @@ const accentByType: Record<ProjectType, string> = {
   "fullstack-workflow": "from-[#8dbbff]/30 via-white/82 to-[#c6b7ff]/28",
 };
 
+const statusToneByLabel = [
+  {
+    test: (status: string) => status.toLowerCase().includes("active"),
+    className:
+      "border-[#8dbbff]/42 bg-[#eef5ff]/82 text-[#24548f] shadow-[0_12px_30px_rgba(45,95,157,0.14)]",
+  },
+  {
+    test: (status: string) => status.toLowerCase().includes("completed"),
+    className:
+      "border-emerald-300/42 bg-emerald-50/82 text-emerald-700 shadow-[0_12px_30px_rgba(16,185,129,0.12)]",
+  },
+  {
+    test: (status: string) =>
+      status.toLowerCase().includes("concept") ||
+      status.toLowerCase().includes("progress"),
+    className:
+      "border-[#c6b7ff]/52 bg-[#f7f3ff]/84 text-[#67549e] shadow-[0_12px_30px_rgba(103,84,158,0.12)]",
+  },
+  {
+    test: (status: string) => status.toLowerCase().includes("submitted"),
+    className:
+      "border-amber-300/48 bg-amber-50/84 text-amber-700 shadow-[0_12px_30px_rgba(245,158,11,0.12)]",
+  },
+];
+
+function getStatusTone(status: string) {
+  return (
+    statusToneByLabel.find((tone) => tone.test(status))?.className ??
+    "border-slate-200/70 bg-white/82 text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.1)]"
+  );
+}
+
 function WindowChrome() {
   return (
     <div className="flex items-center gap-1.5 border-b border-white/60 bg-white/58 px-3 py-2">
@@ -193,11 +225,10 @@ export default function ProjectImagePlaceholder({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[18px] border border-white/75 bg-gradient-to-br ${accentByType[projectType]} shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] ${featured ? "min-h-[22rem]" : "min-h-[15rem]"
-        }`}
+      className={`relative aspect-[1668/576] overflow-hidden rounded-[18px] border border-white/75 bg-gradient-to-br ${accentByType[projectType]} shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] ${featured ? "min-h-[18rem]" : "min-h-[10.5rem]"}`}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_12%,rgba(255,255,255,0.74),transparent_30%),radial-gradient(circle_at_10%_90%,rgba(141,187,255,0.18),transparent_34%)]" />
-      <div className="absolute right-3 top-3 z-20 max-w-[calc(100%-1.5rem)] rounded-full border border-[#8dbbff]/32 bg-white/76 px-3 py-1.5 text-right font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d] shadow-[0_12px_30px_rgba(45,95,157,0.12)] backdrop-blur-md sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-[0.56rem]">
+      <div className={`absolute right-3 top-3 z-20 max-w-[calc(100%-1.5rem)] rounded-full border px-3 py-1.5 text-right font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] backdrop-blur-md sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-[0.56rem] ${getStatusTone(status)}`}>
         {status}
       </div>
       {showImage ? (

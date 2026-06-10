@@ -61,8 +61,7 @@ export default function CollaborationSignal() {
       </Reveal>
 
       <Reveal>
-        <div className="relative overflow-hidden rounded-[18px] border border-white/75 bg-white/62 p-4 shadow-[0_24px_80px_rgba(45,95,157,0.1)] backdrop-blur-xl md:p-5">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.84),rgba(245,249,255,0.5)),radial-gradient(circle_at_18%_12%,rgba(141,187,255,0.14),transparent_28%),radial-gradient(circle_at_84%_82%,rgba(198,183,255,0.14),transparent_28%)]" />
+        <div className="open-panel">
           <div className="relative z-10 grid gap-4 md:grid-cols-5 md:gap-3">
             {steps.map((step, index) => (
               <div key={step.title} className="relative">
@@ -74,7 +73,7 @@ export default function CollaborationSignal() {
                     </span>
                   </span>
                 )}
-                <article className="group relative h-full rounded-[15px] border border-[#d4e3ff]/72 bg-white/72 p-4 shadow-[0_14px_38px_rgba(45,95,157,0.07)] transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/90 hover:shadow-[0_20px_55px_rgba(45,95,157,0.12)]">
+                <article className="group relative h-full rounded-[15px] border border-[#d4e3ff]/66 bg-white/64 p-4 shadow-[0_12px_34px_rgba(45,95,157,0.06)] transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/88 hover:shadow-[0_18px_48px_rgba(45,95,157,0.1)]">
                   <div className="flex items-center justify-between gap-3">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)] transition-transform duration-300 group-hover:-translate-y-0.5">
                       <step.Icon size={18} strokeWidth={2.2} aria-hidden />

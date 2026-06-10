@@ -46,10 +46,7 @@ export default function CurrentlyExploring() {
       </Reveal>
 
       <Reveal>
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/75 bg-white/64 p-6 shadow-[0_24px_80px_rgba(45,95,157,0.11)] backdrop-blur-xl md:p-8 lg:p-10">
-          <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_22%_18%,rgba(141,187,255,0.2),transparent_32%),radial-gradient(circle_at_82%_26%,rgba(198,183,255,0.16),transparent_30%),radial-gradient(circle_at_64%_86%,rgba(141,187,255,0.1),transparent_34%)]" />
-          <div className="pointer-events-none absolute right-10 top-12 z-0 hidden h-72 w-72 rounded-full bg-[#8dbbff]/14 blur-3xl lg:block" />
-          <div className="pointer-events-none absolute bottom-10 left-10 z-0 hidden h-64 w-64 rounded-full bg-[#c6b7ff]/12 blur-3xl lg:block" />
+        <div className="open-panel">
           <div className="pointer-events-none absolute right-[12%] top-[28%] z-0 hidden h-px w-[34%] bg-gradient-to-r from-transparent via-[#8dbbff]/20 to-transparent lg:block" />
           <div className="pointer-events-none absolute right-[30%] top-[18%] z-0 hidden h-[64%] w-px bg-gradient-to-b from-transparent via-[#c6b7ff]/18 to-transparent lg:block" />
           <span className="constellation-dot right-[15%] top-[22%] hidden lg:block" />
@@ -94,7 +91,7 @@ export default function CurrentlyExploring() {
                 <article
                   key={card.title}
                   tabIndex={0}
-                  className="group relative min-h-[15rem] overflow-hidden rounded-3xl border border-white/75 bg-white/86 p-6 shadow-[0_18px_55px_rgba(45,95,157,0.11)] backdrop-blur-xl outline-none transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/95 hover:shadow-[0_26px_76px_rgba(45,95,157,0.16)] focus-visible:-translate-y-1 focus-visible:border-[#8dbbff]/70 focus-visible:bg-white/95 focus-visible:shadow-[0_26px_76px_rgba(45,95,157,0.16)]"
+                  className="group relative min-h-[15rem] overflow-hidden rounded-[22px] border border-white/75 bg-white/76 p-6 shadow-[0_14px_42px_rgba(45,95,157,0.08)] backdrop-blur-xl outline-none transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/92 hover:shadow-[0_22px_64px_rgba(45,95,157,0.13)] focus-visible:-translate-y-1 focus-visible:border-[#8dbbff]/70 focus-visible:bg-white/95 focus-visible:shadow-[0_22px_64px_rgba(45,95,157,0.13)]"
                 >
                   <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
                   <div className="flex items-start justify-between gap-4">

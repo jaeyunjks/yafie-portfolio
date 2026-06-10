@@ -10,7 +10,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/70 bg-white/66 px-6 py-12 backdrop-blur-xl md:px-10">
+    <footer className="border-t border-[#d4e3ff]/45 bg-white/36 px-6 py-12 backdrop-blur-md md:px-10">
       <div className="mx-auto flex w-full max-w-[92rem] flex-col items-center justify-between gap-8 text-sm text-slate-500 md:flex-row">
         <Link href="/" className="text-2xl font-black italic text-[#2d5f9d]" aria-label="Yafie home">
           Y.

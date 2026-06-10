@@ -17,7 +17,6 @@ export type ProjectType =
   | "workflow"
   | "cloud"
   | "mobile-ai"
-  | "ios-game"
   | "web-mvc"
   | "portfolio"
   | "fullstack-workflow";
@@ -26,6 +25,20 @@ export type ProjectArchitectureEntry = {
   layer: string;
   technology: string;
   responsibility: string;
+};
+
+export type ProjectTechnologyGroup = {
+  title: string;
+  items: {
+    label: string;
+    description: string;
+  }[];
+};
+
+export type ProjectDataEntity = {
+  entity: string;
+  purpose: string;
+  keyFields: string[];
 };
 
 export type PortfolioProject = {
@@ -176,92 +189,63 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "freshbasket-vendor-portal",
-    title: "FreshBasket AWS Deployment",
-    category: "AWS Deployment / Full-Stack Deployment",
+    title: "FreshBasket Vendor Portal",
+    category: "Full-Stack / Cloud Deployment",
     status: "Completed / University Project",
-    role: "Cloud Deployment / Full-Stack Deployment",
+    role: "Full-Stack Developer",
     summary:
-      "A documented AWS deployment case study for a Node.js, Express, EJS, and MySQL vendor portal. The project used Elastic Beanstalk, EC2, RDS MySQL, Load Balancer, Auto Scaling, custom VPC networking, security groups, environment variables, and SNS notification setup.",
+      "A cloud-deployed produce marketplace/vendor portal built with Node.js, Express, EJS, MySQL, and AWS services.",
     problem:
-      "The project focused on taking a database-backed vendor portal beyond local development and documenting how the application, database, networking, scaling, and AWS configuration worked together in an AWS Academy deployment environment.",
+      "The project demonstrates how a practical marketplace-style application can support produce selection, order/request management, admin status updates, and database-backed workflows.",
     contributions: [
-      "Deployed a Node.js, Express, EJS, and MySQL vendor portal using AWS Elastic Beanstalk, EC2, and RDS MySQL.",
-      "Configured custom VPC networking, public subnets, route table access, Internet Gateway routing, and security groups.",
-      "Connected the application to RDS MySQL using environment variables and validated database records through EC2 terminal SQL queries.",
-      "Configured load-balanced Elastic Beanstalk deployment settings, Auto Scaling capacity, IAM roles, and health monitoring.",
-      "Captured architecture diagrams, AWS configuration screenshots, database connection evidence, and application screenshots for assessment documentation.",
+      "Built customer-facing produce box request flow.",
+      "Implemented admin request/status management.",
+      "Connected application logic to MySQL/RDS database.",
+      "Deployed application using AWS services.",
+      "Captured evidence of cloud architecture, deployment, and database connectivity.",
     ],
     techStack: [
-      "AWS",
-      "Elastic Beanstalk",
-      "EC2",
-      "RDS MySQL",
-      "VPC",
-      "Load Balancer",
-      "Auto Scaling",
-      "SNS",
       "Node.js",
       "Express",
       "EJS",
       "MySQL",
-    ],
-    skills: [
-      "Cloud Deployment",
-      "Infrastructure Configuration",
-      "Database Connectivity",
-      "Network Security",
-      "Deployment Debugging",
-      "Technical Documentation",
-    ],
-    badges: [
-      "AWS Deployment",
-      "Elastic Beanstalk",
-      "RDS MySQL",
+      "AWS Elastic Beanstalk",
+      "RDS",
       "EC2",
-      "Load Balanced",
-      "Auto Scaling",
-    ],
-    deliveryFlow: [
-      "Prepare App",
-      "AWS Network",
-      "RDS MySQL",
-      "Elastic Beanstalk",
-      "Environment Variables",
-      "Connection Evidence",
-      "Documentation",
-    ],
-    featuredTechStack: [
-      "AWS",
-      "Elastic Beanstalk",
-      "EC2",
-      "RDS MySQL",
-      "VPC",
-      "Load Balancer",
-      "Auto Scaling",
       "SNS",
     ],
-    featuredSkills: [
+    skills: [
+      "Full-Stack Development",
+      "Backend Logic",
+      "Database Integration",
       "Cloud Deployment",
-      "Infrastructure Configuration",
-      "Database Connectivity",
-      "Network Security",
-      "Deployment Debugging",
-      "Technical Documentation",
+      "CRUD Workflows",
+      "Admin Interfaces",
     ],
     actions: [
       {
         label: "View Case Study",
-        href: "/projects/freshbasket-aws",
+        href: "#",
+        disabled: true,
+        note: "Coming soon",
       },
       {
         label: "GitHub / Repo",
-        href: "https://github.com/jaeyunjks/AWSFreshBasket",
+        href: "#",
+        disabled: true,
+        note: "Placeholder",
+      },
+      {
+        label: "Deployment Evidence",
+        href: "#",
+        disabled: true,
+        note: "Placeholder",
       },
     ],
     featured: true,
     projectType: "cloud",
     imageSrc: "/images/projects/freshbasket.png",
-    caseStudyStatus: "Documented",
+    caseStudyStatus: "Drafting",
     areaAnchors: ["cloud-projects"],
     filters: ["cloud", "web"],
   },
@@ -270,52 +254,43 @@ export const projects: PortfolioProject[] = [
     title: "Lumora",
     category: "Mobile / AI-Assisted Learning",
     status: "Concept / In Progress",
-    role: "iOS App Designer & Developer",
+    role: "Product Design & Mobile Development",
     summary:
-      "A mobile-first smart study companion that helps students organise notes, files, images, and PDFs into clear AI-assisted summaries and study workflows.",
+      "An AI-powered study workspace concept designed to support focused learning, flashcards, and productivity workflows.",
     problem:
-      "Students often collect notes, PDFs, screenshots, slides, and images across different tools, but still need a clearer way to organise material and turn it into understanding.",
+      "Students need learning tools that support focus and active recall without overwhelming them with unnecessary complexity.",
     contributions: [
-      "Created user research, persona direction, and low-fidelity study flows.",
-      "Designed mobile-first iOS screens for workspaces, notes, library, and AI summary interactions.",
-      "Built SwiftUI MVP flows using MVVM structure and reliable state handling.",
-      "Explored AI summary reliability through file/PDF/image content handling and guard checks.",
-      "Iterated the product story from rough design to a usable study companion concept.",
+      "Designed product flow and interface direction.",
+      "Explored AI-assisted learning interactions.",
+      "Planned mobile-first experience and study workflow.",
+      "Developed early concept direction for productivity and learning support.",
     ],
     techStack: [
       "SwiftUI",
-      "MVVM",
-      "Core Data",
-      "FileManager",
-      "Vision / PDFKit",
-      "NestJS",
-      "Prisma",
-      "PostgreSQL",
-      "OpenAI",
-      "Figma",
+      "AI Integration",
+      "Firebase",
+      "Mobile UI",
+      "Product Design",
     ],
     skills: [
-      "Mobile App Development",
+      "Mobile Interface Design",
       "Product Thinking",
-      "UI/UX Design",
-      "AI Workflow",
-      "File Handling",
-      "User Research",
-    ],
-    badges: [
-      "iOS App",
-      "SwiftUI",
-      "AI-Assisted Learning",
-      "Product Design",
+      "AI-Assisted Workflows",
+      "UX Planning",
+      "Learning Tool Design",
     ],
     actions: [
       {
-        label: "View Case Study",
-        href: "/projects/lumora",
+        label: "View Concept",
+        href: "#",
+        disabled: true,
+        note: "Coming soon",
       },
       {
-        label: "GitHub Repo",
-        href: "https://github.com/jaeyunjks/SmartStudyCompanion",
+        label: "Case Study",
+        href: "#",
+        disabled: true,
+        note: "Placeholder",
       },
     ],
     featured: true,
@@ -324,91 +299,58 @@ export const projects: PortfolioProject[] = [
     caseStudyStatus: "Concept in progress",
     areaAnchors: ["mobile-projects", "ai-tools"],
     filters: ["mobile", "ai"],
-  },
-  {
-    id: "focuspop",
-    title: "FocusPop",
-    category: "iOS Game / SwiftUI / Testing",
+  }, {
+    id: "FocusPop",
+    title: "FocusPop (Bubble Pop Game)",
+    category: "Mobile / Game",
     status: "Submitted",
-    role: "SwiftUI Game Developer",
+    role: "Product Design & Mobile Development",
     summary:
-      "A polished SwiftUI bubble-popping game built around short focus sessions. Players choose a mode, pop weighted bubbles, build combo scores, and review session results through a clean mobile interface.",
+      "A bubble pop game designed to improve focus and concentration through engaging gameplay.",
     problem:
-      "Short focus sessions can benefit from simple, playful feedback. FocusPop turns a lightweight timer-based session into a clear game loop with scoring, modes, result review, and local leaderboard persistence.",
+      "Students need learning tools that support focus and active recall without overwhelming them with unnecessary complexity.",
     contributions: [
-      "Built SwiftUI screens for setup, gameplay, pause/resume, result review, and local leaderboard flows.",
-      "Structured gameplay state with MVVM, ObservableObject, and published state updates.",
-      "Implemented weighted bubble scoring, combo rewards, generation constraints, and two gameplay modes.",
-      "Added local persistence for settings and saved scores using UserDefaults, AppStorage, and JSON storage.",
-      "Supported reliability with XCTest unit tests, UI tests, and accessibility identifiers for key flows.",
+      "Designed product flow and interface direction.",
+      "Explored AI-assisted learning interactions.",
+      "Planned mobile-first experience and study workflow.",
+      "Developed early concept direction for productivity and learning support.",
     ],
     techStack: [
-      "Swift",
       "SwiftUI",
-      "Combine",
-      "MVVM",
-      "UserDefaults",
-      "XCTest",
-      "UI Testing",
+      "AI Integration",
+      "Firebase",
+      "Mobile UI",
+      "Product Design",
     ],
     skills: [
-      "Mobile Game UI",
-      "State Management",
-      "Gameplay Logic",
-      "Testable Architecture",
-      "Accessibility IDs",
-      "Iterative UI Polish",
-    ],
-    badges: [
-      "iOS Game",
-      "SwiftUI",
-      "MVVM",
-      "Testing",
-      "Local Persistence",
-    ],
-    deliveryFlow: [
-      "Game Rules",
-      "SwiftUI UI",
-      "MVVM State",
-      "Bubble Generation",
-      "Scoring Logic",
-      "XCTest / UI Tests",
-      "Local Leaderboard",
-    ],
-    featuredTechStack: [
-      "Swift",
-      "SwiftUI",
-      "Combine",
-      "MVVM",
-      "UserDefaults",
-      "XCTest",
-      "UI Testing",
-    ],
-    featuredSkills: [
-      "Mobile Game UI",
-      "State Management",
-      "Gameplay Logic",
-      "Testable Architecture",
-      "Accessibility IDs",
-      "Iterative UI Polish",
+      "Mobile Interface Design",
+      "Product Thinking",
+      "AI-Assisted Workflows",
+      "UX Planning",
+      "Learning Tool Design",
     ],
     actions: [
       {
-        label: "View Case Study",
-        href: "/projects/focuspop",
+        label: "View Concept",
+        href: "#",
+        disabled: true,
+        note: "Coming soon",
       },
       {
-        label: "GitHub / Repo",
-        href: "https://github.com/jaeyunjks/BubblePopGame",
+        label: "Case Study",
+        href: "#",
+        disabled: true,
+        note: "Placeholder",
       },
     ],
     featured: true,
-    projectType: "ios-game",
+    projectType: "mobile-ai",
     imageSrc: "/images/projects/focuspop-preview.png",
-    caseStudyStatus: "Ready",
-    areaAnchors: ["focuspop-game"],
-    filters: ["mobile"],
+    caseStudyStatus: "Concept in progress",
+    areaAnchors: ["mobile-projects", "ai-tools"],
+    filters: ["mobile", "ai"],
   },
+
   {
     id: "personal-portfolio",
     title: "Personal Portfolio Website",
@@ -458,7 +400,7 @@ export const projects: PortfolioProject[] = [
     ],
     featured: true,
     projectType: "portfolio",
-    imageSrc: "/images/projects/portfolio.png",
+    imageSrc: "/images/projects/porfolio-project.png",
     caseStudyStatus: "Iterating",
     areaAnchors: [],
     filters: ["web"],
@@ -486,4 +428,5 @@ export const caseStudyPreviews: CaseStudyPreview[] = [
       "screenshots/evidence",
     ],
   },
+
 ];

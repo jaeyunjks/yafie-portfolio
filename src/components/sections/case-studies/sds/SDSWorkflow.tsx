@@ -48,7 +48,7 @@ export default function SDSWorkflow() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <div className="mt-8 rounded-[28px] border border-white/75 bg-white/52 p-4 shadow-[0_26px_86px_rgba(45,95,157,0.12)] backdrop-blur-2xl lg:p-5">
+          <div className="open-panel mt-8">
             <div className="hidden items-stretch gap-3 lg:grid lg:grid-cols-5">
               {sdsSprints.map((sprint, index) => {
                 const isActive = index === activeSprint;

@@ -23,7 +23,7 @@ export default function StatCard({
   tone = "blue",
 }: StatCardProps) {
   return (
-    <article className="group rounded-3xl border border-white/75 bg-white/72 p-6 shadow-sm shadow-blue-900/5 backdrop-blur-md transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10">
+    <article className="group rounded-[22px] border border-white/72 bg-white/64 p-6 shadow-sm shadow-blue-900/5 backdrop-blur-md transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10">
       <div className={cn("mb-8 flex h-12 w-12 items-center justify-center rounded-2xl", toneClasses[tone])}>
         <Icon size={22} aria-hidden />
       </div>

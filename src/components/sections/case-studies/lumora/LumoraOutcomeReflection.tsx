@@ -46,18 +46,18 @@ export default function LumoraOutcomeReflection() {
 
       <section className="px-6 pb-24 pt-10">
         <Reveal>
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[30px] border border-white/75 bg-white/62 p-8 text-center shadow-[0_28px_90px_rgba(45,95,157,0.13)] backdrop-blur-2xl md:p-10">
-            <div className="mx-auto inline-flex rounded-full border border-[#d4e3ff]/80 bg-[#f8fbff]/82 px-4 py-2 font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+          <div className="open-editorial-cta mx-auto max-w-5xl">
+            <div className="inline-flex rounded-full border border-[#d4e3ff]/80 bg-[#f8fbff]/82 px-4 py-2 font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
               final.thought
             </div>
             <h2 className="mt-5 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
               From scattered materials to clear understanding.
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600">
+            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
               Lumora explores how organised workspaces, native iOS design, and
               AI-assisted summaries can help students study smarter.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/projects"
                 className="inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"

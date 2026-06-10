@@ -15,7 +15,7 @@ export default function LumoraAppFlow() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <div className="mt-8 rounded-[30px] border border-white/75 bg-white/62 p-5 shadow-[0_24px_76px_rgba(45,95,157,0.11)] backdrop-blur-2xl">
+          <div className="open-panel mt-8">
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
               {lumoraAppFlow.map((step, index) => (
                 <article

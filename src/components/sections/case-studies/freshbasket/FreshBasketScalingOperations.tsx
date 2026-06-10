@@ -24,7 +24,7 @@ export default function FreshBasketScalingOperations() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <div className="mt-8 rounded-[30px] border border-white/75 bg-white/62 p-5 shadow-[0_24px_76px_rgba(45,95,157,0.1)] backdrop-blur-2xl">
+          <div className="open-panel mt-8">
             <div className="flex flex-wrap gap-2">
               {freshBasketOperationsCards.map((item) => (
                 <span

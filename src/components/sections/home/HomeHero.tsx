@@ -46,7 +46,7 @@ export default function HomeHero() {
         </p>
         <p className="hero-reveal hero-reveal-2 inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/72 px-4 py-2 text-sm font-bold text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl">
           <span className="h-2 w-2 rounded-full bg-[#2d5f9d] shadow-[0_0_0_6px_rgba(45,95,157,0.12)]" />
-          Open to 2026 Internship / Graduate Roles
+          Open to IT Internship / Graduate Role / Full-Time Role
         </p>
 
         <h1 className="hero-reveal hero-reveal-3 mt-7 text-[clamp(2.25rem,11vw,3rem)] font-bold leading-[1.01] tracking-[-0.04em] text-slate-950 sm:text-6xl lg:text-[5.15rem]">
@@ -64,9 +64,7 @@ export default function HomeHero() {
         </h1>
 
         <p className="hero-reveal hero-reveal-4 mt-6 max-w-2xl text-base leading-8 text-slate-600/90 sm:text-[1.05rem]">
-          I design and build clean, practical software across web, mobile, and
-          AI-assisted products — with a focus on reliable systems, thoughtful
-          interfaces, and real user outcomes.
+          I design and build clean, practical software across web, mobile, and workflow-focused products — with a focus on reliable systems, thoughtful interfaces, and real user outcomes.
         </p>
 
         <div className="hero-reveal hero-reveal-5 mt-8 flex flex-wrap gap-4">

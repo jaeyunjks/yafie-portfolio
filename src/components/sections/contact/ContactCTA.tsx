@@ -7,9 +7,7 @@ export default function ContactCTA() {
   return (
     <section className="pb-20 lg:pb-24">
       <Reveal>
-        <div className="relative overflow-hidden rounded-[22px] border border-white/75 bg-white/68 p-8 shadow-[0_24px_80px_rgba(45,95,157,0.12)] backdrop-blur-xl md:p-12">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#c6b7ff]/24 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-[#8dbbff]/20 blur-3xl" />
+        <div className="open-editorial-cta">
           <div className="relative z-10 max-w-3xl">
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
               Let&apos;s start a conversation.

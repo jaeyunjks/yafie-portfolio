@@ -76,8 +76,7 @@ export default function ExperienceMap() {
       </Reveal>
 
       <Reveal>
-        <div className="relative overflow-hidden rounded-[24px] border border-white/75 bg-white/58 p-4 shadow-[0_24px_80px_rgba(45,95,157,0.1)] backdrop-blur-xl md:p-5">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(141,187,255,0.16),transparent_30%),radial-gradient(circle_at_88%_84%,rgba(198,183,255,0.14),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.82),rgba(238,245,255,0.36))]" />
+        <div className="open-panel">
           <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
             {categories.map((category, index) => {
               const spanClass = index > 2 ? "xl:col-span-3" : "xl:col-span-2";
@@ -88,8 +87,8 @@ export default function ExperienceMap() {
                   href={category.href}
                   className={`group relative min-h-[13rem] overflow-hidden rounded-[18px] border p-5 backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:bg-white/92 ${spanClass} ${
                     category.featured
-                      ? "border-[#8dbbff]/60 bg-white/82 shadow-[0_20px_64px_rgba(45,95,157,0.15)] hover:border-[#2d5f9d]/35 hover:shadow-[0_28px_80px_rgba(45,95,157,0.18)]"
-                      : "border-white/75 bg-white/66 shadow-[0_16px_48px_rgba(45,95,157,0.08)] hover:border-[#8dbbff]/55 hover:shadow-[0_22px_64px_rgba(45,95,157,0.12)]"
+                      ? "border-[#8dbbff]/55 bg-white/78 shadow-[0_18px_52px_rgba(45,95,157,0.12)] hover:border-[#2d5f9d]/35 hover:shadow-[0_24px_68px_rgba(45,95,157,0.16)]"
+                      : "border-white/72 bg-white/58 shadow-[0_12px_36px_rgba(45,95,157,0.06)] hover:border-[#8dbbff]/55 hover:shadow-[0_18px_50px_rgba(45,95,157,0.1)]"
                   }`}
                 >
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.72),rgba(248,251,255,0.4)_58%,rgba(231,222,255,0.12))]" />

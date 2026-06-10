@@ -41,7 +41,7 @@ export default function SDSProblem() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <div className="mt-8 grid gap-5 rounded-[28px] border border-white/75 bg-white/52 p-4 shadow-[0_26px_86px_rgba(45,95,157,0.12)] backdrop-blur-2xl lg:grid-cols-[0.36fr_0.64fr] lg:p-5">
+          <div className="open-panel mt-8 grid gap-5 lg:grid-cols-[0.36fr_0.64fr]">
             <div className="h-fit self-start rounded-[22px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-4 shadow-[0_16px_48px_rgba(45,95,157,0.08)]">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#d4e3ff]/75 bg-white/78 text-[#2d5f9d]">

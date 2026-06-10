@@ -76,9 +76,8 @@ export default function ProjectMap({
       </Reveal>
 
       <Reveal>
-        <div className="relative overflow-hidden rounded-[20px] border border-white/75 bg-white/58 p-3 shadow-[0_16px_52px_rgba(45,95,157,0.08)] backdrop-blur-xl md:p-4">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.82),rgba(238,245,255,0.34)),radial-gradient(circle_at_88%_20%,rgba(198,183,255,0.12),transparent_34%)]" />
-          <div className="relative z-10 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div className="open-panel">
+          <div className="relative z-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div
               className="flex flex-wrap gap-2"
               role="group"
