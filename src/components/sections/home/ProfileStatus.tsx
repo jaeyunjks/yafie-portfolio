@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Cloud,
   Code2,
@@ -8,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 
 const workflowSteps = [
   { label: "Understand", Icon: Layers3 },
@@ -88,9 +91,23 @@ const proofPoints = [
   "collaborative delivery",
 ];
 
+const mobileSnapshotCards = [
+  {
+    title: "Engineering Breadth",
+    label: "ENGINEERING.OS",
+    tag: "overview",
+    description: "Web, mobile, cloud, testing, and product delivery in one practical learning loop.",
+    Icon: GitBranch,
+  },
+  ...capabilityModules,
+];
+
 export default function ProfileStatus() {
+  const { ref: mobileCarouselRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
+
   return (
-    <section className="pb-20 lg:pb-24">
+    <section className="pb-16 lg:pb-24">
       <Reveal>
         <div className="grid gap-5 border-l border-[#8dbbff]/45 pl-4 lg:grid-cols-[minmax(0,0.68fr)_minmax(280px,0.32fr)] lg:items-end">
           <div>
@@ -121,11 +138,69 @@ export default function ProfileStatus() {
       </Reveal>
 
       <Reveal>
-        <div className="relative mt-7 overflow-hidden rounded-[18px] border border-white/70 bg-white/52 p-3 shadow-[0_24px_70px_rgba(45,95,157,0.1)] backdrop-blur-xl md:p-4 lg:p-5">
+        <div className="mt-5 md:hidden">
+          <div
+            ref={mobileCarouselRef}
+            className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3"
+          >
+            {mobileSnapshotCards.map((card, index) => (
+              <article
+                key={card.title}
+                className="min-w-[86vw] snap-center rounded-[18px] border border-white/75 bg-white/72 p-3.5 shadow-[0_14px_38px_rgba(45,95,157,0.08)] backdrop-blur-xl"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[13px] border border-[#8dbbff]/24 bg-[#eef5ff]/82 text-[#2d5f9d]">
+                    <card.Icon size={18} strokeWidth={2.2} aria-hidden />
+                  </span>
+                  <span className="rounded-full border border-[#d4e3ff]/80 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+                    {card.tag}
+                  </span>
+                </div>
+                <p className="mt-4 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                  {card.label}
+                </p>
+                <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">
+                  {card.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {card.description}
+                </p>
+                {index === 0 ? (
+                  <div className="mt-4 grid grid-cols-2 gap-2">
+                    {["Understand", "Build", "Test", "Improve"].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-[10px] border border-[#d4e3ff]/72 bg-white/70 px-2.5 py-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.1em] text-slate-600"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </article>
+            ))}
+        </div>
+
+          <div className="mt-2 grid gap-1.5">
+            <div className="h-1 rounded-full bg-[#dbe7fb]">
+              <div
+                className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
+              Swipe {Math.round(progress)}% explored
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal>
+        <div className="relative mt-7 hidden overflow-hidden rounded-[18px] border border-white/70 bg-white/52 p-4 shadow-[0_24px_70px_rgba(45,95,157,0.1)] backdrop-blur-xl md:block lg:p-5">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.82),rgba(245,249,255,0.48)_42%,rgba(245,241,255,0.46)),radial-gradient(circle_at_14%_8%,rgba(141,187,255,0.2),transparent_28%),radial-gradient(circle_at_90%_2%,rgba(198,183,255,0.18),transparent_24%)]" />
           <div className="pointer-events-none absolute inset-x-7 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
           <div className="relative z-10 grid gap-3">
-            <article className="group relative overflow-hidden rounded-[16px] border border-[#d4e3ff]/72 bg-white/82 p-4 shadow-[0_18px_54px_rgba(45,95,157,0.1)] backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:shadow-[0_24px_70px_rgba(45,95,157,0.14)] md:p-5">
+            <article className="group relative overflow-hidden rounded-[16px] border border-[#d4e3ff]/72 bg-white/82 p-5 shadow-[0_18px_54px_rgba(45,95,157,0.1)] backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:shadow-[0_24px_70px_rgba(45,95,157,0.14)]">
               <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(115deg,transparent,rgba(141,187,255,0.1),rgba(198,183,255,0.12))]" />
               <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-[#8dbbff]/0 via-[#8dbbff]/55 to-[#8dbbff]/0" />
 

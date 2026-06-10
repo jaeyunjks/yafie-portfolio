@@ -1,24 +1,38 @@
-import Reveal from "@/components/ui/Reveal";
+"use client";
 
-const placeholders = [
+import Reveal from "@/components/ui/Reveal";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
+
+const achievements = [
   {
-    title: "Tutor Feedback",
-    content: "Placeholder for future screenshot or comment.",
+    title: "SDS Tech Festival",
+    label: "Showcase recognition",
+    content: "Project showcase evidence from the SDS Tech Festival.",
+    image: "/images/achievements/SDS-techfest.png",
+    alt: "SDS Tech Festival achievement screenshot",
   },
   {
-    title: "Team Collaboration",
-    content:
-      "Placeholder for future peer review, teamwork feedback, or project reflection.",
+    title: "Software Testing Recognition",
+    label: "Academic proof",
+    content: "Achievement evidence connected to software testing and quality work.",
+    image: "/images/achievements/STQM.png",
+    alt: "Software testing achievement screenshot",
   },
   {
-    title: "Professional Recognition",
-    content: "Placeholder for workplace feedback, achievement, or recognition.",
+    title: "Project Nomination",
+    label: "Nomination evidence",
+    content: "Recognition evidence for project work and presentation quality.",
+    image: "/images/achievements/Screenshot 2026-06-10 at 1.56.11 pm.png",
+    alt: "Project nomination achievement screenshot",
   },
 ];
 
 export default function SocialProof() {
+  const { ref: mobileCarouselRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
+
   return (
-    <section className="pb-20 lg:pb-24">
+    <section className="pb-16 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
@@ -34,37 +48,58 @@ export default function SocialProof() {
         </div>
       </Reveal>
 
-      <div className="grid gap-5 lg:grid-cols-3">
-        {placeholders.map((item, index) => (
-          <Reveal key={item.title} delay={index * 0.08}>
-            <article className="group rounded-3xl border border-white/75 bg-white/66 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.09)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(45,95,157,0.13)]">
-              <div className="mb-5 rounded-[1.4rem] border border-white/75 bg-gradient-to-br from-[#f9f9ff]/80 via-white/58 to-[#eef4ff]/74 p-4">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full border border-white/80 bg-gradient-to-br from-[#d4e3ff] to-[#e7deff]" />
-                  <div className="grid gap-1.5">
-                    <span className="h-2 w-24 rounded-full bg-slate-300/55" />
-                    <span className="h-2 w-16 rounded-full bg-[#8dbbff]/45" />
+      <div
+        ref={mobileCarouselRef}
+        className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-3"
+      >
+        {achievements.map((item, index) => (
+          <Reveal
+            key={item.title}
+            delay={index * 0.08}
+            className="min-w-[86vw] snap-center md:min-w-0"
+          >
+            <article className="group flex h-full flex-col rounded-[20px] border border-white/75 bg-white/64 p-3 shadow-[0_14px_40px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:shadow-[0_22px_64px_rgba(45,95,157,0.12)] md:rounded-[22px]">
+              <div className="overflow-hidden rounded-[16px] border border-[#d4e3ff]/72 bg-[#f8fbff]/86 p-2 shadow-inner shadow-white/70 md:rounded-[17px]">
+                <div className="flex items-center justify-between border-b border-[#d4e3ff]/65 px-2 pb-2">
+                  <div className="flex items-center gap-1.5" aria-hidden>
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff8f8f]/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#8dbbff]/80" />
                   </div>
+                  <span className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-slate-400">
+                    proof.{String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
-                <div className="grid gap-2">
-                  <span className="h-2 w-full rounded-full bg-slate-300/45" />
-                  <span className="h-2 w-10/12 rounded-full bg-[#c6b7ff]/45" />
-                  <span className="h-2 w-8/12 rounded-full bg-[#8dbbff]/38" />
+                <div className="aspect-[3/2] p-1.5 md:aspect-[4/3] md:p-2">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </div>
-              <p className="font-mono text-xs font-bold text-[#2d5f9d]">
-                [{String(index + 1).padStart(2, "0")}]
+              <p className="mt-4 font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/75 md:mt-5">
+                {item.label}
               </p>
-              <h3 className="mt-4 text-xl font-extrabold tracking-tight text-slate-950">
+              <h3 className="mt-2 text-xl font-extrabold tracking-tight text-slate-950">
                 {item.title}
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">{item.content}</p>
-              <p className="mt-5 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-400">
-                Screenshot / name placeholder
-              </p>
             </article>
           </Reveal>
         ))}
+      </div>
+
+      <div className="mt-2 grid gap-1.5 md:hidden">
+        <div className="h-1 rounded-full bg-[#dbe7fb]">
+          <div
+            className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
+          Swipe {Math.round(progress)}% explored
+        </p>
       </div>
     </section>
   );

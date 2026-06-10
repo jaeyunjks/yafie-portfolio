@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import TechPill from "@/components/sections/projects/TechPill";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 
 const featuredProjects = [
   {
@@ -9,7 +13,10 @@ const featuredProjects = [
     role: "Product Design & Development",
     description:
       "AI-powered study workspace designed to support learning, productivity, and focus.",
-    tags: ["SwiftUI", "AI Integration", "Firebase"],
+    tags: ["SwiftUI", "OpenAI", "Figma"],
+    image: "/images/projects/Lumora/lumora.png",
+    status: "Mobile",
+    alt: "Lumora smart study companion app preview",
   },
   {
     title: "FreshBasket Vendor Portal",
@@ -18,6 +25,9 @@ const featuredProjects = [
     description:
       "Cloud-deployed produce marketplace demonstrating full-stack development and AWS deployment.",
     tags: ["Node.js", "Express", "AWS", "MySQL"],
+    image: "/images/projects/freshbasket.png",
+    status: "Cloud",
+    alt: "FreshBasket AWS deployment preview",
   },
   {
     title: "SDS Project Management System",
@@ -25,13 +35,19 @@ const featuredProjects = [
     role: "Frontend & Product Development",
     description:
       "Student project allocation platform focused on workflow management and usability.",
-    tags: ["React", "Full-Stack", "Workflow Systems"],
+    tags: ["React", "TypeScript", "Flask", "SQLite", "Vite"],
+    image: "/images/projects/sds_projects.png",
+    status: "Workflow",
+    alt: "SDS project management system preview",
   },
 ];
 
 export default function FeaturedProject() {
+  const { ref: mobileCarouselRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
+
   return (
-    <section className="pb-20 lg:pb-24">
+    <section className="pb-16 lg:pb-24">
       <Reveal>
         <div className="mb-8 flex flex-col justify-between gap-5 border-l border-[#8dbbff]/45 pl-4 md:flex-row md:items-end">
           <div>
@@ -49,55 +65,82 @@ export default function FeaturedProject() {
         </div>
       </Reveal>
 
-      <div className="grid gap-5 lg:grid-cols-3">
+      <div
+        ref={mobileCarouselRef}
+        className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0"
+      >
         {featuredProjects.map((project, index) => (
-          <Reveal key={project.title} delay={index * 0.08}>
-            <article className="group flex min-h-[25rem] flex-col justify-between rounded-3xl border border-white/75 bg-white/68 p-6 shadow-[0_18px_55px_rgba(45,95,157,0.09)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(45,95,157,0.14)]">
-              <div>
-                <div className="mb-7 flex items-start justify-between gap-4">
-                  <span className="rounded-full border border-[#d4e3ff]/90 bg-[#eef4ff]/70 px-3 py-1 font-mono text-xs font-bold text-[#2d5f9d]">
-                    [{String(index + 1).padStart(2, "0")}]
-                  </span>
-                  <span className="font-mono text-xs font-bold tracking-[0.16em] text-slate-400">
-                    {project.year}
-                  </span>
-                </div>
-                <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#625595]/75">
-                  {"// "}
-                  {project.role}
-                </p>
-                <h3 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-950">
-                  {project.title}
-                </h3>
-                <p className="mt-5 text-sm leading-7 text-slate-600">
-                  {project.description}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-slate-200/75 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-600"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+          <Reveal
+            key={project.title}
+            delay={index * 0.08}
+            className="h-full min-w-[88vw] snap-center sm:min-w-[72vw] lg:min-w-0"
+          >
+            <article className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-white/75 bg-white/68 p-3 shadow-[0_16px_44px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(45,95,157,0.14)] lg:rounded-[24px]">
+              <div className="relative aspect-[1668/576] overflow-hidden rounded-[18px] border border-[#d4e3ff]/70 bg-[#f8fbff]">
+                <img
+                  src={project.image}
+                  alt={project.alt}
+                  className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.025]"
+                />
+                <span className="absolute right-3 top-3 rounded-full border border-white/70 bg-white/76 px-3 py-1.5 font-mono text-[0.56rem] font-extrabold uppercase tracking-[0.14em] text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl">
+                  {project.status}
+                </span>
               </div>
 
-              <Link
-                href="/projects"
-                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 group-hover:-translate-y-0.5 hover:bg-[#265589] hover:shadow-xl"
-              >
-                View project{" "}
-                <ArrowRight
-                  size={17}
-                  aria-hidden
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
+              <div className="flex flex-1 flex-col p-2 pt-4 md:p-4 md:pt-6">
+                <div>
+                  <div className="mb-4 flex items-start justify-between gap-4 md:mb-5">
+                    <span className="rounded-full border border-[#d4e3ff]/90 bg-[#eef4ff]/70 px-3 py-1 font-mono text-xs font-bold text-[#2d5f9d]">
+                      [{String(index + 1).padStart(2, "0")}]
+                    </span>
+                    <span className="font-mono text-xs font-bold tracking-[0.16em] text-slate-400">
+                      {project.year}
+                    </span>
+                  </div>
+                  <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#625595]/75">
+                    {"// "}
+                    {project.role}
+                  </p>
+                  <h3 className="mt-3 text-xl font-extrabold tracking-tight text-slate-950 md:mt-4 md:text-2xl">
+                    {project.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 md:mt-5 md:leading-7">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2 md:mt-6">
+                    {project.tags.map((tag) => (
+                      <TechPill key={tag} tech={tag} />
+                    ))}
+                  </div>
+                </div>
+
+                <Link
+                  href="/projects"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 group-hover:-translate-y-0.5 hover:bg-[#265589] hover:shadow-xl md:mt-8"
+                >
+                  View project{" "}
+                  <ArrowRight
+                    size={17}
+                    aria-hidden
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+              </div>
             </article>
           </Reveal>
         ))}
+      </div>
+
+      <div className="mt-2 grid gap-1.5 lg:hidden">
+        <div className="h-1 rounded-full bg-[#dbe7fb]">
+          <div
+            className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
+          Swipe {Math.round(progress)}% explored
+        </p>
       </div>
     </section>
   );
