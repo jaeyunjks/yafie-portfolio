@@ -70,12 +70,6 @@ export type PortfolioProject = {
   architecture?: ProjectArchitectureEntry[];
 };
 
-export type CaseStudyPreview = {
-  title: string;
-  status: string;
-  includes: string[];
-};
-
 export const projects: PortfolioProject[] = [
   {
     id: "sds-modernisation",
@@ -404,28 +398,4 @@ export const projects: PortfolioProject[] = [
     areaAnchors: [],
     filters: ["web"],
   },
-];
-
-export const caseStudyPreviews: CaseStudyPreview[] = [
-  {
-    title: "SDS Modernisation Case Study",
-    status: "In progress",
-    includes: [
-      "workflow problem",
-      "frontend contribution",
-      "testing evidence",
-      "project coordination",
-    ],
-  },
-  {
-    title: "FreshBasket AWS Deployment Case Study",
-    status: "Documented",
-    includes: [
-      "architecture",
-      "deployment setup",
-      "database connection",
-      "screenshots/evidence",
-    ],
-  },
-
 ];

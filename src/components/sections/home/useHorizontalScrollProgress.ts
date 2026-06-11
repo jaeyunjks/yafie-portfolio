@@ -13,6 +13,8 @@ export default function useHorizontalScrollProgress<T extends HTMLElement>() {
       return;
     }
 
+    // Normalize horizontal scroll into a simple 0-100 value so different
+    // mobile carousels can share the same progress UI.
     const updateProgress = () => {
       const maxScroll = node.scrollWidth - node.clientWidth;
 

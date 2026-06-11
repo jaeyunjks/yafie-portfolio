@@ -50,6 +50,8 @@ export default function TypewriterHeading({
       timeouts = [];
     };
 
+    // Resetting the whole cycle before retyping avoids leaving partial words
+    // on screen when the heading loops.
     const scheduleCycle = () => {
       if (cancelled) {
         return;

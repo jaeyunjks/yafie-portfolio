@@ -1,13 +1,6 @@
-const TODO_EMAIL = "TODO: add real email before deployment";
-const TODO_LINKEDIN = "TODO: add LinkedIn URL before deployment";
-
 export const contactMeta = {
   email: "yaafiiee.10@gmail.com",
-  emailDisplay: "Email available on request",
-  emailTodo: TODO_EMAIL,
   linkedin: "https://www.linkedin.com/in/yafiefarabi0710/",
-  linkedinDisplay: "LinkedIn URL to be added",
-  linkedinTodo: TODO_LINKEDIN,
   github: "https://github.com/jaeyunjks",
   resume: "",
   resumeDisplay: "Resume available on request",
