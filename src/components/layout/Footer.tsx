@@ -1,11 +1,22 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { contactMeta } from "@/data/contact";
 
 const socialLinks = [
-  { label: "Email", href: "mailto:hello@yafie.dev", icon: Mail },
-  { label: "LinkedIn", href: "https://www.linkedin.com", icon: FaLinkedin },
-  { label: "GitHub", href: "https://github.com", icon: FaGithub },
+  {
+    label: "Email",
+    href: contactMeta.email ? `mailto:${contactMeta.email}` : "",
+    icon: Mail,
+    disabled: !contactMeta.email,
+  },
+  {
+    label: "LinkedIn",
+    href: contactMeta.linkedin,
+    icon: FaLinkedin,
+    disabled: !contactMeta.linkedin,
+  },
+  { label: "GitHub", href: contactMeta.github, icon: FaGithub, disabled: false },
 ];
 
 export default function Footer() {
@@ -26,18 +37,31 @@ export default function Footer() {
 
         <div className="flex flex-wrap justify-center gap-2 md:justify-end">
           {socialLinks.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/52 px-2.5 py-1.5 text-[0.72rem] font-bold text-slate-500 shadow-sm backdrop-blur-md hover:border-[#8dbbff]/65 hover:bg-white/78 hover:text-[#2d5f9d]"
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-            >
-              <span className="flex h-4 w-4 items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5">
-                <item.icon size={14} aria-hidden />
+            item.disabled ? (
+              <span
+                key={item.label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/42 px-2.5 py-1.5 text-[0.72rem] font-bold text-slate-400 shadow-sm backdrop-blur-md"
+                aria-disabled="true"
+              >
+                <span className="flex h-4 w-4 items-center justify-center">
+                  <item.icon size={14} aria-hidden />
+                </span>
+                <span>{item.label}</span>
               </span>
-              <span>{item.label}</span>
-            </Link>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/52 px-2.5 py-1.5 text-[0.72rem] font-bold text-slate-500 shadow-sm backdrop-blur-md hover:border-[#8dbbff]/65 hover:bg-white/78 hover:text-[#2d5f9d]"
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+              >
+                <span className="flex h-4 w-4 items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5">
+                  <item.icon size={14} aria-hidden />
+                </span>
+                <span>{item.label}</span>
+              </Link>
+            )
           ))}
         </div>
       </div>

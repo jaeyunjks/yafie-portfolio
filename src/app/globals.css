@@ -108,14 +108,47 @@ a {
   animation: hero-reveal 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.typewriter-heading {
+  max-width: 100%;
+}
+
+.typewriter-heading__line {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  min-height: 1.08em;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  white-space: nowrap;
+}
+
+.typewriter-heading__typed {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: baseline;
+  white-space: inherit;
+}
+
+.typewriter-heading__cursor {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.82em;
+  margin-left: 0.08em;
+  translate: 0 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #2d5f9d, #8dbbff);
+  animation: typewriter-cursor-blink 780ms steps(1, end) infinite;
+}
+
+.typewriter-heading__cursor--complete {
+  opacity: 0.72;
+}
+
 .title-reveal {
   display: inline-block;
   max-width: 100%;
-  overflow: hidden;
-  padding-right: 0.12em;
+  overflow: visible;
   white-space: normal;
-  border-right: 0.055em solid transparent;
-  animation: title-typing 7.2s ease-in-out infinite;
 }
 
 .title-reveal-1 {
@@ -128,16 +161,6 @@ a {
 
 .title-reveal-3 {
   animation-delay: 260ms;
-}
-
-:where(h1):not(.hero-reveal):not(.no-title-reveal) {
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  padding-right: 0.12em;
-  white-space: normal;
-  border-right: 0.055em solid transparent;
-  animation: title-typing 7.2s ease-in-out infinite;
 }
 
 .hero-reveal-1 {
@@ -167,29 +190,6 @@ a {
 .yafie-shimmer {
   background-size: 180% 100%;
   animation: yafie-shimmer 6.5s ease-in-out infinite;
-}
-
-.hero-typing-line {
-  display: inline-block;
-  max-width: 100%;
-  overflow: visible;
-  line-height: 1.12;
-  padding-right: 0.12em;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
-  white-space: nowrap;
-  border-right: 0.055em solid #2d5f9d;
-  clip-path: inset(0 100% 0 0);
-  will-change: clip-path, border-right-color;
-  box-sizing: content-box;
-}
-
-.hero-typing-line-a {
-  animation: hero-type-line-a 7.2s ease-in-out 720ms infinite;
-}
-
-.hero-typing-line-b {
-  animation: hero-type-line-b 7.2s ease-in-out 720ms infinite;
 }
 
 .soft-float {
@@ -316,7 +316,7 @@ a {
 @keyframes hero-reveal {
   from {
     opacity: 0;
-    filter: blur(10px);
+    filter: blur(2px);
     transform: translateY(14px);
   }
 
@@ -324,6 +324,18 @@ a {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+@keyframes typewriter-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
   }
 }
 
@@ -335,86 +347,6 @@ a {
 
   50% {
     background-position: 100% 50%;
-  }
-}
-
-@keyframes hero-type-line-a {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    border-right-color: transparent;
-  }
-
-  14% {
-    border-right-color: #2d5f9d;
-  }
-
-  28%,
-  82% {
-    clip-path: inset(0 0 0 0);
-    border-right-color: transparent;
-  }
-
-  88% {
-    border-right-color: transparent;
-  }
-
-  92%,
-  100% {
-    clip-path: inset(0 100% 0 0);
-    border-right-color: transparent;
-  }
-}
-
-@keyframes hero-type-line-b {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    border-right-color: transparent;
-  }
-
-  26% {
-    border-right-color: #2d5f9d;
-  }
-
-  42%,
-  76% {
-    clip-path: inset(0 0 0 0);
-    border-right-color: transparent;
-  }
-
-  84% {
-    border-right-color: transparent;
-  }
-
-  88%,
-  100% {
-    clip-path: inset(0 100% 0 0);
-    border-right-color: transparent;
-  }
-}
-
-@keyframes title-typing {
-  0% {
-    clip-path: inset(0 100% 0 0);
-  }
-
-  14% {
-    border-right-color: #2d5f9d;
-  }
-
-  28%,
-  82% {
-    clip-path: inset(0 0 0 0);
-    border-right-color: #2d5f9d;
-  }
-
-  88% {
-    border-right-color: transparent;
-  }
-
-  92%,
-  100% {
-    clip-path: inset(0 100% 0 0);
-    border-right-color: transparent;
   }
 }
 
@@ -514,9 +446,8 @@ a {
     transition-duration: 1ms !important;
   }
 
-  .hero-typing-line {
-    width: auto;
-    max-width: none;
-    border-right: 0;
+  .typewriter-heading__cursor {
+    display: none;
   }
+
 }

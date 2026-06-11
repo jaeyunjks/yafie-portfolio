@@ -2,17 +2,17 @@
 
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useMemo, useState } from "react";
-import { ArrowUpRight, Mail, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, Loader2, Mail, Send } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
-import { contactMeta, contactReasons } from "@/data/contact";
+import { contactMeta } from "@/data/contact";
 
 type ContactFormState = {
   name: string;
   email: string;
   subject: string;
-  reason: string;
   message: string;
+  website: string;
 };
 
 type ContactFormErrors = Partial<Record<keyof ContactFormState, string>>;
@@ -21,8 +21,8 @@ const initialFormState: ContactFormState = {
   name: "",
   email: "",
   subject: "",
-  reason: contactReasons[0],
   message: "",
+  website: "",
 };
 
 function isValidEmail(email: string) {
@@ -32,27 +32,36 @@ function isValidEmail(email: string) {
 export default function ContactForm() {
   const [form, setForm] = useState<ContactFormState>(initialFormState);
   const [errors, setErrors] = useState<ContactFormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitState, setSubmitState] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
+  const hasContactEmail = Boolean(contactMeta.email);
 
   const mailtoHref = useMemo(() => {
-    const subject = form.subject || form.reason || "Portfolio enquiry";
+    if (!contactMeta.email) {
+      return "";
+    }
+
+    const subject = form.subject || "Portfolio enquiry";
     const body = [
       `Name: ${form.name || "[Your name]"}`,
       `Email: ${form.email || "[Your email]"}`,
-      `Reason: ${form.reason || "[Reason for contact]"}`,
+      `Subject: ${form.subject || "[Subject]"}`,
       "",
       form.message || "[Your message]",
     ].join("\n");
 
     return `mailto:${contactMeta.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, [form]);
+  }, [form.email, form.message, form.name, form.subject]);
 
   function handleChange(
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
-    setSubmitted(false);
+    setSubmitState("idle");
+    setSubmitMessage("");
 
     if (errors[name as keyof ContactFormState]) {
       setErrors((current) => ({
@@ -75,6 +84,10 @@ export default function ContactForm() {
       nextErrors.email = "Please enter a valid email address.";
     }
 
+    if (!form.subject.trim()) {
+      nextErrors.subject = "Please include a subject.";
+    }
+
     if (!form.message.trim()) {
       nextErrors.message = "Please include a short message.";
     }
@@ -82,18 +95,67 @@ export default function ContactForm() {
     return nextErrors;
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const nextErrors = validateForm();
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
-      setSubmitted(false);
+      setSubmitState("error");
+      setSubmitMessage("Please check the highlighted fields.");
       return;
     }
 
-    setSubmitted(true);
+    if (form.website.trim()) {
+      setSubmitState("success");
+      setSubmitMessage("Thanks — your message has been received.");
+      setForm(initialFormState);
+      return;
+    }
+
+    setSubmitState("loading");
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
+          website: form.website.trim(),
+        }),
+      });
+
+      const result = (await response.json()) as
+        | { ok: true; message?: string }
+        | { ok: false; message?: string; errors?: ContactFormErrors };
+
+      if (!response.ok || !result.ok) {
+        if (!result.ok && result.errors) {
+          setErrors((current) => ({ ...current, ...result.errors }));
+        }
+
+        setSubmitState("error");
+        setSubmitMessage(
+          (!result.ok && result.message) || "Something went wrong sending the message.",
+        );
+        return;
+      }
+
+      setSubmitState("success");
+      setSubmitMessage(result.message || "Message sent. I’ll get back to you soon.");
+      setForm(initialFormState);
+      setErrors({});
+    } catch {
+      setSubmitState("error");
+      setSubmitMessage("Something went wrong sending the message.");
+    }
   }
 
   return (
@@ -108,124 +170,118 @@ export default function ContactForm() {
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
             A simple form for role opportunities, project discussions, or
-            general professional contact.
+            professional contact.
           </p>
         </div>
       </Reveal>
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,0.66fr)_minmax(280px,0.34fr)]">
-        <Reveal>
-          <article className="overflow-hidden rounded-[24px] border border-white/75 bg-white/74 p-6 shadow-[0_24px_80px_rgba(45,95,157,0.11)] backdrop-blur-xl md:p-7">
-            <div className="mb-6 flex items-center justify-between gap-4 border-b border-[#d4e3ff]/58 pb-4">
-              <div>
-                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
-                  contact.form
-                </p>
-                <p className="mt-2 text-sm text-slate-500">
-                  Professional outreach, project questions, or opportunity
-                  introductions.
-                </p>
-              </div>
-              <span className="rounded-full border border-[#d4e3ff]/70 bg-white/68 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
-                client-side only
-              </span>
+      <Reveal>
+        <article className="overflow-hidden rounded-[24px] border border-white/75 bg-white/74 p-6 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl md:p-7">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#d4e3ff]/58 pb-4">
+            <div>
+              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                contact.form
+              </p>
+              <p className="mt-2 text-sm text-slate-500">
+                Professional outreach, project questions, or opportunity introductions.
+              </p>
             </div>
+            <span className="rounded-full border border-[#d4e3ff]/70 bg-white/68 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
+              client-side only
+            </span>
+          </div>
 
-            <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
-              <div className="grid gap-5 md:grid-cols-2">
-                <FieldWrapper
+          <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
+            <div className="grid gap-5 md:grid-cols-2">
+              <FieldWrapper id="contact-name" label="Name" error={errors.name} required>
+                <input
                   id="contact-name"
-                  label="Name"
-                  error={errors.name}
-                  required
-                >
-                  <input
-                    id="contact-name"
-                    name="name"
-                    type="text"
-                    value={form.name}
-                    onChange={handleChange}
-                    aria-invalid={Boolean(errors.name)}
-                    aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className={inputClassName(Boolean(errors.name))}
-                    placeholder="Your name"
-                  />
-                </FieldWrapper>
-
-                <FieldWrapper
-                  id="contact-email"
-                  label="Email"
-                  error={errors.email}
-                  required
-                >
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    aria-invalid={Boolean(errors.email)}
-                    aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className={inputClassName(Boolean(errors.email))}
-                    placeholder="your.email@example.com"
-                  />
-                </FieldWrapper>
-              </div>
-
-              <div className="grid gap-5 md:grid-cols-[minmax(0,0.6fr)_minmax(220px,0.4fr)]">
-                <FieldWrapper id="contact-subject" label="Subject" error={errors.subject}>
-                  <input
-                    id="contact-subject"
-                    name="subject"
-                    type="text"
-                    value={form.subject}
-                    onChange={handleChange}
-                    className={inputClassName(Boolean(errors.subject))}
-                    placeholder="A short summary"
-                  />
-                </FieldWrapper>
-
-                <FieldWrapper id="contact-reason" label="Reason for contact" error={errors.reason}>
-                  <select
-                    id="contact-reason"
-                    name="reason"
-                    value={form.reason}
-                    onChange={handleChange}
-                    className={inputClassName(Boolean(errors.reason))}
-                  >
-                    {contactReasons.map((reason) => (
-                      <option key={reason} value={reason}>
-                        {reason}
-                      </option>
-                    ))}
-                  </select>
-                </FieldWrapper>
-              </div>
-
-              <FieldWrapper
-                id="contact-message"
-                label="Message"
-                error={errors.message}
-                required
-              >
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows={7}
-                  value={form.message}
+                  name="name"
+                  type="text"
+                  value={form.name}
                   onChange={handleChange}
-                  aria-invalid={Boolean(errors.message)}
-                  aria-describedby={errors.message ? "contact-message-error" : undefined}
-                  className={`${inputClassName(Boolean(errors.message))} resize-y`}
-                  placeholder="Share the opportunity, project context, timeline, or the best next step."
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={errors.name ? "contact-name-error" : undefined}
+                  className={inputClassName(Boolean(errors.name))}
+                  placeholder="Your name"
                 />
               </FieldWrapper>
 
-              <div className="flex flex-col gap-3 border-t border-[#d4e3ff]/58 pt-5 sm:flex-row sm:flex-wrap">
-                <Button type="submit" className="w-full sm:w-auto">
-                  Send message
+              <FieldWrapper id="contact-email" label="Email" error={errors.email} required>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? "contact-email-error" : undefined}
+                  className={inputClassName(Boolean(errors.email))}
+                  placeholder="your.email@example.com"
+                />
+              </FieldWrapper>
+            </div>
+
+            <FieldWrapper id="contact-subject" label="Subject" error={errors.subject} required>
+              <input
+                id="contact-subject"
+                name="subject"
+                type="text"
+                value={form.subject}
+                onChange={handleChange}
+                aria-invalid={Boolean(errors.subject)}
+                aria-describedby={errors.subject ? "contact-subject-error" : undefined}
+                className={inputClassName(Boolean(errors.subject))}
+                placeholder="A short summary"
+              />
+            </FieldWrapper>
+
+            <FieldWrapper
+              id="contact-message"
+              label="Message"
+              error={errors.message}
+              required
+            >
+              <textarea
+                id="contact-message"
+                name="message"
+                rows={7}
+                value={form.message}
+                onChange={handleChange}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? "contact-message-error" : undefined}
+                className={`${inputClassName(Boolean(errors.message))} resize-y`}
+                placeholder="Share the opportunity, project context, timeline, or the best next step."
+              />
+            </FieldWrapper>
+
+            <div className="hidden">
+              <label htmlFor="contact-website">Website</label>
+              <input
+                id="contact-website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={form.website}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="flex flex-col gap-3 border-t border-[#d4e3ff]/58 pt-5 sm:flex-row sm:flex-wrap">
+              <Button
+                type="submit"
+                className="w-full sm:w-auto"
+                disabled={submitState === "loading"}
+              >
+                {submitState === "loading" ? "Sending..." : "Send message"}
+                {submitState === "loading" ? (
+                  <Loader2 size={16} aria-hidden className="animate-spin" />
+                ) : (
                   <Send size={16} aria-hidden />
-                </Button>
+                )}
+              </Button>
+              {hasContactEmail ? (
                 <a
                   href={mailtoHref}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-6 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
@@ -233,57 +289,46 @@ export default function ContactForm() {
                   Open email app
                   <Mail size={16} aria-hidden />
                 </a>
-              </div>
-
-              {submitted ? (
-                <div
-                  aria-live="polite"
-                  className="rounded-[16px] border border-emerald-200/80 bg-emerald-50/90 px-4 py-3 text-sm font-semibold leading-6 text-emerald-900"
+              ) : (
+                <span
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/58 px-6 py-3 text-sm font-extrabold text-slate-500 shadow-sm backdrop-blur-md sm:w-auto"
+                  aria-disabled="true"
                 >
-                  Thanks — your message is ready. Please connect this form to
-                  an email service before production.
-                </div>
-              ) : null}
-            </form>
-          </article>
-        </Reveal>
+                  Email available on request
+                  <Mail size={16} aria-hidden />
+                </span>
+              )}
+            </div>
 
-        <Reveal delay={0.08}>
-          <aside className="grid gap-4 self-start">
-            <article className="overflow-hidden rounded-[22px] border border-white/75 bg-white/72 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
-                contact.notes
-              </p>
-              <h3 className="mt-3 text-lg font-extrabold tracking-tight text-slate-950">
-                Professional outreach works best when it is specific.
-              </h3>
-              <ul className="mt-4 grid gap-3 text-sm leading-7 text-slate-600">
-                <li>Role, project, or opportunity type</li>
-                <li>Relevant timeline or start window</li>
-                <li>Key responsibilities or collaboration context</li>
-                <li>Best follow-up path</li>
-              </ul>
-            </article>
+            <p className="text-xs leading-6 text-slate-500">
+              This form is sent securely through the server. If it does not work
+              yet, check the Resend environment variables.
+            </p>
 
-            <article className="overflow-hidden rounded-[22px] border border-white/75 bg-white/72 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
-                integration note
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                This form currently validates on the client only.
-                Connect it to an email or form service before production.
-              </p>
-              <a
-                href={`mailto:${contactMeta.email}`}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-[#2d5f9d] transition-colors duration-200 hover:text-[#24548f]"
+            {submitState !== "idle" ? (
+              <div
+                aria-live="polite"
+                className={`flex items-start gap-3 rounded-[16px] px-4 py-3 text-sm font-semibold leading-6 ${
+                  submitState === "success"
+                    ? "border border-emerald-200/80 bg-emerald-50/90 text-emerald-900"
+                    : submitState === "error"
+                      ? "border border-rose-200/80 bg-rose-50/90 text-rose-900"
+                      : "border border-slate-200/80 bg-white/72 text-slate-700"
+                }`}
               >
-                Use direct email instead
-                <ArrowUpRight size={16} aria-hidden />
-              </a>
-            </article>
-          </aside>
-        </Reveal>
-      </div>
+                {submitState === "success" ? (
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0" aria-hidden />
+                ) : submitState === "error" ? (
+                  <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden />
+                ) : (
+                  <Loader2 size={16} className="mt-0.5 shrink-0 animate-spin" aria-hidden />
+                )}
+                <span>{submitMessage}</span>
+              </div>
+            ) : null}
+          </form>
+        </article>
+      </Reveal>
     </section>
   );
 }
@@ -331,5 +376,3 @@ function inputClassName(hasError: boolean) {
       : "border-[#d4e3ff]/72 focus:border-[#8dbbff]/55 focus:ring-4 focus:ring-[#dfeeff]",
   ].join(" ");
 }
-
-// TODO: Connect this form to a real email or form submission service before production use.

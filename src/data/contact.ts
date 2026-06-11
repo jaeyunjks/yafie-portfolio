@@ -1,11 +1,19 @@
+const TODO_EMAIL = "TODO: add real email before deployment";
+const TODO_LINKEDIN = "TODO: add LinkedIn URL before deployment";
+
 export const contactMeta = {
-  email: "your.email@example.com",
-  linkedin: "https://www.linkedin.com/in/your-profile",
-  github: "https://github.com/your-username",
-  resume: "#",
+  email: "yaafiiee.10@gmail.com",
+  emailDisplay: "Email available on request",
+  emailTodo: TODO_EMAIL,
+  linkedin: "https://www.linkedin.com/in/yafiefarabi0710/",
+  linkedinDisplay: "LinkedIn URL to be added",
+  linkedinTodo: TODO_LINKEDIN,
+  github: "https://github.com/jaeyunjks",
+  resume: "",
+  resumeDisplay: "Resume available on request",
   location: "Sydney, Australia",
-  status: "Open to 2026 internship / graduate roles",
-  focus: "Software Engineering · Frontend · Testing · Product-minded systems",
+  status: "Open to internship, graduate, and full-time roles",
+  focus: "Software Engineering · Software Development · Cloud Engineering",
   responseStyle: "Clear, professional, and project-focused",
 };
 
@@ -13,47 +21,36 @@ export const contactMethods = [
   {
     key: "email",
     title: "Email",
-    description:
-      "Best for role opportunities, recruiter messages, project conversations, and formal contact.",
+    description: "Best for role opportunities and project conversations.",
     cta: "Send email",
     href: `mailto:${contactMeta.email}`,
-    value: contactMeta.email,
+    value: "Direct email",
   },
   {
     key: "linkedin",
     title: "LinkedIn",
-    description:
-      "Best for professional networking, recruiter conversations, and work updates.",
+    description: "Professional updates and networking.",
     cta: "Open LinkedIn",
     href: contactMeta.linkedin,
-    value: "Professional networking profile",
+    value: "Networking profile",
   },
   {
     key: "github",
     title: "GitHub",
-    description:
-      "Best for viewing code, repositories, and project development activity.",
+    description: "Code, repositories, and project activity.",
     cta: "Open GitHub",
     href: contactMeta.github,
-    value: "Code and repository activity",
+    value: "Repository activity",
   },
   {
     key: "resume",
     title: "Resume",
-    description:
-      "Download or view my resume for a concise summary of education, experience, projects, and technical skills.",
-    cta: "View Resume",
+    description: "One-page summary of education, experience, and projects.",
+    cta: "Available on request",
     href: contactMeta.resume,
-    value: "Resume / CV",
+    value: contactMeta.resumeDisplay,
+    disabled: true,
   },
-] as const;
-
-export const contactReasons = [
-  "Internship / Graduate Role",
-  "Software Engineering Opportunity",
-  "Project Collaboration",
-  "Portfolio / Project Question",
-  "Other",
 ] as const;
 
 export const availabilityCards = [
@@ -81,32 +78,5 @@ export const availabilityCards = [
     title: "Team Collaboration",
     description:
       "Interested in environments where communication, ownership, feedback, and iteration matter.",
-  },
-] as const;
-
-export const faqItems = [
-  {
-    question: "Where are you based?",
-    answer: "Sydney, Australia.",
-  },
-  {
-    question: "What roles are you interested in?",
-    answer:
-      "Software engineering, frontend development, full-stack development, testing/quality, and graduate or internship pathways.",
-  },
-  {
-    question: "What should I include in a message?",
-    answer:
-      "A short description of the opportunity, role, project, timeline, and the best way to follow up.",
-  },
-  {
-    question: "Can I view your projects first?",
-    answer:
-      "Yes - the Projects page includes selected software projects and case study work.",
-  },
-  {
-    question: "Are you open to professional networking?",
-    answer:
-      "Yes - I'm open to connecting with software engineers, recruiters, mentors, and project collaborators.",
   },
 ] as const;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Smartphone } from "lucide-react";
 import { SiGithub } from "react-icons/si";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import { lumoraMetadata } from "@/data/caseStudies/lumora";
 import { LumoraImage } from "./LumoraMockups";
@@ -14,9 +15,10 @@ export default function LumoraCaseHero() {
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
               case.study // lumora
             </p>
-            <h1 className="mt-4 text-6xl font-black tracking-tight text-slate-950 sm:text-7xl lg:text-8xl">
-              Lumora
-            </h1>
+            <TypewriterHeading
+              className="mt-4 text-6xl font-black tracking-tight text-slate-950 sm:text-7xl lg:text-8xl"
+              lines={["Lumora"]}
+            />
             <p className="mt-4 text-2xl font-extrabold leading-tight text-[#2d5f9d] sm:text-3xl">
               Smart Study Companion
             </p>

@@ -130,62 +130,59 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div
-        id="mobile-navigation"
-        className={cn(
-          "fixed inset-0 z-[60] flex min-h-svh flex-col overflow-hidden bg-white/82 px-6 py-5 backdrop-blur-2xl transition-[opacity,transform] duration-300 md:hidden",
-          isMenuOpen
-            ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-3 opacity-0",
-        )}
-      >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(141,187,255,0.24),transparent_32%),radial-gradient(circle_at_84%_10%,rgba(198,183,255,0.2),transparent_28%),linear-gradient(180deg,rgba(249,249,255,0.9),rgba(255,255,255,0.72))]" />
-        <div className="relative z-10 flex items-center justify-between">
-          <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/68">
-            // navigation
-          </p>
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-white/68 text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]"
-            aria-label="Close navigation menu"
-            onClick={closeMenu}
-          >
-            <X size={16} aria-hidden />
-          </button>
-        </div>
+      {isMenuOpen ? (
+        <div
+          id="mobile-navigation"
+          className="fixed inset-0 z-[60] flex min-h-svh flex-col overflow-hidden bg-white/82 px-6 py-5 backdrop-blur-2xl transition-[opacity,transform] duration-300 md:hidden"
+        >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(141,187,255,0.24),transparent_32%),radial-gradient(circle_at_84%_10%,rgba(198,183,255,0.2),transparent_28%),linear-gradient(180deg,rgba(249,249,255,0.9),rgba(255,255,255,0.72))]" />
+          <div className="relative z-10 flex items-center justify-between">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/68">
+              // navigation
+            </p>
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-white/68 text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]"
+              aria-label="Close navigation menu"
+              onClick={closeMenu}
+            >
+              <X size={16} aria-hidden />
+            </button>
+          </div>
 
-        <nav aria-label="Mobile navigation" className="relative z-10 flex flex-1 items-center justify-center">
-          <ul className="grid w-full max-w-xs gap-2 text-center sm:gap-3">
-            {navItems.map((item) => (
-              <li key={item.href}>
+          <nav aria-label="Mobile navigation" className="relative z-10 flex flex-1 items-center justify-center">
+            <ul className="grid w-full max-w-xs gap-2 text-center sm:gap-3">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={cn(
+                      "group flex items-center justify-center gap-2 rounded-full px-5 py-2 text-[clamp(1.45rem,6vw,2rem)] font-semibold leading-none tracking-tight text-slate-900 transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white/64 hover:text-[#2d5f9d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]",
+                      pathname === item.href && "bg-white/72 text-[#2d5f9d] shadow-sm shadow-blue-900/10",
+                    )}
+                  >
+                    {pathname === item.href ? (
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#2d5f9d] shadow-[0_0_0_4px_rgba(45,95,157,0.12)]" aria-hidden />
+                    ) : null}
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
                 <Link
-                  href={item.href}
+                  href="/contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className={cn(
-                    "group flex items-center justify-center gap-2 rounded-full px-5 py-2 text-[clamp(1.45rem,6vw,2rem)] font-semibold leading-none tracking-tight text-slate-900 transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white/64 hover:text-[#2d5f9d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]",
-                    pathname === item.href && "bg-white/72 text-[#2d5f9d] shadow-sm shadow-blue-900/10",
-                  )}
+                  className="mt-3 flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.11em] text-white shadow-lg shadow-blue-900/15 transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-[#265589] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]"
                 >
-                  {pathname === item.href ? (
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#2d5f9d] shadow-[0_0_0_4px_rgba(45,95,157,0.12)]" aria-hidden />
-                  ) : null}
-                  {item.label}
+                  Let&apos;s Connect
+                  <MessageCircle size={16} aria-hidden />
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link
-                href="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="mt-3 flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.11em] text-white shadow-lg shadow-blue-900/15 transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-[#265589] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]"
-              >
-                Let&apos;s Connect
-                <MessageCircle size={16} aria-hidden />
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+            </ul>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

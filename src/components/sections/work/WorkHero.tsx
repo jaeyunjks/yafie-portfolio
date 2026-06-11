@@ -8,6 +8,7 @@ import {
   Route,
   Workflow,
 } from "lucide-react";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 
 const dashboardBlocks = [
@@ -52,9 +53,10 @@ export default function WorkHero() {
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
             01 // work.init
           </p>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl">
-            Work Experience.
-          </h1>
+          <TypewriterHeading
+            className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl"
+            lines={["Work Experience."]}
+          />
           <h2 className="mt-5 max-w-4xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-4xl">
             Building practical software experience across development, testing,
             and collaborative delivery.

@@ -8,6 +8,7 @@ import {
   PackageCheck,
   Smartphone,
 } from "lucide-react";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import ScrollToFeaturedProjectsButton from "./ScrollToFeaturedProjectsButton";
 
@@ -49,9 +50,10 @@ export default function ProjectsHero() {
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
             01 // projects.init
           </p>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl">
-            Projects.
-          </h1>
+          <TypewriterHeading
+            className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl"
+            lines={["Projects."]}
+          />
           <h2 className="mt-5 max-w-4xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-4xl">
             Software projects built through product thinking, practical
             engineering, and continuous refinement.

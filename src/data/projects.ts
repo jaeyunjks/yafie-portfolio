@@ -18,6 +18,7 @@ export type ProjectType =
   | "workflow"
   | "cloud"
   | "mobile-ai"
+  | "ios-game"
   | "web-mvc"
   | "portfolio"
   | "fullstack-workflow";
@@ -56,6 +57,8 @@ export type PortfolioProject = {
   actions: ProjectAction[];
   featured: boolean;
   projectType: ProjectType;
+  projectDisplayType?: string;
+  projectDate?: string;
   imageSrc?: string;
   caseStudyStatus: string;
   areaAnchors: string[];
@@ -183,21 +186,23 @@ export const projects: PortfolioProject[] = [
     ],
     featured: true,
     projectType: "fullstack-workflow",
+    projectDisplayType: "Workflow system",
+    projectDate: "Feb 2026 - Present",
     imageSrc: "/images/projects/sds_projects.png",
     caseStudyStatus: "In progress",
     areaAnchors: ["workflow-systems"],
     filters: ["workflow", "web"],
   },
   {
-    id: "freshbasket-vendor-portal",
-    title: "FreshBasket Vendor Portal",
-    category: "Full-Stack / Cloud Deployment",
+    id: "freshbasket-aws",
+    title: "FreshBasket AWS Deployment",
+    category: "Cloud Deployment / Full-Stack Deployment",
     status: "Completed / University Project",
-    role: "Full-Stack Developer",
+    role: "Cloud Deployment / Full-Stack Deployment",
     summary:
-      "A cloud-deployed produce marketplace/vendor portal built with Node.js, Express, EJS, MySQL, and AWS services.",
+      "A documented AWS deployment case study for a Node.js, Express, EJS, and MySQL vendor portal using Elastic Beanstalk, EC2, RDS MySQL, load balancing, Auto Scaling, VPC networking, security groups, environment variables, and SNS notification setup.",
     problem:
-      "The project demonstrates how a practical marketplace-style application can support produce selection, order/request management, admin status updates, and database-backed workflows.",
+      "The project demonstrates how a full-stack vendor portal can be configured, deployed, connected to a managed database, and documented in an AWS Academy Learner Lab environment after the live deployment expires.",
     contributions: [
       "Built customer-facing produce box request flow.",
       "Implemented admin request/status management.",
@@ -214,6 +219,8 @@ export const projects: PortfolioProject[] = [
       "RDS",
       "EC2",
       "SNS",
+      "VPC",
+      "Auto Scaling",
     ],
     skills: [
       "Full-Stack Development",
@@ -226,27 +233,19 @@ export const projects: PortfolioProject[] = [
     actions: [
       {
         label: "View Case Study",
-        href: "#",
-        disabled: true,
-        note: "Coming soon",
+        href: "/projects/freshbasket-aws",
       },
       {
         label: "GitHub / Repo",
-        href: "#",
-        disabled: true,
-        note: "Placeholder",
-      },
-      {
-        label: "Deployment Evidence",
-        href: "#",
-        disabled: true,
-        note: "Placeholder",
+        href: "https://github.com/jaeyunjks/AWSFreshBasket",
       },
     ],
     featured: true,
     projectType: "cloud",
+    projectDisplayType: "Cloud deployment",
+    projectDate: "University Project 2026",
     imageSrc: "/images/projects/freshbasket.png",
-    caseStudyStatus: "Drafting",
+    caseStudyStatus: "Documented",
     areaAnchors: ["cloud-projects"],
     filters: ["cloud", "web"],
   },
@@ -282,82 +281,79 @@ export const projects: PortfolioProject[] = [
     ],
     actions: [
       {
-        label: "View Concept",
-        href: "#",
-        disabled: true,
-        note: "Coming soon",
-      },
-      {
-        label: "Case Study",
-        href: "#",
-        disabled: true,
-        note: "Placeholder",
+        label: "View Case Study",
+        href: "/projects/lumora",
       },
     ],
     featured: true,
     projectType: "mobile-ai",
+    projectDisplayType: "iOS / AI study app",
+    projectDate: "2026",
     imageSrc: "/images/projects/Lumora/lumora.png",
     caseStudyStatus: "Concept in progress",
     areaAnchors: ["mobile-projects", "ai-tools"],
     filters: ["mobile", "ai"],
-  }, {
-    id: "FocusPop",
-    title: "FocusPop (Bubble Pop Game)",
-    category: "Mobile / Game",
+  },
+  {
+    id: "focuspop",
+    title: "FocusPop",
+    category: "Mobile Game / SwiftUI",
     status: "Submitted",
-    role: "Product Design & Mobile Development",
+    role: "iOS Game Designer & Developer",
     summary:
-      "A bubble pop game designed to improve focus and concentration through engaging gameplay.",
+      "A polished SwiftUI bubble-popping game built around short focus sessions. Players choose a mode, pop weighted bubbles, build combo scores, and review session results through a clean mobile interface.",
     problem:
-      "Students need learning tools that support focus and active recall without overwhelming them with unnecessary complexity.",
+      "FocusPop explores how a small mobile game can make short focus sessions feel playful while keeping gameplay logic, scoring, persistence, and testing clear.",
     contributions: [
-      "Designed product flow and interface direction.",
-      "Explored AI-assisted learning interactions.",
-      "Planned mobile-first experience and study workflow.",
-      "Developed early concept direction for productivity and learning support.",
+      "Designed a SwiftUI game flow from player setup to final score review.",
+      "Implemented mode selection, timed sessions, bubble generation, scoring, combo logic, and pause/resume behaviour.",
+      "Structured gameplay state with MVVM patterns and ObservableObject state updates.",
+      "Used local persistence for settings and high-score leaderboard behaviour.",
+      "Validated core gameplay logic with XCTest and UI test coverage.",
     ],
     techStack: [
+      "Swift",
       "SwiftUI",
-      "AI Integration",
-      "Firebase",
-      "Mobile UI",
-      "Product Design",
+      "Combine",
+      "MVVM",
+      "UserDefaults",
+      "XCTest",
+      "UI Testing",
     ],
     skills: [
-      "Mobile Interface Design",
-      "Product Thinking",
-      "AI-Assisted Workflows",
-      "UX Planning",
-      "Learning Tool Design",
+      "Mobile Game UI",
+      "State Management",
+      "Gameplay Logic",
+      "Testable Architecture",
+      "Accessibility IDs",
+      "Iterative UI Polish",
     ],
     actions: [
       {
-        label: "View Concept",
-        href: "#",
-        disabled: true,
-        note: "Coming soon",
+        label: "View Case Study",
+        href: "/projects/focuspop",
       },
       {
-        label: "Case Study",
-        href: "#",
-        disabled: true,
-        note: "Placeholder",
+        label: "GitHub / Repo",
+        href: "https://github.com/jaeyunjks/BubblePopGame",
       },
     ],
     featured: true,
-    projectType: "mobile-ai",
+    projectType: "ios-game",
+    projectDisplayType: "Mobile game",
+    projectDate: "2026",
     imageSrc: "/images/projects/focuspop-preview.png",
-    caseStudyStatus: "Concept in progress",
-    areaAnchors: ["mobile-projects", "ai-tools"],
-    filters: ["mobile", "game", "ai"],
+    caseStudyStatus: "Submitted",
+    areaAnchors: ["mobile-projects", "game-projects"],
+    filters: ["mobile", "game"],
   },
 
   {
     id: "personal-portfolio",
-    title: "Personal Portfolio Website",
+    title: "Portfolio Redesign & Personal Brand System",
     category: "Frontend / Design System / Personal Branding",
     status: "Active / Iterating",
-    role: "Designer & Frontend Developer",
+    role: "Frontend Developer & UI/UX Designer",
     summary:
       "A premium software engineering portfolio designed to present projects, work experience, skills, and personal story with a strong visual identity and recruiter-friendly structure.",
     problem:
@@ -387,20 +383,22 @@ export const projects: PortfolioProject[] = [
     ],
     actions: [
       {
-        label: "View Source",
+        label: "View Case Study",
         href: "#",
         disabled: true,
-        note: "Placeholder",
+        note: "Planned",
       },
       {
-        label: "View Design Notes",
+        label: "GitHub / Repo",
         href: "#",
         disabled: true,
-        note: "Placeholder",
+        note: "Add repo",
       },
     ],
     featured: true,
     projectType: "portfolio",
+    projectDisplayType: "Personal Website / UI System",
+    projectDate: "2026",
     imageSrc: "/images/projects/porfolio-project.png",
     caseStudyStatus: "Iterating",
     areaAnchors: [],
@@ -421,7 +419,7 @@ export const caseStudyPreviews: CaseStudyPreview[] = [
   },
   {
     title: "FreshBasket AWS Deployment Case Study",
-    status: "Drafting",
+    status: "Documented",
     includes: [
       "architecture",
       "deployment setup",

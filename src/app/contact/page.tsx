@@ -2,7 +2,6 @@ import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   ContactAvailability,
   ContactCTA,
-  ContactFAQ,
   ContactForm,
   ContactHero,
   ContactMethods,
@@ -16,7 +15,6 @@ export default function ContactPage() {
       <ContactMethods />
       <ContactForm />
       <ContactAvailability />
-      <ContactFAQ />
       <ContactCTA />
     </div>
   );

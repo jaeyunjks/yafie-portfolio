@@ -7,6 +7,7 @@ import {
   MessageSquareMore,
   Sparkles,
 } from "lucide-react";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import { contactMeta } from "@/data/contact";
 
@@ -33,13 +34,6 @@ const signalRows = [
   },
 ] as const;
 
-const connectionSteps = [
-  "Recruiter",
-  "Conversation",
-  "Role Fit",
-  "Next Step",
-] as const;
-
 export default function ContactHero() {
   return (
     <section className="grid min-h-[calc(100svh-8rem)] items-center gap-8 pb-20 pt-2 md:gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,0.78fr)] lg:gap-12 lg:pb-24">
@@ -48,9 +42,10 @@ export default function ContactHero() {
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
             01 // contact.init
           </p>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl">
-            Contact.
-          </h1>
+          <TypewriterHeading
+            className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl"
+            lines={["Contact."]}
+          />
           <h2 className="mt-5 max-w-4xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-4xl">
             Let&apos;s connect about software engineering, internships,
             graduate roles, or project opportunities.
@@ -120,28 +115,6 @@ export default function ContactHero() {
                 ))}
               </div>
 
-              <div className="mt-4 rounded-[18px] border border-[#d4e3ff]/62 bg-white/68 p-4">
-                <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-slate-500">
-                  Connection path
-                </p>
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  {connectionSteps.map((step, index) => (
-                    <div key={step} className="flex items-center gap-2">
-                      <span className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-slate-600">
-                        {step}
-                      </span>
-                      {index < connectionSteps.length - 1 ? (
-                        <ArrowRight
-                          size={13}
-                          strokeWidth={2.2}
-                          aria-hidden
-                          className="text-[#2d5f9d]/42"
-                        />
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </article>

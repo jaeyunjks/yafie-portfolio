@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import AboutProfileConsole from "./AboutProfileConsole";
 
@@ -12,9 +13,10 @@ export default function AboutHero() {
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
               01 // about.init
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl">
-              About me.
-            </h1>
+            <TypewriterHeading
+              className="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 md:text-6xl"
+              lines={["About me."]}
+            />
             <h2 className="mt-5 max-w-3xl text-2xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
               Software engineering, product thinking, and human-centred
               execution.

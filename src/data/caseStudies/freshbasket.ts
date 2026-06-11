@@ -105,6 +105,8 @@ export const freshBasketDatabaseTables = [
 ];
 
 export const freshBasketNetworkingCards = [
+  // TODO before public deployment: manually blur/crop AWS account IDs,
+  // endpoints, public IPs, security group IDs, emails, and credentials in these screenshots.
   {
     title: "Custom VPC",
     body: "Hosted deployment resources inside a controlled AWS networking boundary.",
@@ -142,6 +144,8 @@ export const freshBasketOperationsCards = [
 ];
 
 export const freshBasketOperationsImages = [
+  // TODO before public deployment: manually blur/crop AWS account IDs,
+  // endpoints, public IPs, IAM details, environment values, emails, and credentials.
   {
     title: "Elastic Beanstalk Health",
     image: "/images/projects/AWS/beanstalk-health-ok.png",
@@ -161,6 +165,9 @@ export const freshBasketOperationsImages = [
 ];
 
 export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
+  // TODO before public deployment: manually blur/crop any sensitive
+  // identifiers, endpoints, account details, emails, credentials, public IPs,
+  // SNS ARNs, environment values, or unrelated browser tabs in these evidence images.
   {
     title: "Architecture Diagram",
     image: "/images/projects/AWS/architecture-diagram.png",

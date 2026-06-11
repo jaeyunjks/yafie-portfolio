@@ -124,8 +124,10 @@ export default function ProjectCard({
             </div>
 
             <div className="mt-auto flex flex-wrap gap-3 pt-5">
-              {project.actions.slice(0, isPrimary ? 2 : 2).map((action) =>
-                action.disabled ? (
+              {project.actions.slice(0, isPrimary ? 2 : 2).map((action) => {
+                const isExternal = action.href.startsWith("http");
+
+                return action.disabled ? (
                   <span
                     key={action.label}
                     className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-white/58 px-4 py-2 text-sm font-extrabold text-slate-500"
@@ -143,13 +145,15 @@ export default function ProjectCard({
                   <Link
                     key={action.label}
                     href={action.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
                     className="inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-4 py-2 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#265589] hover:shadow-xl"
                   >
                     {action.label}
                     <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
                   </Link>
-                ),
-              )}
+                );
+              })}
             </div>
           </div>
         </div>

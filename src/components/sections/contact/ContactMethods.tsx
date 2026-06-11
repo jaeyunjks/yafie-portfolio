@@ -23,51 +23,56 @@ export default function ContactMethods() {
             Ways to connect.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            Choose the easiest way to reach out.
+            Choose the quickest way to reach out.
           </p>
         </div>
       </Reveal>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-3 md:grid-cols-2">
         {contactMethods.map((method, index) => {
           const Icon = methodIcons[method.key];
+          const isDisabled = "disabled" in method && method.disabled;
           const isExternal = method.href.startsWith("http");
           const isMail = method.href.startsWith("mailto:");
 
           return (
             <Reveal key={method.title} delay={index * 0.05}>
-              <article className="group h-full overflow-hidden rounded-[20px] border border-white/75 bg-white/72 p-5 shadow-[0_18px_55px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:border-[#8dbbff]/55 hover:bg-white/90 hover:shadow-[0_24px_70px_rgba(45,95,157,0.13)]">
-                <div className="flex h-full flex-col">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_12px_28px_rgba(45,95,157,0.1)]">
-                    <Icon size={19} strokeWidth={2.2} aria-hidden />
-                  </span>
+              <article className="group flex h-full items-start gap-4 rounded-[18px] border border-white/75 bg-white/72 p-4 shadow-[0_16px_40px_rgba(45,95,157,0.07)] backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:bg-white/88 hover:shadow-[0_20px_54px_rgba(45,95,157,0.11)]">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[14px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_22px_rgba(45,95,157,0.08)]">
+                  <Icon size={18} strokeWidth={2.2} aria-hidden />
+                </span>
 
-                  <div className="mt-4">
+                <div className="min-w-0 flex-1">
+                  <div>
                     <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
                       {method.key}
                     </p>
-                    <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">
+                    <h3 className="mt-1 text-base font-extrabold tracking-tight text-slate-950">
                       {method.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
                       {method.description}
                     </p>
                   </div>
 
-                  <div className="mt-4 rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 px-3.5 py-3">
-                    <p className="text-sm font-semibold text-slate-700">
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    <p className="rounded-full border border-[#d4e3ff]/62 bg-[#f8fbff]/72 px-3 py-1.5 text-sm font-semibold text-slate-700">
                       {method.value}
                     </p>
-                  </div>
-
-                  <div className="mt-5 pt-1">
-                    {isExternal || isMail ? (
+                    {isDisabled ? (
+                      <span
+                        className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/66 px-3 py-1.5 text-sm font-extrabold text-slate-500"
+                        aria-disabled="true"
+                      >
+                        {method.cta}
+                      </span>
+                    ) : isExternal || isMail ? (
                       <a
                         href={method.href}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noreferrer" : undefined}
                         aria-label={`${method.cta} (${method.title})`}
-                        className="inline-flex items-center gap-2 text-sm font-extrabold text-[#2d5f9d] transition-colors duration-200 hover:text-[#24548f]"
+                        className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/70 bg-white/70 px-3 py-1.5 text-sm font-extrabold text-[#2d5f9d] transition-[background-color,border-color,color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:bg-white hover:text-[#24548f]"
                       >
                         {method.cta}
                         {isMail ? (
@@ -80,7 +85,7 @@ export default function ContactMethods() {
                       <Link
                         href={method.href}
                         aria-label={`${method.cta} (${method.title})`}
-                        className="inline-flex items-center gap-2 text-sm font-extrabold text-[#2d5f9d] transition-colors duration-200 hover:text-[#24548f]"
+                        className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/70 bg-white/70 px-3 py-1.5 text-sm font-extrabold text-[#2d5f9d] transition-[background-color,border-color,color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#8dbbff]/55 hover:bg-white hover:text-[#24548f]"
                       >
                         {method.cta}
                         {isMail ? (

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiGithub } from "react-icons/si";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import {
   freshBasketLinks,
@@ -18,9 +19,10 @@ export default function FreshBasketCaseHero() {
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
               case.study // freshbasket.aws
             </p>
-            <h1 className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-              FreshBasket AWS Deployment
-            </h1>
+            <TypewriterHeading
+              className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
+              lines={["FreshBasket AWS Deployment"]}
+            />
             <p className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-slate-800 sm:text-3xl">
               A documented AWS deployment of a Node.js and MySQL vendor portal.
             </p>

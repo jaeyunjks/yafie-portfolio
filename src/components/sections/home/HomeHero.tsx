@@ -15,6 +15,7 @@ import {
   Terminal,
 } from "lucide-react";
 import { SiReact } from "react-icons/si";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 
 const mascotSrc = "/images/mascot/husky-coding.png";
 
@@ -50,19 +51,13 @@ export default function HomeHero() {
           <span className="hidden sm:inline">Open to IT Internship / Graduate Role / Full-Time Role</span>
         </p>
 
-        <h1 className="hero-reveal hero-reveal-3 mt-7 text-[clamp(2.25rem,11vw,3rem)] font-bold leading-[1.01] tracking-[-0.04em] text-slate-950 sm:text-6xl lg:text-[5.15rem]">
-          <span className="hero-typing-line hero-typing-line-a">
-            Hi, I&apos;m{" "}
-            <span className="yafie-shimmer font-extrabold bg-gradient-to-r from-[#1f5fbb] via-[#2d8bff] to-[#8dbbff] bg-clip-text text-transparent">
-              Yafie
-            </span>
-            ,
-          </span>
-          <br />
-          <span className="hero-typing-line hero-typing-line-b font-bold text-slate-900">
-            Software Engineer
-          </span>
-        </h1>
+        <TypewriterHeading
+          className="hero-reveal hero-reveal-3 mt-7 text-[clamp(2.25rem,11vw,3rem)] font-bold leading-[1.01] tracking-[-0.04em] text-slate-950 sm:text-6xl lg:text-[5.15rem]"
+          lines={["Hi, I'm Yafie,", "Software Engineer"]}
+          speed={38}
+          lineDelay={280}
+          startDelay={360}
+        />
 
         <p className="hero-reveal hero-reveal-4 mt-6 max-w-2xl text-base leading-8 text-slate-600/90 sm:text-[1.05rem]">
           I design and build clean, practical software across web, mobile, and workflow-focused products — with a focus on reliable systems, thoughtful interfaces, and real user outcomes.

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, FolderKanban } from "lucide-react";
+import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import { sdsMetadata } from "@/data/caseStudies/sdsModernisation";
 import SDSBrowserMockup from "./SDSBrowserMockup";
@@ -44,9 +45,10 @@ export default function SDSCaseHero() {
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
               case.study // sds.modernisation
             </p>
-            <h1 className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-              SDS Project Management Site
-            </h1>
+            <TypewriterHeading
+              className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
+              lines={["SDS Project Management Site"]}
+            />
             <p className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-slate-800 sm:text-3xl">
               Modernising project coordination for Software Development Studio.
             </p>
