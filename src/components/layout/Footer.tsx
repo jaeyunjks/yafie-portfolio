@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 import { contactMeta } from "@/data/contact";
 
 const socialLinks = [
@@ -21,17 +21,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#d4e3ff]/55 bg-gradient-to-b from-white/34 via-white/50 to-white/64 px-6 [padding-block:clamp(1rem,2vw,1.45rem)] backdrop-blur-md md:px-10">
-      <div className="mx-auto grid w-full max-w-[92rem] gap-3 text-sm text-slate-500 md:grid-cols-[auto,1fr,auto] md:items-center md:gap-6">
-        <Link
-          href="/"
-          className="inline-flex items-center justify-center text-xl font-black italic text-[#2d5f9d] md:justify-start"
-          aria-label="Yafie home"
-        >
-          Y.
-        </Link>
+    <footer className="border-t border-[#d4e3ff]/55 bg-gradient-to-b from-white/34 via-white/50 to-white/64 px-6 [padding-block:clamp(0.7rem,1.6vw,1rem)] backdrop-blur-md md:px-10">
+      <div className="mx-auto grid w-full max-w-[92rem] gap-2 text-sm text-slate-500 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4">
+        <div className="hidden md:block" aria-hidden />
 
-        <p className="text-center text-xs leading-5 sm:text-sm">
+        <p className="text-center text-[0.72rem] leading-5 sm:text-xs">
           © {new Date().getFullYear()} Yafie. Built with passion and lots of tea.
         </p>
 
@@ -40,7 +34,7 @@ export default function Footer() {
             item.disabled ? (
               <span
                 key={item.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/42 px-2.5 py-1.5 text-[0.72rem] font-bold text-slate-400 shadow-sm backdrop-blur-md"
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/42 px-2.5 py-1 text-[0.68rem] font-bold text-slate-400 shadow-sm backdrop-blur-md"
                 aria-disabled="true"
               >
                 <span className="flex h-4 w-4 items-center justify-center">
@@ -52,7 +46,7 @@ export default function Footer() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/52 px-2.5 py-1.5 text-[0.72rem] font-bold text-slate-500 shadow-sm backdrop-blur-md hover:border-[#8dbbff]/65 hover:bg-white/78 hover:text-[#2d5f9d]"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200/70 bg-white/52 px-2.5 py-1 text-[0.68rem] font-bold text-slate-500 shadow-sm backdrop-blur-md hover:border-[#8dbbff]/65 hover:bg-white/78 hover:text-[#2d5f9d]"
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noreferrer" : undefined}
               >
