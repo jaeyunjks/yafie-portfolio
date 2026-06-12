@@ -27,7 +27,7 @@ export default function TypewriterHeading({
   startDelay = 280,
   holdDelay = 1400,
   restartDelay = 240,
-  loop = true,
+  loop = false,
 }: TypewriterHeadingProps) {
   const fullLabel = useMemo(() => lines.join(" "), [lines]);
   const [displayedLines, setDisplayedLines] = useState(() => lines.map(() => ""));

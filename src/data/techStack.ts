@@ -115,6 +115,14 @@ export const techStack: TechCategory[] = [
         brandColor: "#339933",
       },
       {
+        name: "NestJS",
+        duration: "6 months",
+        exposure: 25,
+        status: "learning",
+        icon: SiNodedotjs,
+        brandColor: "#e0234e",
+      },
+      {
         name: "Flask",
         duration: "1 year",
         exposure: 40,

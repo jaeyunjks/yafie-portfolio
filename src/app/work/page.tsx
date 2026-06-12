@@ -15,7 +15,9 @@ export default function WorkPage() {
     <div className="relative">
       <AnimatedBackground />
       <WorkHero />
-      <ExperienceMap />
+      <div id="experience-map" className="scroll-mt-32">
+        <ExperienceMap />
+      </div>
       <SoftwareExperience />
       <VolunteerExperience />
       <OtherSignals />

@@ -11,9 +11,15 @@ export default function ProjectsPage() {
     <div className="relative">
       <AnimatedBackground />
       <ProjectsHero />
-      <ProjectsExplorer />
-      <EngineeringDepth />
-      <ProjectsCTA />
+      <div id="project-map" className="scroll-mt-32">
+        <ProjectsExplorer />
+      </div>
+      <div id="engineering-depth" className="scroll-mt-32">
+        <EngineeringDepth />
+      </div>
+      <div id="projects-next" className="scroll-mt-32">
+        <ProjectsCTA />
+      </div>
     </div>
   );
 }

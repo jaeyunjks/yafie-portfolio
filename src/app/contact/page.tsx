@@ -15,7 +15,9 @@ export default function ContactPage() {
       <ContactMethods />
       <ContactForm />
       <ContactAvailability />
-      <ContactCTA />
+      <div id="contact-next" className="scroll-mt-32">
+        <ContactCTA />
+      </div>
     </div>
   );
 }

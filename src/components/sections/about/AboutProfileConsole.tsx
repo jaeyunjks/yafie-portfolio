@@ -1,6 +1,10 @@
 import { Terminal } from "lucide-react";
 
-const stats = ["5+ projects", "web / mobile / cloud", "collaborative builds"];
+const stats = [
+  "5+ Projects",
+  "Web / Mobile / Cloud",
+  "Stakeholder-Aware Builds",
+];
 
 export default function AboutProfileConsole() {
   return (
@@ -39,30 +43,52 @@ export default function AboutProfileConsole() {
             <span className="text-[#2d5f9d]">profile</span> = {"{"}
           </p>
           <p className="pl-4">
-            <span className="text-slate-400">2</span> name:{" "}
-            <span className="text-[#2d5f9d]">&quot;Yafie&quot;</span>,
-          </p>
-          <p className="pl-4">
-            <span className="text-slate-400">3</span> role:{" "}
+            <span className="text-slate-400">2</span> role:{" "}
             <span className="text-[#2d5f9d]">
               &quot;Software Engineering Student&quot;
             </span>
             ,
           </p>
           <p className="pl-4">
-            <span className="text-slate-400">4</span> focus: [
-            <span className="text-[#2d5f9d]">&quot;Software Engineering&quot;</span>,
-          </p>
-          <p className="pl-16">
-            <span className="text-[#2d5f9d]">&quot;Product Thinking&quot;</span>,{" "}
-            <span className="text-[#2d5f9d]">&quot;User Experience&quot;</span>],
+            <span className="text-slate-400">3</span> location:{" "}
+            <span className="text-[#2d5f9d]">&quot;Sydney, Australia&quot;</span>
+            ,
           </p>
           <p className="pl-4">
-            <span className="text-slate-400">5</span> mode:{" "}
+            <span className="text-slate-400">4</span> focus: [
+            <span className="text-[#2d5f9d]">&quot;Frontend&quot;</span>,{" "}
+            <span className="text-[#2d5f9d]">&quot;Full-stack&quot;</span>,
+          </p>
+          <p className="pl-16">
+            <span className="text-[#2d5f9d]">&quot;Cloud&quot;</span>,{" "}
+            <span className="text-[#2d5f9d]">&quot;QA&quot;</span>],
+          </p>
+          <p className="pl-4">
+            <span className="text-slate-400">5</span> strengths: [
+            <span className="text-[#2d5f9d]">
+              &quot;Stakeholder workflows&quot;
+            </span>
+            ,
+          </p>
+          <p className="pl-16">
+            <span className="text-[#2d5f9d]">&quot;Testing&quot;</span>,{" "}
+            <span className="text-[#2d5f9d]">&quot;Product thinking&quot;</span>
+            ],
+          </p>
+          <p className="pl-4">
+            <span className="text-slate-400">6</span> recognition:{" "}
+            <span className="text-[#2d5f9d]">
+              &quot;UTS 2026 Tech Fest Nominee&quot;
+            </span>
+            ,
+          </p>
+          <p className="pl-4">
+            <span className="text-slate-400">7</span> mode:{" "}
             <span className="text-[#2d5f9d]">&quot;build · test · refine&quot;</span>
+            ,
           </p>
           <p>
-            <span className="text-slate-400">6</span> {"}"}
+            <span className="text-slate-400">8</span> {"}"}
           </p>
         </div>
 

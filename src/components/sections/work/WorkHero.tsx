@@ -8,6 +8,7 @@ import {
   Route,
   Workflow,
 } from "lucide-react";
+import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 
@@ -47,7 +48,7 @@ const snapshotFlow = [
 
 export default function WorkHero() {
   return (
-    <section className="grid min-h-[calc(100svh-7rem)] items-center gap-8 pb-20 pt-2 lg:grid-cols-[minmax(0,0.58fr)_minmax(360px,0.42fr)] lg:gap-12 lg:pb-24">
+    <section className="relative grid min-h-[calc(100svh-7rem)] items-center gap-8 pb-20 pt-2 lg:grid-cols-[minmax(0,0.58fr)_minmax(360px,0.42fr)] lg:gap-12 lg:pb-24">
       <Reveal>
         <div className="border-l border-[#8dbbff]/45 pl-4">
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
@@ -165,6 +166,7 @@ export default function WorkHero() {
           </div>
         </article>
       </Reveal>
+      <ScrollCue label="Scroll to explore my work" />
     </section>
   );
 }

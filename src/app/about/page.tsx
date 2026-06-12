@@ -14,11 +14,21 @@ export default function AboutPage() {
     <div className="relative">
       <AnimatedBackground />
       <AboutHero />
-      <AboutStory />
-      <AboutTechStack />
-      <AboutCapabilities />
-      <AboutWorkingStyle />
-      <AboutPersonality />
+      <div id="about-story" className="scroll-mt-32">
+        <AboutStory />
+      </div>
+      <div id="about-tech-stack" className="scroll-mt-32">
+        <AboutTechStack />
+      </div>
+      <div id="about-capability-map" className="scroll-mt-32">
+        <AboutCapabilities />
+      </div>
+      <div id="about-working-style" className="scroll-mt-32">
+        <AboutWorkingStyle />
+      </div>
+      <div id="about-beyond-code" className="scroll-mt-32">
+        <AboutPersonality />
+      </div>
       <AboutCTA />
     </div>
   );

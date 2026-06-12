@@ -13,13 +13,23 @@ export default function HomePage() {
     <div className="relative">
       <AnimatedBackground />
       <HomeHero />
-      <ProfileStatus />
-      <EngineeringFocus />
-      <FeaturedProject />
+      <div id="home-profile" className="scroll-mt-32">
+        <ProfileStatus />
+      </div>
+      <div id="home-focus" className="scroll-mt-32">
+        <EngineeringFocus />
+      </div>
+      <div id="home-selected-work" className="scroll-mt-32">
+        <FeaturedProject />
+      </div>
       <ProfessionalSignals />
-      <SocialProof />
+      <div id="home-proof" className="scroll-mt-32">
+        <SocialProof />
+      </div>
       <CurrentlyExploring />
-      <HomeCTA />
+      <div id="home-next" className="scroll-mt-32">
+        <HomeCTA />
+      </div>
     </div>
   );
 }

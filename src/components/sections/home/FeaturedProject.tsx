@@ -13,7 +13,7 @@ const featuredProjects = [
     role: "Product Design & Development",
     description:
       "AI-powered study workspace designed to support learning, productivity, and focus.",
-    tags: ["SwiftUI", "OpenAI", "Figma"],
+    tags: ["SwiftUI", "NestJS", "Prisma", "PostgreSQL", "JWT Auth"],
     image: "/images/projects/Lumora/lumora.png",
     status: "Mobile",
     alt: "Lumora smart study companion app preview",
@@ -75,12 +75,12 @@ export default function FeaturedProject() {
             delay={index * 0.08}
             className="h-full min-w-[88vw] snap-center sm:min-w-[72vw] lg:min-w-0"
           >
-            <article className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-white/75 bg-white/68 p-3 shadow-[0_16px_44px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(45,95,157,0.14)] lg:rounded-[24px]">
+            <article className="group flex h-full min-h-[31rem] flex-col overflow-hidden rounded-[22px] border border-white/75 bg-white/68 p-3 shadow-[0_16px_44px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(45,95,157,0.14)] lg:min-h-[36rem] lg:rounded-[24px]">
               <div className="relative aspect-[1668/576] overflow-hidden rounded-[18px] border border-[#d4e3ff]/70 bg-[#f8fbff]">
                 <img
                   src={project.image}
                   alt={project.alt}
-                  className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.025]"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.025]"
                 />
                 <span className="absolute right-3 top-3 rounded-full border border-white/70 bg-white/76 px-3 py-1.5 font-mono text-[0.56rem] font-extrabold uppercase tracking-[0.14em] text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl">
                   {project.status}
@@ -88,7 +88,7 @@ export default function FeaturedProject() {
               </div>
 
               <div className="flex flex-1 flex-col p-2 pt-4 md:p-4 md:pt-6">
-                <div>
+                <div className="flex flex-1 flex-col">
                   <div className="mb-4 flex items-start justify-between gap-4 md:mb-5">
                     <span className="rounded-full border border-[#d4e3ff]/90 bg-[#eef4ff]/70 px-3 py-1 font-mono text-xs font-bold text-[#2d5f9d]">
                       [{String(index + 1).padStart(2, "0")}]

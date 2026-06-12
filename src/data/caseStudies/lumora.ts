@@ -1,7 +1,7 @@
 export const lumoraMetadata = [
   "Role: iOS App Designer & Developer",
   "Platform: iOS",
-  "Focus: SwiftUI - AI Summary - Study Workflow",
+  "Focus: SwiftUI - Backend API - AI Summary - Study Workflow",
   "Type: Mobile App Case Study",
 ];
 
@@ -165,11 +165,11 @@ export const lumoraTechStack = [
     ],
   },
   {
-    title: "Backend & AI",
+    title: "Backend, Data & AI",
     items: [
       ["NestJS", "Backend REST API."],
       ["Prisma + PostgreSQL", "Database and data models."],
-      ["JWT Auth", "Secure login/session handling."],
+      ["JWT Auth", "Secure login and session handling."],
       ["OpenAI service", "Summaries, study chat, and embeddings."],
     ],
   },

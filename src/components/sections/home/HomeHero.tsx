@@ -16,8 +16,16 @@ import {
 } from "lucide-react";
 import { SiReact } from "react-icons/si";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
+import ScrollCue from "@/components/ui/ScrollCue";
 
 const mascotSrc = "/images/mascot/husky-coding.png";
+const credibilityChips = [
+  "React / TypeScript",
+  "Next.js",
+  "Full-Stack Apps",
+  "AWS / Cloud",
+  "Testing & QA",
+];
 
 function TechIconBlock({
   children,
@@ -40,15 +48,16 @@ export default function HomeHero() {
   const [mascotFailed, setMascotFailed] = useState(false);
 
   return (
-    <section className="grid min-h-0 items-center gap-7 pb-14 pt-20 sm:min-h-[calc(100svh-7rem)] sm:gap-10 sm:pt-2 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-12 lg:pb-20 xl:gap-16 2xl:gap-20">
+    <section className="relative grid min-h-0 items-center gap-7 pb-20 pt-20 sm:min-h-[calc(100svh-7rem)] sm:gap-10 sm:pb-24 sm:pt-2 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-12 lg:pb-28 xl:gap-16 2xl:gap-20">
       <div className="max-w-[720px]">
         <p className="hero-reveal hero-reveal-1 mb-4 font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#2d5f9d]/75">
           01 // portfolio.init
         </p>
-        <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,21rem)] items-center gap-2 rounded-full border border-white/70 bg-white/72 px-3 py-1.5 text-[0.72rem] font-bold leading-5 text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:gap-3 sm:px-4 sm:py-2 sm:text-sm">
+        <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,30rem)] items-start gap-2 rounded-full border border-white/70 bg-white/72 px-3 py-1.5 text-[0.72rem] font-bold leading-5 text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:items-center sm:gap-3 sm:px-4 sm:py-2 sm:text-sm">
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#2d5f9d] shadow-[0_0_0_5px_rgba(45,95,157,0.12)] sm:h-2 sm:w-2 sm:shadow-[0_0_0_6px_rgba(45,95,157,0.12)]" />
-          <span className="sm:hidden">Open to Internship / Graduate / Full-Time</span>
-          <span className="hidden sm:inline">Open to IT Internship / Graduate Role / Full-Time Role</span>
+          <span>
+            Open to Software Engineering Internships, Graduate Roles &amp; Junior Developer Opportunities
+          </span>
         </p>
 
         <TypewriterHeading
@@ -60,8 +69,19 @@ export default function HomeHero() {
         />
 
         <p className="hero-reveal hero-reveal-4 mt-6 max-w-2xl text-base leading-8 text-slate-600/90 sm:text-[1.05rem]">
-          I design and build clean, practical software across web, mobile, and workflow-focused products — with a focus on reliable systems, thoughtful interfaces, and real user outcomes.
+          I design and build practical software across web, mobile, cloud, and AI-assisted workflows — combining clean interfaces, reliable systems, testing discipline, and stakeholder-aware delivery.
         </p>
+
+        <div className="hero-reveal hero-reveal-5 mt-5 flex flex-wrap gap-2.5">
+          {credibilityChips.map((chip) => (
+            <span
+              key={chip}
+              className="inline-flex items-center rounded-full border border-[#d4e3ff]/75 bg-white/70 px-3 py-1.5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.11em] text-slate-600 shadow-sm backdrop-blur-md sm:text-[0.68rem]"
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
 
         <div className="hero-reveal hero-reveal-5 mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
           <Link
@@ -188,6 +208,7 @@ export default function HomeHero() {
           </div>
         </div>
       </div>
+      <ScrollCue label="Scroll to explore my work" />
     </section>
   );
 }

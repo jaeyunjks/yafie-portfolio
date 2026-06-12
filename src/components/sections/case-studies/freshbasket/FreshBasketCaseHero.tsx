@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiGithub } from "react-icons/si";
+import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import {
@@ -96,6 +97,7 @@ export default function FreshBasketCaseHero() {
           </div>
         </Reveal>
       </div>
+      <ScrollCue label="Scroll to explore my work" />
     </section>
   );
 }

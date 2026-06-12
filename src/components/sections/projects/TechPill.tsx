@@ -11,6 +11,7 @@ import {
   Layers3,
   Network,
   Server,
+  ShieldCheck,
   TestTube2,
   TrendingUp,
 } from "lucide-react";
@@ -88,6 +89,7 @@ const techIconMap: Record<string, { Icon: TechIcon; color: string }> = {
   PostgreSQL: { Icon: SiPostgresql, color: "#4169E1" },
   OpenAI: { Icon: SiOpenai, color: "#111827" },
   Figma: { Icon: SiFigma, color: "#F24E1E" },
+  "JWT Auth": { Icon: ShieldCheck, color: "#2d5f9d" },
   CSS: { Icon: SiCss, color: "#663399" },
   GitHub: { Icon: SiGithub, color: "#181717" },
   Jira: { Icon: SiJira, color: "#0052CC" },

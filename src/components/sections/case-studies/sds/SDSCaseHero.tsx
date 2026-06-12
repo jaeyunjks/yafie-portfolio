@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, FolderKanban } from "lucide-react";
+import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import { sdsMetadata } from "@/data/caseStudies/sdsModernisation";
@@ -7,7 +8,7 @@ import SDSBrowserMockup from "./SDSBrowserMockup";
 
 function SDSHeroPreview() {
   return (
-    <div className="relative lg:pl-2">
+    <div className="relative">
       <div className="absolute -inset-3 rounded-[34px] bg-[radial-gradient(circle_at_70%_12%,rgba(141,187,255,0.26),transparent_36%),radial-gradient(circle_at_12%_88%,rgba(198,183,255,0.2),transparent_34%)] blur-2xl" />
       <div className="relative rounded-[30px] border border-white/78 bg-white/56 p-3 shadow-[0_30px_96px_rgba(45,95,157,0.18)] backdrop-blur-2xl sm:p-4">
         <div className="mb-3 flex items-center justify-between gap-3 px-1">
@@ -39,15 +40,15 @@ function SDSHeroPreview() {
 export default function SDSCaseHero() {
   return (
     <section className="relative isolate -mt-10 overflow-hidden px-6 pb-14 pt-4 sm:-mt-12 sm:pt-6 lg:-mt-14 lg:pt-8">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-10">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] xl:gap-14 2xl:gap-16">
         <Reveal>
-          <div className="max-w-3xl">
+          <div className="max-w-3xl xl:max-w-[34rem]">
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
               case.study // sds.modernisation
             </p>
             <TypewriterHeading
-              className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
-              lines={["SDS Project Management Site"]}
+              className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl xl:text-[4.5rem] 2xl:text-[4.75rem] [&_.typewriter-heading__line]:whitespace-nowrap"
+              lines={["SDS Project", "Management Site"]}
             />
             <p className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-slate-800 sm:text-3xl">
               Modernising project coordination for Software Development Studio.
@@ -90,9 +91,12 @@ export default function SDSCaseHero() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <SDSHeroPreview />
+          <div className="mx-auto w-full max-w-4xl xl:max-w-none xl:pl-10 2xl:pl-14">
+            <SDSHeroPreview />
+          </div>
         </Reveal>
       </div>
+      <ScrollCue label="Scroll to explore my work" />
     </section>
   );
 }

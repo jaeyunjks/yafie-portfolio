@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiGithub } from "react-icons/si";
+import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import { focusPopLinks, focusPopMetadata } from "@/data/caseStudies/focuspop";
@@ -98,6 +99,7 @@ export default function FocusPopCaseHero() {
           </div>
         </Reveal>
       </div>
+      <ScrollCue label="Scroll to explore my work" />
     </section>
   );
 }
