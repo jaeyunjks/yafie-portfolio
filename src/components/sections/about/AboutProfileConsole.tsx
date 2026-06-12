@@ -31,7 +31,7 @@ export default function AboutProfileConsole() {
               Yafie
             </p>
             <p className="text-sm font-semibold text-slate-500">
-              Software Engineering Student
+              Software Developer
             </p>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function AboutProfileConsole() {
           <p className="pl-4">
             <span className="text-slate-400">2</span> role:{" "}
             <span className="text-[#2d5f9d]">
-              &quot;Software Engineering Student&quot;
+              &quot;Software Developer&quot;
             </span>
             ,
           </p>
@@ -66,13 +66,13 @@ export default function AboutProfileConsole() {
           <p className="pl-4">
             <span className="text-slate-400">5</span> strengths: [
             <span className="text-[#2d5f9d]">
-              &quot;Stakeholder workflows&quot;
+              &quot;Stakeholder Communication&quot;
             </span>
             ,
           </p>
           <p className="pl-16">
-            <span className="text-[#2d5f9d]">&quot;Testing&quot;</span>,{" "}
-            <span className="text-[#2d5f9d]">&quot;Product thinking&quot;</span>
+            <span className="text-[#2d5f9d]">&quot;Product-minded engineering&quot;</span>,{" "}
+            <span className="text-[#2d5f9d]">&quot;End-to-end delivery&quot;</span>
             ],
           </p>
           <p className="pl-4">
