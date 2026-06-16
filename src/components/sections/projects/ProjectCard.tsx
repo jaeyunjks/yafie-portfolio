@@ -136,7 +136,7 @@ export default function ProjectCard({
             </div>
 
             <div className="mt-auto pt-5">
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="flex flex-wrap gap-3">
                 {project.actions.slice(0, 2).map((action) => {
                   const isExternal = action.href.startsWith("http");
 
@@ -167,114 +167,106 @@ export default function ProjectCard({
                     </Link>
                   );
                 })}
-
-                {isSdsProject ? (
-                  <div className="relative w-full sm:w-auto">
-                    <div
-                      id={galleryPanelId}
-                      aria-hidden={!isGalleryOpen}
-                      className={`absolute bottom-[calc(100%+12px)] left-0 z-30 w-[min(18.5rem,calc(100vw-3rem))] max-w-full transition-opacity duration-300 ${
-                        isGalleryOpen
-                          ? "pointer-events-auto opacity-100"
-                          : "pointer-events-none opacity-0"
-                      }`}
-                    >
-                      <div
-                        className={`rounded-[22px] border border-[#d7e5fb]/82 bg-white/92 p-2.5 shadow-[0_24px_72px_rgba(45,95,157,0.14)] backdrop-blur-xl transition-[opacity,transform] duration-300 ${
-                          isGalleryOpen
-                            ? "translate-y-0 scale-100 opacity-100"
-                            : "translate-y-2 scale-[0.98] opacity-0"
-                        }`}
-                      >
-                        <div className="flex flex-col gap-1.5">
-                          {sdsLinkGalleryLinks.map((link) => (
-                            <Link
-                              key={link.label}
-                              href={link.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="group inline-flex min-h-[3.2rem] items-center justify-between gap-3 rounded-[16px] border border-transparent bg-[#f8fbff]/92 px-3.5 py-3 text-left text-sm font-bold text-slate-800 transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#cfe0fa] hover:bg-white hover:shadow-[0_12px_28px_rgba(45,95,157,0.1)]"
-                            >
-                              <span className="min-w-0 flex-1">
-                                <span className="block truncate text-sm font-extrabold">
-                                  {link.label}
-                                </span>
-                                {link.tag ? (
-                                  <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/72 bg-white px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78">
-                                    {link.tag}
-                                  </span>
-                                ) : null}
-                              </span>
-                              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d9e6fa] bg-white text-[#2d5f9d] transition-[transform,border-color,box-shadow] duration-300 group-hover:-translate-y-0.5 group-hover:border-[#bdd5f7] group-hover:shadow-sm">
-                                <ExternalLink
-                                  size={15}
-                                  strokeWidth={2.25}
-                                  aria-hidden
-                                  className="transition-transform duration-300 group-hover:translate-x-0.5"
-                                />
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <button
-                      type="button"
-                      aria-expanded={isGalleryOpen}
-                      aria-controls={galleryPanelId}
-                      onClick={() => setIsGalleryOpen((current) => !current)}
-                      className={`group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border px-4 py-2.5 text-sm font-extrabold shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 active:translate-y-0 sm:w-auto ${
-                        isGalleryOpen
-                          ? "border-[#b8d2f7] bg-[#f4f9ff] text-[#2d5f9d] shadow-md"
-                          : "border-[#d4e3ff]/75 bg-white/74 text-[#2d5f9d] hover:-translate-y-0.5 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md"
-                      }`}
-                    >
-                      <PanelsTopLeft
-                        size={15}
-                        strokeWidth={2.2}
-                        aria-hidden
-                        className={`transition-transform duration-300 ${
-                          isGalleryOpen
-                            ? "-translate-y-0.5"
-                            : "group-hover:-translate-y-0.5"
-                        }`}
-                      />
-                      <span>Open SDS Link Gallery</span>
-                      <ChevronDown
-                        size={16}
-                        strokeWidth={2.3}
-                        aria-hidden
-                        className={`transition-transform duration-300 ${
-                          isGalleryOpen
-                            ? "rotate-180"
-                            : "group-hover:-translate-y-0.5"
-                        }`}
-                      />
-                    </button>
-                  </div>
-                ) : null}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-5 border-t border-[#d4e3ff]/52 pt-4">
-          <button
-            type="button"
-            aria-expanded={isExpanded}
-            aria-controls={panelId}
-            onClick={onToggle}
-            className="inline-flex max-w-full cursor-pointer items-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-white/74 px-4 py-2.5 text-sm font-extrabold text-slate-700 shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 active:translate-y-0"
-          >
-            {isExpanded ? "Hide details" : "View details"}
-            <ChevronDown
-              size={16}
-              strokeWidth={2.3}
-              aria-hidden
-              className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
-            />
-          </button>
+        <div className="relative mt-5 border-t border-[#d4e3ff]/52 pt-4">
+          <div className="flex flex-wrap gap-2.5">
+            <button
+              type="button"
+              aria-expanded={isExpanded}
+              aria-controls={panelId}
+              onClick={onToggle}
+              className="inline-flex max-w-full cursor-pointer items-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-white/74 px-4 py-2.5 text-sm font-extrabold text-slate-700 shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 active:translate-y-0"
+            >
+              {isExpanded ? "Hide details" : "View details"}
+              <ChevronDown
+                size={16}
+                strokeWidth={2.3}
+                aria-hidden
+                className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {isSdsProject ? (
+              <div className="relative w-full sm:w-auto">
+                <div
+                  id={galleryPanelId}
+                  aria-hidden={!isGalleryOpen}
+                  className={`absolute bottom-[calc(100%+12px)] left-0 z-30 w-full transition-opacity duration-300 sm:w-[25rem] sm:max-w-[calc(100vw-6rem)] ${
+                    isGalleryOpen
+                      ? "pointer-events-auto opacity-100"
+                      : "pointer-events-none opacity-0"
+                  }`}
+                >
+                  <div
+                    className={`rounded-[24px] border border-[#d7e5fb]/78 bg-white/84 p-3 shadow-[0_24px_72px_rgba(45,95,157,0.12)] backdrop-blur-xl transition-[opacity,transform] duration-300 ${
+                      isGalleryOpen
+                        ? "translate-y-0 scale-100 opacity-100"
+                        : "translate-y-2 scale-[0.98] opacity-0"
+                    }`}
+                  >
+                    <div className="grid gap-2.5 sm:grid-cols-2">
+                      {sdsLinkGalleryLinks.map((link) => (
+                        <Link
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group inline-flex min-h-[3.5rem] items-center justify-between gap-3 rounded-[20px] border border-[#d4e3ff]/75 bg-white/82 px-4 py-3 text-left text-sm font-bold text-slate-800 shadow-sm backdrop-blur-md transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/68 hover:shadow-md"
+                        >
+                          <span className="min-w-0">
+                            <span className="block truncate">{link.label}</span>
+                            {link.tag ? (
+                              <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/88 px-2 py-0.5 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78">
+                                {link.tag}
+                              </span>
+                            ) : null}
+                          </span>
+                          <ExternalLink
+                            size={16}
+                            strokeWidth={2.3}
+                            aria-hidden
+                            className="shrink-0 text-[#2d5f9d] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                          />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  aria-expanded={isGalleryOpen}
+                  aria-controls={galleryPanelId}
+                  onClick={() => setIsGalleryOpen((current) => !current)}
+                  className={`group inline-flex w-full cursor-pointer items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-extrabold shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 active:translate-y-0 sm:w-auto ${
+                    isGalleryOpen
+                      ? "border-[#b8d2f7] bg-[#f4f9ff] text-[#2d5f9d] shadow-md"
+                      : "border-[#d4e3ff]/75 bg-white/74 text-[#2d5f9d] hover:-translate-y-0.5 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md"
+                  }`}
+                >
+                  <PanelsTopLeft
+                    size={15}
+                    strokeWidth={2.2}
+                    aria-hidden
+                    className={`transition-transform duration-300 ${
+                      isGalleryOpen ? "-translate-y-0.5" : "group-hover:-translate-y-0.5"
+                    }`}
+                  />
+                  <span>Open SDS Link Gallery</span>
+                  <ChevronDown
+                    size={16}
+                    strokeWidth={2.3}
+                    aria-hidden
+                    className={`transition-transform duration-300 ${isGalleryOpen ? "rotate-180" : "group-hover:-translate-y-0.5"}`}
+                  />
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </article>
