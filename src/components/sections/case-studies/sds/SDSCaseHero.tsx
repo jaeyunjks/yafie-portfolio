@@ -1,8 +1,19 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, FolderKanban } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ChevronDown,
+  ExternalLink,
+  FolderKanban,
+  PanelsTopLeft,
+} from "lucide-react";
+import { useState } from "react";
 import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
+import { sdsLinkGalleryLinks } from "@/data/caseStudies/sdsLinkGallery";
 import { sdsMetadata } from "@/data/caseStudies/sdsModernisation";
 import SDSBrowserMockup from "./SDSBrowserMockup";
 
@@ -38,6 +49,9 @@ function SDSHeroPreview() {
 }
 
 export default function SDSCaseHero() {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const galleryPanelId = "sds-case-hero-gallery";
+
   return (
     <section className="relative isolate -mt-10 overflow-hidden px-6 pb-14 pt-4 sm:-mt-12 sm:pt-6 lg:-mt-14 lg:pt-8">
       <div className="mx-auto grid max-w-7xl items-center gap-8 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] xl:gap-14 2xl:gap-16">
@@ -86,6 +100,85 @@ export default function SDSCaseHero() {
                 View Project Gallery
                 <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
               </Link>
+
+              <div className="relative w-full sm:w-auto">
+                <div
+                  id={galleryPanelId}
+                  aria-hidden={!isGalleryOpen}
+                  className={`absolute bottom-[calc(100%+12px)] left-0 z-30 w-[min(18.5rem,calc(100vw-3rem))] max-w-full transition-opacity duration-300 ${
+                    isGalleryOpen
+                      ? "pointer-events-auto opacity-100"
+                      : "pointer-events-none opacity-0"
+                  }`}
+                >
+                  <div
+                    className={`rounded-[22px] border border-[#d7e5fb]/82 bg-white/92 p-2.5 shadow-[0_24px_72px_rgba(45,95,157,0.14)] backdrop-blur-xl transition-[opacity,transform] duration-300 ${
+                      isGalleryOpen
+                        ? "translate-y-0 scale-100 opacity-100"
+                        : "translate-y-2 scale-[0.98] opacity-0"
+                    }`}
+                  >
+                    <div className="flex flex-col gap-1.5">
+                      {sdsLinkGalleryLinks.map((link) => (
+                        <Link
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group inline-flex min-h-[3.2rem] items-center justify-between gap-3 rounded-[16px] border border-transparent bg-[#f8fbff]/92 px-3.5 py-3 text-left text-sm font-bold text-slate-800 transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#cfe0fa] hover:bg-white hover:shadow-[0_12px_28px_rgba(45,95,157,0.1)]"
+                        >
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate text-sm font-extrabold">
+                              {link.label}
+                            </span>
+                            {link.tag ? (
+                              <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/72 bg-white px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78">
+                                {link.tag}
+                              </span>
+                            ) : null}
+                          </span>
+                          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d9e6fa] bg-white text-[#2d5f9d] transition-[transform,border-color,box-shadow] duration-300 group-hover:-translate-y-0.5 group-hover:border-[#bdd5f7] group-hover:shadow-sm">
+                            <ExternalLink
+                              size={15}
+                              strokeWidth={2.25}
+                              aria-hidden
+                              className="transition-transform duration-300 group-hover:translate-x-0.5"
+                            />
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  aria-expanded={isGalleryOpen}
+                  aria-controls={galleryPanelId}
+                  onClick={() => setIsGalleryOpen((current) => !current)}
+                  className={`group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#d4e3ff]/78 bg-white/74 px-5 py-3 text-sm font-extrabold text-[#2d5f9d] shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 active:translate-y-0 sm:w-auto ${
+                    isGalleryOpen ? "border-[#b8d2f7] bg-[#f4f9ff] shadow-md" : ""
+                  }`}
+                >
+                  <PanelsTopLeft
+                    size={16}
+                    strokeWidth={2.2}
+                    aria-hidden
+                    className={`transition-transform duration-300 ${
+                      isGalleryOpen ? "-translate-y-0.5" : "group-hover:-translate-y-0.5"
+                    }`}
+                  />
+                  Open SDS Link Gallery
+                  <ChevronDown
+                    size={16}
+                    strokeWidth={2.3}
+                    aria-hidden
+                    className={`transition-transform duration-300 ${
+                      isGalleryOpen ? "rotate-180" : "group-hover:-translate-y-0.5"
+                    }`}
+                  />
+                </button>
+              </div>
             </div>
           </div>
         </Reveal>
