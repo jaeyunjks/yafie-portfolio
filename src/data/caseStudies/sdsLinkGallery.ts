@@ -12,7 +12,7 @@ export const sdsLinkGalleryLinks: SDSLinkGalleryItem[] = [
   },
   {
     label: "Admin Page",
-    href: "https://sds-frontend-v4j2.onrender.com/",
+    href: "https://sds-frontend-v4j2.onrender.com/login",
     tag: "Admin",
   },
   {
