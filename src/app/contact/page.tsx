@@ -12,9 +12,9 @@ export default function ContactPage() {
     <div className="relative isolate">
       <AnimatedBackground />
       <ContactHero />
+      <ContactAvailability />
       <ContactMethods />
       <ContactForm />
-      <ContactAvailability />
       <div id="contact-next" className="scroll-mt-32">
         <ContactCTA />
       </div>

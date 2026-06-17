@@ -163,7 +163,7 @@ export default function ContactForm() {
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
-            03 // contact.form
+            04 // contact.form
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
             Send a message.
@@ -176,157 +176,211 @@ export default function ContactForm() {
       </Reveal>
 
       <Reveal>
-        <article className="overflow-hidden rounded-[24px] border border-white/75 bg-white/74 p-6 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl md:p-7">
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#d4e3ff]/58 pb-4">
-            <div>
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
-                contact.form
-              </p>
-              <p className="mt-2 text-sm text-slate-500">
-                Professional outreach, project questions, or opportunity introductions.
-              </p>
-            </div>
-            <span className="rounded-full border border-[#d4e3ff]/70 bg-white/68 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
-              client-side only
-            </span>
-          </div>
+        <article className="relative overflow-hidden rounded-[28px] border border-white/78 bg-white/74 shadow-[0_24px_80px_rgba(45,95,157,0.1)] backdrop-blur-xl">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_12%,rgba(198,183,255,0.2),transparent_30%),radial-gradient(circle_at_12%_86%,rgba(141,187,255,0.18),transparent_36%)]" />
 
-          <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
-            <div className="grid gap-5 md:grid-cols-2">
-              <FieldWrapper id="contact-name" label="Name" error={errors.name} required>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  value={form.name}
-                  onChange={handleChange}
-                  aria-invalid={Boolean(errors.name)}
-                  aria-describedby={errors.name ? "contact-name-error" : undefined}
-                  className={inputClassName(Boolean(errors.name))}
-                  placeholder="Your name"
-                />
-              </FieldWrapper>
+          <div className="relative z-10 grid gap-0 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)]">
+            <aside className="border-b border-[#d4e3ff]/58 p-6 lg:border-b-0 lg:border-r lg:p-7">
+              <div className="rounded-[22px] border border-[#d4e3ff]/62 bg-white/72 p-5 shadow-[0_16px_42px_rgba(45,95,157,0.06)]">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                    contact.context
+                  </p>
+                  <span className="rounded-full border border-[#d4e3ff]/70 bg-white/80 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
+                    client-side only
+                  </span>
+                </div>
 
-              <FieldWrapper id="contact-email" label="Email" error={errors.email} required>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  aria-invalid={Boolean(errors.email)}
-                  aria-describedby={errors.email ? "contact-email-error" : undefined}
-                  className={inputClassName(Boolean(errors.email))}
-                  placeholder="your.email@example.com"
-                />
-              </FieldWrapper>
-            </div>
+                <h3 className="mt-5 text-2xl font-extrabold tracking-tight text-slate-950">
+                  Let&apos;s build something great together.
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Feel free to reach out for opportunities, collaborations, project
+                  questions, or professional introductions.
+                </p>
 
-            <FieldWrapper id="contact-subject" label="Subject" error={errors.subject} required>
-              <input
-                id="contact-subject"
-                name="subject"
-                type="text"
-                value={form.subject}
-                onChange={handleChange}
-                aria-invalid={Boolean(errors.subject)}
-                aria-describedby={errors.subject ? "contact-subject-error" : undefined}
-                className={inputClassName(Boolean(errors.subject))}
-                placeholder="A short summary"
-              />
-            </FieldWrapper>
+                <div className="mt-6 grid gap-3">
+                  {[
+                    "Usually respond within 24–48 hours",
+                    "Based in Sydney, Australia",
+                    "Open to software, web, mobile, cloud, QA, and IT opportunities",
+                  ].map((note) => (
+                    <div
+                      key={note}
+                      className="flex items-start gap-3 rounded-[16px] border border-[#d4e3ff]/62 bg-[#f8fbff]/74 p-3.5"
+                    >
+                      <span className="mt-0.5 h-2.5 w-2.5 shrink-0 rounded-full bg-[#2d5f9d]" />
+                      <p className="text-sm font-semibold leading-6 text-slate-700">
+                        {note}
+                      </p>
+                    </div>
+                  ))}
+                </div>
 
-            <FieldWrapper
-              id="contact-message"
-              label="Message"
-              error={errors.message}
-              required
-            >
-              <textarea
-                id="contact-message"
-                name="message"
-                rows={7}
-                value={form.message}
-                onChange={handleChange}
-                aria-invalid={Boolean(errors.message)}
-                aria-describedby={errors.message ? "contact-message-error" : undefined}
-                className={`${inputClassName(Boolean(errors.message))} resize-y`}
-                placeholder="Share the opportunity, project context, timeline, or the best next step."
-              />
-            </FieldWrapper>
-
-            <div className="hidden">
-              <label htmlFor="contact-website">Website</label>
-              <input
-                id="contact-website"
-                name="website"
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                value={form.website}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="flex flex-col gap-3 border-t border-[#d4e3ff]/58 pt-5 sm:flex-row sm:flex-wrap">
-              <Button
-                type="submit"
-                className="w-full sm:w-auto"
-                disabled={submitState === "loading"}
-              >
-                {submitState === "loading" ? "Sending..." : "Send message"}
-                {submitState === "loading" ? (
-                  <Loader2 size={16} aria-hidden className="animate-spin" />
-                ) : (
-                  <Send size={16} aria-hidden />
-                )}
-              </Button>
-              {hasContactEmail ? (
-                <a
-                  href={mailtoHref}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-6 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
-                >
-                  Open email app
-                  <Mail size={16} aria-hidden />
-                </a>
-              ) : (
-                <span
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/58 px-6 py-3 text-sm font-extrabold text-slate-500 shadow-sm backdrop-blur-md sm:w-auto"
-                  aria-disabled="true"
-                >
-                  Email available on request
-                  <Mail size={16} aria-hidden />
-                </span>
-              )}
-            </div>
-
-            <p className="text-xs leading-6 text-slate-500">
-              This form is sent securely through the server. If it does not work
-              yet, check the Resend environment variables.
-            </p>
-
-            {submitState !== "idle" ? (
-              <div
-                aria-live="polite"
-                className={`flex items-start gap-3 rounded-[16px] px-4 py-3 text-sm font-semibold leading-6 ${
-                  submitState === "success"
-                    ? "border border-emerald-200/80 bg-emerald-50/90 text-emerald-900"
-                    : submitState === "error"
-                      ? "border border-rose-200/80 bg-rose-50/90 text-rose-900"
-                      : "border border-slate-200/80 bg-white/72 text-slate-700"
-                }`}
-              >
-                {submitState === "success" ? (
-                  <CheckCircle2 size={16} className="mt-0.5 shrink-0" aria-hidden />
-                ) : submitState === "error" ? (
-                  <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden />
-                ) : (
-                  <Loader2 size={16} className="mt-0.5 shrink-0 animate-spin" aria-hidden />
-                )}
-                <span>{submitMessage}</span>
+                <div className="mt-6 rounded-[18px] border border-[#d4e3ff]/62 bg-[linear-gradient(135deg,rgba(255,255,255,0.86),rgba(248,251,255,0.78))] p-4">
+                  <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
+                    Best for
+                  </p>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">
+                    Recruiters, hiring teams, collaborations, and project-focused conversations.
+                  </p>
+                </div>
               </div>
-            ) : null}
-          </form>
+            </aside>
+
+            <div className="p-6 lg:p-7">
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#d4e3ff]/58 pb-4">
+                <div>
+                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                    contact.form
+                  </p>
+                  <p className="mt-2 text-sm text-slate-500">
+                    Professional outreach, project questions, or opportunity introductions.
+                  </p>
+                </div>
+                <span className="rounded-full border border-[#d4e3ff]/70 bg-white/68 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
+                  secure form
+                </span>
+              </div>
+
+              <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
+                <div className="grid gap-5 md:grid-cols-2">
+                  <FieldWrapper id="contact-name" label="Name" error={errors.name} required>
+                    <input
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      value={form.name}
+                      onChange={handleChange}
+                      aria-invalid={Boolean(errors.name)}
+                      aria-describedby={errors.name ? "contact-name-error" : undefined}
+                      className={inputClassName(Boolean(errors.name))}
+                      placeholder="Your name"
+                    />
+                  </FieldWrapper>
+
+                  <FieldWrapper id="contact-email" label="Email" error={errors.email} required>
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      aria-invalid={Boolean(errors.email)}
+                      aria-describedby={errors.email ? "contact-email-error" : undefined}
+                      className={inputClassName(Boolean(errors.email))}
+                      placeholder="your.email@example.com"
+                    />
+                  </FieldWrapper>
+                </div>
+
+                <FieldWrapper id="contact-subject" label="Subject" error={errors.subject} required>
+                  <input
+                    id="contact-subject"
+                    name="subject"
+                    type="text"
+                    value={form.subject}
+                    onChange={handleChange}
+                    aria-invalid={Boolean(errors.subject)}
+                    aria-describedby={errors.subject ? "contact-subject-error" : undefined}
+                    className={inputClassName(Boolean(errors.subject))}
+                    placeholder="A short summary"
+                  />
+                </FieldWrapper>
+
+                <FieldWrapper
+                  id="contact-message"
+                  label="Message"
+                  error={errors.message}
+                  required
+                >
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows={7}
+                    value={form.message}
+                    onChange={handleChange}
+                    aria-invalid={Boolean(errors.message)}
+                    aria-describedby={errors.message ? "contact-message-error" : undefined}
+                    className={`${inputClassName(Boolean(errors.message))} resize-y`}
+                    placeholder="Share the opportunity, project context, timeline, or the best next step."
+                  />
+                </FieldWrapper>
+
+                <div className="hidden">
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-3 border-t border-[#d4e3ff]/58 pt-5 sm:flex-row sm:flex-wrap">
+                  <Button
+                    type="submit"
+                    className="w-full sm:w-auto"
+                    disabled={submitState === "loading"}
+                  >
+                    {submitState === "loading" ? "Sending..." : "Send message"}
+                    {submitState === "loading" ? (
+                      <Loader2 size={16} aria-hidden className="animate-spin" />
+                    ) : (
+                      <Send size={16} aria-hidden />
+                    )}
+                  </Button>
+                  {hasContactEmail ? (
+                    <a
+                      href={mailtoHref}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-6 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
+                    >
+                      Open email app
+                      <Mail size={16} aria-hidden />
+                    </a>
+                  ) : (
+                    <span
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/58 px-6 py-3 text-sm font-extrabold text-slate-500 shadow-sm backdrop-blur-md sm:w-auto"
+                      aria-disabled="true"
+                    >
+                      Email available on request
+                      <Mail size={16} aria-hidden />
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-xs leading-6 text-slate-500">
+                  This form is sent securely through the server. If it does not work
+                  yet, check the Resend environment variables.
+                </p>
+
+                {submitState !== "idle" ? (
+                  <div
+                    aria-live="polite"
+                    className={`flex items-start gap-3 rounded-[16px] px-4 py-3 text-sm font-semibold leading-6 ${
+                      submitState === "success"
+                        ? "border border-emerald-200/80 bg-emerald-50/90 text-emerald-900"
+                        : submitState === "error"
+                          ? "border border-rose-200/80 bg-rose-50/90 text-rose-900"
+                          : "border border-slate-200/80 bg-white/72 text-slate-700"
+                    }`}
+                  >
+                    {submitState === "success" ? (
+                      <CheckCircle2 size={16} className="mt-0.5 shrink-0" aria-hidden />
+                    ) : submitState === "error" ? (
+                      <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden />
+                    ) : (
+                      <Loader2 size={16} className="mt-0.5 shrink-0 animate-spin" aria-hidden />
+                    )}
+                    <span>{submitMessage}</span>
+                  </div>
+                ) : null}
+              </form>
+            </div>
+          </div>
         </article>
       </Reveal>
     </section>

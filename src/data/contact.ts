@@ -10,66 +10,122 @@ export const contactMeta = {
   responseStyle: "Clear, professional, and project-focused",
 };
 
+const resumeRequestHref = `mailto:${contactMeta.email}?subject=${encodeURIComponent("Resume request")}&body=${encodeURIComponent(
+  "Hi Yafie,\n\nI would like to request your resume.\n",
+)}`;
+
 export const contactMethods = [
   {
     key: "email",
+    label: "Primary",
     title: "Email",
-    description: "Best for role opportunities and project conversations.",
-    cta: "Send email",
-    href: `mailto:${contactMeta.email}`,
-    value: "Direct email",
+    description:
+      "Best for role opportunities, project conversations, and professional introductions.",
+    value: contactMeta.email,
+    primaryCta: "Send email",
+    primaryHref: `mailto:${contactMeta.email}`,
+    secondaryCta: "Direct email",
+    secondaryHref: `mailto:${contactMeta.email}`,
   },
   {
     key: "linkedin",
+    label: "Professional",
     title: "LinkedIn",
-    description: "Professional updates and networking.",
-    cta: "Open LinkedIn",
-    href: contactMeta.linkedin,
+    description: "Professional updates, networking, and opportunity discussions.",
     value: "Networking profile",
+    primaryCta: "Open LinkedIn",
+    primaryHref: contactMeta.linkedin,
+    secondaryCta: "View profile",
+    secondaryHref: contactMeta.linkedin,
   },
   {
     key: "github",
+    label: "Developer",
     title: "GitHub",
     description: "Code, repositories, and project activity.",
-    cta: "Open GitHub",
-    href: contactMeta.github,
     value: "Repository activity",
+    primaryCta: "Open GitHub",
+    primaryHref: contactMeta.github,
+    secondaryCta: "View repositories",
+    secondaryHref: contactMeta.github,
   },
   {
     key: "resume",
+    label: "Document",
     title: "Resume",
     description: "One-page summary of education, experience, and projects.",
-    cta: "Available on request",
-    href: contactMeta.resume,
     value: contactMeta.resumeDisplay,
-    disabled: true,
+    primaryCta: "View resume",
+    primaryHref: contactMeta.resume,
+    primaryDisabled: true,
+    secondaryCta: "Request resume",
+    secondaryHref: resumeRequestHref,
   },
 ] as const;
 
-export const availabilityCards = [
+export const contactOpenToFeatured = {
+  title: "Software Engineering Roles",
+  description:
+    "Software engineering and software development roles are my main focus — building reliable, scalable, and useful web, mobile, and cloud-based products that solve real problems.",
+  tags: [
+    "Software Engineer",
+    "Developer",
+    "Frontend",
+    "Backend",
+    "Web",
+    "Mobile",
+    "Cloud",
+    "QA",
+  ],
+} as const;
+
+export const contactOpenToSignalCards = [
   {
-    title: "Software Engineering Roles",
+    title: "Role Fit",
     description:
-      "Interested in frontend, full-stack, testing, and software development roles where I can keep building practical engineering experience.",
+      "Graduate, junior, internship, and early-career software or IT opportunities.",
   },
   {
-    title: "Internships & Graduate Roles",
+    title: "Working Style",
     description:
-      "Open to early-career opportunities where I can contribute, learn quickly, and work with experienced teams.",
+      "Product-minded delivery with practical engineering, testing, documentation, and clear communication.",
+  },
+] as const;
+
+export const contactOpenToCards = [
+  {
+    title: "Frontend & Web Development",
+    description:
+      "Building responsive interfaces, clean UI systems, and polished user experiences for modern web applications.",
   },
   {
-    title: "Product-minded Projects",
+    title: "Backend & API Development",
     description:
-      "Interested in software that improves real workflows, user experience, and practical decision-making.",
+      "Designing server-side logic, APIs, data flows, and integrations that support secure and reliable systems.",
   },
   {
-    title: "Testing & Quality",
+    title: "QA, Testing & IT Operations",
     description:
-      "Open to roles or projects involving user-flow testing, debugging, documentation, and quality improvement.",
+      "Supporting quality through user-flow testing, debugging, documentation, process improvement, and operational awareness.",
   },
   {
-    title: "Team Collaboration",
+    title: "Mobile, Cloud & Platform Work",
     description:
-      "Interested in environments where communication, ownership, feedback, and iteration matter.",
+      "Open to mobile, cloud, and platform-focused work involving deployment, scalability, and practical product delivery.",
+  },
+  {
+    title: "DevOps / Cloud Engineering",
+    description:
+      "Interested in deployment workflows, cloud infrastructure, environment configuration, CI/CD awareness, monitoring, and reliable release practices.",
+  },
+  {
+    title: "Systems Analyst & Business Analysis",
+    description:
+      "Open to roles involving requirements analysis, stakeholder workflows, system documentation, process mapping, and translating business needs into technical solutions.",
+  },
+  {
+    title: "IT Operations & Support",
+    description:
+      "Interested in systems, support, infrastructure awareness, service quality, and improving how technology runs in practice.",
   },
 ] as const;
