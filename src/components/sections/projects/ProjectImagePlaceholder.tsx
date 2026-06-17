@@ -222,25 +222,36 @@ export default function ProjectImagePlaceholder({
 }: ProjectImagePlaceholderProps) {
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = Boolean(imageSrc && !imageFailed);
+  const useContainedImage = projectType === "fullstack-workflow";
+  const imageFrameClass = useContainedImage ? "p-1 sm:p-0" : "";
+  const imageClass =
+    projectType === "ios-game"
+      ? "block h-full w-full max-w-full scale-[1.02] bg-white object-contain object-center sm:scale-100"
+      : useContainedImage
+        ? "block h-full w-full max-w-full scale-[1.05] bg-[#f8fbff] object-contain object-center sm:scale-100 sm:bg-transparent sm:object-cover"
+        : "block h-full w-full max-w-full scale-[1.08] object-cover object-center sm:scale-100";
 
   return (
     <div
-      className={`relative aspect-[1668/576] overflow-hidden rounded-[18px] border border-white/75 bg-gradient-to-br ${accentByType[projectType]} shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] ${featured ? "min-h-[18rem]" : "min-h-[10.5rem]"}`}
+      className={`relative box-border ${
+        featured ? "h-[clamp(11.25rem,46vw,15rem)]" : "h-[clamp(9.5rem,38vw,12rem)]"
+      } w-full max-w-full overflow-hidden rounded-[18px] border border-white/75 bg-gradient-to-br ${accentByType[projectType]} shadow-[inset_0_1px_0_rgba(255,255,255,0.75)] sm:aspect-[1668/576] sm:h-auto ${
+        featured ? "sm:min-h-[14rem] lg:min-h-[18rem]" : "sm:min-h-[10.5rem]"
+      }`}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_12%,rgba(255,255,255,0.74),transparent_30%),radial-gradient(circle_at_10%_90%,rgba(141,187,255,0.18),transparent_34%)]" />
       <div className={`absolute right-3 top-3 z-20 max-w-[calc(100%-1.5rem)] rounded-full border px-3 py-1.5 text-right font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] backdrop-blur-md sm:right-4 sm:top-4 sm:px-3.5 sm:py-2 sm:text-[0.56rem] ${getStatusTone(status)}`}>
         {status}
       </div>
       {showImage ? (
-        <img
-          src={imageSrc}
-          alt={`${title} project preview`}
-          className={`absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-[1.02] ${projectType === "ios-game"
-              ? "bg-white object-contain"
-              : "object-cover"
-            }`}
-          onError={() => setImageFailed(true)}
-        />
+        <div className={`absolute inset-0 box-border w-full max-w-full overflow-hidden ${imageFrameClass}`}>
+          <img
+            src={imageSrc}
+            alt={`${title} project preview`}
+            className={`${imageClass} transition-transform duration-500 sm:group-hover:scale-[1.02]`}
+            onError={() => setImageFailed(true)}
+          />
+        </div>
       ) : (
         <div className="relative z-10 h-full">
           <WindowChrome />

@@ -61,7 +61,7 @@ export default function ProjectCard({
         isPrimary
           ? "border-[#8dbbff]/60 shadow-[0_30px_96px_rgba(45,95,157,0.18)] md:p-5"
           : "border-white/75 shadow-[0_18px_56px_rgba(45,95,157,0.09)]"
-      } ${isSdsProject ? "overflow-visible" : "overflow-hidden"}`}
+      } ${isSdsProject ? "overflow-hidden sm:overflow-visible" : "overflow-hidden"}`}
     >
       <div
         className={`pointer-events-none absolute inset-0 rounded-[22px] ${
@@ -72,7 +72,7 @@ export default function ProjectCard({
       />
 
       <div className="relative z-10 flex h-full flex-col">
-        <div className="grid flex-1 gap-5">
+        <div className={`grid flex-1 ${isPrimary ? "gap-4 sm:gap-5" : "gap-1 sm:gap-5"}`}>
           <ProjectImagePlaceholder
             projectType={project.projectType}
             title={project.title}
