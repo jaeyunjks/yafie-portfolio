@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond } from "next/font/google";
 import Footer from "@/components/layout/Footer";
@@ -38,6 +39,7 @@ export default function RootLayout({
         <BackToTopButton />
         <FloatingSectionNav />
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
