@@ -117,7 +117,6 @@ export default function FloatingSectionNav() {
   useEffect(() => {
     setIsOpen(false);
     setIsHidden(false);
-    setIsHintVisible(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -189,11 +188,11 @@ export default function FloatingSectionNav() {
 
     const showHintTimeout = window.setTimeout(() => {
       setIsHintVisible(true);
-    }, 220);
+    }, 800);
 
     const hideHintTimeout = window.setTimeout(() => {
       setIsHintVisible(false);
-    }, 1820);
+    }, 800 + 700 + 2000);
 
     return () => {
       window.clearTimeout(showHintTimeout);
@@ -264,7 +263,7 @@ export default function FloatingSectionNav() {
       ref={navRef}
       className={`floating-section-nav ${
         isHomeMobileAnchored
-          ? `home-mobile-sections-trigger ${homeMobileNavStateClass}`
+          ? `home-mobile-sections-trigger ${homeMobileNavStateClass} ${isOpen ? "floating-section-nav--home-anchor-open" : ""}`
           : `${isMobileDrawer ? "floating-section-nav--mobile" : ""} ${floatingNavStateClass}`
       } ${isHomeMobileAnchored ? "floating-section-nav--home-anchor" : ""}`}
     >
