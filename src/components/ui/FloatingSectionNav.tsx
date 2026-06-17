@@ -192,7 +192,7 @@ export default function FloatingSectionNav() {
 
     const hideHintTimeout = window.setTimeout(() => {
       setIsHintVisible(false);
-    }, 800 + 700 + 2000);
+    }, 800 + 3000);
 
     return () => {
       window.clearTimeout(showHintTimeout);
