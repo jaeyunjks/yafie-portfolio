@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowUpRight, Copy, FileText, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Copy, FileText, Mail, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Reveal from "@/components/ui/Reveal";
 import { contactMethods } from "@/data/contact";
@@ -12,6 +15,30 @@ const methodIcons = {
 } as const;
 
 export default function ContactMethods() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isResumeOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsResumeOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isResumeOpen]);
+
   return (
     <section className="scroll-mt-32 pb-20 lg:pb-24" id="contact-methods">
       <Reveal>
@@ -57,6 +84,10 @@ export default function ContactMethods() {
 
             const isExternal = href.startsWith("http");
             const isMail = href.startsWith("mailto:");
+            const isResumePrimary =
+              method.key === "resume" &&
+              variant === "default" &&
+              label === method.primaryCta;
             const sharedClassName =
               variant === "default"
                 ? "inline-flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-4 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#265589] hover:shadow-xl"
@@ -70,6 +101,19 @@ export default function ContactMethods() {
               ) : (
                 <ArrowUpRight size={15} aria-hidden />
               );
+
+            if (isResumePrimary) {
+              return (
+                <button
+                  type="button"
+                  className={sharedClassName}
+                  onClick={() => setIsResumeOpen(true)}
+                >
+                  {label}
+                  {icon}
+                </button>
+              );
+            }
 
             return isExternal || isMail ? (
               <a
@@ -142,6 +186,68 @@ export default function ContactMethods() {
           );
         })}
       </div>
+
+      {isResumeOpen ? (
+        <div
+          role="presentation"
+          className="fixed inset-0 z-[80] bg-slate-950/40 backdrop-blur-md"
+          onClick={() => setIsResumeOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="resume-preview-title"
+            className="absolute left-1/2 top-1/2 max-h-[88dvh] w-[calc(100vw-1.5rem)] max-w-[64rem] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[28px] border border-white/70 bg-white/86 shadow-[0_30px_100px_rgba(15,23,42,0.25)] backdrop-blur-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_10%,rgba(198,183,255,0.22),transparent_32%),radial-gradient(circle_at_12%_88%,rgba(141,187,255,0.18),transparent_36%)]" />
+            <div className="relative z-10 flex flex-col gap-4 border-b border-[#d4e3ff]/62 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:px-5 md:px-6">
+              <div>
+                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/75">
+                  resume.preview
+                </p>
+                <h3
+                  id="resume-preview-title"
+                  className="mt-2 text-xl font-extrabold tracking-tight text-slate-950"
+                >
+                  Resume
+                </h3>
+                <p className="mt-1 text-sm text-slate-600">
+                  One-page preview in a focused in-page window.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 self-stretch sm:self-auto">
+                <a
+                  href="/Yafie-Resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-slate-200/80 bg-white/72 px-4 py-2 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md sm:flex-none"
+                >
+                  Open PDF
+                </a>
+                <button
+                  type="button"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#d4e3ff]/75 bg-white/82 text-[#2d5f9d] shadow-sm transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-white"
+                  aria-label="Close resume preview"
+                  onClick={() => setIsResumeOpen(false)}
+                >
+                  <X size={18} aria-hidden />
+                </button>
+              </div>
+            </div>
+
+            <div className="relative z-10 p-3 sm:p-4 md:p-5">
+              <div className="overflow-hidden rounded-[22px] border border-[#d4e3ff]/62 bg-[#f8fbff]/78 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+                <iframe
+                  src="/Yafie-Resume.pdf"
+                  title="Resume preview"
+                  className="h-[56dvh] min-h-0 w-full bg-white sm:h-[72vh] sm:min-h-[30rem]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
