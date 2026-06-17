@@ -1,7 +1,6 @@
+"use client";
+
 import Link from "next/link";
-<<<<<<< Updated upstream
-import { ArrowRight, ChevronDown, LockKeyhole } from "lucide-react";
-=======
 import {
   ArrowRight,
   ChevronDown,
@@ -12,7 +11,6 @@ import {
 import { SiGithub } from "react-icons/si";
 import { useState } from "react";
 import { sdsLinkGalleryLinks } from "@/data/caseStudies/sdsLinkGallery";
->>>>>>> Stashed changes
 import type { PortfolioProject } from "@/data/projects";
 import ProjectRecognitionFlag from "./ProjectRecognitionFlag";
 import ProjectImagePlaceholder from "./ProjectImagePlaceholder";
@@ -33,7 +31,9 @@ export default function ProjectCard({
   onToggle,
   detailsPanelId,
 }: ProjectCardProps) {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const panelId = detailsPanelId ?? `project-details-${project.id}`;
+  const galleryPanelId = `project-gallery-${project.id}`;
   const isPrimary = index === 0;
   const isSdsProject = project.id === "sds-modernisation";
   const isFocusPopProject = project.id === "focuspop";
@@ -57,14 +57,14 @@ export default function ProjectCard({
 
   return (
     <article
-      className={`group relative flex h-full w-full flex-col overflow-hidden rounded-[22px] border bg-white/70 p-4 backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:bg-white/90 ${
+      className={`group relative flex h-full w-full flex-col rounded-[22px] border bg-white/70 p-4 backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-1 hover:bg-white/90 ${
         isPrimary
           ? "border-[#8dbbff]/60 shadow-[0_30px_96px_rgba(45,95,157,0.18)] md:p-5"
           : "border-white/75 shadow-[0_18px_56px_rgba(45,95,157,0.09)]"
-      }`}
+      } ${isSdsProject ? "overflow-visible" : "overflow-hidden"}`}
     >
       <div
-        className={`pointer-events-none absolute inset-0 ${
+        className={`pointer-events-none absolute inset-0 rounded-[22px] ${
           isPrimary
             ? "bg-[radial-gradient(circle_at_92%_10%,rgba(141,187,255,0.2),transparent_34%),radial-gradient(circle_at_8%_90%,rgba(198,183,255,0.16),transparent_36%)]"
             : "bg-[radial-gradient(circle_at_92%_10%,rgba(198,183,255,0.1),transparent_32%),radial-gradient(circle_at_8%_90%,rgba(141,187,255,0.08),transparent_34%)]"
@@ -140,39 +140,6 @@ export default function ProjectCard({
               </div>
             </div>
 
-<<<<<<< Updated upstream
-            <div className="mt-auto flex flex-wrap gap-3 pt-5">
-              {project.actions.slice(0, isPrimary ? 2 : 2).map((action) => {
-                const isExternal = action.href.startsWith("http");
-
-                return action.disabled ? (
-                  <span
-                    key={action.label}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-white/58 px-4 py-2 text-sm font-extrabold text-slate-500"
-                    aria-disabled="true"
-                  >
-                    <LockKeyhole size={15} strokeWidth={2.2} aria-hidden />
-                    {action.label}
-                    {action.note ? (
-                      <span className="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-slate-400">
-                        {action.note}
-                      </span>
-                    ) : null}
-                  </span>
-                ) : (
-                  <Link
-                    key={action.label}
-                    href={action.href}
-                    target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noreferrer" : undefined}
-                    className="inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-4 py-2 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#265589] hover:shadow-xl"
-                  >
-                    {action.label}
-                    <ArrowRight size={15} strokeWidth={2.2} aria-hidden />
-                  </Link>
-                );
-              })}
-=======
             <div className="mt-auto pt-5">
               <div className="flex flex-wrap gap-3">
                 {isSdsProject ? (
@@ -301,30 +268,11 @@ export default function ProjectCard({
                   );
                 })}
               </div>
->>>>>>> Stashed changes
             </div>
           </div>
         </div>
 
-<<<<<<< Updated upstream
         <div className="mt-5 border-t border-[#d4e3ff]/52 pt-4">
-          <button
-            type="button"
-            aria-expanded={isExpanded}
-            aria-controls={panelId}
-            onClick={onToggle}
-            className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-white/72 px-4 py-2 text-sm font-extrabold text-slate-700 shadow-sm transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70"
-          >
-            {isExpanded ? "Hide details" : "View details"}
-            <ChevronDown
-              size={16}
-              strokeWidth={2.3}
-              aria-hidden
-              className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
-            />
-          </button>
-=======
-        <div className="relative mt-5 border-t border-[#d4e3ff]/52 pt-4">
           <div className="flex flex-wrap gap-2.5">
             <button
               type="button"
@@ -341,9 +289,7 @@ export default function ProjectCard({
                 className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
               />
             </button>
-
           </div>
->>>>>>> Stashed changes
         </div>
       </div>
     </article>

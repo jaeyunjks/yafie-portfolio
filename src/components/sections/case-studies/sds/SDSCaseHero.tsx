@@ -1,10 +1,6 @@
+"use client";
+
 import Link from "next/link";
-<<<<<<< Updated upstream
-import { ArrowLeft, ArrowRight, FolderKanban } from "lucide-react";
-import ScrollCue from "@/components/ui/ScrollCue";
-import TypewriterHeading from "@/components/ui/TypewriterHeading";
-import Reveal from "@/components/ui/Reveal";
-=======
 import {
   ArrowRight,
   ChevronDown,
@@ -18,7 +14,6 @@ import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import CaseStudyBackLink from "@/components/sections/case-studies/CaseStudyBackLink";
 import { sdsLinkGalleryLinks } from "@/data/caseStudies/sdsLinkGallery";
->>>>>>> Stashed changes
 import { sdsMetadata } from "@/data/caseStudies/sdsModernisation";
 import SDSBrowserMockup from "./SDSBrowserMockup";
 
@@ -54,6 +49,9 @@ function SDSHeroPreview() {
 }
 
 export default function SDSCaseHero() {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const galleryPanelId = "sds-case-hero-gallery";
+
   return (
     <section className="relative isolate -mt-10 overflow-hidden px-6 pb-14 pt-4 sm:-mt-12 sm:pt-6 lg:-mt-14 lg:pt-8">
       <div className="mx-auto max-w-7xl">
@@ -83,34 +81,6 @@ export default function SDSCaseHero() {
                 coordinator review, project visibility, student allocation,
                 join requests, documentation, and communication touchpoints.
               </p>
-
-<<<<<<< Updated upstream
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="/projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-5 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto"
-              >
-                <ArrowLeft size={17} strokeWidth={2.4} aria-hidden />
-                Back to Projects
-              </Link>
-              <Link
-                href="#feature-showcase"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl sm:w-auto"
-              >
-                View Project Gallery
-                <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
-              </Link>
-=======
-              <div className="mt-5 flex flex-wrap gap-2.5">
-                {sdsMetadata.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-[#d4e3ff]/75 bg-white/68 px-3.5 py-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.1em] text-slate-600 shadow-sm backdrop-blur-md"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <div className="relative w-full sm:w-auto">
@@ -169,9 +139,7 @@ export default function SDSCaseHero() {
                     aria-controls={galleryPanelId}
                     onClick={() => setIsGalleryOpen((current) => !current)}
                     className={`group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#d4e3ff]/78 bg-white/74 px-5 py-3 text-sm font-extrabold text-[#2d5f9d] shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 active:translate-y-0 sm:w-auto ${
-                      isGalleryOpen
-                        ? "border-[#b8d2f7] bg-[#f4f9ff] shadow-md"
-                        : ""
+                      isGalleryOpen ? "border-[#b8d2f7] bg-[#f4f9ff] shadow-md" : ""
                     }`}
                   >
                     <PanelsTopLeft
@@ -206,7 +174,6 @@ export default function SDSCaseHero() {
                   <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
                 </Link>
               </div>
->>>>>>> Stashed changes
             </div>
           </Reveal>
 

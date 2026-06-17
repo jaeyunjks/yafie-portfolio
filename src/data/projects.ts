@@ -169,18 +169,6 @@ export const projects: PortfolioProject[] = [
         label: "View Case Study",
         href: "/projects/sds-modernisation",
       },
-      {
-        label: "GitHub / Repo",
-        href: "#",
-        disabled: true,
-        note: "Placeholder",
-      },
-      {
-        label: "Live Demo",
-        href: "#",
-        disabled: true,
-        note: "Placeholder",
-      },
     ],
     featured: true,
     projectType: "fullstack-workflow",
