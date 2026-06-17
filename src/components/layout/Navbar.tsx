@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, MessageCircle, Moon, Sun, X } from "lucide-react";
+import { Mail, Menu, MessageCircle, Moon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { navItems } from "@/data/nav";
+import { contactMeta } from "@/data/contact";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -169,6 +171,33 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
+              <li className="mt-2 flex items-center justify-center gap-3">
+                <a
+                  href={`mailto:${contactMeta.email}`}
+                  aria-label="Send email"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/68 text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white"
+                >
+                  <Mail size={18} aria-hidden />
+                </a>
+                <a
+                  href={contactMeta.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/68 text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white"
+                >
+                  <FaLinkedin size={18} aria-hidden />
+                </a>
+                <a
+                  href={contactMeta.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/68 text-slate-700 shadow-sm shadow-blue-900/10 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white"
+                >
+                  <FaGithub size={18} aria-hidden />
+                </a>
+              </li>
               <li>
                 <Link
                   href="/contact"

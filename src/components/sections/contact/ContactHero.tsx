@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   MapPin,
   MessageSquareMore,
-  Sparkles,
 } from "lucide-react";
 import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
@@ -58,10 +57,16 @@ export default function ContactHero() {
             relevant, feel free to reach out.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex flex-row gap-3 sm:flex-wrap sm:gap-4">
+            <Link
+              href="/projects"
+              className="group inline-flex w-full min-w-0 flex-1 basis-0 items-center justify-center rounded-full border border-slate-200/80 bg-white/72 px-4 py-3 text-[0.78rem] font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto sm:flex-none sm:px-6 sm:py-3.5 sm:text-sm"
+            >
+              View Projects
+            </Link>
             <Link
               href="#contact-form"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
+              className="group inline-flex w-full min-w-0 flex-1 basis-0 items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-4 py-3 text-[0.78rem] font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl sm:w-auto sm:flex-none sm:px-6 sm:py-3.5 sm:text-sm"
             >
               Send a Message
               <ArrowRight
@@ -69,13 +74,6 @@ export default function ContactHero() {
                 aria-hidden
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </Link>
-            <Link
-              href="/projects"
-              className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-6 py-3.5 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md"
-            >
-              View Projects
-              <Sparkles size={17} aria-hidden />
             </Link>
           </div>
         </div>

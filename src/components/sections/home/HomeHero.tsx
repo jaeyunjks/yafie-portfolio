@@ -93,16 +93,16 @@ export default function HomeHero() {
           className="sm:hidden"
         />
 
-        <div className="hero-reveal hero-reveal-5 mt-4 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+        <div className="hero-reveal hero-reveal-5 mt-4 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
           <Link
             href="/about"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-7 py-4 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl sm:px-7 sm:py-4"
           >
             More About Me <ArrowRight size={18} aria-hidden />
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-7 py-4 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-5 py-3.5 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:px-7 sm:py-4"
           >
             Let&apos;s Connect <MessageCircle size={18} aria-hidden />
           </Link>

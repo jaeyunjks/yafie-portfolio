@@ -67,11 +67,11 @@ export default function ProjectsHero() {
             through feedback.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <ScrollToFeaturedProjectsButton />
+          <div className="mt-8 flex flex-row gap-3 sm:flex-wrap sm:gap-4">
+            <ScrollToFeaturedProjectsButton className="w-full min-w-0 flex-1 basis-0 justify-center px-4 py-3 text-[0.78rem] leading-tight sm:w-auto sm:flex-none sm:px-6 sm:py-3.5 sm:text-sm" />
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-6 py-3.5 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md"
+              className="group inline-flex w-full min-w-0 flex-1 basis-0 items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-4 py-3 text-[0.78rem] font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md sm:w-auto sm:flex-none sm:px-6 sm:py-3.5 sm:text-sm"
             >
               Contact Me <MessageCircle size={17} aria-hidden />
             </Link>

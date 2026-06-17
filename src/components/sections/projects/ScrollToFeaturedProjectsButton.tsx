@@ -5,11 +5,13 @@ import { ArrowRight } from "lucide-react";
 type ScrollToFeaturedProjectsButtonProps = {
   targetId?: string;
   label?: string;
+  className?: string;
 };
 
 export default function ScrollToFeaturedProjectsButton({
   targetId = "featured-projects",
   label = "View Featured Projects",
+  className = "",
 }: ScrollToFeaturedProjectsButtonProps) {
   return (
     <button
@@ -26,7 +28,7 @@ export default function ScrollToFeaturedProjectsButton({
           block: "start",
         });
       }}
-      className="group inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
+      className={`group inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl ${className}`}
     >
       {label}
       <ArrowRight
