@@ -9,30 +9,30 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
-const frameworkFlow = ["Problem", "Structure", "Build", "Refine"];
-const frameworkChips = ["Readable", "Usable", "Maintainable"];
+const frameworkFlow = ["Clarify", "Structure", "Build", "Refine"];
+const frameworkChips = ["Clarity", "Usability", "Maintainability"];
 
 const supportingPrinciples = [
   {
     icon: Route,
-    label: "USER.OUTCOME",
-    title: "Users before Features",
+    label: "USER.WORKFLOW",
+    title: "Start from the workflow",
     content:
-      "I think about the workflow and user outcome before adding more functionality.",
+      "I begin with the task, friction points, and expected outcome so features support a real user need.",
   },
   {
     icon: Layers3,
-    label: "SYSTEM.GROWTH",
-    title: "Systems that can Grow",
+    label: "MAINTAINABLE.SYSTEMS",
+    title: "Structure for maintainability",
     content:
-      "I structure components and data so projects can evolve without becoming messy.",
+      "I organise components, states, and data so projects stay readable and easier to extend.",
   },
   {
     icon: RefreshCw,
-    label: "ITERATE.QUALITY",
-    title: "Continuous Improvement",
+    label: "TEST.REVIEW",
+    title: "Test, review, iterate",
     content:
-      "I use feedback, testing, and iteration to make each version better.",
+      "I use feedback, edge cases, and QA thinking to improve reliability before and after release.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function ProfessionalSignals() {
             How I think and build.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            A practical decision framework I use to turn ideas into clear,
+            A practical engineering lens I use to turn requirements into clear,
             usable, and maintainable software.
           </p>
         </div>
@@ -87,11 +87,12 @@ export default function ProfessionalSignals() {
                   Engineering Decision Framework
                 </p>
                 <h3 className="mt-4 max-w-lg text-2xl font-extrabold tracking-tight text-slate-950 md:text-4xl">
-                  Clarity over Complexity
+                  Clarity drives implementation
                 </h3>
                 <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 md:mt-5 md:text-base md:leading-8">
-                  I prefer interfaces and systems that are easy to understand,
-                  easy to maintain, and practical to extend.
+                  I aim for interfaces and systems that are easy to understand,
+                  straightforward to maintain, and practical to extend as
+                  requirements evolve.
                 </p>
               </div>
 

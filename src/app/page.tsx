@@ -10,7 +10,7 @@ import SocialProof from "@/components/sections/home/SocialProof";
 
 export default function HomePage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <HomeHero />
       <div id="home-profile" className="scroll-mt-32">

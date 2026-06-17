@@ -12,60 +12,60 @@ import { useEffect, useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 
 const personalitySignal =
-  "I'm a curious and reflective builder who likes improving things step by step. I tend to think deeply about why a problem exists, not just how to implement the first solution. I care about clarity, reliability, and whether the final product actually helps people. I can be detail-oriented, but I'm also learning to balance polish with momentum so projects keep moving.";
+  "I communicate clearly, document decisions, test assumptions, and turn vague requirements into usable software. I like understanding the real workflow first, then shaping a solution that makes sense for users, teammates, and future handover.";
 
 const personalitySupport =
-  "That mindset shows up in how I ask questions, test assumptions, refine interfaces, and communicate with a team.";
+  "That shows up in how I ask questions, clarify tradeoffs, write notes, and keep delivery moving when requirements are still evolving.";
 
 const engineeringValue =
-  "Curiosity helps me clarify the real problem before building. Practicality helps me keep solutions usable and maintainable. Attention to detail helps me refine interfaces, edge cases, and handover quality. Reliability helps me communicate clearly and keep work moving with a team.";
+  "I try to reduce ambiguity early, keep implementation practical, check edge cases before handover, and make progress visible through communication and documentation.";
 
 const engineeringValueChips = [
-  "Clarify requirements",
-  "Build practically",
-  "Test edge cases",
-  "Refine with feedback",
+  "Clarify ambiguity",
+  "Document decisions",
+  "Test assumptions",
+  "Keep delivery moving",
 ];
 
 const focusItems = [
   {
     index: "01",
-    label: "curious.builder",
-    title: "Curious builder",
+    label: "clarify.problem",
+    title: "Clarify the real problem",
     description:
-      "I like understanding why a system exists before deciding how to build it. I ask questions, explore alternatives, and connect technical choices with real user needs.",
+      "I start by understanding the workflow, stakeholders, and constraints so implementation solves the right problem.",
     Icon: Lightbulb,
   },
   {
     index: "02",
-    label: "practical.solver",
-    title: "Practical problem-solver",
+    label: "practical.delivery",
+    title: "Build practical solutions",
     description:
-      "I prefer solutions that are clear, usable, and realistic to maintain. I care about making progress without overcomplicating the product.",
+      "I prefer solutions that are clear to use, realistic to maintain, and appropriately scoped for the project.",
     Icon: Wrench,
   },
   {
     index: "03",
-    label: "reliable.teammate",
-    title: "Reliable teammate",
+    label: "team.communication",
+    title: "Communicate and document",
     description:
-      "My hospitality leadership background trained me to communicate clearly, stay calm under pressure, and take ownership when people depend on the outcome.",
+      "I share progress, capture decisions, and write notes that make collaboration and handover easier.",
     Icon: Handshake,
   },
   {
     index: "04",
-    label: "growth.mindset",
-    title: "Growth-minded learner",
+    label: "reliable.execution",
+    title: "Stay reliable under change",
     description:
-      "I am still growing as a software engineer, but I actively use projects, feedback, testing, and iteration to improve both the product and the way I work.",
+      "When requirements shift or details are incomplete, I keep momentum by testing assumptions, surfacing risks, and iterating calmly.",
     Icon: Sparkles,
   },
   {
     index: "05",
-    label: "product.engineering",
-    title: "Product-minded engineer",
+    label: "delivery.mindset",
+    title: "Think about delivery",
     description:
-      "I care about the user experience, not just the code. I like building software that makes tasks easier, reduces confusion, and creates visible value.",
+      "I care about how software will be used, explained, tested, and improved after the first version ships.",
     Icon: Compass,
   },
 ];
@@ -106,16 +106,15 @@ export default function EngineeringFocus() {
             Beyond code.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            The way I work is shaped by curiosity, responsibility, and a
-            practical focus on building things that are useful, clear, and
-            maintainable.
+            I communicate clearly, document decisions, test assumptions, and
+            turn vague requirements into usable software.
           </p>
           <button
             type="button"
             className="mt-5 inline-flex rounded-full border border-[#d4e3ff]/80 bg-white/72 px-4 py-2.5 text-sm font-extrabold text-[#2d5f9d] shadow-sm shadow-blue-900/5 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d] md:hidden"
             onClick={() => setIsNoteOpen(true)}
           >
-            Read personality note
+            Read work style note
           </button>
         </div>
       </Reveal>
@@ -125,7 +124,7 @@ export default function EngineeringFocus() {
           <Reveal>
             <div className="hidden max-w-md self-start border-l border-[#8dbbff]/35 pl-5 md:block">
               <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
-                PERSONALITY.SIGNAL
+                WORK.STYLE
               </p>
               <p className="mt-5 text-base leading-8 text-slate-700">
                 {personalitySignal}
@@ -138,7 +137,7 @@ export default function EngineeringFocus() {
                   ENGINEERING.VALUE
                 </p>
                 <h3 className="mt-3 text-lg font-extrabold tracking-tight text-slate-950">
-                  How this shows up in my work
+                  How this supports delivery
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {engineeringValue}
@@ -164,8 +163,9 @@ export default function EngineeringFocus() {
                   working.style
                 </p>
                 <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600">
-                  A few habits that guide how I work through uncertainty, design
-                  decisions, and implementation details.
+                  Habits I rely on when requirements are still forming,
+                  tradeoffs need discussion, and software has to be delivered
+                  cleanly.
                 </p>
               </div>
             </Reveal>
@@ -211,26 +211,26 @@ export default function EngineeringFocus() {
           <div
             role="dialog"
             aria-modal="true"
-            aria-labelledby="personality-note-title"
+            aria-labelledby="work-style-note-title"
             className="w-full rounded-[24px] border border-white/75 bg-white/90 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.2)] backdrop-blur-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
                 <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/75">
-                  PERSONALITY.SIGNAL
+                  WORK.STYLE
                 </p>
                 <h3
-                  id="personality-note-title"
+                  id="work-style-note-title"
                   className="mt-2 text-xl font-extrabold tracking-tight text-slate-950"
                 >
-                  How I tend to work.
+                  How I work with ambiguity.
                 </h3>
               </div>
               <button
                 type="button"
                 className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d4e3ff]/75 bg-white text-[#2d5f9d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d]"
-                aria-label="Close personality note"
+                aria-label="Close work style note"
                 onClick={() => setIsNoteOpen(false)}
               >
                 <X size={17} aria-hidden />
@@ -245,7 +245,7 @@ export default function EngineeringFocus() {
                 ENGINEERING.VALUE
               </p>
               <h4 className="mt-2 text-base font-extrabold tracking-tight text-slate-950">
-                How this shows up in my work
+                How this supports delivery
               </h4>
               <p className="mt-2 text-sm leading-7 text-slate-600">
                 {engineeringValue}

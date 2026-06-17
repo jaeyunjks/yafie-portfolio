@@ -48,14 +48,17 @@ export default function HomeHero() {
   const [mascotFailed, setMascotFailed] = useState(false);
 
   return (
-    <section className="relative grid min-h-0 items-center gap-7 pb-20 pt-20 sm:min-h-[calc(100svh-7rem)] sm:gap-10 sm:pb-24 sm:pt-2 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-12 lg:pb-28 xl:gap-16 2xl:gap-20">
+    <section className="home-hero relative grid min-h-0 items-center gap-6 pb-16 pt-14 sm:min-h-[calc(100svh-7rem)] sm:gap-10 sm:pb-24 sm:pt-2 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-12 lg:pb-28 xl:gap-16 2xl:gap-20">
       <div className="max-w-[720px]">
         <p className="hero-reveal hero-reveal-1 mb-4 font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#2d5f9d]/75">
           01 // portfolio.init
         </p>
-        <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,30rem)] items-start gap-2 rounded-full border border-white/70 bg-white/72 px-3 py-1.5 text-[0.72rem] font-bold leading-5 text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:items-center sm:gap-3 sm:px-4 sm:py-2 sm:text-sm">
+        <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,21rem)] items-start gap-2 rounded-[1.1rem] border border-white/70 bg-white/72 px-3 py-1.5 text-[0.66rem] font-bold leading-[1.35] text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:items-center sm:gap-3 sm:rounded-full sm:px-4 sm:py-2 sm:text-sm">
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#2d5f9d] shadow-[0_0_0_5px_rgba(45,95,157,0.12)] sm:h-2 sm:w-2 sm:shadow-[0_0_0_6px_rgba(45,95,157,0.12)]" />
-          <span>
+          <span className="sm:hidden">
+            Open to internships, graduate roles &amp; full-time
+          </span>
+          <span className="hidden sm:inline">
             Open to Tech Internships, Graduate Roles &amp; Full-Time Opportunities
           </span>
         </p>
@@ -69,7 +72,9 @@ export default function HomeHero() {
         />
 
         <p className="hero-reveal hero-reveal-4 mt-6 max-w-2xl text-base leading-8 text-slate-600/90 sm:text-[1.05rem]">
-          I design and build practical software across web, mobile, cloud, and AI-assisted workflows — combining clean interfaces, reliable systems, testing discipline, and stakeholder-aware delivery.
+          I design and build polished software across web, mobile, cloud, and
+          AI-assisted workflows, combining clean interfaces, reliable systems,
+          testing discipline, and stakeholder-aware delivery.
         </p>
 
         <div className="hero-reveal hero-reveal-5 mt-5 flex flex-wrap gap-2.5">
@@ -83,7 +88,12 @@ export default function HomeHero() {
           ))}
         </div>
 
-        <div className="hero-reveal hero-reveal-5 mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+        <div
+          id="home-jump-sections-anchor"
+          className="sm:hidden"
+        />
+
+        <div className="hero-reveal hero-reveal-5 mt-4 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
           <Link
             href="/about"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-7 py-4 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
@@ -104,7 +114,7 @@ export default function HomeHero() {
         </p>
       </div>
 
-      <div className="relative mx-auto mt-2 flex min-h-[350px] w-full max-w-[390px] items-center justify-center overflow-visible px-2 sm:mt-0 sm:min-h-[610px] sm:max-w-[760px] sm:px-0 lg:-translate-x-3 lg:-translate-y-4 xl:max-w-[800px] xl:-translate-x-6 2xl:-translate-x-10">
+      <div className="relative mx-auto mt-1 flex min-h-[320px] w-full max-w-[390px] items-center justify-center overflow-visible px-2 sm:mt-0 sm:min-h-[610px] sm:max-w-[760px] sm:px-0 lg:-translate-x-3 lg:-translate-y-4 xl:max-w-[800px] xl:-translate-x-6 2xl:-translate-x-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_43%,rgba(141,187,255,0.34),transparent_39%),radial-gradient(circle_at_68%_25%,rgba(198,183,255,0.28),transparent_35%),radial-gradient(ellipse_at_48%_70%,rgba(255,255,255,0.78),transparent_43%)]" />
         <div className="absolute right-0 top-0 h-72 w-80 rounded-full bg-[#c6b7ff]/20 blur-[86px]" />
         <div className="absolute left-6 top-14 h-80 w-80 rounded-full bg-[#8dbbff]/18 blur-[96px]" />
@@ -177,8 +187,8 @@ export default function HomeHero() {
         </div>
 
         <div className="soft-float relative z-10 flex w-[96%] max-w-[650px] flex-col items-center sm:w-[90%]">
-          <div className="absolute inset-x-1 bottom-20 top-2 rounded-[48%] bg-[radial-gradient(circle,rgba(255,255,255,0.7),rgba(255,255,255,0.22)_56%,transparent_76%)]" />
-          <div className="absolute bottom-[3.2rem] h-[4.2rem] w-[64%] rounded-[45%_55%_42%_58%/58%_50%_50%_42%] border border-white/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.78),rgba(238,244,255,0.6)_52%,rgba(231,222,255,0.42))] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_22px_54px_rgba(45,95,157,0.13)] backdrop-blur-xl sm:bottom-[4.7rem] sm:h-[5.6rem]" />
+          <div className="home-hero__stage-halo absolute inset-x-1 bottom-20 top-2 rounded-[48%] bg-[radial-gradient(circle,rgba(255,255,255,0.7),rgba(255,255,255,0.22)_56%,transparent_76%)]" />
+          <div className="home-hero__stage-base absolute bottom-[3.2rem] h-[4.2rem] w-[64%] rounded-[45%_55%_42%_58%/58%_50%_50%_42%] border border-white/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.78),rgba(238,244,255,0.6)_52%,rgba(231,222,255,0.42))] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_22px_54px_rgba(45,95,157,0.13)] backdrop-blur-xl sm:bottom-[4.7rem] sm:h-[5.6rem]" />
           <div className="absolute bottom-8 h-14 w-[52%] rounded-full bg-[#8dbbff]/20 blur-2xl" />
           <div className="relative z-10 grid min-h-[275px] w-full place-items-center sm:min-h-[500px]">
             {!mascotFailed ? (

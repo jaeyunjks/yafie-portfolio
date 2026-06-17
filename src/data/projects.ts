@@ -68,15 +68,19 @@ export type PortfolioProject = {
   featuredTechStack?: string[];
   featuredSkills?: string[];
   architecture?: ProjectArchitectureEntry[];
+  recognitionFlag?: string;
 };
+
+export const SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION =
+  "This project is nominated in Software Engineering Tech Fest";
 
 export const projects: PortfolioProject[] = [
   {
     id: "sds-modernisation",
     title: "SDS Project Management Site",
     category: "Workflow System / Full-Stack MVC / Frontend & Testing",
-    status: "Active / Current",
-    role: "Frontend Developer & Tester",
+    status: "Completed",
+    role: "Frontend Developer & QA Engineer",
     summary:
       "A full-stack project management workflow system for the Software Development Studio subject at UTS. The system supports project brief submission, admin/coordinator review, student project discovery, team join requests, studio activity scheduling, client visibility, and project allocation workflows.",
     problem:
@@ -186,12 +190,13 @@ export const projects: PortfolioProject[] = [
     caseStudyStatus: "In progress",
     areaAnchors: ["workflow-systems"],
     filters: ["workflow", "web"],
+    recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
   },
   {
     id: "freshbasket-aws",
     title: "FreshBasket AWS Deployment",
     category: "Cloud Deployment / Full-Stack Deployment",
-    status: "Completed / University Project",
+    status: "Completed",
     role: "Cloud Deployment / Full-Stack Deployment",
     summary:
       "A documented AWS deployment case study for a Node.js, Express, EJS, and MySQL vendor portal using Elastic Beanstalk, EC2, RDS MySQL, load balancing, Auto Scaling, VPC networking, security groups, environment variables, and SNS notification setup.",
@@ -226,18 +231,18 @@ export const projects: PortfolioProject[] = [
     ],
     actions: [
       {
-        label: "View Case Study",
-        href: "/projects/freshbasket-aws",
+        label: "GitHub Repo",
+        href: "https://github.com/jaeyunjks/AWSFreshBasket",
       },
       {
-        label: "GitHub / Repo",
-        href: "https://github.com/jaeyunjks/AWSFreshBasket",
+        label: "View Case Study",
+        href: "/projects/freshbasket-aws",
       },
     ],
     featured: true,
     projectType: "cloud",
     projectDisplayType: "Cloud deployment",
-    projectDate: "University Project 2026",
+    projectDate: "2026",
     imageSrc: "/images/projects/freshbasket.png",
     caseStudyStatus: "Documented",
     areaAnchors: ["cloud-projects"],
@@ -247,7 +252,7 @@ export const projects: PortfolioProject[] = [
     id: "lumora",
     title: "Lumora",
     category: "Mobile / AI-Assisted Learning",
-    status: "Concept / In Progress",
+    status: "Beta (Under Development)",
     role: "Product Design & Mobile Development",
     summary:
       "An AI-powered study workspace concept designed to support focused learning, flashcards, and productivity workflows.",
@@ -279,6 +284,10 @@ export const projects: PortfolioProject[] = [
     ],
     actions: [
       {
+        label: "GitHub Repo",
+        href: "https://github.com/jaeyunjks/SmartStudyCompanion",
+      },
+      {
         label: "View Case Study",
         href: "/projects/lumora",
       },
@@ -299,12 +308,13 @@ export const projects: PortfolioProject[] = [
     caseStudyStatus: "Concept in progress",
     areaAnchors: ["mobile-projects", "ai-tools"],
     filters: ["mobile", "ai"],
+    recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
   },
   {
     id: "focuspop",
     title: "FocusPop",
     category: "Mobile Game / SwiftUI",
-    status: "Submitted",
+    status: "Completed",
     role: "iOS Game Designer & Developer",
     summary:
       "A polished SwiftUI bubble-popping game built around short focus sessions. Players choose a mode, pop weighted bubbles, build combo scores, and review session results through a clean mobile interface.",
@@ -336,12 +346,12 @@ export const projects: PortfolioProject[] = [
     ],
     actions: [
       {
-        label: "View Case Study",
-        href: "/projects/focuspop",
+        label: "GitHub Repo",
+        href: "https://github.com/jaeyunjks/BubblePopGame",
       },
       {
-        label: "GitHub / Repo",
-        href: "https://github.com/jaeyunjks/BubblePopGame",
+        label: "View Case Study",
+        href: "/projects/focuspop",
       },
     ],
     featured: true,
@@ -358,7 +368,7 @@ export const projects: PortfolioProject[] = [
     id: "personal-portfolio",
     title: "Portfolio Redesign & Personal Brand System",
     category: "Frontend / Design System / Personal Branding",
-    status: "Active / Iterating",
+    status: "In progress",
     role: "Frontend Developer & UI/UX Designer",
     summary:
       "A premium software engineering portfolio designed to present projects, work experience, skills, and personal story with a strong visual identity and recruiter-friendly structure.",

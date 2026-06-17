@@ -5,24 +5,25 @@ const focusCards = [
   {
     title: "Product Engineering",
     description:
-      "Connecting technical decisions with user needs, workflows, and practical outcomes.",
+      "Connecting technical decisions to user goals, workflow clarity, and maintainable delivery.",
     Icon: Layers3,
   },
   {
     title: "Mobile Interfaces",
-    description: "Exploring SwiftUI and modern mobile interaction patterns.",
+    description:
+      "Exploring SwiftUI patterns for readable, responsive, and polished mobile experiences.",
     Icon: Smartphone,
   },
   {
     title: "AI-Assisted Tools",
     description:
-      "Using AI to support learning, productivity, and better decision-making.",
+      "Using AI-assisted workflows to support research, productivity, and faster iteration.",
     Icon: BrainCircuit,
   },
   {
     title: "Cloud-Ready Systems",
     description:
-      "Learning how applications are deployed, connected, monitored, and scaled.",
+      "Building familiarity with deployment, environment configuration, and systems prepared for production use.",
     Icon: Cloud,
   },
 ];
@@ -39,8 +40,8 @@ export default function CurrentlyExploring() {
             Currently Exploring.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            Areas I&apos;m actively learning, experimenting with, and building
-            toward.
+            Focus areas I&apos;m actively building toward through current
+            projects and ongoing practice.
           </p>
         </div>
       </Reveal>
@@ -56,12 +57,13 @@ export default function CurrentlyExploring() {
                 current_focus
               </p>
               <h3 className="mt-4 max-w-lg text-2xl font-extrabold tracking-tight text-slate-950 md:text-4xl">
-                Building toward product-minded engineering.
+                Product-minded engineering across mobile, AI, and cloud.
               </h3>
               <p className="mt-5 max-w-lg text-sm leading-7 text-slate-700 md:text-base md:leading-8">
-                I&apos;m currently focused on deepening my frontend, mobile,
-                cloud, and AI-assisted development skills — not as separate
-                tools, but as parts of a complete product-building workflow.
+                I&apos;m currently exploring product-minded engineering across
+                mobile interfaces, AI-assisted workflows, and cloud-ready
+                systems, with an emphasis on turning ideas into usable,
+                production-aware software.
               </p>
 
               <div className="mt-6 grid gap-2 border-l border-[#8dbbff]/35 pl-4 font-mono text-[0.7rem] font-semibold leading-5 text-slate-700">

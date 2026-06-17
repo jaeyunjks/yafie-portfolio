@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import { Eye, EyeOff, List, X } from "lucide-react";
+import { createPortal } from "react-dom";
+import { ChevronLeft, Eye, EyeOff, List, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 type SectionLink = {
@@ -93,12 +94,21 @@ const sectionLinksByPath: Record<string, SectionLink[]> = {
   ],
 };
 
+const MOBILE_SECTION_NAV_QUERY = "(max-width: 960px)";
+const MOBILE_SECTION_NAV_HINT_KEY = "floating-section-nav-mobile-hint-seen";
+const SHOULD_BYPASS_HINT_STORAGE = process.env.NODE_ENV !== "production";
+const HOME_MOBILE_ANCHOR_ID = "home-jump-sections-anchor";
+
 export default function FloatingSectionNav() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [isMobileDrawer, setIsMobileDrawer] = useState(false);
+  const [isHintVisible, setIsHintVisible] = useState(false);
+  const [homeAnchor, setHomeAnchor] = useState<HTMLElement | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
   const normalizedPath = pathname === "/" ? pathname : pathname.replace(/\/$/, "");
+  const isHomePage = normalizedPath === "/";
   const links = useMemo(
     () => sectionLinksByPath[normalizedPath] ?? [],
     [normalizedPath],
@@ -107,7 +117,89 @@ export default function FloatingSectionNav() {
   useEffect(() => {
     setIsOpen(false);
     setIsHidden(false);
+    setIsHintVisible(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(MOBILE_SECTION_NAV_QUERY);
+    const updateIsMobileDrawer = () => {
+      setIsMobileDrawer(mediaQuery.matches);
+    };
+
+    updateIsMobileDrawer();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", updateIsMobileDrawer);
+      return () => {
+        mediaQuery.removeEventListener("change", updateIsMobileDrawer);
+      };
+    }
+
+    mediaQuery.addListener(updateIsMobileDrawer);
+
+    return () => {
+      mediaQuery.removeListener(updateIsMobileDrawer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsHintVisible(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isHomePage || !isMobileDrawer) {
+      setHomeAnchor(null);
+      return;
+    }
+
+    const resolveAnchor = () => {
+      setHomeAnchor(document.getElementById(HOME_MOBILE_ANCHOR_ID));
+    };
+
+    resolveAnchor();
+    const animationFrame = window.requestAnimationFrame(resolveAnchor);
+    const fallbackTimeout = window.setTimeout(resolveAnchor, 120);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(fallbackTimeout);
+    };
+  }, [isHomePage, isMobileDrawer, pathname]);
+
+  useEffect(() => {
+    if (!isMobileDrawer || !isHomePage) {
+      setIsHintVisible(false);
+      return;
+    }
+
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (
+      reducedMotionQuery.matches ||
+      (!SHOULD_BYPASS_HINT_STORAGE &&
+        sessionStorage.getItem(MOBILE_SECTION_NAV_HINT_KEY) === "1")
+    ) {
+      return;
+    }
+
+    if (!SHOULD_BYPASS_HINT_STORAGE) {
+      sessionStorage.setItem(MOBILE_SECTION_NAV_HINT_KEY, "1");
+    }
+
+    const showHintTimeout = window.setTimeout(() => {
+      setIsHintVisible(true);
+    }, 220);
+
+    const hideHintTimeout = window.setTimeout(() => {
+      setIsHintVisible(false);
+    }, 1820);
+
+    return () => {
+      window.clearTimeout(showHintTimeout);
+      window.clearTimeout(hideHintTimeout);
+    };
+  }, [isHomePage, isMobileDrawer]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -139,8 +231,12 @@ export default function FloatingSectionNav() {
     return null;
   }
 
+  const isHomeMobileAnchored = isHomePage && isMobileDrawer && homeAnchor !== null;
+  const isMobileDrawerVisible = isMobileDrawer && (isOpen || isHintVisible);
+
   const jumpToSection = (id: string) => {
     setIsOpen(false);
+    setIsHintVisible(false);
 
     if (id === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -153,9 +249,26 @@ export default function FloatingSectionNav() {
     });
   };
 
-  return (
-    <div ref={navRef} className="floating-section-nav">
-      {isHidden ? (
+  const homeMobileNavStateClass =
+    isHintVisible && !isOpen ? "floating-section-nav--mobile-hint" : "";
+  const floatingNavStateClass = `${isHintVisible && !isOpen ? "floating-section-nav--mobile-hint" : ""} ${
+    isMobileDrawerVisible ? "floating-section-nav--mobile-visible" : ""
+  } ${
+    isMobileDrawer && !isOpen && !isHintVisible
+      ? "floating-section-nav--mobile-closed"
+      : ""
+  }`;
+
+  const navUi = (
+    <div
+      ref={navRef}
+      className={`floating-section-nav ${
+        isHomeMobileAnchored
+          ? `home-mobile-sections-trigger ${homeMobileNavStateClass}`
+          : `${isMobileDrawer ? "floating-section-nav--mobile" : ""} ${floatingNavStateClass}`
+      } ${isHomeMobileAnchored ? "floating-section-nav--home-anchor" : ""}`}
+    >
+      {!isMobileDrawer && isHidden ? (
         <button
           type="button"
           className="floating-section-nav__restore"
@@ -183,18 +296,20 @@ export default function FloatingSectionNav() {
                 {String(index + 1).padStart(2, "0")} // {link.label}
               </button>
             ))}
-          <button
-            type="button"
-            className="floating-section-nav__item floating-section-nav__item--muted"
-            style={{ "--item-index": links.length } as CSSProperties}
-            onClick={() => {
-              setIsOpen(false);
-              setIsHidden(true);
-            }}
-          >
-            <EyeOff size={13} aria-hidden />
-            hide.toc
-          </button>
+            {!isMobileDrawer ? (
+              <button
+                type="button"
+                className="floating-section-nav__item floating-section-nav__item--muted"
+                style={{ "--item-index": links.length } as CSSProperties}
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsHidden(true);
+                }}
+              >
+                <EyeOff size={13} aria-hidden />
+                hide.toc
+              </button>
+            ) : null}
           </div>
 
           <button
@@ -206,11 +321,31 @@ export default function FloatingSectionNav() {
             aria-expanded={isOpen}
             onClick={() => setIsOpen((current) => !current)}
           >
-            {isOpen ? <X size={18} aria-hidden /> : <List size={18} aria-hidden />}
-            <span>00 // jump.sections</span>
+            <span className="floating-section-nav__trigger-icon" aria-hidden>
+              {isOpen ? <X size={18} aria-hidden /> : <List size={18} aria-hidden />}
+            </span>
+            <span className="floating-section-nav__trigger-label">
+              00 // jump.sections
+            </span>
+            <span className="floating-section-nav__trigger-mobile-label">
+              Sections
+            </span>
+            <span className="floating-section-nav__trigger-tab" aria-hidden>
+              <ChevronLeft size={14} />
+            </span>
           </button>
         </>
       )}
     </div>
   );
+
+  if (isHomePage && isMobileDrawer && !homeAnchor) {
+    return null;
+  }
+
+  if (isHomeMobileAnchored && homeAnchor) {
+    return createPortal(navUi, homeAnchor);
+  }
+
+  return navUi;
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   description: "Soft premium portfolio website built with Next.js",
 };
 
+export const viewport: Viewport = {
+  themeColor: "#eef4ff",
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +32,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className={`${headingFont.variable} min-h-full flex flex-col`}>
         <Navbar />
-        <main className="relative mx-auto w-full max-w-[92rem] flex-1 px-5 pb-20 pt-28 sm:px-7 md:px-8 xl:px-10 2xl:px-12">
+        <main className="relative mx-auto w-full max-w-[92rem] flex-1 px-5 pb-20 pt-20 sm:px-7 sm:pt-28 md:px-8 xl:px-10 2xl:px-12">
           {children}
         </main>
         <BackToTopButton />

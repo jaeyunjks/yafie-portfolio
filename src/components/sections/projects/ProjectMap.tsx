@@ -71,7 +71,7 @@ export default function ProjectMap({
           <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
             02 // project.map
           </p>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-950 md:text-3xl">
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
             Project areas.
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">

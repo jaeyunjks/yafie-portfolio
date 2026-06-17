@@ -25,7 +25,7 @@ const capabilityModules = [
     title: "Frontend Engineering",
     label: "FRONTEND.SYSTEMS",
     description:
-      "Building responsive, polished, and user-friendly interfaces with attention to clarity and interaction.",
+      "Building responsive, polished interfaces with React, TypeScript, and reusable components that stay consistent across screens.",
     tag: "interface craft",
     Icon: Code2,
     className: "lg:col-span-4",
@@ -34,7 +34,7 @@ const capabilityModules = [
     title: "Backend Logic",
     label: "BACKEND.LOGIC",
     description:
-      "Developing application logic, data handling, and system behaviour that support real workflows.",
+      "Implementing application logic and data flows that support admin, vendor, and stakeholder workflows.",
     tag: "workflow support",
     Icon: ServerCog,
     className: "lg:col-span-4",
@@ -43,7 +43,7 @@ const capabilityModules = [
     title: "Testing & Quality",
     label: "QUALITY.SYSTEMS",
     description:
-      "Applying testing, debugging, and refinement to improve reliability and confidence in the software.",
+      "Checking user flows, edge cases, regressions, and quality risks through manual QA and targeted test coverage.",
     tag: "confidence building",
     Icon: ShieldCheck,
     className: "lg:col-span-4",
@@ -52,7 +52,7 @@ const capabilityModules = [
     title: "Cloud & Deployment",
     label: "CLOUD.DELIVERY",
     description:
-      "Learning deployment, configuration, environment setup, and live application delivery.",
+      "Working with deployment workflows, environment configuration, and production-ready setup for live applications.",
     tag: "release practice",
     Icon: Cloud,
     className: "lg:col-span-3",
@@ -61,7 +61,7 @@ const capabilityModules = [
     title: "Product Thinking",
     label: "PRODUCT.FLOW",
     description:
-      "Considering user flow, practical outcomes, and feature purpose before implementation.",
+      "Turning messy requirements into usable workflows by clarifying goals, constraints, and user needs before building.",
     tag: "user outcomes",
     Icon: Layers3,
     className: "lg:col-span-5",
@@ -70,7 +70,7 @@ const capabilityModules = [
     title: "Team Collaboration",
     label: "TEAM.DELIVERY",
     description:
-      "Working through shared projects, communication, documentation, and iterative teamwork.",
+      "Communicating progress, documenting decisions, and aligning implementation with shared project goals.",
     tag: "shared progress",
     Icon: Users,
     className: "lg:col-span-4",
@@ -78,17 +78,17 @@ const capabilityModules = [
 ];
 
 const metadata = [
-  ["current_focus", "software_engineering"],
+  ["current_focus", "product-minded_software_engineering"],
   ["workflow", "understand · build · test · deploy · improve"],
-  ["environment", "web · mobile · cloud"],
+  ["environment", "web · mobile · cloud · ai-assisted"],
 ];
 
 const proofPoints = [
-  "5+ projects built",
-  "web/mobile/cloud exposure",
-  "testing awareness",
-  "deployment practice",
-  "collaborative delivery",
+  "5+ projects delivered",
+  "web, mobile, and cloud scope",
+  "manual QA and testing focus",
+  "deployment and environment practice",
+  "documentation and team collaboration",
 ];
 
 const mobileSnapshotCards = [
@@ -96,7 +96,8 @@ const mobileSnapshotCards = [
     title: "Engineering Breadth",
     label: "ENGINEERING.OS",
     tag: "overview",
-    description: "Web, mobile, cloud, testing, and product delivery in one practical learning loop.",
+    description:
+      "Web, mobile, cloud, testing, and product delivery experience built through practical project work.",
     Icon: GitBranch,
   },
   ...capabilityModules,
@@ -119,8 +120,7 @@ export default function ProfileStatus() {
             </h2>
             <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600 md:leading-8">
               A practical view of the engineering areas, delivery habits, and
-              product thinking I&apos;m continuing to build through real
-              projects.
+              product instincts I&apos;m building through real project work.
             </p>
           </div>
 
@@ -179,7 +179,7 @@ export default function ProfileStatus() {
                 ) : null}
               </article>
             ))}
-        </div>
+          </div>
 
           <div className="mt-2 grid gap-1.5">
             <div className="h-1 rounded-full bg-[#dbe7fb]">
@@ -223,7 +223,8 @@ export default function ProfileStatus() {
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 md:text-[0.98rem] md:leading-7">
                     Growing across interface design, application logic, testing,
-                    deployment, and collaborative product delivery.
+                    deployment, and project delivery with a user-focused
+                    mindset.
                   </p>
                 </div>
 

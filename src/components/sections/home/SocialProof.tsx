@@ -6,22 +6,25 @@ import useHorizontalScrollProgress from "@/components/sections/home/useHorizonta
 const achievements = [
   {
     title: "SDS Tech Festival",
-    label: "Showcase recognition",
-    content: "Project showcase evidence from the SDS Tech Festival.",
+    label: "Project showcase",
+    content:
+      "Showcase evidence for the SDS workflow system in a university software engineering setting.",
     image: "/images/achievements/SDS-techfest.png",
     alt: "SDS Tech Festival achievement screenshot",
   },
   {
     title: "Software Testing Recognition",
-    label: "Academic proof",
-    content: "Achievement evidence connected to software testing and quality work.",
+    label: "Testing achievement",
+    content:
+      "Achievement evidence tied to software testing coursework and quality-focused engineering practice.",
     image: "/images/achievements/STQM.png",
     alt: "Software testing achievement screenshot",
   },
   {
     title: "Project Nomination",
-    label: "Nomination evidence",
-    content: "Recognition evidence for project work and presentation quality.",
+    label: "Project nomination",
+    content:
+      "Nomination evidence connected to project presentation quality and software engineering communication.",
     image: "/images/achievements/Screenshot 2026-06-10 at 1.56.11 pm.png",
     alt: "Project nomination achievement screenshot",
   },
@@ -39,11 +42,11 @@ export default function SocialProof() {
             06 // social.proof
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
-            What others say.
+            Recognition and evidence.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            Feedback, recognition, and reflections from people I have worked or
-            studied with.
+            Screenshots and records that support the project, testing, and
+            presentation work shown across this portfolio.
           </p>
         </div>
       </Reveal>

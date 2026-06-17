@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ProjectRecognitionFlag from "@/components/sections/projects/ProjectRecognitionFlag";
+import { SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION } from "@/data/projects";
 import Reveal from "@/components/ui/Reveal";
 import TechPill from "@/components/sections/projects/TechPill";
 import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
@@ -12,18 +14,19 @@ const featuredProjects = [
     year: "2026",
     role: "Product Design & Development",
     description:
-      "AI-powered study workspace designed to support learning, productivity, and focus.",
+      "Mobile study workspace concept focused on interface design, AI-assisted learning support, and clearer student workflows.",
     tags: ["SwiftUI", "NestJS", "Prisma", "PostgreSQL", "JWT Auth"],
     image: "/images/projects/Lumora/lumora.png",
     status: "Mobile",
     alt: "Lumora smart study companion app preview",
+    recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
   },
   {
     title: "FreshBasket Vendor Portal",
     year: "2025",
     role: "Full-Stack Developer",
     description:
-      "Cloud-deployed produce marketplace demonstrating full-stack development and AWS deployment.",
+      "AWS deployment case study covering vendor and admin workflows, MySQL-backed data, load-balanced hosting, and environment configuration.",
     tags: ["Node.js", "Express", "AWS", "MySQL"],
     image: "/images/projects/freshbasket.png",
     status: "Cloud",
@@ -34,11 +37,12 @@ const featuredProjects = [
     year: "2026",
     role: "Frontend & Product Development",
     description:
-      "Student project allocation platform focused on workflow management and usability.",
+      "UTS stakeholder workflow system focused on frontend implementation, QA, documentation, and project coordination visibility.",
     tags: ["React", "TypeScript", "Flask", "SQLite", "Vite"],
     image: "/images/projects/sds_projects.png",
     status: "Workflow",
     alt: "SDS project management system preview",
+    recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
   },
 ];
 
@@ -59,8 +63,8 @@ export default function FeaturedProject() {
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-7 text-slate-600 md:text-right">
-            Projects that reflect my technical growth, product thinking, and
-            approach to solving problems.
+            Projects that show how I approach frontend engineering, product
+            thinking, testing, and delivery in practice.
           </p>
         </div>
       </Reveal>
@@ -104,6 +108,9 @@ export default function FeaturedProject() {
                   <h3 className="mt-3 text-xl font-extrabold tracking-tight text-slate-950 md:mt-4 md:text-2xl">
                     {project.title}
                   </h3>
+                  {project.recognitionFlag ? (
+                    <ProjectRecognitionFlag text={project.recognitionFlag} />
+                  ) : null}
                   <p className="mt-3 text-sm leading-6 text-slate-600 md:mt-5 md:leading-7">
                     {project.description}
                   </p>

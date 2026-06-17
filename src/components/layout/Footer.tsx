@@ -21,7 +21,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#d4e3ff]/55 bg-gradient-to-b from-white/34 via-white/50 to-white/64 px-6 [padding-block:clamp(0.7rem,1.6vw,1rem)] backdrop-blur-md md:px-10">
+    <footer className="border-t border-[#d4e3ff]/55 bg-[linear-gradient(180deg,rgba(238,244,255,0.62),rgba(242,246,255,0.72)_46%,rgba(242,238,255,0.76))] px-6 [padding-block:clamp(0.7rem,1.6vw,1rem)] backdrop-blur-md md:px-10">
       <div className="mx-auto grid w-full max-w-[92rem] gap-2 text-sm text-slate-500 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4">
         <div className="hidden md:block" aria-hidden />
 
