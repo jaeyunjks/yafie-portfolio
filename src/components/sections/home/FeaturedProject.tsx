@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import ProjectRecognitionFlag from "@/components/sections/projects/ProjectRecognitionFlag";
 import { SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION } from "@/data/projects";
 import Reveal from "@/components/ui/Reveal";
@@ -79,7 +79,7 @@ export default function FeaturedProject() {
             delay={index * 0.08}
             className="h-full min-w-[88vw] snap-center sm:min-w-[72vw] lg:min-w-0"
           >
-            <article className="group flex h-full min-h-[31rem] flex-col overflow-hidden rounded-[22px] border border-white/75 bg-white/68 p-3 shadow-[0_16px_44px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(45,95,157,0.14)] lg:min-h-[36rem] lg:rounded-[24px]">
+            <article className="group flex h-full min-h-[33rem] flex-col overflow-hidden rounded-[22px] border border-white/75 bg-white/68 p-3 shadow-[0_16px_44px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(45,95,157,0.14)] lg:min-h-[36rem] lg:rounded-[24px]">
               <div className="relative aspect-[1668/576] overflow-hidden rounded-[18px] border border-[#d4e3ff]/70 bg-[#f8fbff]">
                 <img
                   src={project.image}
@@ -139,11 +139,21 @@ export default function FeaturedProject() {
       </div>
 
       <div className="mt-2 grid gap-1.5 lg:hidden">
-        <div className="h-1 rounded-full bg-[#dbe7fb]">
+        <div className="flex items-center gap-2">
+          <div className="h-1 flex-1 rounded-full bg-[#dbe7fb]">
+            <div
+              className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
           <div
-            className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
-            style={{ width: `${progress}%` }}
-          />
+            className="flex items-center transition-opacity duration-300"
+            style={{ opacity: progress < 5 ? 1 : 0, animation: progress < 5 ? "swipe-hint-bounce 800ms ease-in-out infinite" : "none" }}
+            aria-hidden
+          >
+            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
+          </div>
         </div>
         <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
           Swipe {Math.round(progress)}% explored

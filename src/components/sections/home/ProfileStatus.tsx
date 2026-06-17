@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ChevronRight,
   Cloud,
   Code2,
   GitBranch,
@@ -182,11 +183,21 @@ export default function ProfileStatus() {
           </div>
 
           <div className="mt-2 grid gap-1.5">
-            <div className="h-1 rounded-full bg-[#dbe7fb]">
+            <div className="flex items-center gap-2">
+              <div className="h-1 flex-1 rounded-full bg-[#dbe7fb]">
+                <div
+                  className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
               <div
-                className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
-                style={{ width: `${progress}%` }}
-              />
+                className="flex items-center transition-opacity duration-300"
+                style={{ opacity: progress < 5 ? 1 : 0, animation: progress < 5 ? "swipe-hint-bounce 800ms ease-in-out infinite" : "none" }}
+                aria-hidden
+              >
+                <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+                <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
+              </div>
             </div>
             <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
               Swipe {Math.round(progress)}% explored

@@ -54,7 +54,7 @@ export default function HomeHero() {
           01 // portfolio.init
         </p>
         <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,21rem)] items-start gap-2 rounded-[1.1rem] border border-white/70 bg-white/72 px-3 py-1.5 text-[0.66rem] font-bold leading-[1.35] text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:items-center sm:gap-3 sm:rounded-full sm:px-4 sm:py-2 sm:text-sm">
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#2d5f9d] shadow-[0_0_0_5px_rgba(45,95,157,0.12)] sm:h-2 sm:w-2 sm:shadow-[0_0_0_6px_rgba(45,95,157,0.12)]" />
+          <span className="mt-[0.18rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#2d5f9d] shadow-[0_0_0_5px_rgba(45,95,157,0.12)] sm:mt-0 sm:h-2 sm:w-2 sm:shadow-[0_0_0_6px_rgba(45,95,157,0.12)]" />
           <span className="sm:hidden">
             Open to internships, graduate roles &amp; full-time
           </span>

@@ -112,6 +112,7 @@ export default function EngineeringFocus() {
           <button
             type="button"
             className="mt-5 inline-flex rounded-full border border-[#d4e3ff]/80 bg-white/72 px-4 py-2.5 text-sm font-extrabold text-[#2d5f9d] shadow-sm shadow-blue-900/5 backdrop-blur-xl transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d5f9d] md:hidden"
+            style={{ animation: "btn-glow-pulse 1.5s ease-in-out 2", animationDelay: "1s", animationFillMode: "both" }}
             onClick={() => setIsNoteOpen(true)}
           >
             Read work style note
@@ -205,14 +206,14 @@ export default function EngineeringFocus() {
       {isNoteOpen ? (
         <div
           role="presentation"
-          className="fixed inset-0 z-[70] flex items-end bg-slate-950/20 px-3 pb-3 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[70] bg-slate-950/30 backdrop-blur-sm md:hidden"
           onClick={() => setIsNoteOpen(false)}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="work-style-note-title"
-            className="w-full rounded-[24px] border border-white/75 bg-white/90 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.2)] backdrop-blur-2xl"
+            className="absolute inset-0 overflow-y-auto bg-white/96 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.2)] backdrop-blur-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-4 flex items-start justify-between gap-4">
