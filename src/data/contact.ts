@@ -24,8 +24,10 @@ export const contactMethods = [
     value: contactMeta.email,
     primaryCta: "Send email",
     primaryHref: `mailto:${contactMeta.email}`,
+    primaryDisabled: false,
     secondaryCta: "Direct email",
     secondaryHref: `mailto:${contactMeta.email}`,
+    secondaryDisabled: false,
   },
   {
     key: "linkedin",
@@ -35,8 +37,10 @@ export const contactMethods = [
     value: "Networking profile",
     primaryCta: "Open LinkedIn",
     primaryHref: contactMeta.linkedin,
+    primaryDisabled: false,
     secondaryCta: "View profile",
     secondaryHref: contactMeta.linkedin,
+    secondaryDisabled: false,
   },
   {
     key: "github",
@@ -46,8 +50,10 @@ export const contactMethods = [
     value: "Repository activity",
     primaryCta: "Open GitHub",
     primaryHref: contactMeta.github,
+    primaryDisabled: false,
     secondaryCta: "View repositories",
     secondaryHref: contactMeta.github,
+    secondaryDisabled: false,
   },
   {
     key: "resume",
@@ -60,6 +66,7 @@ export const contactMethods = [
     primaryDisabled: true,
     secondaryCta: "Request resume",
     secondaryHref: resumeRequestHref,
+    secondaryDisabled: false,
   },
 ] as const;
 
