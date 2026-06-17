@@ -9,7 +9,7 @@ import {
 
 export default function ContactPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <ContactHero />
       <ContactMethods />

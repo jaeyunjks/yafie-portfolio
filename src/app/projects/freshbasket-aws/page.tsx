@@ -14,7 +14,7 @@ import {
 
 export default function FreshBasketAwsCaseStudyPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <FreshBasketCaseHero />
       <FreshBasketContext />

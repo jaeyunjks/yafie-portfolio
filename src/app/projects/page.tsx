@@ -8,7 +8,7 @@ import {
 
 export default function ProjectsPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <ProjectsHero />
       <div id="project-map" className="scroll-mt-32">

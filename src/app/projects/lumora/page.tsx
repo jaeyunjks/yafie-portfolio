@@ -13,7 +13,7 @@ import {
 
 export default function LumoraCaseStudyPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <LumoraCaseHero />
       <LumoraProjectSummary />

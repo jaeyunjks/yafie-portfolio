@@ -12,7 +12,7 @@ import {
 
 export default function FocusPopCaseStudyPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <FocusPopCaseHero />
       <FocusPopOverview />

@@ -11,7 +11,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <AboutHero />
       <div id="about-story" className="scroll-mt-32">

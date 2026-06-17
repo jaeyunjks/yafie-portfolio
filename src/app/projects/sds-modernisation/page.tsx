@@ -14,7 +14,7 @@ import {
 
 export default function SDSModernisationCaseStudyPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <SDSCaseHero />
       <SDSProjectOrigin />

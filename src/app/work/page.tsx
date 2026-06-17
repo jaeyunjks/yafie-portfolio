@@ -12,7 +12,7 @@ import {
 
 export default function WorkPage() {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <AnimatedBackground />
       <WorkHero />
       <div id="experience-map" className="scroll-mt-32">
