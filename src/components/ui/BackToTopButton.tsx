@@ -1,12 +1,16 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 export default function BackToTopButton() {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const isVisibleRef = useRef(false);
   const scrollEndTimer = useRef<number | null>(null);
+  const normalizedPath = pathname === "/" ? pathname : pathname.replace(/\/$/, "");
+  const isHomePage = normalizedPath === "/";
 
   const setVisibleState = useCallback((nextVisible: boolean) => {
     if (isVisibleRef.current === nextVisible) {
@@ -18,6 +22,10 @@ export default function BackToTopButton() {
   }, []);
 
   useEffect(() => {
+    if (isHomePage) {
+      return;
+    }
+
     const updateVisibility = () => {
       const scrollTop = window.scrollY;
       const viewportBottom = scrollTop + window.innerHeight;
@@ -50,7 +58,11 @@ export default function BackToTopButton() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", updateVisibility);
     };
-  }, [setVisibleState]);
+  }, [isHomePage, setVisibleState]);
+
+  if (isHomePage) {
+    return null;
+  }
 
   return (
     <button

@@ -76,10 +76,12 @@ export default function EngineeringFocus() {
   useEffect(() => {
     if (!isNoteOpen) {
       document.body.style.overflow = "";
+      document.body.classList.remove("workstyle-note-open");
       return;
     }
 
     document.body.style.overflow = "hidden";
+    document.body.classList.add("workstyle-note-open");
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -91,6 +93,7 @@ export default function EngineeringFocus() {
 
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("workstyle-note-open");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isNoteOpen]);
@@ -206,17 +209,17 @@ export default function EngineeringFocus() {
       {isNoteOpen ? (
         <div
           role="presentation"
-          className="fixed inset-0 z-[70] bg-slate-950/30 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[70] bg-slate-950/30 px-4 pt-[calc(env(safe-area-inset-top)_+_4.75rem)] backdrop-blur-sm md:hidden"
           onClick={() => setIsNoteOpen(false)}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="work-style-note-title"
-            className="absolute inset-0 overflow-y-auto bg-white/96 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.2)] backdrop-blur-2xl"
+            className="mx-auto flex h-[calc(100svh_-_env(safe-area-inset-top)_-_5.75rem)] w-full max-w-md flex-col overflow-y-auto rounded-[28px] border border-white/75 bg-white/96 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.2)] backdrop-blur-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-4 flex items-start justify-between gap-4">
+            <div className="mb-4 flex items-start justify-between gap-4 pt-1">
               <div>
                 <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/75">
                   WORK.STYLE
