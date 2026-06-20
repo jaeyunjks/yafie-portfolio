@@ -66,6 +66,13 @@ export default function HomeHero() {
         <TypewriterHeading
           className="hero-reveal hero-reveal-3 mt-7 text-[clamp(2.25rem,11vw,3rem)] font-bold leading-[1.01] tracking-[-0.04em] text-slate-950 sm:text-6xl lg:text-[5.15rem]"
           lines={["Hi, I'm Yafie,", "Software Engineer"]}
+          highlights={[
+            {
+              lineIndex: 0,
+              text: "Yafie",
+              className: "text-[#2d5f9d]",
+            },
+          ]}
           speed={38}
           lineDelay={280}
           startDelay={360}

@@ -393,10 +393,10 @@ export const projects: PortfolioProject[] = [
         note: "Planned",
       },
       {
-        label: "GitHub / Repo",
+        label: "Link Gallery",
         href: "#",
         disabled: true,
-        note: "Add repo",
+        note: "Old / New site",
       },
     ],
     featured: true,

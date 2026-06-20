@@ -10,9 +10,9 @@ import useHorizontalScrollProgress from "@/components/sections/home/useHorizonta
 
 const featuredProjects = [
   {
-    title: "Lumora",
+    title: "Lumora - Smart Study Companion",
     year: "2026",
-    role: "Product Design & Development",
+    role: "iOS Mobile Development & Product Design ",
     description:
       "Mobile study workspace concept focused on interface design, AI-assisted learning support, and clearer student workflows.",
     tags: ["SwiftUI", "NestJS", "Prisma", "PostgreSQL", "JWT Auth"],
@@ -23,8 +23,8 @@ const featuredProjects = [
   },
   {
     title: "FreshBasket Vendor Portal",
-    year: "2025",
-    role: "Full-Stack Developer",
+    year: "2026",
+    role: "Full-Stack Development & Cloud Deployment",
     description:
       "AWS deployment case study covering vendor and admin workflows, MySQL-backed data, load-balanced hosting, and environment configuration.",
     tags: ["Node.js", "Express", "AWS", "MySQL"],
@@ -33,15 +33,15 @@ const featuredProjects = [
     alt: "FreshBasket AWS deployment preview",
   },
   {
-    title: "SDS Project Management System",
+    title: "SDS Project Management Site",
     year: "2026",
-    role: "Frontend & Product Development",
+    role: "Frontend Developer & QA Assurance",
     description:
       "UTS stakeholder workflow system focused on frontend implementation, QA, documentation, and project coordination visibility.",
     tags: ["React", "TypeScript", "Flask", "SQLite", "Vite"],
     image: "/images/projects/sds_projects.png",
     status: "Workflow",
-    alt: "SDS project management system preview",
+    alt: "SDS project management site preview",
     recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
   },
 ];
@@ -110,7 +110,9 @@ export default function FeaturedProject() {
                   </h3>
                   {project.recognitionFlag ? (
                     <ProjectRecognitionFlag text={project.recognitionFlag} />
-                  ) : null}
+                  ) : (
+                    <div aria-hidden className="mt-3 h-[3.1rem]" />
+                  )}
                   <p className="mt-3 text-sm leading-6 text-slate-600 md:mt-5 md:leading-7">
                     {project.description}
                   </p>

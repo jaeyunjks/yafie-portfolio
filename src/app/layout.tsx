@@ -4,6 +4,7 @@ import { Cormorant_Garamond } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import DarkModeComingSoonToast from "@/components/ui/DarkModeComingSoonToast";
 import FloatingSectionNav from "@/components/ui/FloatingSectionNav";
 import "./globals.css";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         </main>
         <BackToTopButton />
         <FloatingSectionNav />
+        <DarkModeComingSoonToast />
         <Footer />
         <Analytics />
       </body>

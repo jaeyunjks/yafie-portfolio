@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
 
 type TypewriterHeadingProps = {
   lines: string[];
@@ -12,6 +13,11 @@ type TypewriterHeadingProps = {
   holdDelay?: number;
   restartDelay?: number;
   loop?: boolean;
+  highlights?: {
+    lineIndex: number;
+    text: string;
+    className: string;
+  }[];
 };
 
 function prefersReducedMotion() {
@@ -28,11 +34,52 @@ export default function TypewriterHeading({
   holdDelay = 1400,
   restartDelay = 240,
   loop = false,
+  highlights = [],
 }: TypewriterHeadingProps) {
   const fullLabel = useMemo(() => lines.join(" "), [lines]);
   const [displayedLines, setDisplayedLines] = useState(() => lines.map(() => ""));
   const [activeLine, setActiveLine] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+
+  const renderHighlightedLine = (line: string, lineIndex: number) => {
+    const lineHighlights = highlights.filter((highlight) => highlight.lineIndex === lineIndex);
+
+    if (lineHighlights.length === 0) {
+      return line;
+    }
+
+    const parts: ReactNode[] = [];
+    let cursor = 0;
+
+    while (cursor < line.length) {
+      const nextMatch = lineHighlights
+        .map((highlight) => ({
+          highlight,
+          start: line.indexOf(highlight.text, cursor),
+        }))
+        .filter((candidate) => candidate.start !== -1)
+        .sort((a, b) => a.start - b.start)[0];
+
+      if (!nextMatch) {
+        parts.push(line.slice(cursor));
+        break;
+      }
+
+      if (nextMatch.start > cursor) {
+        parts.push(line.slice(cursor, nextMatch.start));
+      }
+
+      const matchEnd = nextMatch.start + nextMatch.highlight.text.length;
+      parts.push(
+        <span key={`${lineIndex}-${nextMatch.start}`} className={nextMatch.highlight.className}>
+          {line.slice(nextMatch.start, matchEnd)}
+        </span>,
+      );
+      cursor = matchEnd;
+    }
+
+    return parts;
+  };
 
   useEffect(() => {
     if (prefersReducedMotion()) {
@@ -130,7 +177,7 @@ export default function TypewriterHeading({
       {lines.map((line, index) => (
         <span key={line} className="typewriter-heading__line" aria-hidden="true">
           <span className="typewriter-heading__typed">
-            {displayedLines[index]}
+            {renderHighlightedLine(displayedLines[index], index)}
             {activeLine === index ? (
               <span
                 className={`typewriter-heading__cursor ${

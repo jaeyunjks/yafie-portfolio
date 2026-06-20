@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ChevronRight, Compass, Gem, Leaf, Zap } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
@@ -52,18 +51,6 @@ export default function AboutPersonality() {
             </h2>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
               A few things that make my work style more personal and grounded.
-            </p>
-          </div>
-          <div className="hidden items-center gap-3 rounded-[15px] border border-[#d4e3ff]/75 bg-white/64 p-3 shadow-[0_14px_38px_rgba(45,95,157,0.08)] backdrop-blur-xl lg:flex">
-            <Image
-              src="/images/mascot/husky-coding.png"
-              alt="Yafie husky visual identity"
-              width={56}
-              height={56}
-              className="h-14 w-14 object-contain"
-            />
-            <p className="max-w-44 font-mono text-[0.64rem] font-bold uppercase leading-5 tracking-[0.12em] text-slate-500">
-              friendly identity, professional execution
             </p>
           </div>
         </div>

@@ -97,6 +97,9 @@ export default function Navbar() {
         <div className="flex items-center justify-end gap-2">
           <button
             type="button"
+            onClick={() => {
+              window.dispatchEvent(new Event("yafie:darkmode-coming-soon"));
+            }}
             className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/75 bg-white/62 text-[#2d5f9d] shadow-sm shadow-blue-900/5 transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
             aria-label="Dark mode toggle visual placeholder"
             title="Theme toggle"
