@@ -13,7 +13,7 @@ export default function LumoraPersona() {
     lumoraPersona.groups[0];
 
   return (
-    <section id="user-persona" className="scroll-mt-32 px-6 py-12">
+    <section id="user-persona" className="scroll-mt-32 px-6 py-10 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <LumoraSectionLabel
@@ -45,7 +45,7 @@ export default function LumoraPersona() {
                 <div className="mt-5 rounded-[22px] border border-[#d4e3ff]/70 bg-[#f8fbff]/72 p-4">
                   <Quote size={19} strokeWidth={2.3} className="text-[#2d5f9d]" />
                   <p className="mt-3 text-lg font-extrabold leading-7 text-slate-900">
-                    "{lumoraPersona.quote}"
+                    &ldquo;{lumoraPersona.quote}&rdquo;
                   </p>
                 </div>
               </article>
@@ -54,6 +54,8 @@ export default function LumoraPersona() {
                 src="/images/projects/Lumora/user%20persona%201.png"
                 alt="Lumora user persona research board for Alex Tan"
                 label="User persona reference"
+                objectFit="contain"
+                caption="Persona research board documenting Alex Tan's study habits, frustrations, goals, and digital tools."
               />
             </div>
           </Reveal>
@@ -77,13 +79,16 @@ export default function LumoraPersona() {
               </div>
 
               <article className="rounded-[28px] border border-white/75 bg-white/66 p-5 shadow-[0_22px_70px_rgba(45,95,157,0.1)] backdrop-blur-xl">
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2" role="tablist" aria-label="Alex Tan persona insights">
                   {lumoraPersona.groups.map((group) => (
                     <button
                       key={group.label}
                       type="button"
+                      role="tab"
+                      aria-selected={active === group.label}
+                      aria-controls="lumora-persona-tabpanel"
                       onClick={() => setActive(group.label)}
-                      className={`rounded-full border px-4 py-2 text-sm font-extrabold transition-[background-color,border-color,color,box-shadow,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 ${
+                      className={`min-h-11 rounded-full border px-4 py-2 text-sm font-extrabold transition-[background-color,border-color,color,box-shadow,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 ${
                         active === group.label
                           ? "border-[#2d5f9d] bg-[#2d5f9d] text-white shadow-lg shadow-blue-900/12"
                           : "border-slate-200/80 bg-white/70 text-slate-700"
@@ -94,7 +99,7 @@ export default function LumoraPersona() {
                   ))}
                 </div>
 
-                <div className="mt-5 grid gap-3">
+                <div id="lumora-persona-tabpanel" role="tabpanel" aria-label={`${active} persona details`} className="mt-5 grid gap-3">
                   {selected.items.map((item) => (
                     <div
                       key={item}
@@ -114,7 +119,7 @@ export default function LumoraPersona() {
                   {lumoraPersona.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="rounded-full border border-[#d4e3ff]/80 bg-white/78 px-3 py-1.5 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-slate-600"
+                      className="rounded-full border border-[#d4e3ff]/80 bg-white/78 px-3 py-1.5 font-mono text-[0.62rem] font-bold tracking-[0.04em] text-slate-600"
                     >
                       {tool}
                     </span>

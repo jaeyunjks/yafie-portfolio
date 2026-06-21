@@ -5,5 +5,6 @@ export { default as LumoraDesignProcess } from "./LumoraDesignProcess";
 export { default as LumoraOutcomeReflection } from "./LumoraOutcomeReflection";
 export { default as LumoraPersona } from "./LumoraPersona";
 export { default as LumoraProblemAudience } from "./LumoraProblemAudience";
+export { default as LumoraProductSnapshot } from "./LumoraProductSnapshot";
 export { default as LumoraProjectSummary } from "./LumoraProjectSummary";
 export { default as LumoraTechStack } from "./LumoraTechStack";

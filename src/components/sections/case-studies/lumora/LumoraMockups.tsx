@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   BookOpen,
   FileText,
@@ -14,6 +15,8 @@ type LumoraImageProps = {
   alt: string;
   label: string;
   variant?: "phone" | "panel";
+  objectFit?: "cover" | "contain";
+  caption?: string;
 };
 
 export function LumoraImage({
@@ -21,9 +24,12 @@ export function LumoraImage({
   alt,
   label,
   variant = "panel",
+  objectFit = "cover",
+  caption,
 }: LumoraImageProps) {
   const [failed, setFailed] = useState(false);
   const showImage = Boolean(src && !failed);
+  const imageSrc = src ?? "";
 
   if (variant === "phone") {
     return (
@@ -31,12 +37,9 @@ export function LumoraImage({
         <div className="relative min-h-[31rem] overflow-hidden rounded-[1.65rem] bg-[#f8fbff]">
           <span className="absolute left-1/2 top-2 z-20 h-1.5 w-16 -translate-x-1/2 rounded-full bg-slate-900/72" />
           {showImage ? (
-            <img
-              src={src}
-              alt={alt}
-              className="absolute inset-0 h-full w-full object-cover"
-              onError={() => setFailed(true)}
-            />
+            <a href={imageSrc} target="_blank" rel="noreferrer" aria-label={`Open larger image: ${alt}`} className="absolute inset-0 block cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#8dbbff]/80">
+              <Image src={imageSrc} alt={alt} fill sizes="272px" className="object-cover" onError={() => setFailed(true)} />
+            </a>
           ) : (
             <LumoraPhonePlaceholder label={label} />
           )}
@@ -46,16 +49,14 @@ export function LumoraImage({
   }
 
   return (
-    <div className="relative min-h-[18rem] overflow-hidden rounded-[24px] border border-white/78 bg-white/62 shadow-[0_20px_64px_rgba(45,95,157,0.1)] backdrop-blur-xl">
-      {showImage ? (
-        <img
-          src={src}
-          alt={alt}
-          className="h-full min-h-[18rem] w-full object-cover"
-          onError={() => setFailed(true)}
-        />
-      ) : (
-        <div className="flex min-h-[18rem] flex-col justify-between bg-[radial-gradient(circle_at_80%_12%,rgba(141,187,255,0.2),transparent_34%),linear-gradient(135deg,#ffffff_0%,#f8fbff_54%,#f7f3ff_100%)] p-5">
+    <figure className="overflow-hidden rounded-[24px] border border-white/78 bg-white/62 shadow-[0_20px_64px_rgba(45,95,157,0.1)] backdrop-blur-xl">
+      <div className="relative min-h-[18rem]">
+        {showImage ? (
+          <a href={imageSrc} target="_blank" rel="noreferrer" aria-label={`Open larger image: ${alt}`} className="absolute inset-0 block cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#8dbbff]/80">
+            <Image src={imageSrc} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className={objectFit === "contain" ? "bg-white object-contain" : "object-cover"} onError={() => setFailed(true)} />
+          </a>
+        ) : (
+          <div className="flex min-h-[18rem] flex-col justify-between bg-[radial-gradient(circle_at_80%_12%,rgba(141,187,255,0.2),transparent_34%),linear-gradient(135deg,#ffffff_0%,#f8fbff_54%,#f7f3ff_100%)] p-5">
           <span className="inline-flex w-fit rounded-full border border-[#d4e3ff]/80 bg-white/74 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]">
             placeholder
           </span>
@@ -67,9 +68,11 @@ export function LumoraImage({
               Replace this with the final Lumora visual asset when available.
             </p>
           </div>
-        </div>
-      )}
-    </div>
+          </div>
+        )}
+      </div>
+      {caption ? <figcaption className="border-t border-[#d4e3ff]/52 bg-white/76 px-4 py-3 text-sm leading-6 text-slate-600">{caption}</figcaption> : null}
+    </figure>
   );
 }
 
@@ -143,7 +146,7 @@ export function LumoraSectionLabel({
       <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
         {label}
       </p>
-      <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+      <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
         {title}
       </h2>
       {subtitle ? (

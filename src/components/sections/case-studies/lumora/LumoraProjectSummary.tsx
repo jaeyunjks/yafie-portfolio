@@ -7,13 +7,13 @@ const icons = [Lightbulb, Target, PanelsTopLeft, Wrench];
 
 export default function LumoraProjectSummary() {
   return (
-    <section id="project-summary" className="scroll-mt-32 px-6 py-12">
+    <section id="project-summary" className="scroll-mt-32 px-6 py-10 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <LumoraSectionLabel
             label="00 // project.summary"
             title="What Lumora is."
-            subtitle="Lumora is a smart study companion that helps students organise learning materials and turn scattered content into clearer understanding. It combines workspaces, notes, file/image/PDF handling, AI summaries, and study chat into a mobile-first learning flow."
+            subtitle="A mobile-first study companion combining organised workspaces, notes, file/image/PDF handling, AI-assisted summaries, and review workflows."
           />
         </Reveal>
 

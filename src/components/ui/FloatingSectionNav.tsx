@@ -82,6 +82,7 @@ const sectionLinksByPath: Record<string, SectionLink[]> = {
     { id: "design-process", label: "Design" },
     { id: "app-flow", label: "App Flow" },
     { id: "tech-stack", label: "Tech Stack" },
+    { id: "greatest-challenge", label: "Challenge" },
     { id: "outcome-reflection", label: "Outcome" },
   ],
   "/projects/focuspop": [

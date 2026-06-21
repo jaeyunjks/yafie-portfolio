@@ -24,25 +24,29 @@ export default function LumoraCaseHero() {
                 case.study // lumora
               </p>
               <TypewriterHeading
-                className="mt-4 text-6xl font-black tracking-tight text-slate-950 sm:text-7xl lg:text-8xl"
+                className="mt-4 text-[clamp(3.5rem,18vw,4.5rem)] font-black leading-none tracking-tight text-slate-950 sm:text-7xl lg:text-8xl"
                 lines={["Lumora"]}
               />
               <p className="mt-4 text-2xl font-extrabold leading-tight text-[#2d5f9d] sm:text-3xl">
                 Smart Study Companion
               </p>
-              <p className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-slate-800 sm:text-3xl">
+              <p className="mt-5 max-w-3xl text-xl font-extrabold leading-snug text-slate-800 sm:text-3xl sm:leading-tight">
                 Turning scattered study materials into clear understanding.
               </p>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                Lumora is a mobile-first study companion designed for university
-                students who collect notes, PDFs, slides, screenshots, and
-                images across different tools but still struggle to turn them
-                into structured understanding. The app brings study materials,
-                notes, file imports, and AI-assisted summaries into one
-                organised iOS workspace.
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                Lumora is a mobile-first iOS study companion that helps
+                university students organise notes, PDFs, images, and files,
+                then turn them into AI-assisted summaries and clearer study workflows.
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2.5">
+              <p className="mt-4 text-sm font-bold leading-6 text-[#2d5f9d]">
+                Prototype / In Development · SwiftUI · AI Study Workflow
+              </p>
+              <p className="mt-1 text-sm font-bold leading-6 text-[#2d5f9d]">
+                Nominated for UTS Software Engineering Tech Fest 2026
+              </p>
+
+              <div className="mt-5 hidden flex-wrap gap-2.5 sm:flex">
                 {lumoraMetadata.map((item) => (
                   <span
                     key={item}
@@ -55,6 +59,8 @@ export default function LumoraCaseHero() {
               <NonSdsCaseStudyHeroActions
                 githubHref="https://github.com/jaeyunjks/SmartStudyCompanion"
                 projectGalleryHref="#app-flow"
+                galleryLabel="View App Flow"
+                primaryFirst
               />
             </div>
           </Reveal>
@@ -62,7 +68,7 @@ export default function LumoraCaseHero() {
           <Reveal delay={0.08}>
             <div className="relative">
               <div className="absolute -inset-5 rounded-[36px] bg-[radial-gradient(circle_at_60%_18%,rgba(141,187,255,0.26),transparent_36%),radial-gradient(circle_at_12%_88%,rgba(198,183,255,0.2),transparent_36%)] blur-2xl" />
-              <div className="relative rounded-[32px] border border-white/78 bg-white/56 p-5 shadow-[0_30px_96px_rgba(45,95,157,0.18)] backdrop-blur-2xl">
+              <div className="relative rounded-[32px] border border-white/78 bg-white/56 p-3 shadow-[0_30px_96px_rgba(45,95,157,0.18)] backdrop-blur-2xl sm:p-5">
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <div>
                     <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">

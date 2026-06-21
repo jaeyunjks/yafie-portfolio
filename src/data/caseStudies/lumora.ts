@@ -1,8 +1,9 @@
 export const lumoraMetadata = [
   "Role: iOS App Designer & Developer",
   "Platform: iOS",
-  "Focus: SwiftUI - Backend API - AI Summary - Study Workflow",
-  "Type: Mobile App Case Study",
+  "Status: Prototype / In Development",
+  "Focus: SwiftUI - MVVM - AI Study Workflow",
+  "Nominated for UTS Software Engineering Tech Fest 2026",
 ];
 
 export const lumoraSummaryCards = [
@@ -143,6 +144,7 @@ export const lumoraAppFlow = [
 export const lumoraTechStack = [
   {
     title: "iOS Frontend",
+    status: "Implemented in prototype",
     items: [
       ["SwiftUI", "Native iOS interface."],
       ["MVVM", "Separates UI, state, and logic."],
@@ -151,6 +153,7 @@ export const lumoraTechStack = [
   },
   {
     title: "Local Data & Files",
+    status: "Implemented / in development",
     items: [
       ["Core Data", "Offline study cache."],
       [
@@ -166,6 +169,7 @@ export const lumoraTechStack = [
   },
   {
     title: "Backend, Data & AI",
+    status: "Planned / in development",
     items: [
       ["NestJS", "Backend REST API."],
       ["Prisma + PostgreSQL", "Database and data models."],
@@ -175,6 +179,7 @@ export const lumoraTechStack = [
   },
   {
     title: "Collaboration",
+    status: "Used during design and development",
     items: [
       ["GitHub", "Collaboration and version control."],
       ["Figma", "Low-fidelity and product design direction."],

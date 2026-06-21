@@ -7,6 +7,7 @@ import {
   LumoraOutcomeReflection,
   LumoraPersona,
   LumoraProblemAudience,
+  LumoraProductSnapshot,
   LumoraProjectSummary,
   LumoraTechStack,
 } from "@/components/sections/case-studies/lumora";
@@ -16,6 +17,7 @@ export default function LumoraCaseStudyPage() {
     <div className="relative isolate">
       <AnimatedBackground />
       <LumoraCaseHero />
+      <LumoraProductSnapshot />
       <LumoraProjectSummary />
       <LumoraProblemAudience />
       <LumoraPersona />
