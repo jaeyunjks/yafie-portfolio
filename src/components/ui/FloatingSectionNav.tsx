@@ -69,7 +69,9 @@ const sectionLinksByPath: Record<string, SectionLink[]> = {
     { id: "deployment-flow", label: "Deployment" },
     { id: "database-integration", label: "Database" },
     { id: "security-networking", label: "Security" },
+    { id: "scaling-operations", label: "Operations" },
     { id: "evidence-gallery", label: "Evidence" },
+    { id: "troubleshooting", label: "Problems" },
     { id: "reflection", label: "Reflection" },
   ],
   "/projects/lumora": [

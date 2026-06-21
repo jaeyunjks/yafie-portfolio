@@ -27,26 +27,21 @@ export default function FreshBasketCaseHero() {
                 case.study // freshbasket.aws
               </p>
               <TypewriterHeading
-                className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
+                className="mt-4 text-[clamp(2.65rem,12.5vw,3.5rem)] font-black leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl"
                 lines={["FreshBasket AWS Deployment"]}
               />
-              <p className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-slate-800 sm:text-3xl">
+              <p className="mt-5 max-w-3xl text-xl font-extrabold leading-snug text-slate-800 sm:text-3xl sm:leading-tight">
                 A documented AWS deployment of a Node.js and MySQL vendor
                 portal.
               </p>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                FreshBasket was a cloud deployment project where I deployed a
-                Node.js, Express, EJS, and MySQL web application to AWS. The
-                deployment used Elastic Beanstalk, EC2, RDS MySQL, Load
-                Balancer, Auto Scaling, custom VPC networking, security groups,
-                environment variables, and SNS notification setup. Although the
-                AWS Academy environment is no longer active, the deployment is
-                documented through architecture diagrams, configuration
-                screenshots, database connection evidence, and application
-                screenshots.
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                Deployed a Node.js, Express, EJS, and MySQL vendor portal using
+                Elastic Beanstalk, EC2, RDS MySQL, custom VPC networking,
+                security groups, load balancing, Auto Scaling, environment
+                variables, and SNS notification setup.
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2.5">
+              <div className="mt-5 hidden flex-wrap gap-2.5 sm:flex">
                 {freshBasketPills.map((item) => (
                   <span
                     key={item}
@@ -63,6 +58,8 @@ export default function FreshBasketCaseHero() {
               <NonSdsCaseStudyHeroActions
                 githubHref={freshBasketLinks.github}
                 projectGalleryHref="#evidence-gallery"
+                galleryLabel="View Deployment Evidence"
+                primaryFirst
               />
             </div>
           </Reveal>

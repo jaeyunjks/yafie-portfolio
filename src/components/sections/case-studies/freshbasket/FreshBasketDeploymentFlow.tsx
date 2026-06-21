@@ -8,9 +8,10 @@ import { FreshBasketSectionLabel } from "./FreshBasketVisuals";
 export default function FreshBasketDeploymentFlow() {
   const [activeStep, setActiveStep] = useState(0);
   const selected = freshBasketDeploymentSteps[activeStep];
+  const detailId = "freshbasket-deployment-step-detail";
 
   return (
-    <section id="deployment-flow" className="scroll-mt-32 px-6 py-12">
+    <section id="deployment-flow" className="scroll-mt-32 px-6 py-10 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <FreshBasketSectionLabel
@@ -35,8 +36,10 @@ export default function FreshBasketDeploymentFlow() {
                     key={step.title}
                     type="button"
                     aria-pressed={isActive}
+                    aria-expanded={isActive}
+                    aria-controls={detailId}
                     onClick={() => setActiveStep(index)}
-                    className={`flex items-center gap-3 rounded-[18px] border p-3 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 ${
+                    className={`flex min-h-11 items-center gap-3 rounded-[18px] border p-3 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 ${
                       isActive
                         ? "border-[#8dbbff]/70 bg-[#f8fbff] shadow-[0_14px_34px_rgba(45,95,157,0.1)]"
                         : "border-[#d4e3ff]/58 bg-white/62 hover:bg-white"
@@ -59,7 +62,7 @@ export default function FreshBasketDeploymentFlow() {
               })}
             </div>
 
-            <article className="mt-5 rounded-[24px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-5">
+            <article id={detailId} aria-live="polite" className="mt-5 rounded-[24px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-5">
               <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
                 selected.step
               </p>

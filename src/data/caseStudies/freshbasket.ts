@@ -16,7 +16,7 @@ type FreshBasketEvidenceItem = {
 };
 
 export const freshBasketNotice =
-  "This project was deployed in an AWS Academy Learner Lab environment for assessment purposes. The live environment is no longer active, but the deployment is documented through architecture diagrams, AWS configuration screenshots, database connection evidence, and application screenshots.";
+  "Live AWS resources are no longer active because this assessment used AWS Academy Learner Lab. Architecture diagrams, configuration screenshots, database connection proof, and application screenshots preserve the deployment evidence.";
 
 export const freshBasketPills = [
   "Role: Cloud Deployment / Full-Stack Deployment",
@@ -134,13 +134,12 @@ export const freshBasketNetworkingCards = [
 ];
 
 export const freshBasketOperationsCards = [
-  "Load-balanced environment",
-  "Min instances: 2",
-  "Max instances: 8",
-  "EC2 instance profile / service role",
-  "Custom AMI",
-  "Environment variables",
-  "Health monitoring and events",
+  { label: "Load balancing", value: "Elastic Beanstalk environment" },
+  { label: "Auto Scaling", value: "Min 2 / Max 8" },
+  { label: "Runtime image", value: "Custom AMI" },
+  { label: "Configuration", value: "Environment variables" },
+  { label: "Monitoring", value: "Health and events" },
+  { label: "Access roles", value: "IAM role / instance profile" },
 ];
 
 export const freshBasketOperationsImages = [
@@ -171,7 +170,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
   {
     title: "Architecture Diagram",
     image: "/images/projects/AWS/architecture-diagram.png",
-    category: "AWS Deployment",
+    category: "Architecture",
     caption: "High-level architecture diagram showing the deployed app, AWS services, and database path.",
     aspectRatio: "wide",
     objectFit: "contain",
@@ -179,7 +178,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
   {
     title: "Elastic Beanstalk Health",
     image: "/images/projects/AWS/beanstalk-health-ok.png",
-    category: "AWS Deployment",
+    category: "AWS deployment",
     caption: "Evidence that the Elastic Beanstalk environment reached a healthy deployment state.",
     aspectRatio: "16/9",
     objectFit: "contain",
@@ -187,7 +186,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
   {
     title: "FreshBasket Landing Page",
     image: "/images/projects/AWS/app-landing.png",
-    category: "App",
+    category: "Application UI",
     caption: "Application landing page evidence showing the deployed FreshBasket user interface.",
     aspectRatio: "16/9",
     objectFit: "cover",
@@ -195,7 +194,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
   {
     title: "Customer Builder Flow",
     image: "/images/projects/AWS/app-builder.png",
-    category: "App",
+    category: "Application UI",
     caption: "Customer produce-box builder flow running through the deployed web application.",
     aspectRatio: "16/9",
     objectFit: "cover",
@@ -204,7 +203,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
     title: "Admin Operations Dashboard",
     image:
       "/images/projects/AWS/app-admin-dashboard.png",
-    category: "App",
+    category: "Application UI",
     caption: "Admin dashboard evidence for request monitoring and operations visibility.",
     aspectRatio: "16/9",
     objectFit: "cover",
@@ -228,7 +227,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
   {
     title: "Security Groups",
     image: "/images/projects/AWS/security-groups.png",
-    category: "Security",
+    category: "Security / networking",
     caption: "Security group evidence showing access control for web and database traffic.",
     aspectRatio: "console",
     objectFit: "contain",
@@ -236,7 +235,7 @@ export const freshBasketEvidenceItems: FreshBasketEvidenceItem[] = [
   {
     title: "VPC Networking",
     image: "/images/projects/AWS/vpc-networking.png",
-    category: "Networking",
+    category: "Security / networking",
     caption: "VPC networking evidence showing how deployment resources were grouped.",
     aspectRatio: "3/2",
     objectFit: "contain",

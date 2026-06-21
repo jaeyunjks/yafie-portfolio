@@ -3,6 +3,7 @@ export { default as FreshBasketCaseHero } from "./FreshBasketCaseHero";
 export { default as FreshBasketContext } from "./FreshBasketContext";
 export { default as FreshBasketDatabaseIntegration } from "./FreshBasketDatabaseIntegration";
 export { default as FreshBasketDeploymentFlow } from "./FreshBasketDeploymentFlow";
+export { default as FreshBasketDeploymentSnapshot } from "./FreshBasketDeploymentSnapshot";
 export { default as FreshBasketEvidenceGallery } from "./FreshBasketEvidenceGallery";
 export { default as FreshBasketReflection } from "./FreshBasketReflection";
 export { default as FreshBasketScalingOperations } from "./FreshBasketScalingOperations";

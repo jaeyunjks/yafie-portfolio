@@ -7,7 +7,7 @@ import {
 
 export default function FreshBasketDatabaseIntegration() {
   return (
-    <section id="database-integration" className="scroll-mt-32 px-6 py-12">
+    <section id="database-integration" className="scroll-mt-32 px-6 py-10 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <FreshBasketSectionLabel
@@ -23,14 +23,14 @@ export default function FreshBasketDatabaseIntegration() {
               src="/images/projects/AWS/ec2-rds-sql-query.png"
               alt="EC2 terminal connection to RDS MySQL with SQL query evidence"
               label="EC2 to RDS SQL query"
-              caption="EC2 terminal connection to the RDS MySQL database, verifying product and customer request records through SQL queries."
+              caption="EC2 terminal query confirming the application could connect to RDS MySQL and read seeded produce/request data."
               aspectRatio="3/2"
               objectFit="contain"
             />
 
             <article className="rounded-[26px] border border-white/75 bg-white/66 p-6 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl">
               <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
-                database.tables
+                Tables verified
               </p>
               <div className="mt-4 grid gap-2">
                 {freshBasketDatabaseTables.map((table) => (
@@ -43,8 +43,7 @@ export default function FreshBasketDatabaseIntegration() {
                 ))}
               </div>
               <p className="mt-5 text-sm leading-7 text-slate-600">
-                EC2 terminal connection to the RDS MySQL database, verifying
-                product and customer request records through SQL queries.
+                The query evidence connects the deployed application layer to persistent RDS data rather than only showing an isolated AWS configuration screen.
               </p>
             </article>
           </div>

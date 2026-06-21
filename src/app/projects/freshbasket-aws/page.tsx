@@ -5,6 +5,7 @@ import {
   FreshBasketContext,
   FreshBasketDatabaseIntegration,
   FreshBasketDeploymentFlow,
+  FreshBasketDeploymentSnapshot,
   FreshBasketEvidenceGallery,
   FreshBasketReflection,
   FreshBasketScalingOperations,
@@ -17,6 +18,7 @@ export default function FreshBasketAwsCaseStudyPage() {
     <div className="relative isolate">
       <AnimatedBackground />
       <FreshBasketCaseHero />
+      <FreshBasketDeploymentSnapshot />
       <FreshBasketContext />
       <FreshBasketArchitecture />
       <FreshBasketDeploymentFlow />

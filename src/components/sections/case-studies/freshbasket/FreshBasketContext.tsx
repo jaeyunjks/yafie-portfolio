@@ -4,7 +4,7 @@ import { FreshBasketSectionLabel } from "./FreshBasketVisuals";
 
 export default function FreshBasketContext() {
   return (
-    <section id="project-context" className="scroll-mt-32 px-6 py-12">
+    <section id="project-context" className="scroll-mt-32 px-6 py-10 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <FreshBasketSectionLabel

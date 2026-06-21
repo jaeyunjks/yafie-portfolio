@@ -8,7 +8,7 @@ import { FreshBasketSectionLabel } from "./FreshBasketVisuals";
 export default function FreshBasketReflection() {
   return (
     <>
-      <section id="reflection" className="scroll-mt-32 px-6 py-12">
+      <section id="reflection" className="scroll-mt-32 px-6 py-10 md:py-12">
         <div className="mx-auto max-w-7xl">
           <Reveal>
             <FreshBasketSectionLabel
@@ -20,11 +20,11 @@ export default function FreshBasketReflection() {
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {freshBasketReflectionCards.map((card, index) => (
               <Reveal key={card.title} delay={index * 0.04}>
-                <article className="h-full rounded-[24px] border border-white/75 bg-white/66 p-5 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl">
+                <article className="h-full rounded-[24px] border border-white/75 bg-white/66 p-4 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl md:p-5">
                   <h3 className="text-lg font-extrabold text-slate-950">
                     {card.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                  <p className="mt-3 text-sm leading-6 text-slate-600 md:leading-7">
                     {card.body}
                   </p>
                 </article>
@@ -33,13 +33,12 @@ export default function FreshBasketReflection() {
           </div>
 
           <Reveal delay={0.1}>
-            <p className="mt-6 rounded-[26px] border border-[#d4e3ff]/58 bg-[#f8fbff]/66 p-6 text-base leading-8 text-slate-700 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl">
+            <p className="mt-6 rounded-[26px] border border-[#d4e3ff]/58 bg-[#f8fbff]/66 p-5 text-base leading-7 text-slate-700 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl md:p-6 md:leading-8">
               FreshBasket helped me move beyond local development and
               understand what it takes to run a full-stack application in a
-              cloud environment. The project strengthened my practical
-              understanding of AWS deployment, RDS database integration,
-              Elastic Beanstalk configuration, security groups, Auto Scaling,
-              troubleshooting, and technical documentation.
+              cloud environment. It strengthened my understanding of how RDS
+              integration, Elastic Beanstalk configuration, networking,
+              runtime settings, troubleshooting, and evidence capture work together.
             </p>
           </Reveal>
         </div>
@@ -58,10 +57,10 @@ export default function FreshBasketReflection() {
               FreshBasket shows how cloud infrastructure decisions shape a
               full-stack application once it leaves local development.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 sm:w-auto"
               >
                 <ArrowLeft size={17} strokeWidth={2.4} aria-hidden />
                 Back to Projects
@@ -70,7 +69,7 @@ export default function FreshBasketReflection() {
                 href={freshBasketLinks.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-5 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-5 py-3 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 sm:w-auto"
               >
                 <SiGithub size={17} aria-hidden />
                 GitHub Repo
