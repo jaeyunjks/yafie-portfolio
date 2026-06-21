@@ -1,9 +1,13 @@
+"use client";
+
 import {
   CheckCircle2,
+  ChevronDown,
   FileSearch,
   GitBranch,
   MessageSquareText,
 } from "lucide-react";
+import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 
 const comparisonItems = [
@@ -54,8 +58,11 @@ const demonstratedItems = [
 ];
 
 export default function SDSProjectOrigin() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const detailsId = "project-origin-details";
+
   return (
-    <section id="project-origin" className="scroll-mt-32 px-6 py-12">
+    <section id="project-origin" className="scroll-mt-32 px-6 py-10 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="grid gap-6 rounded-[30px] border border-white/75 bg-white/54 p-5 shadow-[0_28px_90px_rgba(45,95,157,0.12)] backdrop-blur-2xl lg:grid-cols-[minmax(0,0.58fr)_minmax(320px,0.42fr)] lg:p-7">
@@ -63,7 +70,7 @@ export default function SDSProjectOrigin() {
               <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
                 00 // project.origin
               </p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
                 How the project direction changed.
               </h2>
               <p className="mt-4 text-base font-bold leading-8 text-slate-700">
@@ -71,7 +78,17 @@ export default function SDSProjectOrigin() {
                 requirements-discovery moment that shaped how we thought about
                 project briefs, stakeholder alignment, and workflow visibility.
               </p>
-              <div className="mt-5 space-y-4 text-sm leading-7 text-slate-600">
+              <button
+                type="button"
+                aria-expanded={isExpanded}
+                aria-controls={detailsId}
+                onClick={() => setIsExpanded((current) => !current)}
+                className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-4 py-2.5 text-sm font-extrabold text-[#2d5f9d] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 lg:hidden"
+              >
+                {isExpanded ? "Show less" : "Read the full origin story"}
+                <ChevronDown size={16} strokeWidth={2.3} aria-hidden className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+              </button>
+              <div id={detailsId} className={`mt-5 space-y-4 text-sm leading-7 text-slate-600 ${isExpanded ? "block" : "hidden"} lg:block`}>
                 <p>
                   The project originally began with a different brief: a
                   full-stack website with AI support to help teachers mark
@@ -106,7 +123,7 @@ export default function SDSProjectOrigin() {
               </div>
             </div>
 
-            <aside className="flex h-full flex-col rounded-[24px] border border-[#d4e3ff]/64 bg-[#f8fbff]/76 p-5">
+            <aside className={`${isExpanded ? "flex" : "hidden"} h-full flex-col rounded-[24px] border border-[#d4e3ff]/64 bg-[#f8fbff]/76 p-5 lg:flex`}>
               <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
                 brief.vs.reality
               </p>
@@ -148,7 +165,7 @@ export default function SDSProjectOrigin() {
           </div>
         </Reveal>
 
-        <div className="mt-5">
+        <div className={`${isExpanded ? "mt-5 block" : "hidden"} lg:mt-5 lg:block`}>
           <Reveal delay={0.06}>
             <div className="rounded-[26px] border border-white/75 bg-white/58 p-5 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl">
               <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">

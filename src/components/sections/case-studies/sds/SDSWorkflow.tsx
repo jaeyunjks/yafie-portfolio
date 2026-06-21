@@ -2,31 +2,34 @@
 
 import { useState } from "react";
 import {
-  ArrowDown,
   ArrowRight,
   BriefcaseBusiness,
   CheckCircle2,
   ClipboardList,
+  ChevronRight,
   MousePointerClick,
   Route,
   ShieldCheck,
 } from "lucide-react";
+import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 import Reveal from "@/components/ui/Reveal";
 import { sdsSprints } from "@/data/caseStudies/sdsModernisation";
 
 export default function SDSWorkflow() {
   const [activeSprint, setActiveSprint] = useState(0);
   const selectedSprint = sdsSprints[activeSprint];
+  const { ref: mobileCardsRef, progress } =
+    useHorizontalScrollProgress<HTMLDivElement>();
 
   return (
-    <section id="project-workflow" className="scroll-mt-32 px-6 py-14">
+    <section id="project-workflow" className="scroll-mt-32 px-6 py-10 md:py-14">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
               04 // project.workflow
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
               How the work progressed.
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
@@ -49,17 +52,23 @@ export default function SDSWorkflow() {
 
         <Reveal delay={0.06}>
           <div className="open-panel mt-8">
-            <div className="hidden items-stretch gap-3 lg:grid lg:grid-cols-5">
+            <div
+              ref={mobileCardsRef}
+              className="mobile-snap-scroll -mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-4 lg:mx-0 lg:grid lg:snap-none lg:grid-cols-5 lg:overflow-visible lg:px-0 lg:pb-0"
+            >
               {sdsSprints.map((sprint, index) => {
                 const isActive = index === activeSprint;
 
                 return (
-                  <div key={sprint.sprint} className="relative">
+                  <div
+                    key={sprint.sprint}
+                    className="relative w-[82vw] shrink-0 snap-center sm:w-[68vw] lg:w-auto lg:snap-none"
+                  >
                     <button
                       type="button"
                       aria-pressed={isActive}
                       onClick={() => setActiveSprint(index)}
-                      className={`h-full w-full cursor-pointer rounded-[20px] border p-4 text-left transition-[background-color,border-color,box-shadow,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 ${
+                      className={`flex h-full min-h-[11rem] w-full cursor-pointer flex-col rounded-[20px] border p-4 text-left transition-[background-color,border-color,box-shadow,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 lg:min-h-0 lg:rounded-[18px] ${
                         isActive
                           ? "border-[#8dbbff]/80 bg-white shadow-[0_16px_44px_rgba(45,95,157,0.13)] ring-1 ring-[#8dbbff]/34"
                           : "border-white/75 bg-white/58 hover:-translate-y-1 hover:bg-white/82"
@@ -71,65 +80,43 @@ export default function SDSWorkflow() {
                       <h3 className="mt-2 text-base font-extrabold text-slate-950">
                         {sprint.title}
                       </h3>
-                      <p className="mt-3 text-xs leading-6 text-slate-600">
+                      <p className="mt-3 text-xs leading-6 text-slate-600 lg:text-sm lg:leading-7">
                         {sprint.description}
                       </p>
-                      <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
+                      <span className="mt-auto inline-flex items-center gap-1.5 pt-4 font-mono text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
                         {isActive ? "Viewing details" : "View sprint details"}
                         <ArrowRight size={12} strokeWidth={2.5} aria-hidden />
                       </span>
                     </button>
-                    {index < sdsSprints.length - 1 ? (
-                      <ArrowRight
-                        className="pointer-events-none absolute -right-5 top-1/2 z-10 text-[#8dbbff]"
-                        size={24}
-                        strokeWidth={2.4}
-                        aria-hidden
-                      />
-                    ) : null}
                   </div>
                 );
               })}
             </div>
 
-            <div className="grid gap-3 lg:hidden">
-              {sdsSprints.map((sprint, index) => {
-                const isActive = index === activeSprint;
-
-                return (
-                  <div key={sprint.sprint}>
-                    <button
-                      type="button"
-                      aria-pressed={isActive}
-                      onClick={() => setActiveSprint(index)}
-                      className={`w-full cursor-pointer rounded-[18px] border p-4 text-left transition-[background-color,border-color,box-shadow] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 ${
-                        isActive
-                          ? "border-[#8dbbff]/80 bg-white shadow-[0_14px_34px_rgba(45,95,157,0.11)] ring-1 ring-[#8dbbff]/34"
-                          : "border-white/75 bg-white/58 hover:bg-white/82"
-                      }`}
-                    >
-                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
-                        {sprint.sprint}
-                      </p>
-                      <h3 className="mt-2 text-base font-extrabold text-slate-950">
-                        {sprint.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-600">
-                        {sprint.description}
-                      </p>
-                      <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
-                        {isActive ? "Viewing details" : "View sprint details"}
-                        <ArrowRight size={12} strokeWidth={2.5} aria-hidden />
-                      </span>
-                    </button>
-                    {index < sdsSprints.length - 1 ? (
-                      <div className="flex justify-center py-1.5 text-[#8dbbff]">
-                        <ArrowDown size={20} strokeWidth={2.4} aria-hidden />
-                      </div>
-                    ) : null}
-                  </div>
-                );
-              })}
+            <div className="mt-2 flex items-center gap-3 lg:hidden">
+              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                Swipe {Math.round(progress)}%
+              </span>
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
+                <div
+                  className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+              <div
+                className="flex items-center transition-opacity duration-300"
+                style={{
+                  opacity: progress < 5 ? 1 : 0,
+                  animation:
+                    progress < 5
+                      ? "swipe-hint-bounce 800ms ease-in-out infinite"
+                      : "none",
+                }}
+                aria-hidden
+              >
+                <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+                <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
+              </div>
             </div>
 
             <div className="mt-5 rounded-[20px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-5 transition-[background-color] duration-300">

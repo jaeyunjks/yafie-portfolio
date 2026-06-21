@@ -69,20 +69,23 @@ export type PortfolioProject = {
   featuredSkills?: string[];
   architecture?: ProjectArchitectureEntry[];
   recognitionFlag?: string;
+  contributionSummary?: string;
 };
 
 export const SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION =
-  "This project is nominated in Software Engineering Tech Fest";
+  "Nominated for UTS Software Engineering Tech Fest 2026";
 
 export const projects: PortfolioProject[] = [
   {
     id: "sds-modernisation",
     title: "SDS Project Management Site",
     category: "Workflow System / Full-Stack MVC / Frontend & Testing",
-    status: "Completed",
+    status: "Live / Actively Maintained",
     role: "Frontend Developer & QA Engineer",
     summary:
-      "A full-stack project management workflow system for the Software Development Studio subject at UTS. The system supports project brief submission, admin/coordinator review, student project discovery, team join requests, studio activity scheduling, client visibility, and project allocation workflows.",
+      "A full-stack workflow system for UTS Software Development Studio, supporting project brief submission, coordinator review, student project discovery, team join requests, studio scheduling, client visibility, and allocation workflows.",
+    contributionSummary:
+      "Frontend implementation, QA testing, workflow validation, UI refinement, and documentation support.",
     problem:
       "The SDS workflow involves multiple user groups, including coordinators/admins, clients, students, team leads, and tutors. Before centralisation, project information, review status, allocation timing, and supporting documents could become scattered across manual tools, shared drives, spreadsheets, or email communication. The system aims to reduce this fragmentation by bringing submission, review, project discovery, join request, and allocation workflows into a clearer web-based interface.",
     contributions: [
@@ -105,10 +108,10 @@ export const projects: PortfolioProject[] = [
       "Pytest",
     ],
     skills: [
-      "Frontend Development",
-      "Full-Stack Workflow",
+      "Frontend Engineering",
+      "Workflow Systems",
       "Software Testing",
-      "UI/UX Awareness",
+      "Usability Review",
       "Data Modelling",
       "Workflow Analysis",
       "Team Collaboration",
@@ -137,10 +140,10 @@ export const projects: PortfolioProject[] = [
       "Testing",
     ],
     featuredSkills: [
-      "Frontend Development",
-      "Full-Stack Workflow",
+      "Frontend Engineering",
+      "Workflow Systems",
       "Software Testing",
-      "UI/UX Awareness",
+      "Usability Review",
       "Data Modelling",
       "Workflow Analysis",
     ],
@@ -184,7 +187,7 @@ export const projects: PortfolioProject[] = [
     id: "freshbasket-aws",
     title: "FreshBasket AWS Deployment",
     category: "Cloud Deployment / Full-Stack Deployment",
-    status: "Completed",
+    status: "Completed Deployment",
     role: "Cloud Deployment / Full-Stack Deployment",
     summary:
       "A documented AWS deployment case study for a Node.js, Express, EJS, and MySQL vendor portal using Elastic Beanstalk, EC2, RDS MySQL, load balancing, Auto Scaling, VPC networking, security groups, environment variables, and SNS notification setup.",
@@ -210,12 +213,13 @@ export const projects: PortfolioProject[] = [
       "Auto Scaling",
     ],
     skills: [
-      "Full-Stack Development",
-      "Backend Logic",
-      "Database Integration",
-      "Cloud Deployment",
-      "CRUD Workflows",
-      "Admin Interfaces",
+      "AWS Elastic Beanstalk",
+      "EC2",
+      "RDS MySQL",
+      "VPC / Security Groups",
+      "Load Balancing",
+      "Auto Scaling",
+      "Deployment Documentation",
     ],
     actions: [
       {
@@ -240,7 +244,7 @@ export const projects: PortfolioProject[] = [
     id: "lumora",
     title: "Lumora",
     category: "Mobile / AI-Assisted Learning",
-    status: "Beta (Under Development)",
+    status: "Prototype / In Development",
     role: "Product Design & Mobile Development",
     summary:
       "An AI-powered study workspace concept designed to support focused learning, flashcards, and productivity workflows.",
@@ -302,7 +306,7 @@ export const projects: PortfolioProject[] = [
     id: "focuspop",
     title: "FocusPop",
     category: "Mobile Game / SwiftUI",
-    status: "Completed",
+    status: "Completed iOS Project",
     role: "iOS Game Designer & Developer",
     summary:
       "A polished SwiftUI bubble-popping game built around short focus sessions. Players choose a mode, pop weighted bubbles, build combo scores, and review session results through a clean mobile interface.",
@@ -356,10 +360,10 @@ export const projects: PortfolioProject[] = [
     id: "personal-portfolio",
     title: "Portfolio Redesign & Personal Brand System",
     category: "Frontend / Design System / Personal Branding",
-    status: "In progress",
+    status: "Live / Iterating",
     role: "Frontend Developer & UI/UX Designer",
     summary:
-      "A premium software engineering portfolio designed to present projects, work experience, skills, and personal story with a strong visual identity and recruiter-friendly structure.",
+      "A responsive software engineering portfolio designed to present projects, work experience, skills, and case studies through a consistent visual system and recruiter-friendly structure.",
     problem:
       "I needed a professional portfolio that communicates software engineering ability, product thinking, practical work experience, and long-term growth clearly.",
     contributions: [
@@ -378,7 +382,7 @@ export const projects: PortfolioProject[] = [
       "Design System",
     ],
     skills: [
-      "Frontend Development",
+      "Frontend Engineering",
       "UI/UX Design",
       "Component Design",
       "Responsive Design",

@@ -22,14 +22,14 @@ export default function SDSProblem() {
   const selectedUser = sdsUserGroups[activeUser];
 
   return (
-    <section id="problem-space" className="scroll-mt-32 px-6 py-14">
+    <section id="problem-space" className="scroll-mt-32 px-6 py-10 md:py-14">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
             <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
               02 // problem.space
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
               The problem space.
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">

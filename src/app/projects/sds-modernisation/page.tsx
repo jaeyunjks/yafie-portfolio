@@ -2,6 +2,7 @@ import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   SDSCaseCTA,
   SDSCaseHero,
+  SDSCaseSnapshot,
   SDSFeatureShowcase,
   SDSOverview,
   SDSOutcomeReflection,
@@ -17,6 +18,7 @@ export default function SDSModernisationCaseStudyPage() {
     <div className="relative isolate">
       <AnimatedBackground />
       <SDSCaseHero />
+      <SDSCaseSnapshot />
       <SDSProjectOrigin />
       <SDSOverview />
       <SDSProblem />

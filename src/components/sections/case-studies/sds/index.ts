@@ -1,5 +1,6 @@
 export { default as SDSCaseCTA } from "./SDSCaseCTA";
 export { default as SDSCaseHero } from "./SDSCaseHero";
+export { default as SDSCaseSnapshot } from "./SDSCaseSnapshot";
 export { default as SDSFeatureShowcase } from "./SDSFeatureShowcase";
 export { default as SDSOverview } from "./SDSOverview";
 export { default as SDSOutcomeReflection } from "./SDSOutcomeReflection";

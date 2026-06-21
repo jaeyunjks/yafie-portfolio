@@ -88,58 +88,15 @@ export default function FeaturedProjects({
         </div>
       </Reveal>
 
-      <div className="lg:hidden">
-        <div
-          ref={mobileProjectsRef}
-          className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4"
-        >
-          {visibleProjects.map((project, index) => (
-            <div key={project.id} className="flex w-[88vw] shrink-0 snap-center">
-              <Reveal delay={index * 0.04} className="flex w-full">
-                <ProjectCard
-                  project={project}
-                  index={index}
-                  isExpanded={expandedProjectId === project.id}
-                  detailsPanelId={`project-details-mobile-${project.id}`}
-                  onToggle={() =>
-                    setExpandedProjectId((current) =>
-                      current === project.id ? null : project.id,
-                    )
-                  }
-                />
-              </Reveal>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-2 flex items-center gap-3">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
-            Swipe {explored}%
-          </span>
-          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
-            <div
-              className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
-              style={{ width: `${explored}%` }}
-            />
-          </div>
-        </div>
-
-        {expandedProject ? (
-          <Reveal className="mt-5">
-            <ProjectDetailsPanel
-              id={`project-details-mobile-${expandedProject.id}`}
-              project={expandedProject}
-            />
-          </Reveal>
-        ) : null}
-      </div>
-
-      <div className="hidden items-stretch gap-5 lg:grid lg:grid-cols-2">
+      <div
+        ref={mobileProjectsRef}
+        className="mobile-snap-scroll -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 lg:mx-0 lg:grid lg:snap-none lg:grid-cols-2 lg:items-stretch lg:overflow-visible lg:px-0 lg:pb-0"
+      >
         {visibleProjects.map((project, index) => (
           <Fragment key={project.id}>
             <div
               id={project.areaAnchors[0] ?? undefined}
-              className={`scroll-mt-32 ${index === 0 ? "lg:col-span-2" : ""} flex`}
+              className={`flex w-[88vw] shrink-0 snap-center scroll-mt-32 lg:w-auto lg:snap-none ${index === 0 ? "lg:col-span-2" : ""}`}
             >
               {project.areaAnchors.slice(1).map((anchor) => (
                 <span key={anchor} id={anchor} className="block scroll-mt-32" />
@@ -162,7 +119,7 @@ export default function FeaturedProjects({
             getRowProjectIds(index).includes(expandedProject.id) ? (
               <Reveal
                 key={`${expandedProject.id}-details`}
-                className="lg:col-span-2"
+                className="hidden lg:col-span-2 lg:block"
               >
                 <ProjectDetailsPanel
                   id={`project-details-${expandedProject.id}`}
@@ -173,6 +130,27 @@ export default function FeaturedProjects({
           </Fragment>
         ))}
       </div>
+
+      <div className="mt-2 flex items-center gap-3 lg:hidden">
+        <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          Swipe {explored}%
+        </span>
+        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
+          <div
+            className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150"
+            style={{ width: `${explored}%` }}
+          />
+        </div>
+      </div>
+
+      {expandedProject ? (
+        <Reveal className="mt-5 lg:hidden">
+          <ProjectDetailsPanel
+            id={`project-details-mobile-${expandedProject.id}`}
+            project={expandedProject}
+          />
+        </Reveal>
+      ) : null}
     </section>
   );
 }

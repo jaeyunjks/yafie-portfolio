@@ -14,7 +14,6 @@ import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import CaseStudyBackLink from "@/components/sections/case-studies/CaseStudyBackLink";
 import { sdsLinkGalleryLinks } from "@/data/caseStudies/sdsLinkGallery";
-import { sdsMetadata } from "@/data/caseStudies/sdsModernisation";
 import SDSBrowserMockup from "./SDSBrowserMockup";
 
 function SDSHeroPreview() {
@@ -68,10 +67,10 @@ export default function SDSCaseHero() {
                 case.study // sds.modernisation
               </p>
               <TypewriterHeading
-                className="mt-4 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl lg:text-7xl xl:text-[4.5rem] 2xl:text-[4.75rem] [&_.typewriter-heading__line]:whitespace-nowrap"
+                className="mt-4 text-[clamp(2.7rem,13vw,3.5rem)] font-black leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl xl:text-[4.5rem] 2xl:text-[4.75rem] sm:[&_.typewriter-heading__line]:whitespace-nowrap"
                 lines={["SDS Project", "Management Site"]}
               />
-              <p className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-slate-800 sm:text-3xl">
+              <p className="mt-5 max-w-3xl text-xl font-extrabold leading-snug text-slate-800 sm:text-3xl sm:leading-tight">
                 Modernising project coordination for Software Development
                 Studio.
               </p>
@@ -83,6 +82,13 @@ export default function SDSCaseHero() {
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link
+                  href="#feature-showcase"
+                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 sm:w-auto"
+                >
+                  View Project Gallery
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
+                </Link>
                 <div className="relative w-full sm:w-auto">
                   <div
                     id={galleryPanelId}
@@ -107,6 +113,7 @@ export default function SDSCaseHero() {
                             href={link.href}
                             target="_blank"
                             rel="noreferrer"
+                            tabIndex={isGalleryOpen ? 0 : -1}
                             className="group inline-flex min-h-[3.2rem] items-center justify-between gap-3 rounded-[16px] border border-transparent bg-[#f8fbff]/92 px-3.5 py-3 text-left text-sm font-bold text-slate-800 transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#cfe0fa] hover:bg-white hover:shadow-[0_12px_28px_rgba(45,95,157,0.1)]"
                           >
                             <span className="min-w-0 flex-1">
@@ -138,7 +145,7 @@ export default function SDSCaseHero() {
                     aria-expanded={isGalleryOpen}
                     aria-controls={galleryPanelId}
                     onClick={() => setIsGalleryOpen((current) => !current)}
-                    className={`group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#d4e3ff]/78 bg-white/74 px-5 py-3 text-sm font-extrabold text-[#2d5f9d] shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 active:translate-y-0 sm:w-auto ${
+                    className={`group inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#d4e3ff]/78 bg-white/74 px-5 py-3 text-sm font-extrabold text-[#2d5f9d] shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/75 active:translate-y-0 sm:w-auto ${
                       isGalleryOpen ? "border-[#b8d2f7] bg-[#f4f9ff] shadow-md" : ""
                     }`}
                   >
@@ -166,13 +173,6 @@ export default function SDSCaseHero() {
                   </button>
                 </div>
 
-                <Link
-                  href="#feature-showcase"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:bg-[#265589] hover:shadow-xl sm:w-auto"
-                >
-                  View Project Gallery
-                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden />
-                </Link>
               </div>
             </div>
           </Reveal>
