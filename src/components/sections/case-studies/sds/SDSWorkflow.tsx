@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -20,6 +20,78 @@ export default function SDSWorkflow() {
   const selectedSprint = sdsSprints[activeSprint];
   const { ref: mobileCardsRef, progress } =
     useHorizontalScrollProgress<HTMLDivElement>();
+  const sprintButtonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const detailId = "sds-workflow-sprint-detail";
+
+  useEffect(() => {
+    const node = mobileCardsRef.current;
+
+    if (!node) {
+      return;
+    }
+
+    let animationFrame = 0;
+
+    const syncActiveSprintFromScroll = () => {
+      if (window.innerWidth >= 1024) {
+        return;
+      }
+
+      const containerRect = node.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      sprintButtonRefs.current.forEach((button, index) => {
+        if (!button) {
+          return;
+        }
+
+        const buttonRect = button.getBoundingClientRect();
+        const buttonCenter = buttonRect.left + buttonRect.width / 2;
+        const distance = Math.abs(buttonCenter - containerCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveSprint((current) =>
+        current === closestIndex ? current : closestIndex,
+      );
+    };
+
+    const scheduleSync = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(syncActiveSprintFromScroll);
+    };
+
+    scheduleSync();
+    node.addEventListener("scroll", scheduleSync, { passive: true });
+    window.addEventListener("resize", scheduleSync);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      node.removeEventListener("scroll", scheduleSync);
+      window.removeEventListener("resize", scheduleSync);
+    };
+  }, [mobileCardsRef]);
+
+  const handleSprintSelect = (index: number) => {
+    setActiveSprint(index);
+
+    if (window.innerWidth >= 1024) {
+      return;
+    }
+
+    sprintButtonRefs.current[index]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  };
 
   return (
     <section id="project-workflow" className="scroll-mt-32 px-6 py-10 md:py-14">
@@ -65,9 +137,14 @@ export default function SDSWorkflow() {
                     className="relative w-[82vw] shrink-0 snap-center sm:w-[68vw] lg:w-auto lg:snap-none"
                   >
                     <button
+                      ref={(node) => {
+                        sprintButtonRefs.current[index] = node;
+                      }}
                       type="button"
                       aria-pressed={isActive}
-                      onClick={() => setActiveSprint(index)}
+                      aria-expanded={isActive}
+                      aria-controls={detailId}
+                      onClick={() => handleSprintSelect(index)}
                       className={`flex h-full min-h-[11rem] w-full cursor-pointer flex-col rounded-[20px] border p-4 text-left transition-[background-color,border-color,box-shadow,transform] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 lg:min-h-0 lg:rounded-[18px] ${
                         isActive
                           ? "border-[#8dbbff]/80 bg-white shadow-[0_16px_44px_rgba(45,95,157,0.13)] ring-1 ring-[#8dbbff]/34"
@@ -119,7 +196,11 @@ export default function SDSWorkflow() {
               </div>
             </div>
 
-            <div className="mt-5 rounded-[20px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-5 transition-[background-color] duration-300">
+            <div
+              id={detailId}
+              aria-live="polite"
+              className="mt-5 rounded-[20px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-5 transition-[background-color] duration-300"
+            >
               <div className="flex min-w-0 gap-3">
                 <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#d4e3ff]/75 bg-white/78 text-[#2d5f9d]">
                   <Route size={19} strokeWidth={2.3} aria-hidden />
