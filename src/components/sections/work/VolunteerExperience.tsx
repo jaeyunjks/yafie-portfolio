@@ -1,6 +1,7 @@
 import Reveal from "@/components/ui/Reveal";
 import { volunteerExperience } from "@/data/workExperience";
 import ExperienceCard from "./ExperienceCard";
+import VolunteerExperienceGallery from "./VolunteerExperienceGallery";
 
 export default function VolunteerExperience() {
   return (
@@ -35,17 +36,20 @@ export default function VolunteerExperience() {
                 showcase.signal
               </p>
               <h3 className="mt-3 text-xl font-extrabold tracking-tight text-slate-950">
-                Public-facing explanation practice
+                Project gallery added
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 Tech Fest sits between software work and professional
-                communication: explaining purpose, workflow, and value to
-                different audiences.
+                communication, so the gallery below captures both the
+                client-facing setup and the team presentation side of the
+                showcase.
               </p>
             </div>
           </aside>
         </Reveal>
       </div>
+
+      <VolunteerExperienceGallery />
     </section>
   );
 }

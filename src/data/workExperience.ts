@@ -31,6 +31,14 @@ export type WorkExperienceItem = {
   responsibilities?: string[];
 };
 
+export type WorkGalleryItem = {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  aspectRatio: "landscape" | "portrait";
+};
+
 export const workExperience: WorkExperienceItem[] = [
   {
     id: "sds-modernisation-frontend-tester",
@@ -188,6 +196,41 @@ export const softwareExperience = workExperience.find(
 export const volunteerExperience = workExperience.filter(
   (item) => item.section === "volunteer-experience",
 );
+
+export const volunteerGalleryItems: WorkGalleryItem[] = [
+  {
+    src: "/images/achievements/withclientimage.JPG",
+    alt: "SDS Project Management Site booth team standing with the client-facing Tech Fest setup",
+    title: "With client",
+    caption:
+      "Client-facing showcase setup for the SDS Project Management Site, including the live screen, booth materials, and QR code handoff.",
+    aspectRatio: "landscape",
+  },
+  {
+    src: "/images/achievements/groupselfie.JPG",
+    alt: "Team selfie in front of the SDS Project Management Site display at UTS Tech Fest",
+    title: "Team selfie",
+    caption:
+      "A quick team photo from the booth after presenting the project and talking visitors through the system.",
+    aspectRatio: "landscape",
+  },
+  {
+    src: "/images/achievements/grouppic.JPG",
+    alt: "Group photo beside the SDS Project Management Site booth and live display",
+    title: "Group photo",
+    caption:
+      "Full group photo at the SDS booth with the main display, demo devices, and presentation setup in view.",
+    aspectRatio: "landscape",
+  },
+  {
+    src: "/images/achievements/techfestoverview.JPG",
+    alt: "Overview of the SDS Project Management Site Tech Fest booth with QR code and demo screens",
+    title: "Tech Fest overview",
+    caption:
+      "A closer look at the booth setup, showing the project board, QR code access, and demo screens used during the showcase.",
+    aspectRatio: "portrait",
+  },
+];
 
 export const otherSignals = workExperience.filter(
   (item) => item.section === "others",
