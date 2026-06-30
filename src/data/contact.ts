@@ -10,10 +10,6 @@ export const contactMeta = {
   responseStyle: "Clear, professional, and project-focused",
 };
 
-const resumeRequestHref = `mailto:${contactMeta.email}?subject=${encodeURIComponent("Resume request")}&body=${encodeURIComponent(
-  "Hi Yafie,\n\nI would like to request your resume.\n",
-)}`;
-
 export const contactMethods = [
   {
     key: "email",
@@ -65,8 +61,8 @@ export const contactMethods = [
     primaryHref: contactMeta.resume,
     primaryDisabled: false,
     secondaryCta: "Request resume",
-    secondaryHref: resumeRequestHref,
-    secondaryDisabled: false,
+    secondaryHref: undefined,
+    secondaryDisabled: true,
   },
 ] as const;
 

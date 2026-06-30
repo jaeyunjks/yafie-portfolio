@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Copy, FileText, Mail, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Reveal from "@/components/ui/Reveal";
-import { contactMethods } from "@/data/contact";
+import { contactMeta, contactMethods } from "@/data/contact";
 
 const methodIcons = {
   email: Mail,
@@ -14,8 +13,18 @@ const methodIcons = {
   resume: FileText,
 } as const;
 
+const methodMeta = {
+  email: "Usually replies within 24h",
+  linkedin: "Professional profile",
+  github: "Code in motion",
+  resume: "Preview in page or open PDF",
+} as const;
+
+type ContactMethod = (typeof contactMethods)[number];
+
 export default function ContactMethods() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [copiedMethod, setCopiedMethod] = useState<"email" | null>(null);
 
   useEffect(() => {
     if (!isResumeOpen) {
@@ -39,153 +48,196 @@ export default function ContactMethods() {
     };
   }, [isResumeOpen]);
 
+  const getDisplayValue = (method: ContactMethod) => {
+    switch (method.key) {
+      case "linkedin":
+        return "/in/yafiefarabi0710";
+      case "github":
+        return "@jaeyunjks";
+      case "resume":
+        return contactMeta.resumeDisplay;
+      default:
+        return method.value;
+    }
+  };
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contactMeta.email);
+      setCopiedMethod("email");
+      window.setTimeout(() => {
+        setCopiedMethod((current) => (current === "email" ? null : current));
+      }, 1400);
+    } catch {
+      setCopiedMethod(null);
+    }
+  };
+
+  const renderInlineEmailCopy = (method: ContactMethod) => {
+    if (method.key !== "email") {
+      return null;
+    }
+
+    return (
+      <button
+        type="button"
+        onClick={handleCopyEmail}
+        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-200/80 bg-white/68 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.08em] text-slate-700 transition-[background-color,border-color,color] duration-300 hover:border-slate-300 hover:bg-white hover:text-slate-950"
+      >
+        <Copy size={11} aria-hidden />
+        {copiedMethod === "email" ? "Copied" : "Copy"}
+      </button>
+    );
+  };
+
+  const renderPrimaryAction = (method: ContactMethod) => {
+    const href = method.primaryHref;
+
+    if (!href || method.primaryDisabled) {
+      return (
+        <span className="inline-flex items-center gap-3 rounded-full border border-[#d4e3ff]/60 bg-white/60 px-4 py-2 text-sm font-bold text-slate-400">
+          {method.primaryCta}
+        </span>
+      );
+    }
+
+    const actionClassName =
+      "inline-flex items-center gap-3 rounded-full border border-[#d4e3ff]/72 bg-white/76 px-4 py-2 text-sm font-bold text-slate-900 shadow-[0_10px_24px_rgba(45,95,157,0.08)] backdrop-blur-md transition-[transform,background-color,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/58 hover:bg-white hover:shadow-[0_16px_30px_rgba(45,95,157,0.12)]";
+
+    const content = (
+      <>
+        <span>{method.primaryCta}</span>
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-950 text-white shadow-[0_8px_18px_rgba(15,23,42,0.18)] transition-transform duration-300 group-hover/action:-translate-y-0.5 group-hover/action:translate-x-0.5">
+          <ArrowUpRight size={14} aria-hidden />
+        </span>
+      </>
+    );
+
+    if (method.key === "resume") {
+      return (
+        <button
+          type="button"
+          className={`group/action ${actionClassName}`}
+          onClick={() => setIsResumeOpen(true)}
+        >
+          {content}
+        </button>
+      );
+    }
+
+    const isExternal = href.startsWith("http");
+
+    return (
+      <a
+        href={href}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noreferrer" : undefined}
+        className={`group/action ${actionClassName}`}
+      >
+        {content}
+      </a>
+    );
+  };
+
+  const renderSecondaryAction = (method: ContactMethod) => {
+    if (!method.secondaryHref || method.secondaryDisabled) {
+      return null;
+    }
+
+    const isExternal = method.secondaryHref.startsWith("http");
+
+    return (
+      <a
+        href={method.secondaryHref}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noreferrer" : undefined}
+        className="inline-flex items-center justify-center rounded-full border border-[#d4e3ff]/68 bg-white/64 px-3.5 py-2 font-mono text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/78 transition-[background-color,border-color,color] duration-300 hover:border-[#8dbbff]/52 hover:bg-white hover:text-[#2d5f9d] md:border-0 md:bg-transparent md:px-0 md:py-0"
+      >
+        {method.secondaryCta}
+      </a>
+    );
+  };
+
   return (
     <section className="scroll-mt-32 pb-20 lg:pb-24" id="contact-methods">
       <Reveal>
-        <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
-            03 // contact.methods
-          </p>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
-            Ways to connect.
-          </h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            Choose the quickest way to reach out.
-          </p>
+        <div className="flex flex-col gap-7 border-b border-[#d4e3ff]/52 pb-8 md:gap-8 md:pb-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl border-l border-[#8dbbff]/45 pl-4">
+            <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+              03 // contact.methods
+            </p>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
+              Ways to connect.
+            </h2>
+            <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-[1.02rem] sm:leading-8">
+              Four direct lines. Pick whichever fits the conversation best.
+            </p>
+          </div>
+
+          <div className="inline-flex w-fit items-center gap-3 rounded-full border border-[#d4e3ff]/62 bg-white/72 px-4 py-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/78 shadow-[0_10px_24px_rgba(45,95,157,0.08)] backdrop-blur-md">
+            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]" />
+            Available for opportunities
+          </div>
         </div>
       </Reveal>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="mt-4">
         {contactMethods.map((method, index) => {
           const Icon = methodIcons[method.key];
-          const primaryHref = method.primaryHref;
-          const secondaryHref = method.secondaryHref;
-
-          function renderAction(
-            label: string,
-            href: string | undefined,
-            isDisabled: boolean | undefined,
-            variant: "default" | "secondary",
-          ) {
-            if (!href || isDisabled) {
-              return (
-                <span
-                  className={`inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-extrabold ${
-                    variant === "default"
-                      ? "border border-[#d4e3ff]/68 bg-[#eef5ff]/74 text-[#2d5f9d]/70"
-                      : "border border-slate-200/80 bg-white/66 text-slate-500"
-                  }`}
-                  aria-disabled="true"
-                >
-                  {label}
-                </span>
-              );
-            }
-
-            const isExternal = href.startsWith("http");
-            const isMail = href.startsWith("mailto:");
-            const isResumePrimary =
-              method.key === "resume" &&
-              variant === "default" &&
-              label === method.primaryCta;
-            const sharedClassName =
-              variant === "default"
-                ? "inline-flex items-center justify-center gap-2 rounded-full bg-[#2d5f9d] px-4 py-2.5 text-sm font-extrabold text-white shadow-lg shadow-blue-900/15 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#265589] hover:shadow-xl"
-                : "inline-flex items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/72 px-4 py-2.5 text-sm font-extrabold text-slate-800 shadow-sm backdrop-blur-md transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md";
-
-            const icon =
-              variant === "default" && isMail ? (
-                <Mail size={15} aria-hidden />
-              ) : variant === "secondary" && method.key === "email" ? (
-                <Copy size={15} aria-hidden />
-              ) : (
-                <ArrowUpRight size={15} aria-hidden />
-              );
-
-            if (isResumePrimary) {
-              return (
-                <button
-                  type="button"
-                  className={sharedClassName}
-                  onClick={() => setIsResumeOpen(true)}
-                >
-                  {label}
-                  {icon}
-                </button>
-              );
-            }
-
-            return isExternal || isMail ? (
-              <a
-                href={href}
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noreferrer" : undefined}
-                className={sharedClassName}
-              >
-                {label}
-                {icon}
-              </a>
-            ) : (
-              <Link href={href} className={sharedClassName}>
-                {label}
-                {icon}
-              </Link>
-            );
-          }
 
           return (
             <Reveal key={method.title} delay={index * 0.05}>
-              <article className={`group relative overflow-hidden rounded-[22px] border p-5 shadow-[0_18px_48px_rgba(45,95,157,0.08)] backdrop-blur-xl transition-[border-color,box-shadow,background-color,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_68px_rgba(45,95,157,0.12)] ${
-                method.key === "email"
-                  ? "border-[#8dbbff]/46 bg-white/80 hover:border-[#8dbbff]/62"
-                  : "border-white/75 bg-white/72 hover:border-[#8dbbff]/55 hover:bg-white/88"
-              }`}>
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_12%,rgba(198,183,255,0.16),transparent_30%),radial-gradient(circle_at_14%_88%,rgba(141,187,255,0.14),transparent_34%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_22px_rgba(45,95,157,0.08)]">
-                      <Icon size={18} strokeWidth={2.2} aria-hidden />
-                    </span>
-                    <span className="rounded-full border border-[#d4e3ff]/70 bg-white/74 px-3 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/72">
+              <article className="group relative grid grid-cols-[3rem_minmax(0,1fr)] gap-x-4 gap-y-4 border-b border-[#d4e3ff]/40 py-5 transition-[background-color,border-color] duration-300 hover:border-[#8dbbff]/42 hover:bg-white/36 sm:py-6 md:grid-cols-[3.25rem_minmax(0,1fr)_minmax(0,1.25fr)_auto] md:items-center md:gap-x-8">
+                <span className="flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#d4e3ff]/72 bg-white/64 text-slate-900 shadow-[0_10px_24px_rgba(45,95,157,0.06)] backdrop-blur-md">
+                  <Icon size={18} aria-hidden />
+                </span>
+
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <h3 className="text-[1.45rem] font-semibold tracking-[-0.02em] text-slate-950">
+                      {method.title}
+                    </h3>
+                    <span className="rounded-full border border-[#d4e3ff]/70 bg-white/72 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/72">
                       {method.label}
                     </span>
                   </div>
-
-                  <div className="mt-5">
-                    <h3 className="text-lg font-extrabold tracking-tight text-slate-950">
-                      {method.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {method.description}
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <p className="font-mono text-[0.8rem] font-medium text-slate-700 sm:text-[0.86rem]">
+                      {getDisplayValue(method)}
                     </p>
-                  </div>
-
-                  <div className="mt-4">
-                    <p className="inline-flex rounded-full border border-[#d4e3ff]/62 bg-[#f8fbff]/72 px-3 py-1.5 text-sm font-semibold text-slate-700">
-                      {method.value}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2.5">
-                    {renderAction(
-                      method.primaryCta,
-                      primaryHref,
-                      method.primaryDisabled,
-                      "default",
-                    )}
-                    {renderAction(
-                      method.secondaryCta,
-                      secondaryHref,
-                      method.secondaryDisabled,
-                      "secondary",
-                    )}
+                    {renderInlineEmailCopy(method)}
                   </div>
                 </div>
+
+                <div className="col-start-2 md:col-span-1 md:col-start-auto">
+                  <p className="text-sm leading-7 text-slate-600 sm:text-[0.96rem]">
+                    {method.description}
+                  </p>
+                </div>
+
+                <div className="col-start-2 flex flex-col items-start gap-3 md:col-span-1 md:col-start-auto md:max-w-[14rem] md:justify-self-end md:items-end">
+                  <span className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/68">
+                    {methodMeta[method.key]}
+                  </span>
+                  <div className="flex flex-wrap items-center gap-2.5 md:justify-end">
+                    {renderSecondaryAction(method)}
+                    {renderPrimaryAction(method)}
+                  </div>
+                </div>
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#8dbbff]/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </article>
             </Reveal>
           );
         })}
       </div>
+
+      <Reveal delay={0.25}>
+        <div className="flex flex-col gap-3 pt-6 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72 sm:flex-row sm:items-center sm:justify-between">
+          <span>{"// Clear, professional, project-focused replies"}</span>
+          <span>{contactMeta.location.replace(", ", " · ").toUpperCase()}</span>
+        </div>
+      </Reveal>
 
       {isResumeOpen ? (
         <div

@@ -353,20 +353,18 @@ export default function ContactForm() {
                 </div>
 
                 <p className="text-xs leading-6 text-slate-500">
-                  This form is sent securely through the server. If it does not work
-                  yet, check the Resend environment variables.
+                  This form is sent securely through the server.
                 </p>
 
                 {submitState !== "idle" ? (
                   <div
                     aria-live="polite"
-                    className={`flex items-start gap-3 rounded-[16px] px-4 py-3 text-sm font-semibold leading-6 ${
-                      submitState === "success"
+                    className={`flex items-start gap-3 rounded-[16px] px-4 py-3 text-sm font-semibold leading-6 ${submitState === "success"
                         ? "border border-emerald-200/80 bg-emerald-50/90 text-emerald-900"
                         : submitState === "error"
                           ? "border border-rose-200/80 bg-rose-50/90 text-rose-900"
                           : "border border-slate-200/80 bg-white/72 text-slate-700"
-                    }`}
+                      }`}
                   >
                     {submitState === "success" ? (
                       <CheckCircle2 size={16} className="mt-0.5 shrink-0" aria-hidden />
