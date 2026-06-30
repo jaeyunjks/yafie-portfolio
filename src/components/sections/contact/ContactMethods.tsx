@@ -190,14 +190,14 @@ export default function ContactMethods() {
       {isResumeOpen ? (
         <div
           role="presentation"
-          className="fixed inset-0 z-[80] bg-slate-950/40 backdrop-blur-md"
+          className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/40 px-3 pb-3 pt-20 backdrop-blur-md sm:px-4 sm:pb-4 sm:pt-24 md:px-6 md:pt-28"
           onClick={() => setIsResumeOpen(false)}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="resume-preview-title"
-            className="absolute left-1/2 top-1/2 max-h-[88dvh] w-[calc(100vw-1.5rem)] max-w-[64rem] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[28px] border border-white/70 bg-white/86 shadow-[0_30px_100px_rgba(15,23,42,0.25)] backdrop-blur-2xl"
+            className="relative mx-auto max-h-[calc(100dvh-6rem)] w-full max-w-[64rem] overflow-y-auto rounded-[28px] border border-white/70 bg-white/86 shadow-[0_30px_100px_rgba(15,23,42,0.25)] backdrop-blur-2xl sm:max-h-[calc(100dvh-7rem)] md:max-h-[calc(100dvh-8rem)]"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_10%,rgba(198,183,255,0.22),transparent_32%),radial-gradient(circle_at_12%_88%,rgba(141,187,255,0.18),transparent_36%)]" />
