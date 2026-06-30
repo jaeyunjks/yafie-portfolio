@@ -38,7 +38,7 @@ const featuredProjects = [
     role: "Frontend Developer & QA Assurance",
     description:
       "UTS stakeholder workflow system focused on frontend implementation, QA, documentation, and project coordination visibility.",
-    tags: ["React", "TypeScript", "Flask", "SQLite", "Vite"],
+    tags: ["React", "TypeScript", "Vite", "Python", "Flask", "Vitest", "Pytest"],
     image: "/images/projects/sds_projects.png",
     status: "Workflow",
     alt: "SDS project management site preview",

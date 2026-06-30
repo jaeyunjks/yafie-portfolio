@@ -223,15 +223,12 @@ export const sdsContributions: SDSContribution[] = [
 
 export const sdsSkills = [
   "React",
-  "Frontend UI",
-  "Requirements Discovery",
-  "Testing",
-  "Workflow Systems",
-  "Debugging",
-  "Documentation",
-  "Stakeholder Alignment",
-  "Team Collaboration",
-  "Product Thinking",
+  "TypeScript",
+  "Vite",
+  "Python",
+  "Flask",
+  "Vitest",
+  "Pytest",
 ];
 
 export const sdsSprints: SDSSprint[] = [
