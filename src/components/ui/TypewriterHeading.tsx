@@ -93,7 +93,7 @@ export default function TypewriterHeading({
     let cancelled = false;
 
     const clearCurrentTimeOuts = () => {
-      timeouts.forEach((timeout) => window.clearTimeout(timeout as any));
+      timeouts.forEach((timeout) => window.clearTimeout(timeout));
       timeouts = [];
     };
 

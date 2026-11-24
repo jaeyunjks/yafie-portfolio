@@ -1,0 +1,37 @@
+name: CI
+
+# Runs on every pull request, and on pushes to main as a final safety net.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# If you push again to the same PR, cancel the older run instead of queueing.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint, typecheck, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # `npm ci` installs exactly what package-lock.json says: reproducible.
+      - run: npm ci
+
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
