@@ -295,7 +295,7 @@ export default function FloatingSectionNav() {
                 style={{ "--item-index": index } as CSSProperties}
                 onClick={() => jumpToSection(link.id)}
               >
-                {String(index + 1).padStart(2, "0")} // {link.label}
+                {`${String(index + 1).padStart(2, "0")} // ${link.label}`}
               </button>
             ))}
             {!isMobileDrawer ? (

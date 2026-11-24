@@ -14,7 +14,7 @@ export default function SDSCaseCTA() {
             Interested in the full project breakdown?
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
-            This is a high-level case study. I'm continuing to document the
+            This is a high-level case study. I&apos;m continuing to document the
             implementation details, testing notes, screenshots, and handover
             evidence as the project evolves.
           </p>
