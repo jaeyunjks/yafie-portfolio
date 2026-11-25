@@ -114,23 +114,27 @@ const HOME_MOBILE_ANCHOR_ID = "home-jump-sections-anchor";
 
 export default function FloatingSectionNav() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
+  // UI state is stored with the page it belongs to, so navigating resets it
+  // during render. No "reset on route change" effect (and no extra render).
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const [hiddenPath, setHiddenPath] = useState<string | null>(null);
+  const [hintPath, setHintPath] = useState<string | null>(null);
+  const [anchorEntry, setAnchorEntry] = useState<{ path: string; el: HTMLElement | null } | null>(null);
   const [isMobileDrawer, setIsMobileDrawer] = useState(false);
-  const [isHintVisible, setIsHintVisible] = useState(false);
-  const [homeAnchor, setHomeAnchor] = useState<HTMLElement | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
   const normalizedPath = pathname === "/" ? pathname : pathname.replace(/\/$/, "");
   const isHomePage = normalizedPath === "/";
+  const isOpen = openPath === pathname;
+  const isHidden = hiddenPath === pathname;
+  const isHintVisible = hintPath === pathname && isMobileDrawer && isHomePage;
+  const homeAnchor = anchorEntry?.path === pathname ? anchorEntry.el : null;
+  const setIsOpen = (open: boolean) => setOpenPath(open ? pathname : null);
+  const setIsHidden = (hidden: boolean) => setHiddenPath(hidden ? pathname : null);
+  const setIsHintVisible = (visible: boolean) => setHintPath(visible ? pathname : null);
   const links = useMemo(
     () => sectionLinksByPath[normalizedPath] ?? [],
     [normalizedPath],
   );
-
-  useEffect(() => {
-    setIsOpen(false);
-    setIsHidden(false);
-  }, [pathname]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(MOBILE_SECTION_NAV_QUERY);
@@ -155,19 +159,12 @@ export default function FloatingSectionNav() {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      setIsHintVisible(false);
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     if (!isHomePage || !isMobileDrawer) {
-      setHomeAnchor(null);
       return;
     }
 
     const resolveAnchor = () => {
-      setHomeAnchor(document.getElementById(HOME_MOBILE_ANCHOR_ID));
+      setAnchorEntry({ path: pathname, el: document.getElementById(HOME_MOBILE_ANCHOR_ID) });
     };
 
     resolveAnchor();
@@ -182,7 +179,6 @@ export default function FloatingSectionNav() {
 
   useEffect(() => {
     if (!isMobileDrawer || !isHomePage) {
-      setIsHintVisible(false);
       return;
     }
 
@@ -200,18 +196,18 @@ export default function FloatingSectionNav() {
     }
 
     const showHintTimeout = window.setTimeout(() => {
-      setIsHintVisible(true);
+      setHintPath(pathname);
     }, 800);
 
     const hideHintTimeout = window.setTimeout(() => {
-      setIsHintVisible(false);
+      setHintPath(null);
     }, 800 + 3000);
 
     return () => {
       window.clearTimeout(showHintTimeout);
       window.clearTimeout(hideHintTimeout);
     };
-  }, [isHomePage, isMobileDrawer]);
+  }, [isHomePage, isMobileDrawer, pathname]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -220,13 +216,13 @@ export default function FloatingSectionNav() {
 
     const handlePointerDown = (event: PointerEvent) => {
       if (!navRef.current?.contains(event.target as Node)) {
-        setIsOpen(false);
+        setOpenPath(null);
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        setOpenPath(null);
       }
     };
 
@@ -331,7 +327,11 @@ export default function FloatingSectionNav() {
             }`}
             aria-label={isOpen ? "Close section navigation" : "Open section navigation"}
             aria-expanded={isOpen}
-            onClick={() => setIsOpen((current) => !current)}
+            onClick={() => {
+              // Opening the menu dismisses the hint (was a separate effect).
+              setIsOpen(!isOpen);
+              if (!isOpen) setIsHintVisible(false);
+            }}
           >
             <span className="floating-section-nav__trigger-icon" aria-hidden>
               {isOpen ? <X size={18} aria-hidden /> : <List size={18} aria-hidden />}

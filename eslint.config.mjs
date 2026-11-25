@@ -5,15 +5,6 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Known debt (Nov 2026): 6 existing setState-in-effect violations in
-  // Navbar, FloatingSectionNav and TypewriterHeading. Downgraded to "warn"
-  // so CI can block NEW errors today. Fixing them is a separate refactor PR;
-  // switch this back to "error" when that lands.
-  {
-    rules: {
-      "react-hooks/set-state-in-effect": "warn",
-    },
-  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
