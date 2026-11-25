@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   FocusPopCaseHero,
@@ -9,6 +10,8 @@ import {
   FocusPopTechnicalBuild,
   FocusPopTestingQuality,
 } from "@/components/sections/case-studies/focuspop";
+
+export const metadata = pageMetadata("/projects/focuspop");
 
 export default function FocusPopCaseStudyPage() {
   return (

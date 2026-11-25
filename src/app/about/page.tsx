@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   AboutCapabilities,
@@ -8,6 +9,8 @@ import {
   AboutTechStack,
   AboutWorkingStyle,
 } from "@/components/sections/about";
+
+export const metadata = pageMetadata("/about");
 
 export default function AboutPage() {
   return (

@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import CurrentlyExploring from "@/components/sections/home/CurrentlyExploring";
 import EngineeringFocus from "@/components/sections/home/EngineeringFocus";
@@ -7,6 +8,8 @@ import HomeCTA from "@/components/sections/home/HomeCTA";
 import ProfessionalSignals from "@/components/sections/home/ProfessionalSignals";
 import ProfileStatus from "@/components/sections/home/ProfileStatus";
 import SocialProof from "@/components/sections/home/SocialProof";
+
+export const metadata = pageMetadata("/");
 
 export default function HomePage() {
   return (

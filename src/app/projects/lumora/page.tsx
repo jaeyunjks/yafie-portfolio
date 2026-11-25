@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   LumoraAppFlow,
@@ -11,6 +12,8 @@ import {
   LumoraProjectSummary,
   LumoraTechStack,
 } from "@/components/sections/case-studies/lumora";
+
+export const metadata = pageMetadata("/projects/lumora");
 
 export default function LumoraCaseStudyPage() {
   return (

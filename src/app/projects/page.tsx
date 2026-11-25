@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   EngineeringDepth,
@@ -6,6 +7,8 @@ import {
   ProjectsExplorer,
   ProjectsHero,
 } from "@/components/sections/projects";
+
+export const metadata = pageMetadata("/projects");
 
 export default function ProjectsPage() {
   return (

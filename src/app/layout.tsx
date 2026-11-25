@@ -22,6 +22,14 @@ export const metadata: Metadata = {
     template: `%s | ${profile.name}`,
   },
   description: profile.summary.short,
+  // Lets pages use relative URLs for canonical links and social cards.
+  metadataBase: new URL(profile.links.portfolio),
+  openGraph: {
+    type: "website",
+    siteName: profile.name,
+    locale: "en_AU",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
