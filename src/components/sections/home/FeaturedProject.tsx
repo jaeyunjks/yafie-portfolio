@@ -63,6 +63,8 @@ export default function FeaturedProject() {
                 <img
                   src={project.image}
                   alt={project.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.025]"
                 />
                 <span className="absolute right-3 top-3 rounded-full border border-white/70 bg-white/76 px-3 py-1.5 font-mono text-[0.56rem] font-extrabold uppercase tracking-[0.14em] text-[#2d5f9d] shadow-sm shadow-blue-900/10 backdrop-blur-xl">

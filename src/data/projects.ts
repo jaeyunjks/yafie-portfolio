@@ -259,7 +259,7 @@ export const projects: PortfolioProject[] = [
     projectType: "fullstack-workflow",
     projectDisplayType: "Full-stack web",
     projectDate: sdsFacts.timeline,
-    imageSrc: "/images/projects/sds_projects.png",
+    imageSrc: "/images/projects/sds_projects.webp",
     caseStudyStatus: "Case study",
     areaAnchors: ["web-projects"],
     filters: ["web", "backend"],

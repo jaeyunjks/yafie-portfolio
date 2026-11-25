@@ -78,6 +78,8 @@ export default function SocialProof() {
                   <img
                     src={item.image}
                     alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain"
                   />
                 </div>
