@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   CollaborationSignal,
@@ -9,6 +10,8 @@ import {
   WorkCTA,
   WorkHero,
 } from "@/components/sections/work";
+
+export const metadata = pageMetadata("/work");
 
 export default function WorkPage() {
   return (

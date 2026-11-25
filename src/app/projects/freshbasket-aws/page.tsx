@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   FreshBasketArchitecture,
@@ -12,6 +13,8 @@ import {
   FreshBasketSecurityNetworking,
   FreshBasketTroubleshooting,
 } from "@/components/sections/case-studies/freshbasket";
+
+export const metadata = pageMetadata("/projects/freshbasket-aws");
 
 export default function FreshBasketAwsCaseStudyPage() {
   return (

@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   ContactAvailability,
@@ -6,6 +7,8 @@ import {
   ContactHero,
   ContactMethods,
 } from "@/components/sections/contact";
+
+export const metadata = pageMetadata("/contact");
 
 export default function ContactPage() {
   return (

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/data/seo";
 import HomsCaseHero from "@/components/sections/case-studies/homs/HomsCaseHero";
 import CardGrid from "@/components/sections/case-studies/shared/CardGrid";
 import CaseSection from "@/components/sections/case-studies/shared/CaseSection";
@@ -20,11 +20,7 @@ import {
   homsTables,
 } from "@/data/caseStudies/homs";
 
-export const metadata: Metadata = {
-  title: "HOMS case study",
-  description:
-    "Staff & Shift Management module and a human-in-the-loop multi-agent server for a five-service hospital platform. Flask, SQLite, HTMX, Docker, Azure, Ollama, MCP.",
-};
+export const metadata = pageMetadata("/projects/homs");
 
 const linkClass = "font-bold text-[#2d5f9d] underline-offset-4 hover:underline";
 

@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/data/seo";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   SDSCaseCTA,
@@ -12,6 +13,8 @@ import {
   SDSTestingQuality,
   SDSWorkflow,
 } from "@/components/sections/case-studies/sds";
+
+export const metadata = pageMetadata("/projects/sds-modernisation");
 
 export default function SDSModernisationCaseStudyPage() {
   return (
