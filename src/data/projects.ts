@@ -1,3 +1,4 @@
+import { sdsLinkGalleryLinks } from "@/data/caseStudies/sdsLinkGallery";
 import { sdsFacts } from "@/data/caseStudies/sdsModernisation";
 export type ProjectAction = {
   label: string;
@@ -72,6 +73,11 @@ export type PortfolioProject = {
   architecture?: ProjectArchitectureEntry[];
   recognitionFlag?: string;
   contributionSummary?: string;
+  /** Optional popover of external links on the card (e.g. live demo pages). */
+  linkGallery?: {
+    label: string;
+    links: readonly { label: string; href: string; tag?: string }[];
+  };
 };
 
 export const SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION =
@@ -213,6 +219,15 @@ export const projects: PortfolioProject[] = [
       "Vitest",
       "React Testing Library",
     ],
+    featuredTechStack: [
+      "React",
+      "JavaScript",
+      "Flask",
+      "SQLite",
+      "Vitest",
+      "React Testing Library",
+    ],
+    linkGallery: { label: "Open SDS Link Gallery", links: sdsLinkGalleryLinks },
     featuredSkills: [
       "Frontend Engineering",
       "API Integration",

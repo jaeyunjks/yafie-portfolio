@@ -13,7 +13,7 @@ export default function ProjectDetailsPanel({
   project,
 }: ProjectDetailsPanelProps) {
   const showArchitecture =
-    project.id === "sds-modernisation" && project.architecture?.length;
+    Boolean(project.architecture?.length);
 
   return (
     <div

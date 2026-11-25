@@ -89,3 +89,20 @@ describe("case study count", () => {
     expect(caseStudyCount).toBe(5); // SDS, HOMS, Lumora, FreshBasket, FocusPop
   });
 });
+
+describe("components stay data-driven", () => {
+  it("no component branches on a project id", async () => {
+    // Per-project behaviour belongs in projects.ts (e.g. linkGallery), not in
+    // `if (project.id === "...")` checks. Regression guard for ProjectCard.
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const dir = path.join(process.cwd(), "src/components/sections/projects");
+    const hits = fs.readdirSync(dir).flatMap((f) => {
+      const src = fs.readFileSync(path.join(dir, f), "utf8");
+      return projects
+        .filter((p) => src.includes(`"${p.id}"`))
+        .map((p) => `${f}: "${p.id}"`);
+    });
+    expect(hits).toEqual([]);
+  });
+});
