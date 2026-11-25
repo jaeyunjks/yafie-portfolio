@@ -7,6 +7,7 @@ import {
   sdsContributions,
   sdsSkills,
 } from "@/data/caseStudies/sdsModernisation";
+import { sdsFacts } from "@/data/caseStudies/sdsModernisation";
 
 const icons = [Code2, TestTube2, GitBranch, FileCheck2];
 
@@ -26,8 +27,9 @@ export default function SDSRoleContribution() {
               My role and contribution.
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              I contributed as a Frontend Developer & Tester, focusing on
-              interface quality, workflow behaviour, and user-flow validation.
+              {sdsFacts.role} in a {sdsFacts.team.toLowerCase()}: I built the
+              student and admin workflows, integrated them with the Flask API,
+              and ran QA for the team.
             </p>
           </div>
         </Reveal>

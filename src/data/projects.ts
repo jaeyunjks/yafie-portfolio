@@ -1,3 +1,4 @@
+import { sdsFacts } from "@/data/caseStudies/sdsModernisation";
 export type ProjectAction = {
   label: string;
   href: string;
@@ -191,7 +192,7 @@ export const projects: PortfolioProject[] = [
     title: "SDS Project Management Site",
     category: "Full-Stack Web / Workflow System",
     status: "Delivered & handed over",
-    role: "Software Engineer (Frontend & Full-Stack Integration) · 6-person team",
+    role: `${sdsFacts.role} · 6-person team`,
     summary:
       "A full-stack project management system for the UTS Software Development Studio, built for an academic client. It replaced manual proposal, discovery, join-request, scheduling and allocation workflows.",
     contributionSummary:
@@ -257,7 +258,7 @@ export const projects: PortfolioProject[] = [
     tier: "featured",
     projectType: "fullstack-workflow",
     projectDisplayType: "Full-stack web",
-    projectDate: "Feb – Jul 2026",
+    projectDate: sdsFacts.timeline,
     imageSrc: "/images/projects/sds_projects.png",
     caseStudyStatus: "Case study",
     areaAnchors: ["web-projects"],

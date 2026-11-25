@@ -14,9 +14,10 @@ export default function SDSCaseCTA() {
             Interested in the full project breakdown?
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
-            This is a high-level case study. I&apos;m continuing to document the
-            implementation details, testing notes, screenshots, and handover
-            evidence as the project evolves.
+            The system was delivered and handed over in July 2026, and
+            nominated for the UTS Software Engineering Tech Fest 2026 showcase.
+            Some workflows aren&apos;t shown here because they involve private
+            project data.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

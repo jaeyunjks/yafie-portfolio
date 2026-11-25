@@ -1,3 +1,4 @@
+import { sdsFacts } from "@/data/caseStudies/sdsModernisation";
 export type WorkStatus = "current" | "past" | "pending";
 
 export type WorkSection =
@@ -45,9 +46,9 @@ export const workExperience: WorkExperienceItem[] = [
     section: "software-experience",
     featured: true,
     status: "past",
-    role: "Software Engineer (Frontend & Full-Stack Integration)",
+    role: sdsFacts.role,
     organisation: "SDS Modernisation · UTS Software Development Studio",
-    duration: "Feb 2026 - Jul 2026",
+    duration: sdsFacts.timeline,
     category: "Software Development / Testing",
     summary:
       "Built a full-stack project management system for an academic client at UTS in a six-person, client-facing Agile team. It replaced manual proposal, discovery, join-request, scheduling and allocation workflows, was handed over to a satisfied client, and was nominated for the UTS Software Engineering Tech Fest 2026 showcase.",
