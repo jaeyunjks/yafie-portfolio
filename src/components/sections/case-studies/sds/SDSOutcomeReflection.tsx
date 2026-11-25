@@ -1,7 +1,7 @@
 import { CheckCircle2, Lightbulb, MessageSquareText } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import {
-  sdsNextImprovements,
+  sdsProof,
   sdsReflections,
 } from "@/data/caseStudies/sdsModernisation";
 
@@ -69,18 +69,24 @@ export default function SDSOutcomeReflection() {
         <Reveal delay={0.1}>
           <div className="mt-5 rounded-[24px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-6 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl">
             <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
-              next.improvements
+              what.this.proved
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {sdsNextImprovements.map((item) => (
-                <span
+            <ul className="mt-4 grid gap-2.5 md:grid-cols-2">
+              {sdsProof.map((item) => (
+                <li
                   key={item}
-                  className="rounded-full border border-[#d4e3ff]/72 bg-white/72 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-slate-500"
+                  className="flex items-start gap-2.5 text-sm leading-7 text-slate-600"
                 >
+                  <CheckCircle2
+                    size={17}
+                    strokeWidth={2.3}
+                    aria-hidden
+                    className="mt-1 shrink-0 text-[#2d5f9d]"
+                  />
                   {item}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </Reveal>
       </div>

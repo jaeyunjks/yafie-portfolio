@@ -3,7 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 import Reveal from "@/components/ui/Reveal";
-import { sdsFeatures } from "@/data/caseStudies/sdsModernisation";
+import { sdsFeatures, sdsOwnershipLabels } from "@/data/caseStudies/sdsModernisation";
 import SDSBrowserMockup from "./SDSBrowserMockup";
 
 type WorkflowFeature = (typeof sdsFeatures)[number];
@@ -42,8 +42,14 @@ function WorkflowFeatureCard({
             <Icon size={14} strokeWidth={2.3} aria-hidden />
             {feature.status}
           </span>
-          <span className="rounded-full border border-white/75 bg-white/70 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-slate-500">
-            workflow area
+          <span
+            className={`rounded-full border px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] ${
+              feature.ownership === "mine"
+                ? "border-[#8dbbff]/60 bg-[#eef5ff]/86 text-[#2d5f9d]"
+                : "border-white/75 bg-white/70 text-slate-500"
+            }`}
+          >
+            {sdsOwnershipLabels[feature.ownership]}
           </span>
         </div>
         <h3

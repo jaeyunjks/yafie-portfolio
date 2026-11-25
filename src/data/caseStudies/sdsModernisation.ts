@@ -38,7 +38,17 @@ export type SDSSprint = {
   deliverables: string[];
 };
 
+/** Who built a showcased screen (verified with Yafie, 25 Nov 2026). */
+export type SDSOwnership = "mine" | "shared" | "team";
+
+export const sdsOwnershipLabels: Record<SDSOwnership, string> = {
+  mine: "Built by me",
+  shared: "Shared with frontend dev",
+  team: "Team-built",
+};
+
 export type SDSFeature = {
+  ownership: SDSOwnership;
   title: string;
   body: string;
   value: string;
@@ -67,12 +77,18 @@ export type SDSImageVariant =
   | "detail"
   | "request";
 
-export const sdsMetadata = [
-  "Role: Frontend Developer & Tester",
-  "Timeline: Feb 2026 - Present",
-  "Context: UTS Software Development Studio",
-  "Focus: Workflow Systems - Testing - Frontend UI",
-];
+/**
+ * Single source for SDS facts. projects.ts, workExperience.ts and the case
+ * study all read from here, so the role and dates can't drift apart again.
+ */
+export const sdsFacts = {
+  role: "Software Engineer (Frontend & Full-Stack Integration)",
+  timeline: "Feb – Jul 2026",
+  team: "6-person, client-facing Agile team",
+  client: "An academic client at UTS",
+  sprints: "5 sprints (Sprint 0 planning + 4 delivery)",
+  outcome: "Delivered, handed over, Tech Fest 2026 nominee",
+} as const;
 
 export const sdsOverviewCards: SDSOverviewCard[] = [
   {
@@ -89,7 +105,7 @@ export const sdsOverviewCards: SDSOverviewCard[] = [
   },
   {
     title: "My contribution",
-    body: "I contributed through frontend development, testing, UI refinement, workflow understanding, and documentation support, with a focus on making the system easier to use and reason about.",
+    body: "I built the React student and admin workflows, connected them to the Flask REST API, wrote early Flask routes and SQLite schema changes, and ran QA for the team.",
   },
 ];
 
@@ -202,33 +218,32 @@ export const sdsUserGroups: SDSUserGroup[] = [
 
 export const sdsContributions: SDSContribution[] = [
   {
-    title: "Frontend implementation",
-    body: "Built and refined screens that support project management, submissions, status visibility, and coordinator workflows.",
+    title: "Student & admin workflows",
+    body: "Built the React student and admin workflows (catalogue, join requests, rosters, imports, exports, reports and project status) from client requirements.",
     featured: true,
   },
   {
-    title: "Testing user flows",
-    body: "Tested key interactions to identify UI issues, workflow bugs, edge cases, and unclear behaviours.",
+    title: "API & data integration",
+    body: "Connected the interfaces to the Flask REST API, and wrote early Flask routes and SQLite schema changes.",
     featured: true,
   },
   {
-    title: "Workflow understanding",
-    body: "Helped translate coordination needs, stakeholder workflows, and requirements ambiguity into structured interface decisions.",
+    title: "Team QA",
+    body: "Ran QA for the team: wrote Vitest + React Testing Library unit and integration tests and fixed the defects they found.",
   },
   {
-    title: "Documentation & handover",
-    body: "Supported clearer documentation, decision explanation, testing evidence, and handover readiness.",
+    title: "Client delivery",
+    body: "Took part in sprint planning and reviews across five sprints, and in the handover to a client who was happy with the result.",
   },
 ];
 
 export const sdsSkills = [
   "React",
-  "TypeScript",
-  "Vite",
-  "Python",
+  "JavaScript",
   "Flask",
+  "SQLite",
   "Vitest",
-  "Pytest",
+  "React Testing Library",
 ];
 
 export const sdsSprints: SDSSprint[] = [
@@ -356,6 +371,7 @@ export const sdsSprints: SDSSprint[] = [
 
 export const sdsFeatures: SDSFeature[] = [
   {
+    ownership: "shared",
     title: "Admin dashboard",
     body: "Admin / Subject Coordinator view for status overview, incoming submissions, review queues, and project visibility.",
     value: "Helps coordinators scan project activity and review work with clearer context.",
@@ -365,6 +381,7 @@ export const sdsFeatures: SDSFeature[] = [
     icon: LayoutDashboard,
   },
   {
+    ownership: "team",
     title: "Project EOI form",
     body: "Client-facing project brief submission flow for collecting project details, requirements, and review information.",
     value: "Turns project intake into a clearer structured path for brief visibility.",
@@ -374,6 +391,7 @@ export const sdsFeatures: SDSFeature[] = [
     icon: FileText,
   },
   {
+    ownership: "mine",
     title: "My applications",
     body: "Student-facing submitted application status tracking for project requests and allocation context.",
     value: "Makes submitted work easier to follow after the initial application flow.",
@@ -383,6 +401,7 @@ export const sdsFeatures: SDSFeature[] = [
     icon: ClipboardCheck,
   },
   {
+    ownership: "mine",
     title: "Studio activities",
     body: "Semester scheduling, release dates, allocation open dates, and timetable visibility.",
     value: "Improves timing clarity for Admin / Subject Coordinator workflows and student allocation stages.",
@@ -392,6 +411,7 @@ export const sdsFeatures: SDSFeature[] = [
     icon: ListChecks,
   },
   {
+    ownership: "mine",
     title: "Project detail page",
     body: "Project information, mandatories, client visibility, attachments, and join request entry point.",
     value: "Gives Students and Team Leads clearer project context before acting.",
@@ -401,6 +421,7 @@ export const sdsFeatures: SDSFeature[] = [
     icon: PanelsTopLeft,
   },
   {
+    ownership: "mine",
     title: "Join request flow",
     body: "Team Lead request form with student ID entry and tutor-present requirement.",
     value: "Supports a more structured Student and Team Lead request workflow.",
@@ -410,6 +431,7 @@ export const sdsFeatures: SDSFeature[] = [
     icon: Users,
   },
   {
+    ownership: "team",
     title: "Client dashboard",
     body: "Client-facing dashboard for tracking submitted project briefs, review progress, and project updates.",
     value: "Gives clients clearer visibility over submission status and coordinator follow-up.",
@@ -462,10 +484,10 @@ export const sdsReflections: SDSReflection[] = [
   },
 ];
 
-export const sdsNextImprovements = [
-  "clearer analytics/reporting views",
-  "stronger role-based access polish",
-  "improved handover documentation",
-  "more automated testing coverage",
-  "better mobile responsiveness",
+/** Replaces "next improvements": the project was delivered and handed over. */
+export const sdsProof = [
+  "Worked like a full-time engineer in a six-person, client-facing Agile team.",
+  "Turned client requirements into working software across five sprints.",
+  "Dealt directly with the client in sprint reviews and the final handover.",
+  "Delivered to a client who was happy with the result, and earned a Tech Fest 2026 showcase nomination.",
 ];

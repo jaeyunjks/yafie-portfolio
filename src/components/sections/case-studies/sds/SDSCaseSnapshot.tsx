@@ -1,9 +1,10 @@
 import { BriefcaseBusiness, CalendarDays, Focus, UsersRound } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { sdsFacts } from "@/data/caseStudies/sdsModernisation";
 
 const snapshotItems = [
-  { label: "Role", value: "Frontend Developer & Tester", icon: BriefcaseBusiness },
-  { label: "Timeline", value: "Feb 2026 - Present", icon: CalendarDays },
+  { label: "Role", value: sdsFacts.role, icon: BriefcaseBusiness },
+  { label: "Timeline", value: `${sdsFacts.timeline} · delivered`, icon: CalendarDays },
   { label: "Main users", value: "Coordinators, students, clients, tutors", icon: UsersRound },
   { label: "Focus", value: "Briefs, reviews, allocation, join requests", icon: Focus },
 ];
