@@ -32,7 +32,7 @@ export default function LumoraChallenge() {
                     <h3 className="text-lg font-extrabold text-slate-950">
                       {challenge.title}
                     </h3>
-                    <p className="mt-2 font-mono text-[0.54rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">Problem</p>
+                    <p className="mt-2 font-mono text-[0.54rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">Problem</p>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
                       {challenge.problem}
                     </p>
@@ -40,7 +40,7 @@ export default function LumoraChallenge() {
                 </div>
                 <div className="mt-4 grid gap-3">
                   <div className="rounded-[18px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-4">
-                    <p className="font-mono text-[0.54rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.54rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                       approach
                     </p>
                     <p className="mt-2 text-sm leading-6 text-slate-600">

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import { techStack } from "@/data/techStack";
-import { exposurePercent, formatDuration } from "@/lib/experience";
+import { exposurePercent, formatDuration, FULL_BAR_MONTHS } from "@/lib/experience";
 import type { TechCategory } from "@/types";
 
 const statusStyles = {
@@ -35,7 +35,7 @@ function TechStackCard({
       <div className="relative z-10">
         <div className="mb-4 flex items-start justify-between gap-3 border-b border-[#d4e3ff]/62 pb-4">
           <div>
-            <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
               {category.label}
             </p>
             <h3 className="mt-2 text-xl font-extrabold tracking-tight text-slate-950 md:text-2xl">
@@ -43,10 +43,10 @@ function TechStackCard({
             </h3>
           </div>
           <div className="text-right">
-            <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+            <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
               [{String(index + 1).padStart(2, "0")}]
             </span>
-            <p className="mt-2 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-400">
+            <p className="mt-2 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-600">
               3 yrs max
             </p>
           </div>
@@ -78,7 +78,7 @@ function TechStackCard({
                       </p>
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-1">
-                      <p className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/72">
+                      <p className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
                         {formatDuration(item.months)}
                       </p>
                       <p
@@ -91,7 +91,12 @@ function TechStackCard({
 
                   <div
                     className="mt-3 h-2.5 overflow-hidden rounded-full border border-white/70 bg-[#d4e3ff]/38 shadow-inner shadow-[#2d5f9d]/5"
-                    aria-label={`${item.name} experience exposure: ${formatDuration(item.months)}`}
+                    role="meter"
+                    aria-label={`${item.name} experience`}
+                    aria-valuemin={0}
+                    aria-valuemax={FULL_BAR_MONTHS}
+                    aria-valuenow={Math.min(item.months, FULL_BAR_MONTHS)}
+                    aria-valuetext={formatDuration(item.months)}
                   >
                     <motion.div
                       className="exposure-fill h-full rounded-full bg-gradient-to-r from-[#8dbbff] via-[#a8c8ff] to-[#c6b7ff]"
@@ -141,7 +146,7 @@ export default function AboutTechStack() {
       <Reveal>
         <div className="mb-8 flex flex-col justify-between gap-5 border-l border-[#8dbbff]/45 pl-4 lg:flex-row lg:items-end">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               03 // technical.stack
             </p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">

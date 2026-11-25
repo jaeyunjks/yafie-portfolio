@@ -31,7 +31,7 @@ export default function FreshBasketScalingOperations() {
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
               {freshBasketOperationsCards.map((item) => (
                 <article key={item.label} className="rounded-[18px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-4">
-                  <h3 className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/70">{item.label}</h3>
+                  <h3 className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">{item.label}</h3>
                   <p className={`mt-1 font-extrabold leading-6 text-slate-800 ${item.label === "Auto Scaling" ? "text-lg" : "text-sm"}`}>{item.value}</p>
                 </article>
               ))}
@@ -52,7 +52,7 @@ export default function FreshBasketScalingOperations() {
                 ))}
             </div>
             <div className="mt-2 flex items-center gap-3 md:hidden">
-              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">Swipe {Math.round(progress)}%</span>
+              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">Swipe {Math.round(progress)}%</span>
               <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]"><div className="h-full rounded-full bg-[#2d5f9d]" style={{ width: `${progress}%` }} /></div>
               <ChevronRight size={15} aria-hidden className="text-[#2d5f9d]/55" />
             </div>

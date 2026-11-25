@@ -98,7 +98,7 @@ export default function SDSWorkflow() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               04 // project.workflow
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -151,7 +151,7 @@ export default function SDSWorkflow() {
                           : "border-white/75 bg-white/58 hover:-translate-y-1 hover:bg-white/82"
                       }`}
                     >
-                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                         {sprint.sprint}
                       </p>
                       <h3 className="mt-2 text-base font-extrabold text-slate-950">
@@ -160,7 +160,7 @@ export default function SDSWorkflow() {
                       <p className="mt-3 text-xs leading-6 text-slate-600 lg:text-sm lg:leading-7">
                         {sprint.description}
                       </p>
-                      <span className="mt-auto inline-flex items-center gap-1.5 pt-4 font-mono text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
+                      <span className="mt-auto inline-flex items-center gap-1.5 pt-4 font-mono text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
                         {isActive ? "Viewing details" : "View sprint details"}
                         <ArrowRight size={12} strokeWidth={2.5} aria-hidden />
                       </span>
@@ -171,7 +171,7 @@ export default function SDSWorkflow() {
             </div>
 
             <div className="mt-2 flex items-center gap-3 lg:hidden">
-              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 Swipe {Math.round(progress)}%
               </span>
               <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
@@ -191,7 +191,7 @@ export default function SDSWorkflow() {
                 }}
                 aria-hidden
               >
-                <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+                <ChevronRight size={11} className="text-[#2d5f9d]/90" />
                 <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
               </div>
             </div>
@@ -206,7 +206,7 @@ export default function SDSWorkflow() {
                   <Route size={19} strokeWidth={2.3} aria-hidden />
                 </span>
                 <div className="min-w-0">
-                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                     active.sprint
                   </p>
                   <h3 className="mt-1 text-xl font-extrabold text-slate-950">
@@ -225,7 +225,7 @@ export default function SDSWorkflow() {
                       <ShieldCheck size={16} strokeWidth={2.3} aria-hidden />
                     </span>
                     <div>
-                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                         testing.quality
                       </p>
                       <p className="mt-1 text-sm font-bold leading-6 text-slate-700">
@@ -245,7 +245,7 @@ export default function SDSWorkflow() {
                       />
                     </span>
                     <div>
-                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                         employer.value
                       </p>
                       <p className="mt-1 text-sm font-bold leading-6 text-slate-700">
@@ -262,7 +262,7 @@ export default function SDSWorkflow() {
                     <ClipboardList size={16} strokeWidth={2.3} aria-hidden />
                   </span>
                   <div>
-                    <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                       deliverables
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">
@@ -287,7 +287,7 @@ export default function SDSWorkflow() {
             </div>
 
             <div className="mt-5 rounded-[20px] border border-white/75 bg-white/62 p-5 transition-[background-color] duration-300">
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                 delivery.areas // {selectedSprint.sprint.toLowerCase()}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">

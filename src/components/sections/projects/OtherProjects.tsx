@@ -12,7 +12,7 @@ export default function OtherProjects() {
     <section id="other-projects" className="scroll-mt-32 pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             04 // other.projects
           </p>
           <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-950 md:text-4xl">
@@ -25,7 +25,7 @@ export default function OtherProjects() {
         {otherProjects.map((project, index) => (
           <Reveal key={project.id} delay={index * 0.04} className="flex">
             <article className="flex w-full flex-col rounded-[18px] border border-white/75 bg-white/68 p-5 shadow-[0_22px_70px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 {project.projectDisplayType} · {project.projectDate}
               </p>
               <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">

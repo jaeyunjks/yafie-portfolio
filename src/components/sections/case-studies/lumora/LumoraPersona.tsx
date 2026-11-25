@@ -31,7 +31,7 @@ export default function LumoraPersona() {
                     <UserRound size={22} strokeWidth={2.3} aria-hidden />
                   </span>
                   <div>
-                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                       persona
                     </p>
                     <h3 className="mt-1 text-3xl font-black tracking-tight text-slate-950">
@@ -68,7 +68,7 @@ export default function LumoraPersona() {
                     key={label}
                     className="rounded-[18px] border border-white/75 bg-white/66 p-4 shadow-[0_12px_34px_rgba(45,95,157,0.07)] backdrop-blur-xl"
                   >
-                    <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/68">
+                    <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                       {label}
                     </p>
                     <p className="mt-2 text-sm font-extrabold text-slate-900">
@@ -112,7 +112,7 @@ export default function LumoraPersona() {
               </article>
 
               <article className="rounded-[24px] border border-[#d4e3ff]/70 bg-[#f8fbff]/66 p-5 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                   technology.tools
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">

@@ -17,7 +17,7 @@ export default function CaseSection({ id, label, title, intro, children }: CaseS
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl border-l border-[#8dbbff]/45 pl-4">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               {label}
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">

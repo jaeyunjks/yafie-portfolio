@@ -121,3 +121,20 @@ describe("unfinished content", () => {
     expect(found).toEqual([]);
   });
 });
+
+describe("colour contrast guard", () => {
+  /**
+   * Brand blue text below 90% opacity fails WCAG AA (4.5:1) on our light
+   * backgrounds (measured 25 Nov 2026: /70 is 3.3:1 on #eef4ff, /90 is 4.75:1).
+   * Opacities of 55 or lower are allowed: they're only used on decorative icons.
+   */
+  it("no brand-blue text between 56% and 89% opacity", () => {
+    const hits = collect(sourceFiles, /(text-\[#2d5f9d\]\/(?:5[6-9]|[6-8]\d))\b/g);
+    expect(hits).toEqual([]);
+  });
+
+  it("small grey labels don't use slate-400 (2.4:1)", () => {
+    const hits = collect(sourceFiles, /(text-\[0\.5\drem\][^"]*text-slate-400)/g);
+    expect(hits).toEqual([]);
+  });
+});

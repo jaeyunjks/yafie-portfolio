@@ -151,7 +151,7 @@ export default function ContactMethods() {
         href={method.secondaryHref}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noreferrer" : undefined}
-        className="inline-flex items-center justify-center rounded-full border border-[#d4e3ff]/68 bg-white/64 px-3.5 py-2 font-mono text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/78 transition-[background-color,border-color,color] duration-300 hover:border-[#8dbbff]/52 hover:bg-white hover:text-[#2d5f9d] md:border-0 md:bg-transparent md:px-0 md:py-0"
+        className="inline-flex items-center justify-center rounded-full border border-[#d4e3ff]/68 bg-white/64 px-3.5 py-2 font-mono text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90 transition-[background-color,border-color,color] duration-300 hover:border-[#8dbbff]/52 hover:bg-white hover:text-[#2d5f9d] md:border-0 md:bg-transparent md:px-0 md:py-0"
       >
         {method.secondaryCta}
       </a>
@@ -163,7 +163,7 @@ export default function ContactMethods() {
       <Reveal>
         <div className="flex flex-col gap-7 border-b border-[#d4e3ff]/52 pb-8 md:gap-8 md:pb-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl border-l border-[#8dbbff]/45 pl-4">
-            <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               03 // contact.methods
             </p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -174,7 +174,7 @@ export default function ContactMethods() {
             </p>
           </div>
 
-          <div className="inline-flex w-fit items-center gap-3 rounded-full border border-[#d4e3ff]/62 bg-white/72 px-4 py-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/78 shadow-[0_10px_24px_rgba(45,95,157,0.08)] backdrop-blur-md">
+          <div className="inline-flex w-fit items-center gap-3 rounded-full border border-[#d4e3ff]/62 bg-white/72 px-4 py-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90 shadow-[0_10px_24px_rgba(45,95,157,0.08)] backdrop-blur-md">
             <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]" />
             Available for opportunities
           </div>
@@ -197,7 +197,7 @@ export default function ContactMethods() {
                     <h3 className="text-[1.45rem] font-semibold tracking-[-0.02em] text-slate-950">
                       {method.title}
                     </h3>
-                    <span className="rounded-full border border-[#d4e3ff]/70 bg-white/72 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/72">
+                    <span className="rounded-full border border-[#d4e3ff]/70 bg-white/72 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                       {method.label}
                     </span>
                   </div>
@@ -216,7 +216,7 @@ export default function ContactMethods() {
                 </div>
 
                 <div className="col-start-2 flex flex-col items-start gap-3 md:col-span-1 md:col-start-auto md:max-w-[14rem] md:justify-self-end md:items-end">
-                  <span className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/68">
+                  <span className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                     {methodMeta[method.key]}
                   </span>
                   <div className="flex flex-wrap items-center gap-2.5 md:justify-end">
@@ -233,7 +233,7 @@ export default function ContactMethods() {
       </div>
 
       <Reveal delay={0.25}>
-        <div className="flex flex-col gap-3 pt-6 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 pt-6 font-mono text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90 sm:flex-row sm:items-center sm:justify-between">
           <span>{"// Clear, professional, project-focused replies"}</span>
           <span>{contactMeta.location.replace(", ", " · ").toUpperCase()}</span>
         </div>
@@ -255,7 +255,7 @@ export default function ContactMethods() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_10%,rgba(198,183,255,0.22),transparent_32%),radial-gradient(circle_at_12%_88%,rgba(141,187,255,0.18),transparent_36%)]" />
             <div className="relative z-10 flex flex-col gap-4 border-b border-[#d4e3ff]/62 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:px-5 md:px-6">
               <div>
-                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/75">
+                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                   resume.preview
                 </p>
                 <h3

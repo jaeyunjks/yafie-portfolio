@@ -8,7 +8,7 @@ export default function OtherSignals() {
     <section id="others" className="scroll-mt-32 pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             05 // others
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -35,7 +35,7 @@ export default function OtherSignals() {
                     {item.duration}
                   </span>
                 </div>
-                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                   {item.category}
                 </p>
                 <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-950">
@@ -45,7 +45,7 @@ export default function OtherSignals() {
                   {item.summary}
                 </p>
                 <div className="mt-4 rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-4">
-                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     Milestone context
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -65,7 +65,7 @@ export default function OtherSignals() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ffd27a]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#8bdca8]" />
               </div>
-              <span className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+              <span className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
                 milestone.evidence
               </span>
             </div>

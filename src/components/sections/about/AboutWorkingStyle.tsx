@@ -53,7 +53,7 @@ export default function AboutWorkingStyle() {
     <section className="pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             05 // working.style
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -63,7 +63,7 @@ export default function AboutWorkingStyle() {
             A simple framework that guides how I contribute to projects and
             teams.
           </p>
-          <p className="mt-4 inline-flex rounded-full border border-[#d4e3ff]/72 bg-white/62 px-3.5 py-2 font-mono text-[0.62rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70 shadow-[0_12px_32px_rgba(45,95,157,0.06)]">
+          <p className="mt-4 inline-flex rounded-full border border-[#d4e3ff]/72 bg-white/62 px-3.5 py-2 font-mono text-[0.62rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90 shadow-[0_12px_32px_rgba(45,95,157,0.06)]">
             Iterative, feedback-driven, and product-aware.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function AboutWorkingStyle() {
                       {step.phase}
                     </span>
                   </div>
-                  <p className="mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <p className="mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     {step.title}
                   </p>
                   <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -116,7 +116,7 @@ export default function AboutWorkingStyle() {
                       {step.phase}
                     </span>
                   </div>
-                  <p className="mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <p className="mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     {step.title}
                   </p>
                   <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -134,7 +134,7 @@ export default function AboutWorkingStyle() {
               </div>
             ))}
           </div>
-          <div className="relative z-10 mt-4 hidden items-center justify-end gap-2 border-t border-[#d4e3ff]/54 pt-4 text-right font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-400 md:flex">
+          <div className="relative z-10 mt-4 hidden items-center justify-end gap-2 border-t border-[#d4e3ff]/54 pt-4 text-right font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-600 md:flex">
             <RefreshCw size={13} strokeWidth={2.2} aria-hidden />
             Improve loops back into understanding the next version.
           </div>

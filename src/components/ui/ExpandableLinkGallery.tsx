@@ -73,7 +73,7 @@ export default function ExpandableLinkGallery({
                       <span className="min-w-0">
                         <span className="block truncate">{link.label}</span>
                         {link.tag ? (
-                          <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/88 px-2 py-0.5 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78">
+                          <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/88 px-2 py-0.5 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
                             {link.tag}
                           </span>
                         ) : null}
@@ -186,7 +186,7 @@ export default function ExpandableLinkGallery({
                       <span className="min-w-0">
                         <span className="block truncate">{link.label}</span>
                         {link.tag ? (
-                          <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/88 px-2 py-0.5 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78">
+                          <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/88 px-2 py-0.5 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
                             {link.tag}
                           </span>
                         ) : null}

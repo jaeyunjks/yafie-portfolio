@@ -35,7 +35,7 @@ export default function FreshBasketSecurityNetworking() {
             return (
               <article key={item.label} className="rounded-[18px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-4">
                 <Icon size={18} strokeWidth={2.25} aria-hidden className="text-[#2d5f9d]" />
-                <h3 className="mt-3 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/70">{item.label}</h3>
+                <h3 className="mt-3 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">{item.label}</h3>
                 <p className="mt-1 text-sm font-bold leading-5 text-slate-700">{item.value}</p>
               </article>
             );
@@ -75,7 +75,7 @@ export default function FreshBasketSecurityNetworking() {
           ))}
         </div>
         <div className="mt-2 flex items-center gap-3 md:hidden">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">Swipe {Math.round(progress)}%</span>
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">Swipe {Math.round(progress)}%</span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]"><div className="h-full rounded-full bg-[#2d5f9d]" style={{ width: `${progress}%` }} /></div>
           <ChevronRight size={15} aria-hidden className="text-[#2d5f9d]/55" />
         </div>

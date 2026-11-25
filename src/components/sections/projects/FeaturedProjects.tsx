@@ -69,7 +69,7 @@ export default function FeaturedProjects({
       <Reveal>
         <div className="mb-8 flex flex-col gap-5 border-l border-[#8dbbff]/45 pl-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               03 // featured.projects
             </p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -81,7 +81,7 @@ export default function FeaturedProjects({
             </p>
           </div>
           <div className="md:pt-2">
-            <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+            <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
               {visibleProjects.length} shown
             </span>
           </div>
@@ -132,7 +132,7 @@ export default function FeaturedProjects({
       </div>
 
       <div className="mt-2 flex items-center gap-3 lg:hidden">
-        <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+        <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
           Swipe {explored}%
         </span>
         <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">

@@ -68,7 +68,7 @@ export default function ProjectMap({
     <section className="pb-10 lg:pb-12">
       <Reveal>
         <div className="mb-5 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             02 // project.map
           </p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -110,7 +110,7 @@ export default function ProjectMap({
                 );
               })}
             </div>
-            <p className="max-w-md font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-400 lg:text-right">
+            <p className="max-w-md font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-600 lg:text-right">
               Showing selected software projects across web, workflow systems,
               cloud, mobile, games, and AI-assisted tools.
             </p>

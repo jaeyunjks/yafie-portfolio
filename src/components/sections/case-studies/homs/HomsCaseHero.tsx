@@ -12,7 +12,7 @@ export default function HomsCaseHero() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <CaseStudyBackLink />
-          <p className="mt-8 font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+          <p className="mt-8 font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             case.study // {homsFacts.shortTitle.toLowerCase()}
           </p>
           <h1 className="mt-3 max-w-4xl text-4xl font-black tracking-tight text-slate-950 md:text-6xl">

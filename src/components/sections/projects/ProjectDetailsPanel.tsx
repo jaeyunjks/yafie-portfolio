@@ -22,7 +22,7 @@ export default function ProjectDetailsPanel({
     >
       <div className="grid gap-5 lg:grid-cols-[minmax(0,0.52fr)_minmax(0,0.48fr)]">
         <div>
-          <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Problem
           </p>
           <p className="mt-3 text-sm leading-7 text-slate-600">
@@ -30,7 +30,7 @@ export default function ProjectDetailsPanel({
           </p>
         </div>
         <div>
-          <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             What I worked on
           </p>
           <ul className="mt-3 grid gap-2.5 text-sm leading-6 text-slate-600">
@@ -45,7 +45,7 @@ export default function ProjectDetailsPanel({
 
         {showArchitecture ? (
           <div className="lg:col-span-2">
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
               MVC Architecture Overview
             </p>
             <div className="mt-3 grid gap-3 md:grid-cols-3">
@@ -54,7 +54,7 @@ export default function ProjectDetailsPanel({
                   key={item.layer}
                   className="rounded-[18px] border border-[#d4e3ff]/58 bg-white/74 p-4 shadow-[0_12px_34px_rgba(45,95,157,0.06)]"
                 >
-                  <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     {item.layer}
                   </p>
                   <p className="mt-2 text-sm font-extrabold leading-6 text-slate-900">
@@ -72,7 +72,7 @@ export default function ProjectDetailsPanel({
         <div className="lg:col-span-2">
           <div className="grid gap-5 lg:grid-cols-2">
             <div>
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 Full tech stack
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -82,7 +82,7 @@ export default function ProjectDetailsPanel({
               </div>
             </div>
             <div>
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 Skills demonstrated
               </p>
               <div className="mt-3 flex flex-wrap gap-2">

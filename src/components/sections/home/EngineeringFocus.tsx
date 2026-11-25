@@ -102,7 +102,7 @@ export default function EngineeringFocus() {
     <section className="pb-16 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             03 // beyond.code
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -127,7 +127,7 @@ export default function EngineeringFocus() {
         <div className="grid gap-0 md:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] md:items-start md:gap-10">
           <Reveal>
             <div className="hidden max-w-md self-start border-l border-[#8dbbff]/35 pl-5 md:block">
-              <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+              <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
                 WORK.STYLE
               </p>
               <p className="mt-5 text-base leading-8 text-slate-700">
@@ -137,7 +137,7 @@ export default function EngineeringFocus() {
                 {personalitySupport}
               </p>
               <div className="mt-5 border-t border-[#d4e3ff]/60 pt-5">
-                <p className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/75">
+                <p className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/90">
                   ENGINEERING.VALUE
                 </p>
                 <h3 className="mt-3 text-lg font-extrabold tracking-tight text-slate-950">
@@ -163,7 +163,7 @@ export default function EngineeringFocus() {
           <div>
             <Reveal>
               <div className="hidden pb-2 md:block">
-                <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+                <p className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
                   working.style
                 </p>
                 <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600">
@@ -182,12 +182,12 @@ export default function EngineeringFocus() {
                       <span className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-[#8dbbff]/24 bg-white/76 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.08)] backdrop-blur-xl">
                         <item.Icon size={18} strokeWidth={2.2} aria-hidden />
                       </span>
-                      <span className="font-mono text-[0.64rem] font-bold text-[#2d5f9d]/70 md:mt-3 md:block">
+                      <span className="font-mono text-[0.64rem] font-bold text-[#2d5f9d]/90 md:mt-3 md:block">
                         [{item.index}]
                       </span>
                     </div>
                     <div>
-                      <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                         {"// "}
                         {item.label}
                       </p>
@@ -221,7 +221,7 @@ export default function EngineeringFocus() {
           >
             <div className="mb-4 flex items-start justify-between gap-4 pt-1">
               <div>
-                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/75">
+                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/90">
                   WORK.STYLE
                 </p>
                 <h3
@@ -245,7 +245,7 @@ export default function EngineeringFocus() {
               {personalitySupport}
             </p>
             <div className="mt-4 border-t border-[#d4e3ff]/60 pt-4">
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/75">
+              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#2d5f9d]/90">
                 ENGINEERING.VALUE
               </p>
               <h4 className="mt-2 text-base font-extrabold tracking-tight text-slate-950">

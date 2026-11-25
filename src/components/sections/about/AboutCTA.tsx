@@ -30,7 +30,7 @@ export default function AboutCTA() {
       <section className="pb-20 lg:pb-24">
         <Reveal>
           <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               07 // employer.signal
             </p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -52,7 +52,7 @@ export default function AboutCTA() {
                     <signal.Icon size={20} strokeWidth={2.2} aria-hidden />
                   </span>
                   <div>
-                    <p className="font-mono text-[0.64rem] font-bold text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.64rem] font-bold text-[#2d5f9d]/90">
                       [{String(index + 1).padStart(2, "0")}]
                     </p>
                     <h3 className="mt-1 text-lg font-extrabold tracking-tight text-slate-950">

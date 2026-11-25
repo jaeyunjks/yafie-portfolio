@@ -43,7 +43,7 @@ export default function AboutPersonality() {
       <Reveal>
         <div className="mb-8 flex flex-col justify-between gap-5 border-l border-[#8dbbff]/45 pl-4 lg:flex-row lg:items-end">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               06 // beyond.code
             </p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -69,7 +69,7 @@ export default function AboutPersonality() {
               <span className="flex h-10 w-10 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)]">
                 <card.Icon size={18} strokeWidth={2.2} aria-hidden />
               </span>
-              <p className="mt-5 font-mono text-[0.64rem] font-bold text-[#2d5f9d]/70">
+              <p className="mt-5 font-mono text-[0.64rem] font-bold text-[#2d5f9d]/90">
                 [{String(index + 1).padStart(2, "0")}]
               </p>
               <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">
@@ -82,7 +82,7 @@ export default function AboutPersonality() {
           ))}
         </div>
         <div className="mt-2 flex items-center gap-3">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Swipe {explored}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
@@ -96,7 +96,7 @@ export default function AboutPersonality() {
             style={{ opacity: progress < 5 ? 1 : 0, animation: progress < 5 ? "swipe-hint-bounce 800ms ease-in-out infinite" : "none" }}
             aria-hidden
           >
-            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="text-[#2d5f9d]/90" />
             <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function AboutPersonality() {
               <span className="flex h-10 w-10 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)] transition-transform duration-300 group-hover:-translate-y-0.5">
                 <card.Icon size={18} strokeWidth={2.2} aria-hidden />
               </span>
-              <p className="mt-5 font-mono text-[0.64rem] font-bold text-[#2d5f9d]/70">
+              <p className="mt-5 font-mono text-[0.64rem] font-bold text-[#2d5f9d]/90">
                 [{String(index + 1).padStart(2, "0")}]
               </p>
               <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">

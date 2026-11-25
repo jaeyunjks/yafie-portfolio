@@ -40,7 +40,7 @@ export default function ContactHero() {
     <section className="relative grid min-h-[calc(100svh-8rem)] items-center gap-8 pb-20 pt-2 md:gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,0.78fr)] lg:gap-12 lg:pb-24">
       <Reveal>
         <div className="border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             01 // contact.init
           </p>
           <TypewriterHeading
@@ -83,7 +83,7 @@ export default function ContactHero() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_12%,rgba(198,183,255,0.2),transparent_32%),radial-gradient(circle_at_16%_90%,rgba(141,187,255,0.16),transparent_36%)]" />
           <div className="relative z-10 overflow-hidden rounded-[20px] border border-[#d4e3ff]/62 bg-white/60">
             <div className="flex items-center justify-between border-b border-[#d4e3ff]/58 px-4 py-3">
-              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                 contact.signal
               </span>
               <span className="rounded-full border border-[#d4e3ff]/70 bg-white/68 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -102,7 +102,7 @@ export default function ContactHero() {
                       <row.Icon size={18} strokeWidth={2.2} aria-hidden />
                     </span>
                     <div className="min-w-0">
-                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                         {row.label}
                       </p>
                       <p className="mt-1 text-sm font-extrabold leading-6 text-slate-900">

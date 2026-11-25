@@ -24,7 +24,7 @@ export default function FreshBasketArchitecture() {
               {freshBasketArchitectureFlow.map((node, index) => (
                 <div key={node} className="flex min-w-0 flex-col items-stretch gap-2 lg:flex-row lg:gap-3">
                   <article className="flex min-h-20 flex-1 items-center justify-between gap-4 rounded-[20px] border border-[#d4e3ff]/64 bg-[#f8fbff]/76 p-4 lg:min-h-32 lg:flex-col lg:items-start lg:rounded-[22px]">
-                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                       layer.0{index + 1}
                     </p>
                     <h3 className="text-right text-base font-black leading-6 text-slate-950 lg:mt-4 lg:text-left">
@@ -32,12 +32,12 @@ export default function FreshBasketArchitecture() {
                     </h3>
                   </article>
                   {index < freshBasketArchitectureFlow.length - 1 ? (
-                    <span className="flex justify-center text-[#2d5f9d]/64 lg:hidden">
+                    <span className="flex justify-center text-[#2d5f9d]/90 lg:hidden">
                       <ArrowDown size={18} strokeWidth={2.4} aria-hidden />
                     </span>
                   ) : null}
                   {index < freshBasketArchitectureFlow.length - 1 ? (
-                    <span className="hidden items-center text-[#2d5f9d]/64 lg:flex">
+                    <span className="hidden items-center text-[#2d5f9d]/90 lg:flex">
                       <ArrowRight size={20} strokeWidth={2.4} aria-hidden />
                     </span>
                   ) : null}
@@ -50,7 +50,7 @@ export default function FreshBasketArchitecture() {
             </p>
 
             <div className="mt-5 rounded-[24px] border border-[#d4e3ff]/58 bg-white/64 p-4">
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 Supporting AWS configuration
               </p>
               <div className="mt-3 flex flex-wrap gap-2">

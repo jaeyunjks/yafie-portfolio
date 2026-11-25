@@ -13,7 +13,7 @@ export default function SDSOutcomeReflection() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               07 // outcome.reflection
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -28,7 +28,7 @@ export default function SDSOutcomeReflection() {
 
         <Reveal delay={0.06}>
           <div className="mt-8 rounded-[26px] border border-[#d4e3ff]/64 bg-[#f8fbff]/76 p-6 shadow-[0_22px_72px_rgba(45,95,157,0.1)] backdrop-blur-xl">
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
               development.lesson
             </p>
             <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-950">
@@ -68,7 +68,7 @@ export default function SDSOutcomeReflection() {
 
         <Reveal delay={0.1}>
           <div className="mt-5 rounded-[24px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-6 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
               what.this.proved
             </p>
             <ul className="mt-4 grid gap-2.5 md:grid-cols-2">

@@ -29,7 +29,7 @@ export default function FreshBasketDatabaseIntegration() {
             />
 
             <article className="rounded-[26px] border border-white/75 bg-white/66 p-6 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl">
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 Tables verified
               </p>
               <div className="mt-4 grid gap-2">

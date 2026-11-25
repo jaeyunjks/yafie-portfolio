@@ -40,7 +40,7 @@ export default function ContactAvailability() {
     <section className="scroll-mt-32 pb-20 lg:pb-24" id="availability-signal">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             02 // availability.signal
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -62,7 +62,7 @@ export default function ContactAvailability() {
                 <span className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-[18px] border border-[#8dbbff]/24 bg-white/82 text-[#2d5f9d] shadow-[0_14px_30px_rgba(45,95,157,0.1)]">
                   <BriefcaseBusiness size={22} strokeWidth={2.2} aria-hidden />
                 </span>
-                <span className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/78 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/72">
+                <span className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/78 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Main focus
                 </span>
               </div>
@@ -80,7 +80,7 @@ export default function ContactAvailability() {
                 {contactOpenToFeatured.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#d4e3ff]/72 bg-white/80 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78"
+                    className="rounded-full border border-[#d4e3ff]/72 bg-white/80 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90"
                   >
                     {tag}
                   </span>
@@ -123,7 +123,7 @@ export default function ContactAvailability() {
                     </p>
                     <div className="mt-4 flex items-center gap-2 text-[#2d5f9d]">
                       <Blocks size={14} strokeWidth={2.2} aria-hidden />
-                      <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/72">
+                      <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                         Open to discuss
                       </span>
                     </div>
@@ -135,7 +135,7 @@ export default function ContactAvailability() {
         </div>
 
         <div className="mt-2 flex items-center gap-3 md:hidden">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Swipe {Math.round(progress)}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
@@ -171,7 +171,7 @@ export default function ContactAvailability() {
                     </p>
                     <div className="mt-4 flex items-center gap-2 text-[#2d5f9d]">
                       <Blocks size={14} strokeWidth={2.2} aria-hidden />
-                      <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/72">
+                      <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                         Open to discuss
                       </span>
                     </div>

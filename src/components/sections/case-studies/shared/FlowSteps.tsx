@@ -22,7 +22,7 @@ export default function FlowSteps({
           return (
             <li key={step.title} className="flex flex-1 flex-col gap-2 lg:flex-row">
               <div className="flex-1 rounded-[20px] border border-[#d4e3ff]/72 bg-white/72 p-5 shadow-[0_14px_40px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                   step.{String(index + 1).padStart(2, "0")}
                 </p>
                 <p className="mt-2 text-base font-extrabold tracking-tight text-slate-950">

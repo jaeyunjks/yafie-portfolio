@@ -8,7 +8,7 @@ export default function VolunteerExperience() {
     <section id="volunteer-experience" className="scroll-mt-32 pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             04 // volunteer.experience
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -32,7 +32,7 @@ export default function VolunteerExperience() {
           <aside className="relative h-full overflow-hidden rounded-[18px] border border-white/75 bg-white/60 p-5 shadow-[0_16px_50px_rgba(45,95,157,0.08)] backdrop-blur-xl">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.84),rgba(238,245,255,0.34)_54%,rgba(231,222,255,0.14))]" />
             <div className="relative z-10">
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                 showcase.signal
               </p>
               <h3 className="mt-3 text-xl font-extrabold tracking-tight text-slate-950">

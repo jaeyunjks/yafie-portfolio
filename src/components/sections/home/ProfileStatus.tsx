@@ -113,7 +113,7 @@ export default function ProfileStatus() {
       <Reveal>
         <div className="grid gap-5 border-l border-[#8dbbff]/45 pl-4 lg:grid-cols-[minmax(0,0.68fr)_minmax(280px,0.32fr)] lg:items-end">
           <div>
-            <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/75">
+            <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/90">
               02 // proof.snapshot
             </p>
             <h2 className="mt-2 max-w-3xl text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -153,11 +153,11 @@ export default function ProfileStatus() {
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[13px] border border-[#8dbbff]/24 bg-[#eef5ff]/82 text-[#2d5f9d]">
                     <card.Icon size={18} strokeWidth={2.2} aria-hidden />
                   </span>
-                  <span className="rounded-full border border-[#d4e3ff]/80 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+                  <span className="rounded-full border border-[#d4e3ff]/80 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
                     {card.tag}
                   </span>
                 </div>
-                <p className="mt-4 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                <p className="mt-4 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                   {card.label}
                 </p>
                 <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">
@@ -195,11 +195,11 @@ export default function ProfileStatus() {
                 style={{ opacity: progress < 5 ? 1 : 0, animation: progress < 5 ? "swipe-hint-bounce 800ms ease-in-out infinite" : "none" }}
                 aria-hidden
               >
-                <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+                <ChevronRight size={11} className="text-[#2d5f9d]/90" />
                 <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
               </div>
             </div>
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-600">
               Swipe {Math.round(progress)}% explored
             </p>
           </div>
@@ -222,7 +222,7 @@ export default function ProfileStatus() {
                       <GitBranch size={21} strokeWidth={2.2} />
                     </span>
                     <div>
-                      <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                      <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                         ENGINEERING.OS
                       </p>
                       <p className="mt-1 h-1.5 w-16 rounded-full bg-gradient-to-r from-[#8dbbff] to-[#c6b7ff]" />
@@ -241,10 +241,10 @@ export default function ProfileStatus() {
 
                 <div className="relative rounded-[15px] border border-[#d4e3ff]/70 bg-[#f8fbff]/76 p-3 shadow-inner shadow-white/70">
                   <div className="mb-3 flex items-center justify-between gap-3 border-b border-[#d4e3ff]/65 pb-2">
-                    <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                    <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                       delivery.pipeline
                     </p>
-                    <span className="rounded-full border border-[#8dbbff]/35 bg-white/78 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+                    <span className="rounded-full border border-[#8dbbff]/35 bg-white/78 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                       active loop
                     </span>
                   </div>
@@ -288,12 +288,12 @@ export default function ProfileStatus() {
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/22 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.08)]">
                       <module.Icon size={18} strokeWidth={2.2} />
                     </span>
-                    <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                    <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                       {module.tag}
                     </span>
                   </div>
 
-                  <p className="relative mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+                  <p className="relative mt-5 font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                     {module.label}
                   </p>
                   <h4 className="relative mt-2 text-[1.08rem] font-extrabold tracking-tight text-slate-950">

@@ -85,7 +85,7 @@ function ProfilePhotoCard() {
 
       <div className="relative z-10">
         <div className="mb-3 flex items-center justify-between gap-3 px-1">
-          <p className="font-mono text-[0.63rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+          <p className="font-mono text-[0.63rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
             profile.photo
           </p>
           <span className="rounded-full border border-[#d4e3ff]/70 bg-white/74 px-2.5 py-1 font-mono text-[0.55rem] font-bold uppercase tracking-[0.11em] text-slate-500">
@@ -177,7 +177,7 @@ export default function AboutStory() {
     <section className="pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             02 // story.context
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -202,7 +202,7 @@ export default function AboutStory() {
               <div className="relative z-10">
                 <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
                   <div className="max-w-3xl">
-                    <p className="font-mono text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                    <p className="font-mono text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                       profile.summary
                     </p>
                     <h3 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-[2rem]">
@@ -280,7 +280,7 @@ export default function AboutStory() {
                       </span>
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                          <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                             credential.0{index + 1}
                           </p>
                           <p className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-slate-500">

@@ -12,7 +12,7 @@ export default function AboutHero() {
       <div className="grid gap-8 lg:grid-cols-[minmax(0,0.58fr)_minmax(360px,0.42fr)] lg:items-center">
         <Reveal>
           <div className="border-l border-[#8dbbff]/45 pl-4">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               01 // about.init
             </p>
             <TypewriterHeading

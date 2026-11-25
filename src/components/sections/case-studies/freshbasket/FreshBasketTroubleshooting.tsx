@@ -18,7 +18,7 @@ export default function FreshBasketTroubleshooting() {
           {freshBasketTroubleshootingCards.map((card, index) => (
             <Reveal key={card.title} delay={index * 0.04}>
               <article className="h-full rounded-[24px] border border-[#8dbbff]/35 bg-white/72 p-5 shadow-[0_18px_56px_rgba(45,95,157,0.09)] backdrop-blur-xl">
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   issue.0{index + 1}
                 </p>
                 <h3 className="mt-3 text-lg font-extrabold text-slate-950">

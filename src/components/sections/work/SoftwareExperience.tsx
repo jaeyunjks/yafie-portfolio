@@ -97,7 +97,7 @@ export default function SoftwareExperience() {
     <section id="software-experience" className="scroll-mt-32 pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             03 // software.experience
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -121,14 +121,14 @@ export default function SoftwareExperience() {
             <div className="relative z-10">
               <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
                 <div>
-                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                     project.workflow
                   </p>
                   <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-950">
                     How the work progressed
                   </h3>
                 </div>
-                <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+                <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
                   Sprint 0 to Sprint 4
                 </span>
               </div>
@@ -137,7 +137,7 @@ export default function SoftwareExperience() {
                 {sprintRoadmap.map((item, index) => (
                   <div key={item.sprint} className="contents">
                     <div className="h-full rounded-[16px] border border-[#d4e3ff]/66 bg-white/72 p-4 shadow-[0_14px_38px_rgba(45,95,157,0.07)]">
-                      <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                         {item.sprint}
                       </p>
                       <h4 className="mt-2 text-base font-extrabold leading-6 text-slate-950">
@@ -172,7 +172,7 @@ export default function SoftwareExperience() {
               </div>
 
               <div className="mt-5 rounded-[16px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-4">
-                <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Delivery areas
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -200,7 +200,7 @@ export default function SoftwareExperience() {
           >
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                   testing.quality
                 </p>
                 <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-950">

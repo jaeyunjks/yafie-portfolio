@@ -58,7 +58,7 @@ export default function EngineeringDepth() {
     <section className="pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             05 // engineering.depth
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -81,7 +81,7 @@ export default function EngineeringDepth() {
                     <item.Icon size={17} strokeWidth={2.2} aria-hidden />
                   </span>
                   <div className="min-w-0">
-                    <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/55">
+                    <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                       depth.0{index + 1}
                     </p>
                     <h3 className="mt-1.5 text-lg font-extrabold tracking-tight text-slate-950">

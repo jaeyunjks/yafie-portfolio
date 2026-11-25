@@ -46,7 +46,7 @@ export default function CollaborationSignal() {
     <section id="collaboration-signal" className="scroll-mt-32 pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             07 // collaboration.signal
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -71,7 +71,7 @@ export default function CollaborationSignal() {
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)] transition-transform duration-300 group-hover:-translate-y-0.5">
                     <trait.Icon size={18} strokeWidth={2.2} aria-hidden />
                   </span>
-                  <span className="font-mono text-[0.62rem] font-bold text-[#2d5f9d]/62">
+                  <span className="font-mono text-[0.62rem] font-bold text-[#2d5f9d]/90">
                     0{index + 1}
                   </span>
                 </div>
@@ -84,7 +84,7 @@ export default function CollaborationSignal() {
               </article>
             ))}
           </div>
-          <div className="relative z-10 mt-4 flex items-center gap-2 border-t border-[#d4e3ff]/54 pt-4 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-400">
+          <div className="relative z-10 mt-4 flex items-center gap-2 border-t border-[#d4e3ff]/54 pt-4 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-600">
             <ClipboardCheck size={13} strokeWidth={2.2} aria-hidden />
             Collaboration is treated as a delivery skill, not just a soft skill.
           </div>

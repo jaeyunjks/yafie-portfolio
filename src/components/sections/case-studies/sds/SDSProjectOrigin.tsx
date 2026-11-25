@@ -67,7 +67,7 @@ export default function SDSProjectOrigin() {
         <Reveal>
           <div className="grid gap-6 rounded-[30px] border border-white/75 bg-white/54 p-5 shadow-[0_28px_90px_rgba(45,95,157,0.12)] backdrop-blur-2xl lg:grid-cols-[minmax(0,0.58fr)_minmax(320px,0.42fr)] lg:p-7">
             <div className="rounded-[24px] border border-[#d4e3ff]/58 bg-white/68 p-6">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
                 00 // project.origin
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -124,7 +124,7 @@ export default function SDSProjectOrigin() {
             </div>
 
             <aside className={`${isExpanded ? "flex" : "hidden"} h-full flex-col rounded-[24px] border border-[#d4e3ff]/64 bg-[#f8fbff]/76 p-5 lg:flex`}>
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                 brief.vs.reality
               </p>
               <div className="mt-4 grid gap-3">
@@ -138,7 +138,7 @@ export default function SDSProjectOrigin() {
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/68">
+                        <p className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                           {item.label}
                         </p>
                         <p className="mt-1 text-sm font-extrabold leading-6 text-slate-800">
@@ -150,7 +150,7 @@ export default function SDSProjectOrigin() {
                 ))}
               </div>
               <div className="mt-3 rounded-[18px] border border-[#8dbbff]/42 bg-white/82 p-4 shadow-[0_12px_34px_rgba(45,95,157,0.08)]">
-                <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Why it mattered
                 </p>
                 <p className="mt-2 text-sm font-bold leading-6 text-slate-700">
@@ -168,7 +168,7 @@ export default function SDSProjectOrigin() {
         <div className={`${isExpanded ? "mt-5 block" : "hidden"} lg:mt-5 lg:block`}>
           <Reveal delay={0.06}>
             <div className="rounded-[26px] border border-white/75 bg-white/58 p-5 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl">
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                 What this demonstrated
               </p>
               <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">

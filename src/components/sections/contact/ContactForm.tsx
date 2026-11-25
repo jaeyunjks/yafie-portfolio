@@ -162,7 +162,7 @@ export default function ContactForm() {
     <section className="scroll-mt-32 pb-20 lg:pb-24" id="contact-form">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             04 // contact.form
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -183,7 +183,7 @@ export default function ContactForm() {
             <aside className="border-b border-[#d4e3ff]/58 p-6 lg:border-b-0 lg:border-r lg:p-7">
               <div className="rounded-[22px] border border-[#d4e3ff]/62 bg-white/72 p-5 shadow-[0_16px_42px_rgba(45,95,157,0.06)]">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                     contact.context
                   </p>
                   <span className="rounded-full border border-[#d4e3ff]/70 bg-white/80 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -218,7 +218,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="mt-6 rounded-[18px] border border-[#d4e3ff]/62 bg-[linear-gradient(135deg,rgba(255,255,255,0.86),rgba(248,251,255,0.78))] p-4">
-                  <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                     Best for
                   </p>
                   <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">
@@ -231,7 +231,7 @@ export default function ContactForm() {
             <div className="p-6 lg:p-7">
               <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#d4e3ff]/58 pb-4">
                 <div>
-                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                     contact.form
                   </p>
                   <p className="mt-2 text-sm text-slate-500">
