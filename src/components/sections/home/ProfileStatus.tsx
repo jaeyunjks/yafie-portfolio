@@ -44,7 +44,7 @@ const capabilityModules = [
     title: "Testing & Quality",
     label: "QUALITY.SYSTEMS",
     description:
-      "Checking user flows, edge cases, regressions, and quality risks through manual QA and targeted test coverage.",
+      "Writing automated unit and integration tests (Pytest, Vitest, NUnit) and catching edge cases, regressions and security issues before release.",
     tag: "confidence building",
     Icon: ShieldCheck,
     className: "lg:col-span-4",
@@ -79,17 +79,17 @@ const capabilityModules = [
 ];
 
 const metadata = [
-  ["current_focus", "product-minded_software_engineering"],
+  ["current_focus", "full-stack · backend · applied_ai · cloud"],
   ["workflow", "understand · build · test · deploy · improve"],
-  ["environment", "web · mobile · cloud · ai-assisted"],
+  ["environment", "web · backend · ai_agents · azure · aws"],
 ];
 
 const proofPoints = [
-  "5+ projects delivered",
-  "web, mobile, and cloud scope",
-  "manual QA and testing focus",
-  "deployment and environment practice",
-  "documentation and team collaboration",
+  "1st place · ServiceNow HackNow 2026",
+  "full-stack, backend & AI projects",
+  "automated tests: Pytest · Vitest · NUnit",
+  "Azure & AWS deployment with CI/CD",
+  "Agile teams · real client delivery",
 ];
 
 const mobileSnapshotCards = [
@@ -98,7 +98,7 @@ const mobileSnapshotCards = [
     label: "ENGINEERING.OS",
     tag: "overview",
     description:
-      "Web, mobile, cloud, testing, and product delivery experience built through practical project work.",
+      "Full-stack, backend, applied AI and cloud experience built through team projects with real clients.",
     Icon: GitBranch,
   },
   ...capabilityModules,

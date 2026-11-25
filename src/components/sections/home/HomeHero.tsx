@@ -17,14 +17,16 @@ import {
 import { SiReact } from "react-icons/si";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import ScrollCue from "@/components/ui/ScrollCue";
+import { profile } from "@/data/profile";
 
 const mascotSrc = "/images/mascot/husky-coding.png";
 const credibilityChips = [
-  "React / TypeScript",
-  "Next.js",
-  "Full-Stack Apps",
-  "AWS / Cloud",
-  "Testing & QA",
+  "Python / TypeScript / C#",
+  "Full-Stack & Backend",
+  "Applied AI · Agents · MCP",
+  "Azure / AWS · CI/CD",
+  "Testing & Security",
+  "1st · HackNow 2026",
 ];
 
 function TechIconBlock({
@@ -56,10 +58,10 @@ export default function HomeHero() {
         <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,21rem)] items-start gap-2 rounded-[1.1rem] border border-white/70 bg-white/72 px-3 py-1.5 text-[0.66rem] font-bold leading-[1.35] text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:items-center sm:gap-3 sm:rounded-full sm:px-4 sm:py-2 sm:text-sm">
           <span className="mt-[0.18rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#2d5f9d] shadow-[0_0_0_5px_rgba(45,95,157,0.12)] sm:mt-0 sm:h-2 sm:w-2 sm:shadow-[0_0_0_6px_rgba(45,95,157,0.12)]" />
           <span className="sm:hidden">
-            Open to internships, graduate roles &amp; full-time
+            {profile.availability.short}
           </span>
           <span className="hidden sm:inline">
-            Open to Tech Internships, Graduate Roles &amp; Full-Time Opportunities
+            {profile.availability.long}
           </span>
         </p>
 
@@ -79,9 +81,7 @@ export default function HomeHero() {
         />
 
         <p className="hero-reveal hero-reveal-4 mt-6 max-w-2xl text-base leading-8 text-slate-600/90 sm:text-[1.05rem]">
-          I design and build polished software across web, mobile, cloud, and
-          AI-assisted workflows, combining clean interfaces, reliable systems,
-          testing discipline, and stakeholder-aware delivery.
+          {profile.summary.short}
         </p>
 
         <div className="hero-reveal hero-reveal-5 mt-5 flex flex-wrap gap-2.5">

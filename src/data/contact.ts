@@ -1,12 +1,14 @@
+import { profile } from "@/data/profile";
+
 export const contactMeta = {
   email: "yaafiiee.10@gmail.com",
-  linkedin: "https://www.linkedin.com/in/yafiefarabi0710/",
-  github: "https://github.com/jaeyunjks",
+  linkedin: profile.links.linkedin,
+  github: profile.links.github,
   resume: "/Yafie-Resume.pdf",
   resumeDisplay: "One-page PDF",
-  location: "Sydney, Australia",
-  status: "Open to internship, graduate, and full-time roles",
-  focus: "Software Engineering · Software Development · Cloud Engineering",
+  location: profile.location,
+  status: profile.availability.short,
+  focus: "Full-Stack · Backend · Applied AI · Cloud",
   responseStyle: "Clear, professional, and project-focused",
 };
 
@@ -86,7 +88,7 @@ export const contactOpenToSignalCards = [
   {
     title: "Role Fit",
     description:
-      "Graduate, junior, internship, and early-career software or IT opportunities.",
+      "Graduate and junior software engineering roles: full-stack, backend, applied AI and cloud.",
   },
   {
     title: "Working Style",

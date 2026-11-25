@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { profile } from "@/data/profile";
 
 const employerSignals = [
   {
@@ -76,9 +77,7 @@ export default function AboutCTA() {
                 Let&apos;s build something thoughtful.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-                I&apos;m open to graduate opportunities, internships, and
-                software engineering conversations where I can contribute,
-                learn, and grow with a strong team.
+                {profile.availability.sentence}
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <Link

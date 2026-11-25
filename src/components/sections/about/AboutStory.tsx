@@ -11,18 +11,20 @@ import {
   Wrench,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { profile } from "@/data/profile";
 
 const profilePhotoPath = "/images/mascot/me.png";
 
 const educationCards = [
   {
-    institution: "University of Technology Sydney",
-    program: "Bachelor of Information Technology",
+    institution: profile.education.institution,
+    program: profile.education.program,
     focus: [
-      "Major: Enterprise Software Development",
-      "Sub-major: Business Information Systems Management",
+      `Major: ${profile.education.major}`,
+      `Sub-major: ${profile.education.subMajor}`,
+      `WAM ${profile.education.wam} · GPA ${profile.education.gpa}`,
     ],
-    status: "Expected completion: 2026",
+    status: profile.education.status,
     logo: {
       src: "/images/mascot/UTS-logo.png",
       alt: "University of Technology Sydney logo",
@@ -55,7 +57,7 @@ const profileTags = [
 
 const summaryItems = [
   {
-    label: "software engineering student",
+    label: "final-year IT student",
     icons: [GraduationCap, Code2],
   },
   {
@@ -114,7 +116,7 @@ function ProfilePhotoCard() {
                 Yafie Farabi
               </p>
               <p className="mt-1 text-xs font-semibold leading-5 text-slate-600">
-                Software Engineering Student
+                Final-year IT Student · UTS
               </p>
             </div>
             <div className="grid gap-1.5 text-xs font-semibold leading-5 text-slate-600">
@@ -204,8 +206,8 @@ export default function AboutStory() {
                       profile.summary
                     </p>
                     <h3 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-[2rem]">
-                      Software engineering student building practical,
-                      product-minded systems.
+                      Final-year IT student who builds, tests and ships
+                      full-stack, backend and AI systems.
                     </h3>
                   </div>
 
@@ -233,10 +235,10 @@ export default function AboutStory() {
 
                 <div className="mt-5 grid gap-4 border-t border-[#d4e3ff]/58 pt-5 text-base leading-8 text-slate-600">
                   <p>
-                    I&apos;m studying software engineering and building
-                    hands-on projects across web applications, mobile
-                    interfaces, backend logic, cloud deployment, and AI-assisted
-                    workflows. I use projects to connect technical concepts
+                    I&apos;ve completed my coursework for a Bachelor of IT at
+                    UTS (graduating Dec 2026) and build projects across web
+                    applications, backend services, cloud deployment, and AI
+                    agent workflows. I use projects to connect technical concepts
                     with real user needs, product decisions, and maintainable
                     implementation.
                   </p>

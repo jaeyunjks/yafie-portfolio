@@ -7,6 +7,7 @@ import BackToTopButton from "@/components/ui/BackToTopButton";
 import DarkModeComingSoonToast from "@/components/ui/DarkModeComingSoonToast";
 import FloatingSectionNav from "@/components/ui/FloatingSectionNav";
 import "./globals.css";
+import { profile } from "@/data/profile";
 
 const headingFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -16,8 +17,11 @@ const headingFont = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Yafie Portfolio",
-  description: "Soft premium portfolio website built with Next.js",
+  title: {
+    default: `${profile.name} | ${profile.role}`,
+    template: `%s | ${profile.name}`,
+  },
+  description: profile.summary.short,
 };
 
 export const viewport: Viewport = {

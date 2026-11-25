@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { profile } from "@/data/profile";
 
 export default function ProjectsCTA() {
   return (
@@ -12,10 +13,7 @@ export default function ProjectsCTA() {
               Let&apos;s build something practical.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-              I&apos;m open to graduate opportunities, internships, and software
-              engineering conversations where I can contribute through frontend
-              development, testing, documentation, product thinking, and a
-              strong willingness to learn.
+              {profile.availability.sentence}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link

@@ -1,9 +1,10 @@
 import { Terminal } from "lucide-react";
+import { profile } from "@/data/profile";
 
 const stats = [
-  "5+ Projects",
-  "Web / Mobile / Cloud",
-  "Stakeholder-Aware Builds",
+  "WAM 85.25",
+  "1st · HackNow 2026",
+  "Grad Dec 2026",
 ];
 
 export default function AboutProfileConsole() {
@@ -31,7 +32,7 @@ export default function AboutProfileConsole() {
               Yafie
             </p>
             <p className="text-sm font-semibold text-slate-500">
-              Software Developer
+              {profile.role}
             </p>
           </div>
         </div>
@@ -45,7 +46,7 @@ export default function AboutProfileConsole() {
           <p className="pl-4">
             <span className="text-slate-400">2</span> role:{" "}
             <span className="text-[#2d5f9d]">
-              &quot;Software Developer&quot;
+              &quot;{profile.role}&quot;
             </span>
             ,
           </p>
@@ -56,12 +57,12 @@ export default function AboutProfileConsole() {
           </p>
           <p className="pl-4">
             <span className="text-slate-400">4</span> focus: [
-            <span className="text-[#2d5f9d]">&quot;Frontend&quot;</span>,{" "}
-            <span className="text-[#2d5f9d]">&quot;Full-stack&quot;</span>,
+            <span className="text-[#2d5f9d]">&quot;Full-stack&quot;</span>,{" "}
+            <span className="text-[#2d5f9d]">&quot;Backend&quot;</span>,
           </p>
           <p className="pl-16">
-            <span className="text-[#2d5f9d]">&quot;Cloud&quot;</span>,{" "}
-            <span className="text-[#2d5f9d]">&quot;QA&quot;</span>],
+            <span className="text-[#2d5f9d]">&quot;Applied AI&quot;</span>,{" "}
+            <span className="text-[#2d5f9d]">&quot;Cloud&quot;</span>],
           </p>
           <p className="pl-4">
             <span className="text-slate-400">5</span> strengths: [
@@ -78,13 +79,13 @@ export default function AboutProfileConsole() {
           <p className="pl-4">
             <span className="text-slate-400">6</span> recognition:{" "}
             <span className="text-[#2d5f9d]">
-              &quot;UTS 2026 Tech Fest Nominee&quot;
+              &quot;HackNow 2026 Winner&quot;
             </span>
             ,
           </p>
           <p className="pl-4">
             <span className="text-slate-400">7</span> mode:{" "}
-            <span className="text-[#2d5f9d]">&quot;build · test · refine&quot;</span>
+            <span className="text-[#2d5f9d]">&quot;build · test · ship&quot;</span>
             ,
           </p>
           <p>
