@@ -28,7 +28,7 @@ export default function LumoraTechStack() {
           <LumoraSectionLabel
             label="05 // tech.stack"
             title="Technical implementation."
-            subtitle="The technical focus was a reliable iOS study flow with SwiftUI and MVVM, while preparing backend support for authentication, study data, and AI-assisted summaries."
+            subtitle="I built the SwiftUI/MVVM app's AI features and integrated it with the team's NestJS REST API (PostgreSQL/Prisma), which teammates built."
           />
         </Reveal>
 

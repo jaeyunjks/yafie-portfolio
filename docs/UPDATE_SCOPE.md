@@ -123,3 +123,6 @@ Relevant subjects: Advanced Software Development (prompt engineering, specificat
 
 ## Known polish items (deferred)
 - **Tech stack card heights:** cards in a row stretch to match the tallest, so short categories (Databases, 3 items) show empty space. Options: drop `h-full` stretching, or reorder so similar-length cards share a row. Deferred by Yafie on 25 Nov 2026; don't pad with filler skills.
+
+## Decision: Lumora backend (25 Nov 2026)
+The new resume lists NestJS/TypeScript, PostgreSQL and Prisma for Lumora. Teammates built that backend; Yafie built the app's AI features and integrated the app with it. Site and resume now both name it, **always credited as team-built**. `tests/projects.test.ts` enforces the credit.
