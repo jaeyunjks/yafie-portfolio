@@ -86,6 +86,15 @@ const sectionLinksByPath: Record<string, SectionLink[]> = {
     { id: "greatest-challenge", label: "Challenge" },
     { id: "outcome-reflection", label: "Outcome" },
   ],
+  "/projects/homs": [
+    { id: "top", label: "Top" },
+    { id: "scope", label: "Scope" },
+    { id: "architecture", label: "Architecture" },
+    { id: "data-model", label: "Data" },
+    { id: "multi-agent", label: "Agents" },
+    { id: "deployment", label: "Deploy" },
+    { id: "quality", label: "Quality" },
+  ],
   "/projects/focuspop": [
     { id: "top", label: "Top" },
     { id: "project-overview", label: "Overview" },

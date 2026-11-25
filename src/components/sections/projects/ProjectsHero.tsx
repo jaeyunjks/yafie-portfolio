@@ -10,6 +10,7 @@ import {
 import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
+import { caseStudyCount } from "@/data/projects";
 import ScrollToFeaturedProjectsButton from "./ScrollToFeaturedProjectsButton";
 
 const dashboardBlocks = [
@@ -30,7 +31,7 @@ const dashboardBlocks = [
   },
   {
     label: "Status",
-    value: "HOMS case study in progress",
+    value: `${caseStudyCount} case studies, HOMS newest`,
     Icon: Cloud,
   },
 ];

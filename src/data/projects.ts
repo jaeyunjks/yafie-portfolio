@@ -135,16 +135,15 @@ export const projects: PortfolioProject[] = [
       },
       {
         label: "View Case Study",
-        href: "#",
-        disabled: true,
-        note: "In progress",
+        href: "/projects/homs",
       },
     ],
     tier: "featured",
     projectType: "web-mvc",
     projectDisplayType: "Backend & applied AI",
     projectDate: "Aug – Oct 2026",
-    caseStudyStatus: "Case study in progress",
+    imageSrc: "/images/projects/HOMS/roster-week-grid.webp",
+    caseStudyStatus: "Case study",
     areaAnchors: ["backend-projects", "ai-tools"],
     filters: ["backend", "ai", "cloud", "web"],
   },
@@ -525,3 +524,8 @@ export const otherProjects = projects.filter((p) => p.tier === "other");
 export const homeFeaturedProjects = featuredProjects
   .filter((p): p is PortfolioProject & { imageSrc: string } => Boolean(p.imageSrc))
   .slice(0, 3);
+
+/** Projects whose card links to an on-site case study page. */
+export const caseStudyCount = projects.filter((p) =>
+  p.actions.some((a) => !a.disabled && a.href.startsWith("/projects/")),
+).length;
