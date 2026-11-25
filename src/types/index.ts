@@ -30,8 +30,8 @@ export type SkillItem = {
 
 export type TechItem = {
   name: string;
-  duration: string;
-  exposure: number;
+  /** Months of hands-on use; label and bar are derived from it. */
+  months: number;
   status: "actively using" | "learning" | "familiar";
   icon: IconType;
   brandColor?: string;
@@ -39,6 +39,8 @@ export type TechItem = {
 
 export type TechCategory = {
   title: string;
+  /** Short name for the mobile filter buttons. */
+  shortLabel: string;
   label: string;
   description: string;
   items: TechItem[];
