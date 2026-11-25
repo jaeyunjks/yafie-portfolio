@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
 type TypewriterHeadingProps = {
@@ -20,9 +20,16 @@ type TypewriterHeadingProps = {
   }[];
 };
 
-function prefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+/** Subscribe to the OS "reduce motion" setting (React's API for external state). */
+function subscribeToReducedMotion(onChange: () => void) {
+  const query = window.matchMedia(REDUCED_MOTION_QUERY);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
 }
+const getReducedMotion = () => window.matchMedia(REDUCED_MOTION_QUERY).matches;
+const getServerReducedMotion = () => false;
 
 export default function TypewriterHeading({
   lines,
@@ -40,6 +47,15 @@ export default function TypewriterHeading({
   const [displayedLines, setDisplayedLines] = useState(() => lines.map(() => ""));
   const [activeLine, setActiveLine] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const reducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotion,
+    getServerReducedMotion,
+  );
+  // With reduced motion, show the finished heading: derived, not set in an effect.
+  const shownLines = reducedMotion ? lines : displayedLines;
+  const shownActiveLine = reducedMotion ? lines.length - 1 : activeLine;
+  const shownComplete = reducedMotion || isComplete;
 
   const renderHighlightedLine = (line: string, lineIndex: number) => {
     const lineHighlights = highlights.filter((highlight) => highlight.lineIndex === lineIndex);
@@ -82,10 +98,7 @@ export default function TypewriterHeading({
   };
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      setDisplayedLines(lines);
-      setActiveLine(lines.length - 1);
-      setIsComplete(true);
+    if (reducedMotion) {
       return;
     }
 
@@ -167,7 +180,7 @@ export default function TypewriterHeading({
       cancelled = true;
       clearCurrentTimeOuts();
     };
-  }, [holdDelay, lineDelay, lines, loop, restartDelay, speed, startDelay]);
+  }, [holdDelay, lineDelay, lines, loop, reducedMotion, restartDelay, speed, startDelay]);
 
   return (
     <Tag
@@ -177,11 +190,11 @@ export default function TypewriterHeading({
       {lines.map((line, index) => (
         <span key={line} className="typewriter-heading__line" aria-hidden="true">
           <span className="typewriter-heading__typed">
-            {renderHighlightedLine(displayedLines[index], index)}
-            {activeLine === index ? (
+            {renderHighlightedLine(shownLines[index], index)}
+            {shownActiveLine === index ? (
               <span
                 className={`typewriter-heading__cursor ${
-                  isComplete ? "typewriter-heading__cursor--complete" : ""
+                  shownComplete ? "typewriter-heading__cursor--complete" : ""
                 }`}
               />
             ) : null}

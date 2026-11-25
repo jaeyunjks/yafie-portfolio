@@ -12,12 +12,16 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Remember the page the menu was opened on. Navigating anywhere else closes
+  // it, derived during render instead of synced with an effect (which would
+  // render once with a stale open menu, then again).
+  const [menuOpenOnPath, setMenuOpenOnPath] = useState<string | null>(null);
+  const isMenuOpen = menuOpenOnPath === pathname;
+  const setIsMenuOpen = (next: boolean | ((current: boolean) => boolean)) => {
+    const open = typeof next === "function" ? next(isMenuOpen) : next;
+    setMenuOpenOnPath(open ? pathname : null);
+  };
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -29,7 +33,7 @@ export default function Navbar() {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsMenuOpen(false);
+        setMenuOpenOnPath(null);
       }
     };
 
