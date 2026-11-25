@@ -6,7 +6,6 @@ import {
   Layers3,
   MessageCircle,
   PackageCheck,
-  Smartphone,
 } from "lucide-react";
 import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
@@ -16,12 +15,12 @@ import ScrollToFeaturedProjectsButton from "./ScrollToFeaturedProjectsButton";
 const dashboardBlocks = [
   {
     label: "Project Areas",
-    value: "Web · Mobile · Cloud · AI-assisted workflows",
+    value: "Web · Backend · AI · Cloud · Mobile · Enterprise",
     Icon: Layers3,
   },
   {
     label: "Engineering Focus",
-    value: "Frontend · Backend logic · Testing · Deployment",
+    value: "Full-stack · Applied AI · Testing · Deployment",
     Icon: Braces,
   },
   {
@@ -31,16 +30,16 @@ const dashboardBlocks = [
   },
   {
     label: "Status",
-    value: "Case studies in progress",
+    value: "HOMS case study in progress",
     Icon: Cloud,
   },
 ];
 
 const focusTiles = [
   { label: "web", Icon: Braces },
-  { label: "mobile", Icon: Smartphone },
+  { label: "backend", Icon: Layers3 },
   { label: "cloud", Icon: Cloud },
-  { label: "AI-assisted", Icon: Bot },
+  { label: "AI agents", Icon: Bot },
 ];
 
 export default function ProjectsHero() {

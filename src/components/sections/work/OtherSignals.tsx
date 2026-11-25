@@ -32,7 +32,7 @@ export default function OtherSignals() {
                     <Award size={20} strokeWidth={2.2} aria-hidden />
                   </span>
                   <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-slate-500">
-                    evidence attached
+                    {item.duration}
                   </span>
                 </div>
                 <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">

@@ -101,11 +101,11 @@ export default function SoftwareExperience() {
             03 // software.experience
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
-            Current Software Experience.
+            Software Experience.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            Frontend development, testing, and workflow-system contribution
-            through SDS Modernisation.
+            Full-stack delivery for a real client: React workflows, Flask API
+            integration and team QA on SDS Modernisation.
           </p>
         </div>
       </Reveal>

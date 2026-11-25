@@ -1,6 +1,7 @@
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   EngineeringDepth,
+  OtherProjects,
   ProjectsCTA,
   ProjectsExplorer,
   ProjectsHero,
@@ -14,6 +15,7 @@ export default function ProjectsPage() {
       <div id="project-map" className="scroll-mt-32">
         <ProjectsExplorer />
       </div>
+      <OtherProjects />
       <div id="engineering-depth" className="scroll-mt-32">
         <EngineeringDepth />
       </div>

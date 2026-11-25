@@ -3,10 +3,10 @@
 import {
   BrainCircuit,
   Braces,
+  Building2,
   Cloud,
-  Gamepad2,
   LayoutGrid,
-  ListChecks,
+  Server,
   Smartphone,
   type LucideIcon,
 } from "lucide-react";
@@ -29,9 +29,14 @@ const projectFilters: Array<{
     Icon: Braces,
   },
   {
-    id: "workflow",
-    label: "Workflow",
-    Icon: ListChecks,
+    id: "backend",
+    label: "Backend",
+    Icon: Server,
+  },
+  {
+    id: "ai",
+    label: "AI",
+    Icon: BrainCircuit,
   },
   {
     id: "cloud",
@@ -44,14 +49,9 @@ const projectFilters: Array<{
     Icon: Smartphone,
   },
   {
-    id: "game",
-    label: "Game",
-    Icon: Gamepad2,
-  },
-  {
-    id: "ai",
-    label: "AI Tools",
-    Icon: BrainCircuit,
+    id: "enterprise",
+    label: "Enterprise",
+    Icon: Building2,
   },
 ];
 

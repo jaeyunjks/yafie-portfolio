@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import type { ProjectFilter } from "@/data/projects";
-import { projects } from "@/data/projects";
+import { featuredProjects } from "@/data/projects";
 import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 import ProjectCard from "./ProjectCard";
 import ProjectDetailsPanel from "./ProjectDetailsPanel";
@@ -20,8 +20,8 @@ export default function FeaturedProjects({
     useHorizontalScrollProgress<HTMLDivElement>();
   const visibleProjects =
     activeFilter === "all"
-      ? projects
-      : projects.filter((project) => project.filters.includes(activeFilter));
+      ? featuredProjects
+      : featuredProjects.filter((project) => project.filters.includes(activeFilter));
   const expandedProject = visibleProjects.find(
     (project) => project.id === expandedProjectId,
   );
