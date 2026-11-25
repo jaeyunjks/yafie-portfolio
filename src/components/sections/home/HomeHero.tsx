@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -199,9 +200,15 @@ export default function HomeHero() {
           <div className="absolute bottom-8 h-14 w-[52%] rounded-full bg-[#8dbbff]/20 blur-2xl" />
           <div className="relative z-10 grid min-h-[275px] w-full place-items-center sm:min-h-[500px]">
             {!mascotFailed ? (
-              <img
+              <Image
                 src={mascotSrc}
                 alt="Husky software engineer mascot"
+                width={612}
+                height={408}
+                // LCP image: start fetching it early (Next 16 replaces `priority`).
+                loading="eager"
+                fetchPriority="high"
+                sizes="(min-width: 640px) 630px, 360px"
                 className="w-full max-w-[360px] object-contain drop-shadow-[0_24px_30px_rgba(45,95,157,0.18)] sm:max-w-[630px] sm:drop-shadow-[0_38px_50px_rgba(45,95,157,0.2)]"
                 onError={() => setMascotFailed(true)}
               />
