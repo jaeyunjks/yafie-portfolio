@@ -4,6 +4,7 @@ import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import AboutProfileConsole from "./AboutProfileConsole";
+import { profile } from "@/data/profile";
 
 export default function AboutHero() {
   return (
@@ -22,15 +23,11 @@ export default function AboutHero() {
               startDelay={220}
             />
             <h2 className="mt-5 max-w-4xl text-2xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
-              Software engineering with product thinking, stakeholder awareness,
-              and reliable execution.
+              Full-stack, backend, applied AI and cloud, built and tested end
+              to end.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-              I&apos;m Yafie, a software engineering student based in Sydney. I
-              build web, mobile, cloud, and AI-assisted products with a focus
-              on clear interfaces, reliable workflows, and practical user
-              outcomes. My work combines frontend development, QA, stakeholder
-              communication, and project delivery.
+              {profile.summary.long}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

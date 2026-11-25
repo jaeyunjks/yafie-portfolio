@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { profile } from "@/data/profile";
 
 export default function WorkCTA() {
   return (
@@ -12,10 +13,7 @@ export default function WorkCTA() {
               Let&apos;s work together.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-              I&apos;m open to graduate opportunities, internships, and software
-              engineering conversations where I can contribute through
-              development, testing, documentation, product thinking, and a
-              strong willingness to learn.
+              {profile.availability.sentence}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link

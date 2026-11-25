@@ -10,6 +10,7 @@ import ScrollCue from "@/components/ui/ScrollCue";
 import TypewriterHeading from "@/components/ui/TypewriterHeading";
 import Reveal from "@/components/ui/Reveal";
 import { contactMeta } from "@/data/contact";
+import { profile } from "@/data/profile";
 
 const signalRows = [
   {
@@ -47,13 +48,11 @@ export default function ContactHero() {
             lines={["Contact."]}
           />
           <h2 className="mt-5 max-w-4xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-4xl">
-            Let&apos;s connect about software engineering, internships,
-            graduate roles, or project opportunities.
+            Let&apos;s talk about graduate and junior software engineering
+            roles.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-            I&apos;m open to conversations around software engineering roles,
-            internships, graduate opportunities, portfolio projects, and
-            collaborative technology work. If my experience or projects seem
+            {profile.availability.sentence} If my experience or projects seem
             relevant, feel free to reach out.
           </p>
 

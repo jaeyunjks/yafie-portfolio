@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { profile } from "@/data/profile";
 
 export default function HomeCTA() {
   return (
@@ -12,9 +13,7 @@ export default function HomeCTA() {
               Let&apos;s build something thoughtful.
             </h2>
             <p className="mt-4 max-w-[680px] text-base leading-8 text-slate-600">
-              I&apos;m open to graduate opportunities, internships, and software
-              engineering conversations where I can contribute, learn, and grow
-              with a strong team.
+              {profile.availability.sentence}
             </p>
             <div className="mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
               <Link
