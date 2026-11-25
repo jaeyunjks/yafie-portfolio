@@ -62,3 +62,10 @@ describe("verified claims", () => {
     expect(byId("freshbasket-aws")).toMatch(/retired/i);
   });
 });
+
+describe("case study count", () => {
+  it("counts every project that links to an on-site case study", async () => {
+    const { caseStudyCount } = await import("@/data/projects");
+    expect(caseStudyCount).toBe(5); // SDS, HOMS, Lumora, FreshBasket, FocusPop
+  });
+});
