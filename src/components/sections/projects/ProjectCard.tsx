@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { useState } from "react";
-import { sdsLinkGalleryLinks } from "@/data/caseStudies/sdsLinkGallery";
 import type { PortfolioProject } from "@/data/projects";
 import ProjectRecognitionFlag from "./ProjectRecognitionFlag";
 import ProjectImagePlaceholder from "./ProjectImagePlaceholder";
@@ -35,24 +34,16 @@ export default function ProjectCard({
   const panelId = detailsPanelId ?? `project-details-${project.id}`;
   const galleryPanelId = `project-gallery-${project.id}`;
   const isPrimary = index === 0;
-  const isSdsProject = project.id === "sds-modernisation";
+  const gallery = project.linkGallery;
   const projectIndex = `project.${String(index + 1).padStart(2, "0")}`;
   const projectType = project.projectDisplayType ?? project.category.split("/")[0].trim();
   const projectDate = project.projectDate ?? project.caseStudyStatus;
-  const visibleTech = project.featuredTechStack
-    ? project.featuredTechStack
-    : isSdsProject
-      ? project.techStack.slice(0, 6)
-      : isPrimary
-        ? project.techStack.slice(0, 5)
-        : project.techStack.slice(0, 4);
-  const visibleSkills = project.featuredSkills
-    ? project.featuredSkills
-    : isSdsProject
-      ? project.skills.slice(0, 6)
-      : isPrimary
-        ? project.skills.slice(0, 4)
-        : project.skills.slice(0, 3);
+  // Per-project display choices live in the data (featuredTechStack,
+  // featuredSkills, linkGallery), not in id checks here.
+  const visibleTech =
+    project.featuredTechStack ?? project.techStack.slice(0, isPrimary ? 5 : 4);
+  const visibleSkills =
+    project.featuredSkills ?? project.skills.slice(0, isPrimary ? 4 : 3);
   const orderedActions = [...project.actions]
     .sort((a, b) => Number(b.label === "View Case Study") - Number(a.label === "View Case Study"))
     .slice(0, 2);
@@ -63,7 +54,7 @@ export default function ProjectCard({
         isPrimary
           ? "border-[#8dbbff]/60 shadow-[0_30px_96px_rgba(45,95,157,0.18)] md:p-5"
           : "border-white/75 shadow-[0_18px_56px_rgba(45,95,157,0.09)]"
-      } ${isSdsProject ? "overflow-hidden sm:overflow-visible" : "overflow-hidden"}`}
+      } ${gallery ? "overflow-hidden sm:overflow-visible" : "overflow-hidden"}`}
     >
       <div
         className={`pointer-events-none absolute inset-0 rounded-[22px] ${
@@ -214,7 +205,7 @@ export default function ProjectCard({
                 className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
               />
             </button>
-            {isSdsProject ? (
+            {gallery ? (
               <div className="relative w-full sm:w-auto">
                 <div
                   id={galleryPanelId}
@@ -223,7 +214,7 @@ export default function ProjectCard({
                 >
                   <div className={`rounded-[24px] border border-[#d7e5fb]/78 bg-white/90 p-3 shadow-[0_24px_72px_rgba(45,95,157,0.12)] backdrop-blur-xl transition-[opacity,transform] duration-300 ${isGalleryOpen ? "translate-y-0 scale-100 opacity-100" : "translate-y-2 scale-[0.98] opacity-0"}`}>
                     <div className="grid gap-2.5 sm:grid-cols-2">
-                      {sdsLinkGalleryLinks.map((link) => (
+                      {gallery.links.map((link) => (
                         <Link key={link.label} href={link.href} target="_blank" rel="noreferrer" tabIndex={isGalleryOpen ? 0 : -1} className="group inline-flex min-h-14 items-center justify-between gap-3 rounded-[20px] border border-[#d4e3ff]/75 bg-white/82 px-4 py-3 text-left text-sm font-bold text-slate-800 shadow-sm transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#8dbbff]/68 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70">
                           <span>{link.label}</span>
                           <ExternalLink size={16} strokeWidth={2.3} aria-hidden className="shrink-0 text-[#2d5f9d]" />
@@ -234,7 +225,7 @@ export default function ProjectCard({
                 </div>
                 <button type="button" aria-expanded={isGalleryOpen} aria-controls={galleryPanelId} onClick={() => setIsGalleryOpen((current) => !current)} className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#d4e3ff]/75 bg-white/74 px-4 py-2.5 text-sm font-extrabold text-[#2d5f9d] shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[#bdd5f7] hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8dbbff]/70 sm:w-auto">
                   <PanelsTopLeft size={15} strokeWidth={2.2} aria-hidden />
-                  Open SDS Link Gallery
+                  {gallery.label}
                   <ChevronDown size={16} strokeWidth={2.3} aria-hidden className={`transition-transform duration-300 ${isGalleryOpen ? "rotate-180" : ""}`} />
                 </button>
               </div>
