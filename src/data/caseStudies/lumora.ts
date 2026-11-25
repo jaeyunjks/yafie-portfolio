@@ -168,13 +168,12 @@ export const lumoraTechStack = [
     ],
   },
   {
-    title: "Backend, Data & AI",
-    status: "Planned / in development",
+    title: "Backend & AI",
+    status: "Backend built by teammates; I integrated the app with it",
     items: [
-      ["NestJS", "Backend REST API."],
-      ["Prisma + PostgreSQL", "Database and data models."],
-      ["JWT Auth", "Secure login and session handling."],
-      ["OpenAI service", "Summaries, study chat, and embeddings."],
+      ["NestJS + TypeScript (team-built)", "The team's REST API that the app calls."],
+      ["PostgreSQL + Prisma (team-built)", "Database and data models behind the API."],
+      ["OpenAI-powered features (mine)", "Summaries, grounded chat, flashcards and quizzes."],
     ],
   },
   {

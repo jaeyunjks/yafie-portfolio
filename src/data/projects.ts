@@ -182,6 +182,7 @@ export const projects: PortfolioProject[] = [
     projectType: "workflow",
     projectDisplayType: "Enterprise AI agents",
     projectDate: "Jul 2026",
+    imageSrc: "/images/projects/silver-service.webp",
     caseStudyStatus: "Hackathon project",
     areaAnchors: ["enterprise-projects"],
     filters: ["ai", "enterprise"],
@@ -274,15 +275,24 @@ export const projects: PortfolioProject[] = [
     summary:
       "An AI study companion iOS app. I built its AI features: chat grounded in the student's own notes, PDFs and images, structured summaries, and flashcards and quizzes.",
     contributionSummary:
-      "Built the app's AI features (52 of 53 app commits), including control over which context reaches the model.",
+      "Built the app's AI features (52 of 53 app commits) and integrated it with the team's NestJS REST API.",
     problem:
       "Generic AI chat gives students answers that aren't based on their own course material. The app needed to ground answers in the student's notes and files, and to say so when there was nothing to ground on.",
     contributions: [
       "Built the app's AI features (52 of 53 app commits): chat grounded in the student's own notes, PDFs and images, with chat history.",
       "Built structured summaries, and flashcards and quizzes with adjustable count and difficulty.",
       "Controlled which context reaches the model: the study space's own notes first, otherwise its uploaded files, and the app tells the user when there's nothing to ground on.",
+      "Integrated the SwiftUI/MVVM app with the team's NestJS REST API (PostgreSQL/Prisma), built by teammates.",
     ],
-    techStack: ["Swift", "SwiftUI", "MVVM", "XCTest", "OpenAI-powered REST API"],
+    techStack: [
+      "Swift",
+      "SwiftUI",
+      "MVVM",
+      "XCTest",
+      "OpenAI API",
+      "NestJS API (team-built)",
+      "PostgreSQL / Prisma (team-built)",
+    ],
     skills: [
       "Applied AI",
       "Context Grounding",

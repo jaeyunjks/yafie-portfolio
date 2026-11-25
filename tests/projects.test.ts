@@ -43,13 +43,33 @@ describe("verified claims", () => {
 
   it.each([
     ["sds-modernisation", ["TypeScript", "Vite", "Pytest", "Present", "Actively Maintained"]],
-    ["lumora", ["NestJS", "Prisma", "JWT", "Firebase"]],
+    ["lumora", ["JWT", "Firebase"]],
   ])("%s does not claim %j", (id, banned) => {
     const text = byId(id);
     for (const claim of banned) {
       // Whole words only: "Vite" must not match "Vitest".
       expect(text, `${id} mentions "${claim}"`).not.toMatch(new RegExp(`\\b${claim}\\b`));
     }
+  });
+
+  it("Lumora's backend is always credited to the team", async () => {
+    // Decision (25 Nov 2026): teammates built the NestJS/Prisma API; Yafie
+    // integrated the app with it. Every string that names it must say so.
+    const fs = await import("node:fs");
+    const caseStudy = fs.readFileSync("src/data/caseStudies/lumora.ts", "utf8");
+    const card = projects.find((p) => p.id === "lumora")!;
+    const strings = [
+      ...card.techStack,
+      ...card.contributions,
+      card.summary,
+      card.contributionSummary ?? "",
+      ...caseStudy.split("\n"),
+    ];
+    const uncredited = strings.filter(
+      (s) => /\b(NestJS|Prisma)\b/.test(s) && !/team/i.test(s),
+    );
+    expect(uncredited).toEqual([]);
+    expect(strings.some((s) => /NestJS/.test(s))).toBe(true);
   });
 
   it("the SDS role has ended (not 'Present' / 'current')", () => {
