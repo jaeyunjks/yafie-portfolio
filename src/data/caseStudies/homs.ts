@@ -6,7 +6,7 @@
  * ai-services/multi-agent-server/). Only claim what Yafie built; credit
  * teammates where their work appears.
  */
-import type { CaseCard, CaseStat, FlowStep } from "@/types";
+import type { CaseCard, CaseScreenshot, CaseStat, FlowStep } from "@/types";
 
 export const homsLinks = {
   github: "https://github.com/jaeyunjks/hospital-operations-management-system",
@@ -194,3 +194,35 @@ export const homsQuality: CaseCard[] = [
     body: "Fixed the security findings across the team's services: URL validation and dependency upgrades flagged by pip-audit.",
   },
 ];
+
+/** Screenshots supplied by Yafie (25 Nov 2026); browser chrome cropped out. Staff names are seed data. */
+export const homsScreenshots = {
+  roster: {
+    src: "/images/projects/HOMS/roster-week-grid.webp",
+    alt: "Staff and Shift weekly roster grid for the Emergency department, showing required versus assigned staff per shift and a weekly roster status panel",
+    caption: "The roster: required vs assigned staff for every shift in the week, with gaps highlighted and a weekly status panel.",
+    width: 2000,
+    height: 1176,
+  },
+  shiftDetail: {
+    src: "/images/projects/HOMS/shift-detail-staffing-recovery.webp",
+    alt: "Shift detail panel for an understaffed Intensive Care shift, with a Staffing Recovery entry point and a list of eligible staff",
+    caption: "An understaffed shift. Eligibility is deterministic; \"Suggest staff with AI\" ranks candidates but never assigns anyone.",
+    width: 2000,
+    height: 1169,
+  },
+  humanReview: {
+    src: "/images/projects/HOMS/agent-human-review.webp",
+    alt: "Staffing Recovery workflow showing Planner, Worker and Reviewer results, each marked as using the safety fallback, followed by a required human review",
+    caption: "Planner → Worker → Reviewer, each labelled \"safety fallback\" when the model output failed validation. The manager's decision comes last, and no roster change happens automatically.",
+    width: 2000,
+    height: 1119,
+  },
+  rag: {
+    src: "/images/projects/HOMS/rag-policy-guidance.webp",
+    alt: "Advisory policy guidance retrieved by the RAG service, with cited source documents and retrieval scores, under a known limitations panel",
+    caption: "Grounded guidance from the team's RAG service: cited sources, a confidence level, and the known limitations stated up front.",
+    width: 2000,
+    height: 1168,
+  },
+} satisfies Record<string, CaseScreenshot>;

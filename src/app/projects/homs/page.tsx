@@ -3,6 +3,7 @@ import HomsCaseHero from "@/components/sections/case-studies/homs/HomsCaseHero";
 import CardGrid from "@/components/sections/case-studies/shared/CardGrid";
 import CaseSection from "@/components/sections/case-studies/shared/CaseSection";
 import FlowSteps from "@/components/sections/case-studies/shared/FlowSteps";
+import Screenshot from "@/components/sections/case-studies/shared/Screenshot";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import {
   homsAgentFlow,
@@ -15,6 +16,7 @@ import {
   homsQuality,
   homsSchemaRules,
   homsScope,
+  homsScreenshots,
   homsTables,
 } from "@/data/caseStudies/homs";
 
@@ -60,6 +62,9 @@ export default function HomsCaseStudyPage() {
         <div className="mt-6">
           <CardGrid cards={homsAiServices} columns={4} />
         </div>
+        <div className="mt-8">
+          <Screenshot shot={homsScreenshots.roster} />
+        </div>
       </CaseSection>
 
       <CaseSection
@@ -91,8 +96,15 @@ export default function HomsCaseStudyPage() {
         }
       >
         <FlowSteps steps={homsAgentFlow} ariaLabel="Multi-agent workflow" />
+        <div className="mt-8 grid gap-6">
+          <Screenshot shot={homsScreenshots.shiftDetail} />
+          <Screenshot shot={homsScreenshots.humanReview} />
+        </div>
         <div className="mt-6">
           <CardGrid cards={homsAgentGuardrails} columns={3} />
+        </div>
+        <div className="mt-8">
+          <Screenshot shot={homsScreenshots.rag} />
         </div>
       </CaseSection>
 

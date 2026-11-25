@@ -142,6 +142,7 @@ export const projects: PortfolioProject[] = [
     projectType: "web-mvc",
     projectDisplayType: "Backend & applied AI",
     projectDate: "Aug – Oct 2026",
+    imageSrc: "/images/projects/HOMS/roster-week-grid.webp",
     caseStudyStatus: "Case study",
     areaAnchors: ["backend-projects", "ai-tools"],
     filters: ["backend", "ai", "cloud", "web"],

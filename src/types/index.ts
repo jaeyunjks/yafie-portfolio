@@ -35,3 +35,11 @@ export type CaseStat = {
   value: string;
   label: string;
 };
+
+export type CaseScreenshot = {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+};
