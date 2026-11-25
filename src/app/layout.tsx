@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import BackToTopButton from "@/components/ui/BackToTopButton";
@@ -9,10 +9,15 @@ import FloatingSectionNav from "@/components/ui/FloatingSectionNav";
 import "./globals.css";
 import { profile } from "@/data/profile";
 
-const headingFont = Cormorant_Garamond({
-  subsets: ["latin"],
+// Self-hosted (SIL OFL 1.1, see ./fonts/OFL.txt) so builds don't depend on
+// fetching from Google Fonts. A transient fetch failure broke CI on 25 Nov 2026.
+const headingFont = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/cormorant-garamond-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/cormorant-garamond-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-heading",
-  weight: ["500", "600", "700"],
   display: "swap",
 });
 
