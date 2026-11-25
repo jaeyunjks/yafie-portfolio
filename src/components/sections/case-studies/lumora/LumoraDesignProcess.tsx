@@ -48,7 +48,7 @@ export default function LumoraDesignProcess() {
               ))}
             </div>
             <div className="mt-2 flex items-center gap-3 md:hidden">
-              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">Swipe {Math.round(progress)}%</span>
+              <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">Swipe {Math.round(progress)}%</span>
               <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]"><div className="h-full rounded-full bg-[#2d5f9d]" style={{ width: `${progress}%` }} /></div>
               <ChevronRight size={15} aria-hidden className="text-[#2d5f9d]/55" />
             </div>

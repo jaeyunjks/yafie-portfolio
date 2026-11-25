@@ -24,7 +24,7 @@ export default function FocusPopModes() {
                   <span className="mt-1 h-5 w-5 rounded-full bg-[#7dd3fc]/50" />
                 </div>
                 <div className="relative z-10 max-w-xl">
-                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     mode.0{index + 1}
                   </p>
                   <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">

@@ -7,7 +7,7 @@ export default function SDSCaseCTA() {
     <section className="px-6 pb-24 pt-14">
       <Reveal>
         <div className="open-editorial-cta mx-auto max-w-5xl">
-          <div className="inline-flex rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-4 py-2 font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+          <div className="inline-flex rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-4 py-2 font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
             case.study.status
           </div>
           <h2 className="mt-5 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">

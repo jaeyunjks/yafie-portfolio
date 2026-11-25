@@ -18,7 +18,7 @@ export default function SupportingExperience() {
     <section id="supporting-experience" className="scroll-mt-32 pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             06 // supporting.experience
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -34,7 +34,7 @@ export default function SupportingExperience() {
 
       <Reveal>
         <div className="mb-5 rounded-[18px] border border-white/75 bg-white/58 p-5 shadow-[0_18px_58px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-          <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+          <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
             Transferable to software teams
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -70,7 +70,7 @@ export default function SupportingExperience() {
                     {item.duration}
                   </span>
                 </div>
-                <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/66">
+                <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                   {item.category}
                 </p>
                 <h3 className="mt-2 text-xl font-extrabold tracking-tight text-slate-950">
@@ -84,7 +84,7 @@ export default function SupportingExperience() {
                 </p>
                 {item.keyContributions.length > 0 ? (
                   <div className="mt-4 rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/70 p-4">
-                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                       {index === 0 ? "Context" : "Key responsibilities"}
                     </p>
                     <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600">
@@ -99,7 +99,7 @@ export default function SupportingExperience() {
                 ) : null}
                 {item.responsibilities?.length ? (
                   <div className="mt-4 rounded-[14px] border border-[#d4e3ff]/62 bg-white/58 p-4">
-                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                    <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                       Key responsibilities
                     </p>
                     <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600">
@@ -113,7 +113,7 @@ export default function SupportingExperience() {
                   </div>
                 ) : null}
                 <div className="mt-4 rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/70 p-4">
-                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     Software / IT relevance
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-600">

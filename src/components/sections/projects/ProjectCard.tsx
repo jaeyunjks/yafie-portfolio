@@ -85,11 +85,11 @@ export default function ProjectCard({
 
           <div className="flex min-w-0 flex-col">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                 {projectIndex}
               </p>
               <div className="flex flex-wrap gap-2 sm:max-w-[16rem] sm:justify-end">
-                <span className="rounded-full border border-[#d4e3ff]/72 bg-[#f8fbff]/76 px-2.5 py-1.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/74">
+                <span className="rounded-full border border-[#d4e3ff]/72 bg-[#f8fbff]/76 px-2.5 py-1.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
                   {projectType}
                 </span>
                 <span className="rounded-full border border-[#c6b7ff]/48 bg-[#f7f3ff]/70 px-2.5 py-1.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#67549e]">
@@ -122,7 +122,7 @@ export default function ProjectCard({
             ) : null}
 
             <div className="mt-4">
-              <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                 Tech
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -133,7 +133,7 @@ export default function ProjectCard({
             </div>
 
             <div className="mt-4">
-              <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90">
                 Skills
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
@@ -165,7 +165,7 @@ export default function ProjectCard({
                       <LockKeyhole size={15} strokeWidth={2.2} aria-hidden />
                       {action.label}
                       {action.note ? (
-                        <span className="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-slate-400">
+                        <span className="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-slate-600">
                           {action.note}
                         </span>
                       ) : null}

@@ -89,7 +89,7 @@ export default function AboutCapabilities() {
     <section className="pb-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             04 // capability.map
           </p>
           <h2 className="mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -128,7 +128,7 @@ export default function AboutCapabilities() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)]">
                   <item.Icon size={18} strokeWidth={2.2} aria-hidden />
                 </span>
-                <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/62">
+                <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/90">
                   [{String(index + 1).padStart(2, "0")}]
                 </span>
               </div>
@@ -139,7 +139,7 @@ export default function AboutCapabilities() {
                 {item.description}
               </p>
               <div className="mt-4 rounded-[12px] border border-[#d4e3ff]/70 bg-[#f8fbff]/78 p-3">
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Applied in practice
                 </p>
                 <p className="mt-2 text-xs leading-5 text-slate-600">
@@ -150,7 +150,7 @@ export default function AboutCapabilities() {
           ))}
         </div>
         <div className="mt-2 flex items-center gap-3">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Swipe {explored}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
@@ -164,7 +164,7 @@ export default function AboutCapabilities() {
             style={{ opacity: progress < 5 ? 1 : 0, animation: progress < 5 ? "swipe-hint-bounce 800ms ease-in-out infinite" : "none" }}
             aria-hidden
           >
-            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="text-[#2d5f9d]/90" />
             <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function AboutCapabilities() {
                   <item.Icon size={18} strokeWidth={2.2} aria-hidden />
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/62">
+                  <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/90">
                     [{String(index + 1).padStart(2, "0")}]
                   </span>
                   <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#d4e3ff]/70 bg-white/70 text-[#2d5f9d] transition-[background-color,transform] duration-300 group-hover:rotate-45 group-hover:bg-[#eef5ff] group-focus-visible:rotate-45 group-focus-visible:bg-[#eef5ff]">
@@ -197,12 +197,12 @@ export default function AboutCapabilities() {
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 {item.description}
               </p>
-              <p className="mt-4 inline-flex items-center gap-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/62 transition-colors duration-300 group-hover:text-[#2d5f9d] group-focus-visible:text-[#2d5f9d]">
+              <p className="mt-4 inline-flex items-center gap-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.13em] text-[#2d5f9d]/90 transition-colors duration-300 group-hover:text-[#2d5f9d] group-focus-visible:text-[#2d5f9d]">
                 view application
                 <Plus size={12} strokeWidth={2.4} aria-hidden />
               </p>
               <div className="mt-3 rounded-[12px] border border-[#d4e3ff]/70 bg-[#f8fbff]/78 p-3 opacity-100 transition-[opacity,transform,border-color] duration-300 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-within:translate-y-0 sm:group-focus-within:opacity-100">
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Applied in practice
                 </p>
                 <p className="mt-2 text-xs leading-5 text-slate-600">

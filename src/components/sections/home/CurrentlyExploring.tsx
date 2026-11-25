@@ -33,7 +33,7 @@ export default function CurrentlyExploring() {
     <section className="scroll-mt-40 pt-12 pb-16 lg:pt-20 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             07 // currently.exploring
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -93,7 +93,7 @@ export default function CurrentlyExploring() {
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[13px] border border-[#8dbbff]/24 bg-[#eef5ff]/82 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.08)]">
                       <card.Icon size={20} strokeWidth={2.2} />
                     </span>
-                    <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/70 sm:mt-3 sm:block">
+                    <span className="font-mono text-[0.66rem] font-bold text-[#2d5f9d]/90 sm:mt-3 sm:block">
                       [{String(index + 1).padStart(2, "0")}]
                     </span>
                   </div>

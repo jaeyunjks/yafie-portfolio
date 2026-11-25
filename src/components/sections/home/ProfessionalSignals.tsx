@@ -41,7 +41,7 @@ export default function ProfessionalSignals() {
     <section className="pb-16 lg:pb-24">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             05 // engineering.principles
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -69,7 +69,7 @@ export default function ProfessionalSignals() {
                       <Code2 size={23} strokeWidth={2.2} aria-hidden />
                     </span>
                     <div>
-                      <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                      <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                         DECISION.FRAMEWORK
                       </p>
                       <p className="mt-1 flex items-center gap-2 font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-slate-400">
@@ -78,7 +78,7 @@ export default function ProfessionalSignals() {
                       </p>
                     </div>
                   </div>
-                  <p className="font-mono text-xs font-bold text-[#2d5f9d]/72">
+                  <p className="font-mono text-xs font-bold text-[#2d5f9d]/90">
                     [01]
                   </p>
                 </div>
@@ -99,14 +99,14 @@ export default function ProfessionalSignals() {
               <div className="grid gap-4">
                 <div className="rounded-[15px] border border-[#d4e3ff]/72 bg-white/66 p-3 shadow-inner shadow-white/70 backdrop-blur-xl">
                   <div className="mb-3 flex items-center justify-between gap-3 border-b border-[#d4e3ff]/62 pb-2">
-                    <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/72">
+                    <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                       framework.flow
                     </p>
                     <Braces
                       size={16}
                       strokeWidth={2.2}
                       aria-hidden
-                      className="text-[#2d5f9d]/62"
+                      className="text-[#2d5f9d]/90"
                     />
                   </div>
                   <div className="grid gap-2 sm:grid-cols-4">
@@ -156,7 +156,7 @@ export default function ProfessionalSignals() {
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ff8e8e]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ffd37a]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-[#79d29c]" />
-                      <span className="ml-auto font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-slate-400">
+                      <span className="ml-auto font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-slate-600">
                         decision.ts
                       </span>
                     </div>
@@ -184,12 +184,12 @@ export default function ProfessionalSignals() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-[13px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_12px_28px_rgba(45,95,157,0.1)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                     <principle.icon size={20} strokeWidth={2.2} aria-hidden />
                   </div>
-                  <p className="font-mono text-xs font-bold text-[#2d5f9d]/70">
+                  <p className="font-mono text-xs font-bold text-[#2d5f9d]/90">
                     [{String(index + 2).padStart(2, "0")}]
                   </p>
                 </div>
 
-                <p className="relative font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/70">
+                <p className="relative font-mono text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                   {principle.label}
                 </p>
                 <h3 className="relative mt-2 text-xl font-extrabold tracking-tight text-slate-950">

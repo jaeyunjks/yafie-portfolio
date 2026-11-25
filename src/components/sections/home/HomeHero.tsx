@@ -53,7 +53,7 @@ export default function HomeHero() {
   return (
     <section className="home-hero relative grid min-h-0 items-center gap-6 pb-16 pt-14 sm:min-h-[calc(100svh-7rem)] sm:gap-10 sm:pb-24 sm:pt-2 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-12 lg:pb-28 xl:gap-16 2xl:gap-20">
       <div className="max-w-[720px]">
-        <p className="hero-reveal hero-reveal-1 mb-4 font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#2d5f9d]/75">
+        <p className="hero-reveal hero-reveal-1 mb-4 font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#2d5f9d]/90">
           01 // portfolio.init
         </p>
         <p className="hero-reveal hero-reveal-2 inline-flex max-w-[min(100%,21rem)] items-start gap-2 rounded-[1.1rem] border border-white/70 bg-white/72 px-3 py-1.5 text-[0.66rem] font-bold leading-[1.35] text-[#064784] shadow-sm shadow-blue-900/5 backdrop-blur-xl sm:max-w-none sm:items-center sm:gap-3 sm:rounded-full sm:px-4 sm:py-2 sm:text-sm">

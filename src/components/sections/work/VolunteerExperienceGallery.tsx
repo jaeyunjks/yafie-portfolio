@@ -20,7 +20,7 @@ export default function VolunteerExperienceGallery() {
       <Reveal>
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
               project.gallery
             </p>
             <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-950 md:text-[2rem]">
@@ -31,7 +31,7 @@ export default function VolunteerExperienceGallery() {
               from the client-facing setup through team and showcase views.
             </p>
           </div>
-          <p className="hidden rounded-full border border-[#d4e3ff]/72 bg-white/72 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/72 md:inline-flex">
+          <p className="hidden rounded-full border border-[#d4e3ff]/72 bg-white/72 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90 md:inline-flex">
             4 images
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function VolunteerExperienceGallery() {
         </div>
 
         <div className="mt-2 flex items-center gap-3 md:hidden">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
             Swipe {Math.round(progress)}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">

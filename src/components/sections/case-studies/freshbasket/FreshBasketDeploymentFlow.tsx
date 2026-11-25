@@ -63,7 +63,7 @@ export default function FreshBasketDeploymentFlow() {
             </div>
 
             <article id={detailId} aria-live="polite" className="mt-5 rounded-[24px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-5">
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                 selected.step
               </p>
               <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">

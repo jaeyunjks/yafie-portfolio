@@ -18,7 +18,7 @@ export default function FocusPopTestingQuality() {
           {focusPopTestingCards.map((card, index) => (
             <Reveal key={card.title} delay={index * 0.05}>
               <article className="h-full rounded-[26px] border border-white/75 bg-white/66 p-6 shadow-[0_20px_64px_rgba(45,95,157,0.09)] backdrop-blur-xl">
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   test.0{index + 1}
                 </p>
                 <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">

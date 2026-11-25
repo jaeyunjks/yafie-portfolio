@@ -23,7 +23,7 @@ export default function FreshBasketCaseHero() {
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.65fr)] xl:gap-12">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
                 case.study // freshbasket.aws
               </p>
               <TypewriterHeading

@@ -34,7 +34,7 @@ function BrowserFallback({
   return (
     <div className="grid h-full place-items-center bg-[radial-gradient(circle_at_80%_12%,rgba(255,255,255,0.76),transparent_30%),linear-gradient(135deg,rgba(248,251,255,0.96),rgba(226,238,255,0.76))] p-4">
       <div className="w-full max-w-md rounded-[18px] border border-white/72 bg-white/70 p-4 shadow-[0_18px_48px_rgba(45,95,157,0.1)]">
-        <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+        <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
           {title}
         </p>
         <div className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -101,7 +101,7 @@ export default function SDSBrowserMockup({
           <span className="truncate text-sm font-extrabold text-slate-900">
             {title}
           </span>
-          <span className="rounded-full bg-[#eef5ff]/92 px-2.5 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/72">
+          <span className="rounded-full bg-[#eef5ff]/92 px-2.5 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
             {badge}
           </span>
         </div>

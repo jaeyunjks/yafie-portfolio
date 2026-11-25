@@ -52,7 +52,7 @@ export function EvidenceImageFrame({
           <span className="h-2.5 w-2.5 rounded-full bg-[#8dbbff]/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#c6b7ff]/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-slate-300/75" />
-          <span className="ml-auto truncate font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-400">
+          <span className="ml-auto truncate font-mono text-[0.56rem] font-bold uppercase tracking-[0.12em] text-slate-600">
             {label}
           </span>
         </div>
@@ -101,7 +101,7 @@ function FreshBasketPlaceholder({
         <p className="text-xl font-black tracking-tight text-slate-950">
           {title}
         </p>
-        <p className="mt-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/70">
+        <p className="mt-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
           missing: {filename}
         </p>
       </div>
@@ -120,7 +120,7 @@ export function FreshBasketSectionLabel({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
         {label}
       </p>
       <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">

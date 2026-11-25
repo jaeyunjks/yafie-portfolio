@@ -26,7 +26,7 @@ export default function SDSTestingQuality() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               06 // testing.quality
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -69,7 +69,7 @@ export default function SDSTestingQuality() {
         </div>
 
         <div className="mt-2 flex items-center gap-3 md:hidden">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Swipe {Math.round(progress)}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
@@ -87,14 +87,14 @@ export default function SDSTestingQuality() {
             }}
             aria-hidden
           >
-            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="text-[#2d5f9d]/90" />
             <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
           </div>
         </div>
 
         <Reveal delay={0.1}>
           <div className="mt-5 rounded-[24px] border border-white/75 bg-white/58 p-5 shadow-[0_18px_56px_rgba(45,95,157,0.08)] backdrop-blur-xl">
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
               testing.lifecycle
             </p>
             <div className="mt-4 flex flex-col gap-2 md:flex-row md:items-center">

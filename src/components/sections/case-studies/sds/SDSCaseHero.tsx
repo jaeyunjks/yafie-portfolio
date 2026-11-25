@@ -23,7 +23,7 @@ function SDSHeroPreview() {
       <div className="relative rounded-[30px] border border-white/78 bg-white/56 p-3 shadow-[0_30px_96px_rgba(45,95,157,0.18)] backdrop-blur-2xl sm:p-4">
         <div className="mb-3 flex items-center justify-between gap-3 px-1">
           <div className="min-w-0">
-            <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+            <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
               project.preview
             </p>
             <p className="mt-1 truncate text-sm font-bold text-slate-700">
@@ -63,7 +63,7 @@ export default function SDSCaseHero() {
         <div className="grid items-center gap-8 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] xl:gap-14 2xl:gap-16">
           <Reveal>
             <div className="max-w-3xl xl:max-w-[34rem]">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
                 case.study // sds.modernisation
               </p>
               <TypewriterHeading
@@ -121,7 +121,7 @@ export default function SDSCaseHero() {
                                 {link.label}
                               </span>
                               {link.tag ? (
-                                <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/72 bg-white px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/78">
+                                <span className="mt-1 inline-flex rounded-full border border-[#d4e3ff]/72 bg-white px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
                                   {link.tag}
                                 </span>
                               ) : null}

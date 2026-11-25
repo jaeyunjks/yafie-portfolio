@@ -38,7 +38,7 @@ function WorkflowFeatureCard({
         }`}
       >
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/72 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/72">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#d4e3ff]/72 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
             <Icon size={14} strokeWidth={2.3} aria-hidden />
             {feature.status}
           </span>
@@ -63,7 +63,7 @@ function WorkflowFeatureCard({
           {feature.body}
         </p>
         <div className="mt-4 rounded-[16px] border border-[#d4e3ff]/58 bg-[#f8fbff]/72 p-4">
-          <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             workflow.value
           </p>
           <p className="mt-2 text-sm leading-7 text-slate-600">
@@ -84,7 +84,7 @@ export default function SDSFeatureShowcase() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               05 // feature.showcase
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -117,14 +117,14 @@ export default function SDSFeatureShowcase() {
         </div>
 
         <div className="mt-2 flex items-center gap-3 md:hidden">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Swipe {Math.round(progress)}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
             <div className="h-full rounded-full bg-[#2d5f9d] transition-[width] duration-150" style={{ width: `${progress}%` }} />
           </div>
           <div className="flex items-center" style={{ opacity: progress < 5 ? 1 : 0 }} aria-hidden>
-            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="text-[#2d5f9d]/90" />
             <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
           </div>
         </div>

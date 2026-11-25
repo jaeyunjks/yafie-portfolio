@@ -142,7 +142,7 @@ export default function Navbar() {
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(141,187,255,0.24),transparent_32%),radial-gradient(circle_at_84%_10%,rgba(198,183,255,0.2),transparent_28%),linear-gradient(180deg,rgba(249,249,255,0.9),rgba(255,255,255,0.72))]" />
           <div className="relative z-10 flex items-center justify-between">
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/68">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.26em] text-[#2d5f9d]/90">
               {"// navigation"}
             </p>
             <button

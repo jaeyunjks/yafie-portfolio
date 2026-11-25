@@ -20,7 +20,7 @@ export default function LumoraCaseHero() {
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,0.68fr)] xl:gap-12">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
                 case.study // lumora
               </p>
               <TypewriterHeading
@@ -71,7 +71,7 @@ export default function LumoraCaseHero() {
               <div className="relative rounded-[32px] border border-white/78 bg-white/56 p-3 shadow-[0_30px_96px_rgba(45,95,157,0.18)] backdrop-blur-2xl sm:p-5">
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/72">
+                    <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
                       app.preview
                     </p>
                     <p className="mt-1 text-sm font-bold text-slate-700">

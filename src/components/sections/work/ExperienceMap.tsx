@@ -78,7 +78,7 @@ export default function ExperienceMap() {
     <section className="pb-16 lg:pb-20">
       <Reveal>
         <div className="mb-8 border-l border-[#8dbbff]/45 pl-4">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
             02 // experience.map
           </p>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -101,7 +101,7 @@ export default function ExperienceMap() {
                   <MapPinned size={17} strokeWidth={2.2} aria-hidden />
                 </span>
                 <span className="min-w-0">
-                  <span className="block font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                  <span className="block font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                     work.page.index
                   </span>
                   <span className="block truncate text-sm font-extrabold text-slate-950">
@@ -127,7 +127,7 @@ export default function ExperienceMap() {
                   href={category.href}
                   className="group flex items-center gap-3 border-b border-[#d4e3ff]/50 px-4 py-3 last:border-b-0 hover:bg-[#f8fbff]/82"
                 >
-                  <span className="font-mono text-[0.64rem] font-bold text-[#2d5f9d]/70">
+                  <span className="font-mono text-[0.64rem] font-bold text-[#2d5f9d]/90">
                     {category.number}
                   </span>
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] border border-[#8dbbff]/22 bg-[#eef5ff]/72 text-[#2d5f9d]">
@@ -140,7 +140,7 @@ export default function ExperienceMap() {
                     size={13}
                     strokeWidth={2.4}
                     aria-hidden
-                    className="shrink-0 text-[#2d5f9d]/72 transition-transform duration-300 group-hover:translate-x-1"
+                    className="shrink-0 text-[#2d5f9d]/90 transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
               ))}
@@ -152,7 +152,7 @@ export default function ExperienceMap() {
               <span className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#8dbbff]/24 bg-[#eef5ff]/78 text-[#2d5f9d] shadow-[0_10px_26px_rgba(45,95,157,0.09)]">
                 <MapPinned size={20} strokeWidth={2.2} aria-hidden />
               </span>
-              <p className="mt-5 font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/70">
+              <p className="mt-5 font-mono text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#2d5f9d]/90">
                 work.page.index
               </p>
               <p className="mt-3 max-w-xs text-sm leading-7 text-slate-600">
@@ -173,7 +173,7 @@ export default function ExperienceMap() {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-[0.68rem] font-bold text-[#2d5f9d]/70">
+                    <span className="font-mono text-[0.68rem] font-bold text-[#2d5f9d]/90">
                       {category.number}
                     </span>
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] border border-[#8dbbff]/22 bg-[#eef5ff]/74 text-[#2d5f9d]">
@@ -186,7 +186,7 @@ export default function ExperienceMap() {
                       <h3 className="text-base font-extrabold tracking-tight text-slate-950">
                         {category.title}
                       </h3>
-                      <span className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/78 px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/70">
+                      <span className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/78 px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/90">
                         {category.label}
                       </span>
                     </div>
@@ -195,7 +195,7 @@ export default function ExperienceMap() {
                     </p>
                   </div>
 
-                  <span className="inline-flex items-center gap-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72 sm:justify-self-end">
+                  <span className="inline-flex items-center gap-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90 sm:justify-self-end">
                     Jump
                     <ArrowRight
                       size={13}

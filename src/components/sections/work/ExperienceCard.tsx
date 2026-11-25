@@ -32,7 +32,7 @@ export default function ExperienceCard({ item, index }: ExperienceCardProps) {
       <div className="relative z-10">
         <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#2d5f9d]/90">
               experience.0{index + 1}
             </p>
             <h3
@@ -58,7 +58,7 @@ export default function ExperienceCard({ item, index }: ExperienceCardProps) {
                 </span>
               </>
             ) : null}
-            <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/72">
+            <span className="rounded-full border border-[#d4e3ff]/75 bg-[#f8fbff]/82 px-3 py-1.5 font-mono text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
               {item.duration}
             </span>
             <span className="rounded-full border border-[#c6b7ff]/50 bg-[#f7f3ff]/72 px-3 py-1.5 font-mono text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[#67549e]">
@@ -75,7 +75,7 @@ export default function ExperienceCard({ item, index }: ExperienceCardProps) {
           }`}
         >
           <div>
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-slate-400">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-slate-600">
               Overview
             </p>
             <p className="mt-2 text-sm leading-7 text-slate-600">
@@ -83,7 +83,7 @@ export default function ExperienceCard({ item, index }: ExperienceCardProps) {
             </p>
           </div>
           <div className="rounded-[14px] border border-[#d4e3ff]/62 bg-[#f8fbff]/72 p-4">
-            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+            <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
               Software engineering relevance
             </p>
             <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -125,7 +125,7 @@ export default function ExperienceCard({ item, index }: ExperienceCardProps) {
               }`}
             >
               <div>
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Key contributions
                 </p>
                 <ul className="mt-3 grid gap-2.5 text-sm leading-6 text-slate-600">
@@ -138,7 +138,7 @@ export default function ExperienceCard({ item, index }: ExperienceCardProps) {
                 </ul>
               </div>
               <div>
-                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   Skills
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">

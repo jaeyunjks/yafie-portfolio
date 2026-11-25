@@ -34,7 +34,7 @@ export default function FeaturedProject() {
       <Reveal>
         <div className="mb-8 flex flex-col justify-between gap-5 border-l border-[#8dbbff]/45 pl-4 md:flex-row md:items-end">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/75">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               04 // selected.work
             </p>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
@@ -134,11 +134,11 @@ export default function FeaturedProject() {
             style={{ opacity: progress < 5 ? 1 : 0, animation: progress < 5 ? "swipe-hint-bounce 800ms ease-in-out infinite" : "none" }}
             aria-hidden
           >
-            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="text-[#2d5f9d]/90" />
             <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
           </div>
         </div>
-        <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-400">
+        <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-slate-600">
           Swipe {Math.round(progress)}% explored
         </p>
       </div>

@@ -19,7 +19,7 @@ export default function LumoraProblemAudience() {
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#d4e3ff]/75 bg-[#f8fbff]/82 text-[#2d5f9d]">
                 <Layers3 size={20} strokeWidth={2.3} aria-hidden />
               </span>
-              <p className="mt-5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+              <p className="mt-5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                 problem.statement
               </p>
               <p className="mt-3 text-base leading-8 text-slate-600">
@@ -36,7 +36,7 @@ export default function LumoraProblemAudience() {
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#d4e3ff]/75 bg-[#f8fbff]/82 text-[#2d5f9d]">
                 <GraduationCap size={20} strokeWidth={2.3} aria-hidden />
               </span>
-              <p className="mt-5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+              <p className="mt-5 font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                 primary.audience
               </p>
               <p className="mt-3 text-base leading-8 text-slate-600">

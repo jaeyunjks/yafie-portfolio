@@ -26,7 +26,7 @@ export default function SDSProblem() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               02 // problem.space
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -48,7 +48,7 @@ export default function SDSProblem() {
                   <BriefcaseBusiness size={18} strokeWidth={2.3} aria-hidden />
                 </span>
                 <div>
-                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                     users
                   </p>
                   <p className="text-sm font-bold text-slate-700">
@@ -101,7 +101,7 @@ export default function SDSProblem() {
                 })}
               </div>
 
-              <p className="mt-4 rounded-[14px] border border-white/72 bg-white/56 px-3 py-2 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-slate-400">
+              <p className="mt-4 rounded-[14px] border border-white/72 bg-white/56 px-3 py-2 font-mono text-[0.55rem] font-bold uppercase tracking-[0.1em] text-slate-600">
                 Role-specific problems update on selection.
               </p>
             </div>
@@ -109,7 +109,7 @@ export default function SDSProblem() {
             <div className="rounded-[24px] border border-white/75 bg-white/68 p-5 shadow-[0_16px_48px_rgba(45,95,157,0.08)] transition-[background-color] duration-300">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="max-w-2xl">
-                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                  <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                     visible.problems
                   </p>
                   <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-950">
@@ -135,7 +135,7 @@ export default function SDSProblem() {
                         <CheckCircle2 size={14} strokeWidth={2.4} aria-hidden />
                       </span>
                       <div>
-                        <p className="font-mono text-[0.54rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/64">
+                        <p className="font-mono text-[0.54rem] font-bold uppercase tracking-[0.12em] text-[#2d5f9d]/90">
                           problem.{String(index + 1).padStart(2, "0")}
                         </p>
                         <p className="mt-1 text-sm font-bold leading-6 text-slate-700">
@@ -151,7 +151,7 @@ export default function SDSProblem() {
               </div>
 
               <div className="mt-5 rounded-[18px] border border-[#d4e3ff]/62 bg-white/72 p-4">
-                <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+                <p className="font-mono text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
                   engineering.focus
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-600">

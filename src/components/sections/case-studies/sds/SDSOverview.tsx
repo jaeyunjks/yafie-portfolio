@@ -16,7 +16,7 @@ export default function SDSOverview() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/72">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#2d5f9d]/90">
               01 // project.overview
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
@@ -54,7 +54,7 @@ export default function SDSOverview() {
                       <Icon size={20} strokeWidth={2.25} aria-hidden />
                     </span>
                     <div>
-                      <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/70">
+                      <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.15em] text-[#2d5f9d]/90">
                         overview.0{index + 1}
                       </p>
                       <h3 className="mt-2 text-lg font-extrabold tracking-tight text-slate-950 md:text-xl">
@@ -72,7 +72,7 @@ export default function SDSOverview() {
         </div>
 
         <div className="mt-2 flex items-center gap-3 md:hidden">
-          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/70">
+          <span className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#2d5f9d]/90">
             Swipe {Math.round(progress)}%
           </span>
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#dbe7fb]">
@@ -90,7 +90,7 @@ export default function SDSOverview() {
             }}
             aria-hidden
           >
-            <ChevronRight size={11} className="text-[#2d5f9d]/60" />
+            <ChevronRight size={11} className="text-[#2d5f9d]/90" />
             <ChevronRight size={11} className="-ml-1.5 text-[#2d5f9d]/35" />
           </div>
         </div>
