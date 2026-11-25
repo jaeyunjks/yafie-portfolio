@@ -120,3 +120,6 @@ Relevant subjects: Advanced Software Development (prompt engineering, specificat
 5. Add new projects (HOMS, Silver Service, Café, Salesforce)
 6. HOMS case study, plus the SDS case-study correction
 7. Replace the resume PDF and update metadata/SEO
+
+## Known polish items (deferred)
+- **Tech stack card heights:** cards in a row stretch to match the tallest, so short categories (Databases, 3 items) show empty space. Options: drop `h-full` stretching, or reorder so similar-length cards share a row. Deferred by Yafie on 25 Nov 2026; don't pad with filler skills.

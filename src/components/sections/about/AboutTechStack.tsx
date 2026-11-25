@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import { techStack } from "@/data/techStack";
+import { exposurePercent, formatDuration } from "@/lib/experience";
 import type { TechCategory } from "@/types";
 
 const statusStyles = {
@@ -14,11 +15,11 @@ const statusStyles = {
   learning: "border-[#c6b7ff]/56 bg-[#f7f3ff]/78 text-[#67549e]",
 };
 
-const mobileFilters = [
-  { label: "Language", value: "Languages" },
-  { label: "Framework", value: "Frameworks" },
-  { label: "Tech Tools", value: "Tech & Developer Tools" },
-];
+// Derived from the data, so renaming or adding a category can't break them.
+const mobileFilters = techStack.map((category) => ({
+  label: category.shortLabel,
+  value: category.title,
+}));
 
 function TechStackCard({
   category,
@@ -78,7 +79,7 @@ function TechStackCard({
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-1">
                       <p className="rounded-full border border-[#d4e3ff]/70 bg-[#f8fbff]/82 px-2.5 py-1 font-mono text-[0.56rem] font-bold uppercase tracking-[0.1em] text-[#2d5f9d]/72">
-                        {item.duration}
+                        {formatDuration(item.months)}
                       </p>
                       <p
                         className={`rounded-full border px-2 py-0.5 font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] ${statusStyles[item.status]}`}
@@ -90,13 +91,13 @@ function TechStackCard({
 
                   <div
                     className="mt-3 h-2.5 overflow-hidden rounded-full border border-white/70 bg-[#d4e3ff]/38 shadow-inner shadow-[#2d5f9d]/5"
-                    aria-label={`${item.name} experience exposure: ${item.duration}`}
+                    aria-label={`${item.name} experience exposure: ${formatDuration(item.months)}`}
                   >
                     <motion.div
                       className="exposure-fill h-full rounded-full bg-gradient-to-r from-[#8dbbff] via-[#a8c8ff] to-[#c6b7ff]"
                       initial={{ width: 0 }}
                       animate={{ width: 0 }}
-                      whileInView={{ width: `${item.exposure}%` }}
+                      whileInView={{ width: `${exposurePercent(item.months)}%` }}
                       viewport={{ once: false, amount: 0.35 }}
                       transition={{
                         duration: 1.08,
