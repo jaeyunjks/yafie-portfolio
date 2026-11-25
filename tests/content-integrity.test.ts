@@ -112,11 +112,7 @@ describe("unfinished content", () => {
    * (see docs/UPDATE_SCOPE.md). This list should only ever shrink: when the
    * fix lands, delete the entry and the test keeps it from coming back.
    */
-  const KNOWN: string[] = [
-    // Tech Fest "Project Nomination" entry: rewritten in the content PR.
-    "src/data/workExperience.ts: Details to be added",
-    "src/data/workExperience.ts: Details To Be Added",
-  ];
+  const KNOWN: string[] = [];
 
   it("no placeholder text in src/data (outside the known list)", () => {
     const found = collect(dataFiles, PLACEHOLDER).filter(

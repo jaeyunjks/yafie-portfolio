@@ -14,27 +14,27 @@ import Reveal from "@/components/ui/Reveal";
 
 const dashboardBlocks = [
   {
-    label: "Current Role",
-    value: "Frontend Developer & Tester",
-    detail: "SDS Modernisation · Feb 2026 - Present",
+    label: "Latest Role",
+    value: "Software Engineer (Frontend & Full-Stack)",
+    detail: "SDS Modernisation · Feb – Jul 2026",
     Icon: Code2,
   },
   {
     label: "Core Work",
-    value: "Frontend UI · Testing · Workflow Systems",
-    detail: "Implementation, validation, and interface refinement",
+    value: "Full-stack · Backend · Applied AI",
+    detail: "HOMS, SDS, Lumora AI, Café ordering",
     Icon: ClipboardCheck,
   },
   {
     label: "Delivery Focus",
-    value: "Coordinator workflows · project visibility · usability",
-    detail: "Making academic project coordination clearer",
+    value: "Tested · deployed · handed over",
+    detail: "Azure & AWS deployments, CI/CD, client handover",
     Icon: Workflow,
   },
   {
     label: "Direction",
-    value: "IT & software development roles",
-    detail: "Growing across delivery, quality, and product thinking",
+    value: "Graduate & junior SWE roles",
+    detail: "Available now or for 2027 graduate intakes",
     Icon: Layers3,
   },
 ];
@@ -59,15 +59,14 @@ export default function WorkHero() {
             lines={["Work Experience."]}
           />
           <h2 className="mt-5 max-w-4xl text-2xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-4xl">
-            Building practical software experience across development, testing,
-            and collaborative delivery.
+            Full-stack, backend and applied AI work, tested and delivered in
+            teams.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
-            I&apos;ve worked across frontend development, testing, workflow systems, and documentation.
-
-            Most recently, I contributed as a Frontend Developer and QA Engineer working on a UTS project management system that improves project submission, review, coordination, and tracking for SDS subject.
-
-            My work focuses on building practical, user-focused software that supports clearer workflows and maintainable delivery.
+            My main software role was Software Engineer (Frontend &amp; Full-Stack
+            Integration) on SDS Modernisation, a project management system built
+            for an academic client at UTS in a six-person Agile team and handed
+            over in July 2026.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
             I&apos;m continuing to grow toward broader IT and software

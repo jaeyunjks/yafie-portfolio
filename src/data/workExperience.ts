@@ -44,32 +44,30 @@ export const workExperience: WorkExperienceItem[] = [
     id: "sds-modernisation-frontend-tester",
     section: "software-experience",
     featured: true,
-    status: "current",
-    role: "Frontend Developer & QA Engineer",
-    organisation: "SDS Modernisation",
-    duration: "Feb 2026 - Present",
+    status: "past",
+    role: "Software Engineer (Frontend & Full-Stack Integration)",
+    organisation: "SDS Modernisation · UTS Software Development Studio",
+    duration: "Feb 2026 - Jul 2026",
     category: "Software Development / Testing",
     summary:
-      "Working on SDS Modernisation, a software system for the Software Development Studio subject at UTS. The system supports subject coordinators by improving project workflow visibility, project review processes, and coordination across student project activities.",
+      "Built a full-stack project management system for an academic client at UTS in a six-person, client-facing Agile team. It replaced manual proposal, discovery, join-request, scheduling and allocation workflows, was handed over to a satisfied client, and was nominated for the UTS Software Engineering Tech Fest 2026 showcase.",
     keyContributions: [
-      "Developed frontend interfaces for workflow and project-management features.",
-      "Tested user flows to identify UI, functionality, and usability issues.",
-      "Helped translate coordinator workflow needs into practical software features.",
-      "Collaborated with team members across implementation, debugging, and refinement.",
-      "Supported clearer project visibility, documentation, and handover.",
+      "Built the React student and admin workflows (catalogue, join requests, rosters, imports, exports, reports, project status) from client requirements and connected them to the Flask REST API.",
+      "Wrote early Flask routes and SQLite schema changes.",
+      "Ran QA for the team: wrote Vitest + React Testing Library unit and integration tests and fixed the defects they found.",
+      "Took part in sprint planning, sprint reviews and the client handover.",
     ],
     relevance:
-      "This role directly strengthens my frontend development, software testing, product thinking, workflow analysis, and team collaboration skills.",
+      "The closest thing to a full-time engineering role: a real client, a six-person team, five sprints, and software that was delivered and handed over.",
     skills: [
-      "Frontend Development",
-      "Software Testing",
       "React",
-      "Workflow Systems",
-      "UI/UX Awareness",
-      "Debugging",
-      "Documentation",
-      "Team Collaboration",
-      "Product Thinking",
+      "JavaScript",
+      "Flask",
+      "SQLite",
+      "Vitest",
+      "React Testing Library",
+      "Client Delivery",
+      "Agile / Scrum",
     ],
   },
   {
@@ -100,23 +98,42 @@ export const workExperience: WorkExperienceItem[] = [
     ],
   },
   {
-    id: "project-nomination-placeholder",
+    id: "hacknow-2026-first-place",
     section: "others",
     featured: false,
-    placeholder: true,
-    status: "pending",
-    role: "Project Nomination",
-    organisation: "University Software / Project Work",
-    duration: "Details to be added",
+    status: "past",
+    role: "1st Place · ServiceNow ANZ HackNow 2026",
+    organisation: "ServiceNow ANZ HackNow 2026",
+    duration: "Jul 2026",
     category: "Recognition / Project Milestone",
     summary:
-      "Placeholder for project nomination details, showcase invitation, or recognition related to university software/project work.",
+      "Won 1st place with Silver Service, an AI agent prototype built in a four-person team that helps older Australians and their trusted circle access citizen services.",
     keyContributions: [
-      "This area will be updated with nomination details, project showcase context, or recognition evidence once final information is confirmed.",
+      "Designed the eligibility, consent and permission models in ServiceNow AI Agent Studio, Build Agent and Flow Designer.",
+      "Kept a human approval step in the agent workflow.",
     ],
     relevance:
-      "Evidence pending. This placeholder avoids inventing award details while reserving space for confirmed project recognition.",
-    skills: ["Evidence Pending", "Details To Be Added"],
+      "Shows applied AI agent design on an enterprise platform under hackathon time pressure.",
+    skills: ["ServiceNow", "AI Agents", "Flow Designer", "Teamwork"],
+  },
+  {
+    id: "tech-fest-2026-nomination",
+    section: "others",
+    featured: false,
+    status: "past",
+    role: "Showcase Nominee · UTS SE Tech Fest 2026",
+    organisation: "UTS Software Engineering Tech Fest 2026",
+    duration: "2026",
+    category: "Recognition / Project Milestone",
+    summary:
+      "Two projects I worked on were nominated for the Tech Fest 2026 showcase: the SDS Project Management Site and Lumora AI.",
+    keyContributions: [
+      "SDS Project Management Site: built the student and admin workflows and ran QA.",
+      "Lumora AI: built the app's AI features.",
+    ],
+    relevance:
+      "Independent recognition of the quality of both projects.",
+    skills: ["Full-Stack Web", "Applied AI", "Software Testing"],
   },
   {
     id: "hospitality-team-leader-current",
@@ -183,10 +200,10 @@ export const workExperience: WorkExperienceItem[] = [
 ];
 
 export const workSummaryStats = [
-  "frontend development",
-  "software testing",
-  "workflow improvement",
-  "team collaboration",
+  "full-stack development",
+  "automated testing",
+  "client delivery",
+  "Agile teamwork",
 ];
 
 export const softwareExperience = workExperience.find(

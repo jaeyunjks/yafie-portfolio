@@ -15,8 +15,8 @@ const categories = [
     number: "01",
     title: "Software Development",
     description:
-      "Current frontend and testing work on the SDS Modernisation system.",
-    label: "current focus",
+      "Full-stack delivery and team QA on SDS Modernisation (Feb – Jul 2026).",
+    label: "client project",
     Icon: Code2,
     featured: true,
     href: "#software-experience",

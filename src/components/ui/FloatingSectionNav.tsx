@@ -41,6 +41,7 @@ const sectionLinksByPath: Record<string, SectionLink[]> = {
     { id: "top", label: "Top" },
     { id: "project-map", label: "Project Map" },
     { id: "featured-projects", label: "Featured" },
+    { id: "other-projects", label: "Other" },
     { id: "engineering-depth", label: "Engineering Depth" },
     { id: "projects-next", label: "Next Step" },
   ],

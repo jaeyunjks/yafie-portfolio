@@ -3,48 +3,27 @@
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import ProjectRecognitionFlag from "@/components/sections/projects/ProjectRecognitionFlag";
-import { SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION } from "@/data/projects";
+import { homeFeaturedProjects } from "@/data/projects";
 import Reveal from "@/components/ui/Reveal";
 import TechPill from "@/components/sections/projects/TechPill";
 import useHorizontalScrollProgress from "@/components/sections/home/useHorizontalScrollProgress";
 
-const featuredProjects = [
-  {
-    title: "Lumora - Smart Study Companion",
-    year: "2026",
-    role: "iOS Mobile Development & Product Design ",
-    description:
-      "Mobile study workspace concept focused on interface design, AI-assisted learning support, and clearer student workflows.",
-    tags: ["SwiftUI", "NestJS", "Prisma", "PostgreSQL", "JWT Auth"],
-    image: "/images/projects/Lumora/lumora.png",
-    status: "Mobile",
-    alt: "Lumora smart study companion app preview",
-    recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
-  },
-  {
-    title: "FreshBasket Vendor Portal",
-    year: "2026",
-    role: "Full-Stack Development & Cloud Deployment",
-    description:
-      "AWS deployment case study covering vendor and admin workflows, MySQL-backed data, load-balanced hosting, and environment configuration.",
-    tags: ["Node.js", "Express", "AWS", "MySQL"],
-    image: "/images/projects/freshbasket.png",
-    status: "Cloud",
-    alt: "FreshBasket AWS deployment preview",
-  },
-  {
-    title: "SDS Project Management Site",
-    year: "2026",
-    role: "Frontend Developer & QA Assurance",
-    description:
-      "UTS stakeholder workflow system focused on frontend implementation, QA, documentation, and project coordination visibility.",
-    tags: ["React", "TypeScript", "Vite", "Python", "Flask", "Vitest", "Pytest"],
-    image: "/images/projects/sds_projects.png",
-    status: "Workflow",
-    alt: "SDS project management site preview",
-    recognitionFlag: SOFTWARE_ENGINEERING_TECH_FEST_NOMINATION,
-  },
-];
+/**
+ * Home shows the first three featured projects that have a preview image,
+ * derived from src/data/projects.ts so the two pages can't drift apart.
+ * Adding an image to a project (e.g. HOMS) automatically promotes it here.
+ */
+const featuredProjects = homeFeaturedProjects.map((project) => ({
+  title: project.title,
+  year: project.projectDate ?? "",
+  role: project.role,
+  description: project.summary,
+  tags: project.featuredTechStack ?? project.techStack.slice(0, 5),
+  image: project.imageSrc,
+  status: project.projectDisplayType ?? project.category,
+  alt: `${project.title} preview`,
+  recognitionFlag: project.recognitionFlag,
+}));
 
 export default function FeaturedProject() {
   const { ref: mobileCarouselRef, progress } =
